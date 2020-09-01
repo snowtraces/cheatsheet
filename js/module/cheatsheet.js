@@ -4,10 +4,10 @@
         template: `
         <div id="sheet-wrapper" class="w">
             <div id="sheet-title">
-                <h1>Markdown<span> cheatsheet</span></h1>
+                <h1>\${data.meta.title}<span> cheatsheet</span></h1>
             </div>
             <div id="sheet-body">
-                \${data}
+                \${data.text}
             </div>
         </div>`,
         render(data) {
@@ -39,7 +39,9 @@
         },
         parseMarkdown(rawText) {
             if (!rawText) return '';
+            let result = {}
             let resultList = []
+
 
             let PAIR_CHARS = ['---', '~~~', '```']
             let lines = rawText.split('\n');
@@ -64,6 +66,8 @@
                         data_cache = []
                         current_pair = null;
                         // TOOD 解析meta
+                        result.meta = this.metaParser(data_block)
+                        result
                     } else {
                         current_pair = '---'
                     }
@@ -125,7 +129,8 @@
 
             })
 
-            return resultList.join('\n');
+            result.text = resultList.join('\n');
+            return result;
         },
         html2Escape(sHtml) {
             return sHtml.replace(/[<>&"]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]; });
@@ -156,6 +161,28 @@
 
             let maxOffset = idxToYOffset[this.getIdxOfMaxValue(idxToYOffset, column_size)];
             el('#sheet-body').setAttribute('style', `height: ${maxOffset}px`);
+        },
+        metaParser(metaText) {
+            let lineList = metaText.split('\n');
+            let regexedList = lineList
+                .filter(line => !/^\s*$/.test(line))
+                .map(line => /^(\s*)([^\s:]+):?\s*(.*)/.exec(line));
+    
+            let meta = {}
+            let offsex_off_array = 1;
+            regexedList.forEach((matched, idx) => {
+                let title = matched[2]
+                if (title === '-') {
+                    let lastTitle = regexedList[idx - offsex_off_array][2];
+                    meta[lastTitle] = meta[lastTitle] || []
+                    meta[lastTitle].push(matched[3])
+                    offsex_off_array++;
+                } else {
+                    meta[title] = matched[3]
+                    offsex_off_array = 1
+                }
+            });
+            return meta;
         },
         getIdxOfMaxValue(source, size) {
             let max = -1;

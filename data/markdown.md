@@ -1,5 +1,5 @@
 --- 
-title: markdown
+title: Markdown
 category: markup
 updated: 2020-08-31
 ---
