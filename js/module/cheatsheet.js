@@ -132,27 +132,18 @@
         },
         initSectionPosition() {
             let idx = 0;
-            let columns = 3;
+            let column_size = 3;
             let idxToYOffset = {};
             let totalWidth = el('#sheet-body').offsetWidth
             if (totalWidth < 900) {
-                columns = 2
+                column_size = 2
             };
             if (totalWidth < 600) {
-                columns = 1
+                column_size = 1
             }
-            let singleWidth = (totalWidth - 20 * (columns - 1)) / columns
+            let singleWidth = (totalWidth - 20 * (column_size - 1)) / column_size
             $.elAll('#sheet-body > .sheet-section').forEach(section => {
-                let colIdx = 0
-                let minYOffset = Infinity;
-                for (let _colIdx = 0; _colIdx < columns; _colIdx++) {
-                    let _yOffset = idxToYOffset[_colIdx] || 0
-                    if (_yOffset < minYOffset) {
-                        colIdx = _colIdx
-                        minYOffset = _yOffset
-                    }
-                }
-
+                let colIdx = this.getIdxOfMinValue(idxToYOffset, column_size)
                 let height = section.offsetHeight;
 
                 let top = idxToYOffset[colIdx] || 0;
@@ -162,7 +153,36 @@
                 idxToYOffset[colIdx] = (idxToYOffset[colIdx] || 0) + height;
                 idx++;
             })
+
+            let maxOffset = idxToYOffset[this.getIdxOfMaxValue(idxToYOffset, column_size)];
+            el('#sheet-body').setAttribute('style', `height: ${maxOffset}px`);
         },
+        getIdxOfMaxValue(source, size) {
+            let max = -1;
+            let idx = 0;
+            for (let i = 0; i < size; i++) {
+                let value = source[i] || 0
+                if (value > max) {
+                    max = value
+                    idx = i
+                }
+            }
+
+            return idx;
+        },
+        getIdxOfMinValue(source, size) {
+            let min = Infinity;
+            let idx = 0;
+            for (let i = 0; i < size; i++) {
+                let value = source[i] || 0
+                if (value < min) {
+                    min = value
+                    idx = i
+                }
+            }
+
+            return idx;
+        }
     }
 
     controller.init(view, model)
