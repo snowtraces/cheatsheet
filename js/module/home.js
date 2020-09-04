@@ -23,8 +23,8 @@
 
     let model = {
         data: [
-            'markdown', 'bash', 'vim', 'powershell',
-            'css', 'javascript', 'java8', 'python'
+            'markdown', 'mysql', 'bash', 'vim', 
+            'powershell', 'css', 'es6', 'regex'
         ]
     }
 

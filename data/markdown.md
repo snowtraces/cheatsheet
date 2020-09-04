@@ -2,6 +2,7 @@
 title: Markdown
 category: markup
 updated: 2020-08-31
+column_size: 3
 ---
 
 ### 标题

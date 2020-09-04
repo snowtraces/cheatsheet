@@ -15,7 +15,10 @@
         }
     }
 
-    let model = {}
+    let model = {
+        meta: { column_size: 2 },
+        column_size: {}
+    }
 
     let controller = {
         init(view, model) {
@@ -26,7 +29,7 @@
             this.bindEventHub()
         },
         bindEvents() {
-            window.onresize = this.initSectionPosition
+            window.onresize = () => this.initSectionPosition.call(this)
         },
         bindEventHub() {
             window.eventHub.on('open-sheet', (value) => {
@@ -40,15 +43,15 @@
         parseMarkdown(rawText) {
             if (!rawText) return '';
             let result = {}
-            let resultList = []
+            let h2_section = []
+            let h3_section = []
 
-
-            let PAIR_CHARS = ['---', '~~~', '```']
             let lines = rawText.split('\n');
 
-            let section_status = false;
-            let section_title = null;
+            let h2_section_title = null;
+            let h3_section_title = null;
             let block_status = false;
+            let table_status = false;
             let block_type = null;
             let data_cache = []
             let item_cache = []
@@ -56,7 +59,17 @@
 
             lines.forEach(line => {
                 _line = line.trim()
-                if (!_line) return;
+                // if (!block_status && !_line) return;
+
+
+                if (table_status && !_line.startsWith('|')) {
+                    // table 结束
+                    if (data_cache.length > 0) {
+                        item_cache.push(`${this.tableParser(data_cache)}`)
+                        data_cache = []
+                    }
+                    table_status = false;
+                }
 
                 if (_line === '---') {
                     block_status = !block_status;
@@ -66,7 +79,7 @@
                         data_cache = []
                         current_pair = null;
                         // TOOD 解析meta
-                        result.meta = this.metaParser(data_block)
+                        this.model.meta = result.meta = this.metaParser(data_block)
                         result
                     } else {
                         current_pair = '---'
@@ -76,7 +89,7 @@
                     if (block_status) {
                         if (current_pair === _pair) {
                             block_status = !block_status;
-                            // 数据库结束
+                            // 数据块结束
                             let data_block = data_cache.join('\n');
                             data_cache = []
                             current_pair = null;
@@ -91,26 +104,44 @@
                             data_cache.push(line);
                         }
                     } else {
+                        let linesText = this.mergeTextLines(data_cache);
+                        data_cache = []
+                        if (linesText) {
+                            item_cache.push(linesText)
+                        }
+
                         block_status = !block_status;
                         current_pair = _pair
                         block_type = _line.substr(3) || ''
                     }
                 } else if (!block_status && _line.startsWith('|')) {
-                    // TODO 解析table
+                    // 解析table
+                    if (!table_status) {
+                        // 开始table
+                        let linesText = this.mergeTextLines(data_cache);
+                        data_cache = []
+                        if (linesText) {
+                            item_cache.push(linesText)
+                        }
 
-                } else if (!block_status && _line.startsWith('###')) {
-                    // TODO 标题
-                    if (_line.startsWith('### ')) {
-                        if (!section_status) {
-                            // section 开始
-                            section_status = true;
-                            section_title = _line.substr(4)
-                        } else {
-                            // section 结束
-                            section_status = false;
-                            resultList.push(`
+                        table_status = true
+                    }
+                    data_cache.push(line)
+
+                } else if (!block_status && _line.startsWith('##')) {
+                    // 标题
+                    if (_line.startsWith('## ')) {
+                        // section 结束
+                        let linesText = this.mergeTextLines(data_cache);
+                        data_cache = []
+                        if (linesText) {
+                            item_cache.push(linesText)
+                        }
+
+                        if (item_cache.length > 0) {
+                            h3_section.push(`
                             <div class="sheet-section">
-                            <div class="section-title"><h3>${section_title}</h3></div>
+                            <div class="section-title"><h3>${h3_section_title}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -118,56 +149,242 @@
 
                             item_cache = []
                         }
+
+                        if (h3_section.length > 0) {
+                            h2_section.push(`
+                            <div class="h2-section" id="${h2_section_title}">
+                                ${h2_section_title ? `<div class='h2-section-title'><h2>${h2_section_title}</h2></div>` : ''}
+                                ${h3_section.join('\n')}
+                            </div>
+                            `)
+                            h3_section = []
+                        }
+                        h2_section_title = _line.substr(3)
+
+                    } else if (_line.startsWith('### ')) {
+                        // section 结束
+                        let linesText = this.mergeTextLines(data_cache);
+                        data_cache = []
+                        if (linesText) {
+                            item_cache.push(linesText)
+                        }
+
+                        if (item_cache.length > 0) {
+                            h3_section.push(`
+                            <div class="sheet-section">
+                            <div class="section-title"><h3>${h3_section_title}</h3></div>
+                                <div class="section-body">
+                                    ${item_cache.join('\n')}
+                                </div>
+                            </div>`)
+
+                            item_cache = []
+                        }
+                        h3_section_title = _line.substr(4)
                     } else if (_line.startsWith('#### ')) {
-                        // TODO 子标题
+                        // 子标题
+                        let linesText = this.mergeTextLines(data_cache);
+                        data_cache = []
+                        if (linesText) {
+                            item_cache.push(linesText)
+                        }
+                        
+                        item_cache.push(`<h4>${_line.substr(5)}</h4>`);
                     }
 
+                } else if (!block_status && _line.startsWith('{')) {
+                    // 配置
+                    let pair = _line.substring(1, _line.length - 1).split(/:\s*/)
+                    if (pair[0] === 'column_size') {
+                        if (h2_section_title) {
+                            this.model.column_size[h2_section_title] = parseInt(pair[1])
+                        }
+                    }
 
                 } else {
                     data_cache.push(line)
                 }
 
             })
+            // 结束处理
+            if (table_status) {
+                // table 结束
+                if (data_cache.length > 0) {
+                    item_cache.push(`${this.tableParser(data_cache)}`)
+                    data_cache = []
+                }
+            }
 
-            result.text = resultList.join('\n');
+            let linesText = this.mergeTextLines(data_cache);
+            data_cache = []
+            if (linesText) {
+                item_cache.push(linesText)
+            }
+
+            if (item_cache.length > 0) {
+                h3_section.push(`
+                <div class="sheet-section">
+                <div class="section-title"><h3>${h3_section_title}</h3></div>
+                    <div class="section-body">
+                        ${item_cache.join('\n')}
+                    </div>
+                </div>`)
+            }
+
+            if (h3_section.length > 0) {
+                h2_section.push(`
+                <div class="h2-section"  id="${h2_section_title}">
+                    ${h2_section_title ? `<div class='h2-section-title'><h2>${h2_section_title}</h2></div>` : ''}
+                    ${h3_section.join('\n')}
+                </div>
+                `)
+            }
+
+            result.text = h2_section.join('\n');
             return result;
         },
         html2Escape(sHtml) {
             return sHtml.replace(/[<>&"]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]; });
         },
+        mergeTextLines(lines) {
+            if (!lines || lines.length === 0) return '';
+            let mergeLines = []
+            let cache = []
+            lines.forEach(line => {
+                let is_blank = /^\s*$/.test(line)
+                if (is_blank) {
+                    // 空行弹出缓存数据
+                    if (cache.length > 0) {
+                        mergeLines.push(cache.join(""));
+                        cache = [];
+                    }
+                } else {
+                    cache.push(line.trim());
+                }
+            })
+
+            if (cache.length > 0) {
+                mergeLines.push(cache.join(""));
+            }
+
+            if (mergeLines.length > 0) {
+                return mergeLines.map(data => `<p>${this.parserText(data)}</p>`).join('\n')
+            } else {
+                return ''
+            }
+        },
+        parserText(rawText) {
+            // text = this.html2Escape(rawText)
+            text = rawText
+            // <code>
+            text = text.replace(/`([^`]+)`/g, (word) => `<code>${this.html2Escape(word.substring(1, word.length - 1))}</code>`)
+            // 斜体
+            text = text.replace(/([^_])?_([^_]+)_([^_])?/g, '$1<i>$2</i>$3')
+            // 强调
+            text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<em>$2</em>$3')
+            // 超链接
+            text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2">$1</a>')
+
+
+            return text
+        },
+        tableParser(tableLines) {
+
+            // TODO 表对齐规则
+            // 表数据
+            let data_rows = tableLines.map(row => {
+                data_row = row.split('|')
+                data_row.pop()
+                data_row.shift()
+                return data_row.map(data => data.trim())
+            })
+
+            // 表头
+            let table_header = [];
+            if (data_rows.length >= 2) {
+                let row_idx_of_1 = data_rows[1];
+                if (/^-+$/.test(row_idx_of_1.join(''))) {
+                    table_header = data_rows[0];
+                    data_rows.shift()
+                    data_rows.shift()
+                }
+            }
+
+            // 转换成html
+            return `
+            <table>
+                <thead>
+                    <tr>
+                        ${table_header.map(title => `<th>${title}</th>`).join('')}
+                    </tr>
+                </thead>
+                <tbody>
+                ${  data_rows.map(row =>
+                /^-+$/.test(row.join(''))
+                    ? ''
+                    : `<tr>${row.map(data => `<td>${this.parserText(data)}</td>`).join('')}</tr>`).join('')
+                }
+                </tbody>
+            </table>`
+        },
         initSectionPosition() {
-            let idx = 0;
-            let column_size = 3;
+            let default_column_size = this.model.meta.column_size || 2;
+            let column_size = default_column_size;
             let idxToYOffset = {};
             let totalWidth = el('#sheet-body').offsetWidth
             if (totalWidth < 900) {
-                column_size = 2
+                column_size = Math.min(2, column_size - 1)
             };
             if (totalWidth < 600) {
-                column_size = 1
+                column_size = Math.min(1, column_size - 1)
             }
+            column_size = column_size <= 0 ? 1 : column_size
+
             let singleWidth = (totalWidth - 20 * (column_size - 1)) / column_size
-            $.elAll('#sheet-body > .sheet-section').forEach(section => {
-                let colIdx = this.getIdxOfMinValue(idxToYOffset, column_size)
-                let height = section.offsetHeight;
 
-                let top = idxToYOffset[colIdx] || 0;
-                let left = (colIdx) * (20 + singleWidth);
-                section.setAttribute('style', `width: ${singleWidth}px;top: ${top}px; left:${left}px`);
+            let default_top = 0
 
-                idxToYOffset[colIdx] = (idxToYOffset[colIdx] || 0) + height;
-                idx++;
+
+            $.elAll('#sheet-body .h2-section').forEach(h2_section => {
+                // 区块自定义列宽
+                let { h2_column_szie, h2_singleWidth }
+                    = this.initH2SectionWidth(column_size, singleWidth, h2_section, totalWidth)
+                // 初始化高度
+                h2_section.querySelectorAll('.sheet-section').forEach(section => {
+                    section.setAttribute('style', `width: ${h2_singleWidth}px`);
+                })
             })
 
-            let maxOffset = idxToYOffset[this.getIdxOfMaxValue(idxToYOffset, column_size)];
-            el('#sheet-body').setAttribute('style', `height: ${maxOffset}px`);
+            $.elAll('#sheet-body .h2-section').forEach(h2_section => {
+                // 区块自定义列宽
+                let { h2_column_szie, h2_singleWidth }
+                    = this.initH2SectionWidth(column_size, singleWidth, h2_section, totalWidth)
+
+                let h2_section_title = h2_section.querySelector('.h2-section-title')
+                default_top += (h2_section_title ? h2_section_title.offsetHeight : 0)
+                h2_section.querySelectorAll('.sheet-section').forEach(section => {
+                    let colIdx = this.getIdxOfMinValue(idxToYOffset, h2_column_szie)
+                    let height = section.offsetHeight;
+
+                    let top = idxToYOffset[colIdx] || default_top;
+                    let left = (colIdx) * (20 + h2_singleWidth);
+                    section.setAttribute('style', `width: ${h2_singleWidth}px;top: ${top}px; left:${left}px`);
+
+                    idxToYOffset[colIdx] = (idxToYOffset[colIdx] || default_top) + height;
+                })
+
+                let maxOffset = idxToYOffset[this.getIdxOfMaxValue(idxToYOffset, h2_column_szie)];
+                h2_section.setAttribute('style', `height: ${maxOffset}px`);
+                idxToYOffset = {}
+                default_top = 0
+            })
         },
         metaParser(metaText) {
             let lineList = metaText.split('\n');
             let regexedList = lineList
                 .filter(line => !/^\s*$/.test(line))
                 .map(line => /^(\s*)([^\s:]+):?\s*(.*)/.exec(line));
-    
+
             let meta = {}
             let offsex_off_array = 1;
             regexedList.forEach((matched, idx) => {
@@ -209,8 +426,29 @@
             }
 
             return idx;
+        },
+        initH2SectionWidth(column_size, singleWidth, h2_section, totalWidth) {
+            let h2_column_szie = column_size
+            let h2_singleWidth = singleWidth
+            let h2_id = h2_section.getAttribute('id')
+            if (h2_id && this.model.column_size[h2_id]) {
+                h2_column_szie = this.model.column_size[h2_id]
+                if (totalWidth < 900) {
+                    h2_column_szie = Math.min(2, h2_column_szie - 1)
+                };
+                if (totalWidth < 600) {
+                    h2_column_szie = Math.min(1, h2_column_szie - 1)
+                }
+
+                h2_column_szie = h2_column_szie <= 0 ? 1 : h2_column_szie
+
+                h2_singleWidth = (totalWidth - 20 * (h2_column_szie - 1)) / h2_column_szie
+            }
+            return { h2_column_szie, h2_singleWidth }
         }
     }
 
     controller.init(view, model)
 }
+
+

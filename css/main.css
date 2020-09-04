@@ -100,7 +100,7 @@ a {
 }
 
 #home-wrapper #title h1 {
-    font-size: 40px;
+    font-size: 47px;
     font-weight: 100;
     font-family: sans-serif;
 }
@@ -146,8 +146,10 @@ a {
 #sheet-wrapper #sheet-title h1 {
     font-size: 40px;
     font-weight: 100;
-    margin: 30px 0;
+    height: 80px;
+    line-height: 80px;
     font-family: sans-serif;
+    margin: 0;
 }
 
 #sheet-wrapper #sheet-title h1 span {
@@ -167,22 +169,117 @@ a {
 #sheet-wrapper #sheet-body .sheet-section .section-title h3{
     font-size: 18px;
     font-weight: normal;
-    margin: 20px 0 10px 0;
+    margin: 25px 0 15px 0;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body {
     background: #ffffff;
     box-shadow: 0 6px 8px rgba(85,102,119,.03), 0 1px 1px rgba(85,102,119,.4);
+    overflow: auto;
+}
+
+#sheet-wrapper .section-body > pre, 
+#sheet-wrapper .section-body > p {
+    padding: 1em;
+    margin: 0;
+}
+
+#sheet-wrapper .section-body > table{
+    border-collapse:collapse; 
+    width: 100%;
+}
+
+#sheet-wrapper .section-body > table thead {
+    display: none;
+}
+
+#sheet-wrapper .section-body > table tr:not(:last-child)  {
+    border-bottom: 1px solid #dddddd;
+}
+#sheet-wrapper .section-body > table td {
+    padding: .8em 1em;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+#sheet-wrapper .section-body > table td:first-child {
+    white-space:nowrap
+}
+
+#sheet-wrapper .section-body > table td:nth-child(2):last-child {
+    text-align: right;
+}
+
+#sheet-wrapper #sheet-body .h2-section {
+    position: relative;
+}
+.h2-section+.h2-section {
+    margin-top: 48px;
+}
+
+#sheet-wrapper #sheet-body .h2-section .h2-section-title{
+    overflow: show;
+}
+#sheet-wrapper #sheet-body .h2-section .h2-section-title h2{
+    font-size: 32px;
+    font-weight: 100;
+    margin: 0 0 16px 0;
+}
+
+#sheet-wrapper #sheet-body .h2-section .h2-section-title h2::before {
+    content: "#";
+    padding-right: 10px;
+    color: #999999
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body * {
-    font-size: 13px !important;
+    font-size: 13.44px !important;
     font-weight: normal !important;
 }
 
-#sheet-wrapper #sheet-body .sheet-section .section-body > *:not(:last-child) {
-    border-bottom: 1px solid #dddddd;
+#sheet-wrapper #sheet-body .sheet-section .section-body > *:not(:first-child) {
+    border-top: 1px solid #dddddd;
 }
+
+#sheet-wrapper #sheet-body .sheet-section .section-body > p {
+    background: #f9f9f9;
+    font-size: 13px !important;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body > p+p:not(:first-child) {
+    margin-top: -1em;
+    border-top: 0;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body > h4 {
+    background: #f7f7f7;
+    padding:.6em 1em;
+    margin: 0;
+    font-size: 12px !important;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body p > code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body :not(pre) code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    padding: 2px 4px;
+    margin: 0 2px;
+    border-radius: 2px;
+    background: #f7f7f7;
+    font-size: 14px !important;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body a {
+    text-decoration: underline;
+    transition: .1 all;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body a:hover {
+    color: #666666;
+}
+
 
 
 
