@@ -94,10 +94,14 @@
                             data_cache = []
                             current_pair = null;
 
+                            let style = ''
+                            if (this.model.meta.font_size) {
+                                style = `font-size: ${this.model.meta.font_size} !important;`
+                            }
                             if (block_type) {
-                                item_cache.push(`<pre class="language-${block_type}"><code class="language-${block_type}">${this.html2Escape(data_block)}</code></pre>`)
+                                item_cache.push(`<pre class="language-${block_type}"><code class="language-${block_type}" style="${style}">${this.html2Escape(data_block)}</code></pre>`)
                             } else {
-                                item_cache.push(`<pre class="language-"><code class="language-">${this.html2Escape(data_block)}</code></pre>`)
+                                item_cache.push(`<pre class="language-"><code class="language-" style="${style}">${this.html2Escape(data_block)}</code></pre>`)
                             }
                         } else {
                             // 在其他块中，什么都不做

@@ -197,9 +197,9 @@ a {
     border-bottom: 1px solid #dddddd;
 }
 #sheet-wrapper .section-body > table td {
-    padding: .8em 1em;
+    padding: 8px 16px;
     vertical-align: top;
-    line-height: 1.6;
+    line-height: 23px;
 }
 
 #sheet-wrapper .section-body > table td:first-child {
@@ -232,8 +232,10 @@ a {
     color: #999999
 }
 
-#sheet-wrapper #sheet-body .sheet-section .section-body * {
+#sheet-wrapper #sheet-body .sheet-section .section-body {
     font-size: 13.44px !important;
+}
+#sheet-wrapper #sheet-body .sheet-section .section-body * {
     font-weight: normal !important;
 }
 
@@ -242,8 +244,9 @@ a {
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body > p {
-    background: #f9f9f9;
+    background: #f8f9fa;
     font-size: 13px !important;
+    line-height: 1.75;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body > p+p:not(:first-child) {
@@ -252,23 +255,30 @@ a {
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body > h4 {
-    background: #f7f7f7;
+    background: #f8f9fa;
     padding:.6em 1em;
     margin: 0;
     font-size: 12px !important;
 }
 
-#sheet-wrapper #sheet-body .sheet-section .section-body p > code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+#sheet-wrapper #sheet-body .sheet-section .section-body em {
+    font-weight: bold !important;
+    font-style: normal;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body :not(pre) code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    padding: 2px 4px;
+    display: inline-block;
+    padding: 0 4px;
     margin: 0 2px;
     border-radius: 2px;
     background: #f7f7f7;
     font-size: 14px !important;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body p > code {
+    color: #c7254e;
+    background-color: #f9f2f4;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body a {

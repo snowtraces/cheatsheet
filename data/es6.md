@@ -142,8 +142,6 @@ promise
   .then((result) => { ··· })
   .catch((error) => { ··· })
 ```
-{: data-line="2,3"}
-
 
 ### promises 使用 finally
 

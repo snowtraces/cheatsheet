@@ -24,7 +24,8 @@
     let model = {
         data: [
             'markdown', 'mysql', 'bash', 'vim', 
-            'powershell', 'css', 'es6', 'regex'
+            'powershell', 'git', 'es6', 'regex',
+            'awk', 'sed', 'redis'
         ]
     }
 
