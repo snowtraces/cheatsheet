@@ -32,7 +32,13 @@
             window.onresize = () => this.initSectionPosition.call(this)
         },
         bindEventHub() {
-            window.eventHub.on('open-sheet', (value) => {
+            window.eventHub.on('open-sheet', (data) => {
+                let logStat = data[1]
+                let value = data[0]
+                if (logStat) {
+                    history.pushState({ 'page_id': value }, null, './#' + value)
+                }
+
                 $.get(`./data/${value}.md`).then((rawText) => {
                     this.view.render(this.parseMarkdown(rawText))
                     this.initSectionPosition()

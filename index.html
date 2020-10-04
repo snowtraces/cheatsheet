@@ -11,14 +11,26 @@
     <div id="top-nav">
         <div id="nav-wrapper" class="w">
             <div id="go-back">返回</div>
-            <div id="go-home"><a href="./">home</a></div>
+            <div id="go-home">home</div>
         </div>
     </div>
     <div id="main">
-        
+
     </div>
 
     <script src="./js/main.js?version=1.0.0"></script>
+    <script>
+        window.addEventListener("popstate", function (e) {
+            let path = window.location.href
+            let url_segs = path.split('#')
+            if (url_segs.length >= 2) {
+                let page = url_segs[1]
+                window.eventHub.emit('open-sheet', [page, false])
+            } else {
+                window.eventHub.emit('open-home')
+            }
+        }, false);
+    </script>
 </body>
 
 </html>

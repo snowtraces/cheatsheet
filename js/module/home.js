@@ -23,7 +23,7 @@
 
     let model = {
         data: [
-            'markdown', 'mysql', 'bash', 'vim', 
+            'markdown', 'mysql', 'bash', 'vim',
             'powershell', 'git', 'es6', 'regex',
             'awk', 'sed', 'redis'
         ]
@@ -33,6 +33,7 @@
         init(view, model) {
             this.view = view
             this.model = model
+            this.nav()
             this.view.render(this.model.data)
             this.bindEvents()
             this.bindEventHub()
@@ -41,12 +42,28 @@
             $.bindEvent('#recomment-list > .item', 'click', (e) => {
                 let item = e.target;
                 let value = item.getAttribute('value');
-                window.eventHub.emit('open-sheet', value)
+                window.eventHub.emit('open-sheet', [value, true])
             })
-
+            $.bindEvent('#go-home', 'click', (e) => {
+                window.eventHub.emit('open-home', true)
+            })
         },
         bindEventHub() {
-
+            window.eventHub.on('open-home', (logStat) => {
+                this.view.render(this.model.data);
+                this.bindEvents();
+                if (logStat) {
+                    history.pushState({ 'page_id': 'home' }, null, './')
+                }
+            })
+        },
+        nav() {
+            let path = window.location.href
+            let url_segs = path.split('#')
+            if (url_segs.length >= 2) {
+                let page = url_segs[1]
+                window.eventHub.emit('open-sheet', [page, false])
+            }
         }
     }
 

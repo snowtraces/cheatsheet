@@ -92,6 +92,7 @@ a {
     height: 40px;
     line-height: 40px;
     top: 10px;
+    cursor: pointer;
 }
 
 /** home */
