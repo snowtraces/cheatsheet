@@ -234,7 +234,7 @@ a {
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body {
-    font-size: 13.44px !important;
+    font-size: 13.3333px !important;
 }
 #sheet-wrapper #sheet-body .sheet-section .section-body * {
     font-weight: normal !important;
@@ -273,8 +273,8 @@ a {
     padding: 0 4px;
     margin: 0 2px;
     border-radius: 2px;
-    background: #f7f7f7;
-    font-size: 14px !important;
+    color: #c7254e;
+    background-color: #f9f2f4;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body p > code {
