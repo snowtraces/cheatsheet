@@ -2,27 +2,9 @@
 title: Bash scripting
 category: CLI
 updated: 2020-07-05
-keywords:
-  - Variables
-  - Functions
-  - Interpolation
-  - Brace expansions
-  - Loops
-  - Conditional execution
-  - Command substitution
 ---
 
-## Getting started
-
-### Introduction
-{: .-intro}
-
-This is a quick reference to getting started with Bash scripting.
-
-- [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
-- [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
-
-### Example
+### 示例
 
 ```bash
 #!/usr/bin/env bash
@@ -31,7 +13,7 @@ NAME="John"
 echo "Hello $NAME!"
 ```
 
-### Variables
+### 变量
 
 ```bash
 NAME="John"
@@ -40,7 +22,7 @@ echo "$NAME"
 echo "${NAME}!"
 ```
 
-### String quotes
+### 字符串引号
 
 ```bash
 NAME="John"
@@ -48,7 +30,7 @@ echo "Hi $NAME"  #=> Hi John
 echo 'Hi $NAME'  #=> Hi $NAME
 ```
 
-### Shell execution
+### Shell执行
 
 ```bash
 echo "I'm in $(pwd)"
@@ -56,17 +38,16 @@ echo "I'm in `pwd`"
 # Same
 ```
 
-See [Command substitution](http://wiki.bash-hackers.org/syntax/expansion/cmdsubst)
+更多 [Command substitution](http://wiki.bash-hackers.org/syntax/expansion/cmdsubst)
 
-### Conditional execution
+### 条件执行
 
 ```bash
 git commit && git push
 git commit || echo "Commit failed"
 ```
 
-### Functions
-{: id='functions-example'}
+### 函数
 
 ```bash
 get_name() {
@@ -76,10 +57,9 @@ get_name() {
 echo "You are $(get_name)"
 ```
 
-See: [Functions](#functions)
+更多: [Functions](#函数)
 
-### Conditionals
-{: id='conditionals-example'}
+### 条件判断
 
 ```bash
 if [[ -z "$string" ]]; then
@@ -89,18 +69,18 @@ elif [[ -n "$string" ]]; then
 fi
 ```
 
-See: [Conditionals](#conditionals)
+更多: [Conditionals](#条件分支)
 
-### Strict mode
+### Strict 模式
 
 ```bash
 set -euo pipefail
 IFS=$'\n\t'
 ```
 
-See: [Unofficial bash strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
+更多: [Unofficial bash strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
 
-### Brace expansion
+### 花括号展开
 
 ```bash
 echo {A,B}.js
@@ -112,23 +92,23 @@ echo {A,B}.js
 | `{A,B}.js` | Same as `A.js B.js` |
 | `{1..5}`   | Same as `1 2 3 4 5` |
 
-See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
+更多: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
 
-## Parameter expansions
+## 参数扩展
 
 
-### Basics
+### 基本使用
 
 ```bash
 name="John"
 echo ${name}
-echo ${name/J/j}    #=> "john" (substitution)
-echo ${name:0:2}    #=> "Jo" (slicing)
-echo ${name::2}     #=> "Jo" (slicing)
-echo ${name::-1}    #=> "Joh" (slicing)
-echo ${name:(-1)}   #=> "n" (slicing from right)
-echo ${name:(-2):1} #=> "h" (slicing from right)
+echo ${name/J/j}    #=> "john" (替换)
+echo ${name:0:2}    #=> "Jo" (切片)
+echo ${name::2}     #=> "Jo" (切片)
+echo ${name::-1}    #=> "Joh" (切片)
+echo ${name:(-1)}   #=> "n" (右侧开始切片)
+echo ${name:(-2):1} #=> "h" (右侧开始切片)
 echo ${food:-Cake}  #=> $food or "Cake"
 ```
 
@@ -137,13 +117,14 @@ length=2
 echo ${name:0:length}  #=> "Jo"
 ```
 
-See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
+更多: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
 
 ```bash
 STR="/path/to/foo.cpp"
 echo ${STR%.cpp}    # /path/to/foo
 echo ${STR%.cpp}.o  # /path/to/foo.o
 echo ${STR%/*}      # /path/to
+echo ${STR%%/*}     # (空)
 
 echo ${STR##*.}     # cpp (extension)
 echo ${STR##*/}     # foo.cpp (basepath)
@@ -156,7 +137,7 @@ echo ${STR/foo/bar} # /path/to/bar.cpp
 
 ```bash
 STR="Hello world"
-echo ${STR:6:5}   # "world"
+echo ${STR:6:5}    # "world"
 echo ${STR: -5:5}  # "world"
 ```
 
@@ -166,23 +147,26 @@ BASE=${SRC##*/}   #=> "foo.cpp" (basepath)
 DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 ```
 
-### Substitution
+### 替换
 
-| Code              | Description         |
-| ----------------- | ------------------- |
-| `${FOO%suffix}`   | Remove suffix       |
-| `${FOO#prefix}`   | Remove prefix       |
-| ---               | ---                 |
-| `${FOO%%suffix}`  | Remove long suffix  |
-| `${FOO##prefix}`  | Remove long prefix  |
-| ---               | ---                 |
-| `${FOO/from/to}`  | Replace first match |
-| `${FOO//from/to}` | Replace all         |
-| ---               | ---                 |
-| `${FOO/%from/to}` | Replace suffix      |
-| `${FOO/#from/to}` | Replace prefix      |
+`%rule`删除`rule`到结束匹配的内容，`#rule`删除开始到`rule`匹配的内容，即`%`删除后缀、`#`删除前缀。
+另外，默认为最小匹配，叠字`%%`、`##`为贪婪匹配。
 
-### Comments
+| Code              | Description      |
+| ----------------- | ---------------- |
+| `${FOO%suffix}`   | 删除后缀         |
+| `${FOO#prefix}`   | 删除前缀         |
+| ---               | ---              |
+| `${FOO%%suffix}`  | 删除最大匹配后缀 |
+| `${FOO##prefix}`  | 删除最大匹配前缀 |
+| ---               | ---              |
+| `${FOO/from/to}`  | 替换第一各匹配项 |
+| `${FOO//from/to}` | 替换所有匹配项   |
+| ---               | ---              |
+| `${FOO/%from/to}` | 替换前缀         |
+| `${FOO/#from/to}` | 替换后缀         |
+
+### 注释
 
 ```bash
 # Single line comment
@@ -196,32 +180,32 @@ comment
 '
 ```
 
-### Substrings
+### 子串
 
 | Expression      | Description                    |
 | --------------- | ------------------------------ |
 | `${FOO:0:3}`    | Substring _(position, length)_ |
 | `${FOO:(-3):3}` | Substring from the right       |
 
-### Length
+### 长度
 
 | Expression | Description      |
 | ---------- | ---------------- |
 | `${#FOO}`  | Length of `$FOO` |
 
-### Manipulation
+### 操作
 
 ```bash
 STR="HELLO WORLD!"
-echo ${STR,}   #=> "hELLO WORLD!" (lowercase 1st letter)
-echo ${STR,,}  #=> "hello world!" (all lowercase)
+echo ${STR,}   #=> "hELLO WORLD!" (首字母小写)
+echo ${STR,,}  #=> "hello world!" (全部小写)
 
 STR="hello world!"
-echo ${STR^}   #=> "Hello world!" (uppercase 1st letter)
-echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
+echo ${STR^}   #=> "Hello world!" (首字母大写)
+echo ${STR^^}  #=> "HELLO WORLD!" (全部大写)
 ```
 
-### Default values
+### 默认值
 
 | Expression        | Description                                              |
 | ----------------- | -------------------------------------------------------- |
@@ -232,17 +216,17 @@ echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
 
 Omitting the `:` removes the (non)nullity checks, e.g. `${FOO-val}` expands to `val` if unset otherwise `$FOO`.
 
-## Loops
+## 循环
 
-### Basic for loop
+### 基本循环
 
 ```bash
-for i in /etc/rc.*; do
+for i in /etc/rc*; do
   echo $i
 done
 ```
 
-### C-like for loop
+### C-like 循环
 
 ```bash
 for ((i = 0 ; i < 100 ; i++)); do
@@ -250,7 +234,7 @@ for ((i = 0 ; i < 100 ; i++)); do
 done
 ```
 
-### Ranges
+### 范围
 
 ```bash
 for i in {1..5}; do
@@ -258,7 +242,7 @@ for i in {1..5}; do
 done
 ```
 
-#### With step size
+#### 带步长的范围
 
 ```bash
 for i in {5..50..5}; do
@@ -266,7 +250,7 @@ for i in {5..50..5}; do
 done
 ```
 
-### Reading lines
+### 读取行
 
 ```bash
 cat file.txt | while read line; do
@@ -274,7 +258,7 @@ cat file.txt | while read line; do
 done
 ```
 
-### Forever
+### 死循环
 
 ```bash
 while true; do
@@ -282,9 +266,9 @@ while true; do
 done
 ```
 
-## Functions
+## 函数
 
-### Defining functions
+### 定义函数
 
 ```bash
 myfunc() {
@@ -303,7 +287,7 @@ function myfunc() {
 myfunc "John"
 ```
 
-### Returning values
+### 返回值
 
 ```bash
 myfunc() {
@@ -316,7 +300,7 @@ myfunc() {
 result="$(myfunc)"
 ```
 
-### Raising errors
+### 引发错误
 
 ```bash
 myfunc() {
@@ -332,114 +316,117 @@ else
 fi
 ```
 
-### Arguments
+### 参数
 
-| Expression | Description                            |
-| ---        | ---                                    |
-| `$#`       | Number of arguments                    |
-| `$*`       | All arguments                          |
-| `$@`       | All arguments, starting from first     |
-| `$1`       | First argument                         |
-| `$_`       | Last argument of the previous command  |
+| Expression | Description              |
+| ---------- | ------------------------ |
+| `$#`       | 参数个数                 |
+| `$*`       | 所有参数                 |
+| `$@`       | 所有参数，从第一个开始   |
+| `$1`       | 第一个参数               |
+| `$_`       | 上一个命令的最后一个参数 |
 
-See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+更多 [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
-## Conditionals
+## 条件语句
 
-### Conditions
+### 条件
 
-Note that `[[` is actually a command/program that returns either `0` (true) or `1` (false). Any program that obeys the same logic (like all base utils, such as `grep(1)` or `ping(1)`) can be used as condition, see examples.
+`[[`会返回`0`(假)或`1`(真)，其他任意遵守相同逻辑的程序均可以作为条件，详见示例。
 
-| Condition                | Description           |
-| ---                      | ---                   |
-| `[[ -z STRING ]]`        | Empty string          |
-| `[[ -n STRING ]]`        | Not empty string      |
-| `[[ STRING == STRING ]]` | Equal                 |
-| `[[ STRING != STRING ]]` | Not Equal             |
-| ---                      | ---                   |
-| `[[ NUM -eq NUM ]]`      | Equal                 |
-| `[[ NUM -ne NUM ]]`      | Not equal             |
-| `[[ NUM -lt NUM ]]`      | Less than             |
-| `[[ NUM -le NUM ]]`      | Less than or equal    |
-| `[[ NUM -gt NUM ]]`      | Greater than          |
-| `[[ NUM -ge NUM ]]`      | Greater than or equal |
-| ---                      | ---                   |
-| `[[ STRING =~ STRING ]]` | Regexp                |
-| ---                      | ---                   |
-| `(( NUM < NUM ))`        | Numeric conditions    |
 
-#### More conditions
+| Condition                | Description |
+| ------------------------ | ----------- |
+| `[[ -z STRING ]]`        | 字符串为空  |
+| `[[ -n STRING ]]`        | 字符串非空  |
+| `[[ STRING == STRING ]]` | 字符串相等  |
+| `[[ STRING != STRING ]]` | 字符串不等  |
+| ---                      | ---         |
+| `[[ NUM -eq NUM ]]`      | 相等        |
+| `[[ NUM -ne NUM ]]`      | 不等        |
+| `[[ NUM -lt NUM ]]`      | 小于        |
+| `[[ NUM -le NUM ]]`      | 小于等于    |
+| `[[ NUM -gt NUM ]]`      | 大于        |
+| `[[ NUM -ge NUM ]]`      | 大于等于    |
+| ---                      | ---         |
+| `[[ STRING =~ REGEXP ]]` | 正则匹配    |
+| ---                      | ---         |
+| `(( NUM < NUM ))`        | 数值条件    |
 
-| Condition            | Description              |
-| -------------------- | ------------------------ |
-| `[[ -o noclobber ]]` | If OPTIONNAME is enabled |
-| ---                  | ---                      |
-| `[[ ! EXPR ]]`       | Not                      |
-| `[[ X && Y ]]`       | And                      |
-| `[[ X || Y ]]`       | Or                       |
+#### 更多条件
 
-### File conditions
+| Condition                           | Description      |
+| ----------------------------------- | ---------------- |
+| `[[ -o noclobber ]]`                | 如果*xx设置*开启 |
+| ---                                 | ---              |
+| `[[ ! EXPR ]]`                      | 非               |
+| `[[ X && Y ]]`                      | 与               |
+| <code>[[ X &#124;&#124; Y ]]</code> | 或               |
 
-| Condition               | Description             |
-| ---                     | ---                     |
-| `[[ -e FILE ]]`         | Exists                  |
-| `[[ -r FILE ]]`         | Readable                |
-| `[[ -h FILE ]]`         | Symlink                 |
-| `[[ -d FILE ]]`         | Directory               |
-| `[[ -w FILE ]]`         | Writable                |
-| `[[ -s FILE ]]`         | Size is > 0 bytes       |
-| `[[ -f FILE ]]`         | File                    |
-| `[[ -x FILE ]]`         | Executable              |
-| ---                     | ---                     |
-| `[[ FILE1 -nt FILE2 ]]` | 1 is more recent than 2 |
-| `[[ FILE1 -ot FILE2 ]]` | 2 is more recent than 1 |
-| `[[ FILE1 -ef FILE2 ]]` | Same files              |
+### 文件条件
 
-### Example
+| Condition               | Description              |
+| ----------------------- | ------------------------ |
+| `[[ -e FILE ]]`         | 存在                     |
+| `[[ -r FILE ]]`         | 可读                     |
+| `[[ -h FILE ]]`         | 符号链接                 |
+| `[[ -d FILE ]]`         | 目录                     |
+| `[[ -w FILE ]]`         | 可写                     |
+| `[[ -s FILE ]]`         | 文件大小大于0            |
+| `[[ -f FILE ]]`         | 普通文件                 |
+| `[[ -x FILE ]]`         | 可执行                   |
+| ---                     | ---                      |
+| `[[ FILE1 -nt FILE2 ]]` | 1比2更新，或1存在2不存在 |
+| `[[ FILE1 -ot FILE2 ]]` | 1比2更旧，或2存在1不存在 |
+| `[[ FILE1 -ef FILE2 ]]` | 相同文件                 |
 
+### 示例
+
+#### 字符串
 ```bash
-# String
 if [[ -z "$string" ]]; then
-  echo "String is empty"
+  echo "String为空"
 elif [[ -n "$string" ]]; then
-  echo "String is not empty"
+  echo "String非空"
 else
-  echo "This never happens"
+  echo "此处不可达"
 fi
 ```
 
+#### 组合
 ```bash
-# Combinations
 if [[ X && Y ]]; then
   ...
 fi
 ```
 
+#### 相等
 ```bash
-# Equal
 if [[ "$A" == "$B" ]]
 ```
 
+#### 正则
 ```bash
-# Regex
 if [[ "A" =~ . ]]
 ```
 
+#### 数值
 ```bash
 if (( $a < $b )); then
-   echo "$a is smaller than $b"
+   echo "$a比$b小"
 fi
 ```
 
+#### 文件
 ```bash
 if [[ -e "file.txt" ]]; then
-  echo "file exists"
+  echo "文件存在"
 fi
 ```
 
-## Arrays
+## 数组
 
-### Defining arrays
+### 定义数组
 
 ```bash
 Fruits=('Apple' 'Banana' 'Orange')
@@ -451,32 +438,31 @@ Fruits[1]="Banana"
 Fruits[2]="Orange"
 ```
 
-### Working with arrays
+### 数组使用
 
 ```bash
-echo ${Fruits[0]}           # Element #0
-echo ${Fruits[-1]}          # Last element
-echo ${Fruits[@]}           # All elements, space-separated
-echo ${#Fruits[@]}          # Number of elements
-echo ${#Fruits}             # String length of the 1st element
-echo ${#Fruits[3]}          # String length of the Nth element
-echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
-echo ${!Fruits[@]}          # Keys of all elements, space-separated
+echo ${Fruits[0]}           # 第一个元素 #0
+echo ${Fruits[-1]}          # 最后一个元素
+echo ${Fruits[@]}           # 所有元素，空格隔开
+echo ${#Fruits[@]}          # 元素个数
+echo ${#Fruits}             # 第一个元素长度
+echo ${#Fruits[3]}          # 第n个元素长度  
+echo ${Fruits[@]:3:2}       # 范围 (3开始，长度2)
+echo ${!Fruits[@]}          # 所有元素的键，空格隔开
 ```
 
-### Operations
+### 操作
 
 ```bash
 Fruits=("${Fruits[@]}" "Watermelon")    # Push
 Fruits+=('Watermelon')                  # Also Push
-Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
-unset Fruits[2]                         # Remove one item
-Fruits=("${Fruits[@]}")                 # Duplicate
-Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
-lines=(`cat "logfile"`)                 # Read from file
+Fruits=( ${Fruits[@]/Ap*/} )            # 按正则匹配移除
+unset Fruits[2]                         # 删除指定元素
+Fruits=("${Fruits[@]}" "${Veggies[@]}") # 合并
+lines=(`cat "logfile"`)                 # 从文件中读取
 ```
 
-### Iteration
+### 变量
 
 ```bash
 for i in "${arrayName[@]}"; do
@@ -484,9 +470,9 @@ for i in "${arrayName[@]}"; do
 done
 ```
 
-## Dictionaries
+## 字典
 
-### Defining
+### 定义
 
 ```bash
 declare -A sounds
@@ -499,21 +485,19 @@ sounds[bird]="tweet"
 sounds[wolf]="howl"
 ```
 
-Declares `sound` as a Dictionary object (aka associative array).
-
-### Working with dictionaries
+### 字典使用
 
 ```bash
-echo ${sounds[dog]} # Dog's sound
-echo ${sounds[@]}   # All values
-echo ${!sounds[@]}  # All keys
-echo ${#sounds[@]}  # Number of elements
-unset sounds[dog]   # Delete dog
+echo ${sounds[dog]} # 按key取值
+echo ${sounds[@]}   # 所有值
+echo ${!sounds[@]}  # 所有键
+echo ${#sounds[@]}  # 长度
+unset sounds[dog]   # 按key移除
 ```
 
-### Iteration
+### 遍历
 
-#### Iterate over values
+#### 值遍历
 
 ```bash
 for val in "${sounds[@]}"; do
@@ -521,7 +505,7 @@ for val in "${sounds[@]}"; do
 done
 ```
 
-#### Iterate over keys
+#### 键遍历
 
 ```bash
 for key in "${!sounds[@]}"; do
@@ -529,116 +513,112 @@ for key in "${!sounds[@]}"; do
 done
 ```
 
-## Options
+## 选项
 
-### Options
+### 选项
 
 ```bash
-set -o noclobber  # Avoid overlay files (echo "hi" > foo)
-set -o errexit    # Used to exit upon error, avoiding cascading errors
-set -o pipefail   # Unveils hidden failures
-set -o nounset    # Exposes unset variables
+set -o noclobber  # 避免覆盖文件 (echo "hi" > foo)
+set -o errexit    # 用于在出错时退出，避免级联错误
+set -o pipefail   # 显示隐藏的错误
+set -o nounset    # 
 ```
 
-### Glob options
+### 扩展选项
 
 ```bash
-shopt -s nullglob    # Non-matching globs are removed  ('*.foo' => '')
-shopt -s failglob    # Non-matching globs throw errors
-shopt -s nocaseglob  # Case insensitive globs
-shopt -s dotglob     # Wildcards match dotfiles ("*.sh" => ".foo.sh")
-shopt -s globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
+shopt -s nullglob    # 移除不匹配扩展项 ('*.foo' => '')
+shopt -s failglob    # 无匹配扩展时直接报错
+shopt -s nocaseglob  # 扩展大小写不敏感
+shopt -s dotglob     # 通配符匹配点文件 ("*.sh" => ".foo.sh")
+shopt -s globstar    # **匹配零个或多个子目录 ('lib/**/*.rb' => 'lib/a/b/c.rb')
 ```
 
-Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
-matches.
+## 历史
 
-## History
+### 命令
 
-### Commands
+| Command               | Description          |
+| --------------------- | -------------------- |
+| `history`             | 查看历史             |
+| `shopt -s histverify` | 不要立即执行扩展结果 |
 
-| Command               | Description                               |
-| --------------------- | ----------------------------------------- |
-| `history`             | Show history                              |
-| `shopt -s histverify` | Don't execute expanded result immediately |
+### 表达式
 
-### Expansions
+| Expression   | Description                   |
+| ------------ | ----------------------------- |
+| `!$`         | 展开最新命令的最后一个参数    |
+| `!*`         | 展开最新命令的所有参数        |
+| `!-n`        | 展开第 `n`个最近参数          |
+| `!n`         | 展开第 `n`个参数              |
+| `!<command>` | 展开命令`<command>`的最新调用 |
 
-| Expression   | Description                                          |
-| ------------ | ---------------------------------------------------- |
-| `!$`         | Expand last parameter of most recent command         |
-| `!*`         | Expand all parameters of most recent command         |
-| `!-n`        | Expand `n`th most recent command                     |
-| `!n`         | Expand `n`th command in history                      |
-| `!<command>` | Expand most recent invocation of command `<command>` |
+### 操作
 
-### Operations
+| Code                 | Description                                    |
+| -------------------- | ---------------------------------------------- |
+| `!!`                 | 再次执行上一条命令                             |
+| `!!:s/<FROM>/<TO>/`  | 在最新命令中将第一次出现的`<FROM>`替换为`<TO>` |
+| `!!:gs/<FROM>/<TO>/` | 在最新命令中将所有的`<FROM>`替换为`<TO>`       |
+| `!$:t`               | 仅从最近命令的最后一个参数扩展基本称           |
+| `!$:h`               | 仅从最近命令的最后一个参数扩展目录             |
 
-| Code                 | Description                                                           |
-| -------------------- | --------------------------------------------------------------------- |
-| `!!`                 | Execute last command again                                            |
-| `!!:s/<FROM>/<TO>/`  | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
-| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command  |
-| `!$:t`               | Expand only basename from last parameter of most recent command       |
-| `!$:h`               | Expand only directory from last parameter of most recent command      |
+`!!`和`！$`可以替换为任何有效的扩展。
 
-`!!` and `!$` can be replaced with any valid expansion.
+### 切分
 
-### Slices
+| Code     | Description                                             |
+| -------- | ------------------------------------------------------- |
+| `!!:n`   | 展开最新命令的第`n`个指令  （`0`是命令;`1`是第一个参数) |
+| `!^`     | 展开最新命令中的第一个参数                              |
+| `!$`     | 展开最新命令的最后一个指令                              |
+| `!!:n-m` | 展开最新命令的指定范围的指令                            |
+| `!!:n-$` | 展开最新命令的第`n`到最后一个指令                       |
 
-| Code     | Description                                                                              |
-| -------- | ---------------------------------------------------------------------------------------- |
-| `!!:n`   | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
-| `!^`     | Expand first argument from most recent command                                           |
-| `!$`     | Expand last token from most recent command                                               |
-| `!!:n-m` | Expand range of tokens from most recent command                                          |
-| `!!:n-$` | Expand `n`th token to last from most recent command                                      |
+`!!` 可以替换为任何有效的扩展， `!cat`, `!-2`, `!42`, etc.
 
-`!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
+## 杂项
 
-
-## Miscellaneous
-
-### Numeric calculations
+### 数值计算
 
 ```bash
-$((a + 200))      # Add 200 to $a
+$((a + 200))      # $a加上200
 ```
 
 ```bash
-$(($RANDOM%200))  # Random number 0..199
+$(($RANDOM%200))  # 0..199间的随机数
 ```
 
-### Subshells
+### 子脚本
 
 ```bash
 (cd somedir; echo "I'm now in $PWD")
-pwd # still in first directory
+pwd # 还在最初的目录中
 ```
 
-### Redirection
+### 重定向
 
 ```bash
-python hello.py > output.txt   # stdout to (file)
-python hello.py >> output.txt  # stdout to (file), append
-python hello.py 2> error.log   # stderr to (file)
-python hello.py 2>&1           # stderr to stdout
-python hello.py 2>/dev/null    # stderr to (null)
-python hello.py &>/dev/null    # stdout and stderr to (null)
+python hello.py > output.txt   # 标准输出到（文件）
+python hello.py >> output.txt  # 标准输出到（文件），追加
+python hello.py 2> error.log   # 标准错误输出到（文件）
+python hello.py 2>&1           # 标准错误输出到 标准输出
+python hello.py 2>/dev/null    # 标准错误输出到（null）
+python hello.py &>/dev/null    # 标准输出和标准错误输出到（null）
 ```
 
 ```bash
-python hello.py < foo.txt      # feed foo.txt to stdin for python
+python hello.py < foo.txt      # 将 foo.txt 标准输入到 python
 ```
 
-### Inspecting commands
+### 检查命令
 
 ```bash
 command -V cd
-#=> "cd is a function/alias/whatever"
+#=> "cd is a shell builtin"
 ```
 
-### Trap errors
+### 捕获错误
 
 ```bash
 trap 'echo Error at about $LINENO' ERR
@@ -694,7 +674,7 @@ printf "This is how you print a float: %f" 2
 DIR="${0%/*}"
 ```
 
-### Getting options
+### 获取选项
 
 ```bash
 while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
@@ -720,7 +700,7 @@ hello world
 END
 ```
 
-### Reading input
+### 读取输入
 
 ```bash
 echo -n "Proceed? [y/n]: "
@@ -732,28 +712,25 @@ echo $ans
 read -n 1 ans    # Just one character
 ```
 
-### Special variables
+### 特殊变量
 
-| Expression | Description                  |
-| ---------- | ---------------------------- |
-| `$?`       | Exit status of last task     |
-| `$!`       | PID of last background task  |
-| `$$`       | PID of shell                 |
-| `$0`       | Filename of the shell script |
+| Expression | Description          |
+| ---------- | -------------------- |
+| `$?`       | 上一个任务的退出状态 |
+| `$!`       | 上一个后台任务的PID  |
+| `$$`       | shell的PID           |
+| `$0`       | Shell脚本的文件名    |
 
-See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+更多 [特殊变量](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
-### Go to previous directory
+### 返回先前目录
+
 
 ```bash
-pwd # /home/user/foo
-cd bar/
-pwd # /home/user/foo/bar
 cd -
-pwd # /home/user/foo
 ```
 
-### Check for command's result
+### 命令结果检查
 
 ```bash
 if ping -c 1 google.com; then
@@ -761,7 +738,7 @@ if ping -c 1 google.com; then
 fi
 ```
 
-### Grep check
+### GREP结果检查
 
 ```bash
 if grep -q 'foo' ~/.bash_history; then
@@ -769,11 +746,17 @@ if grep -q 'foo' ~/.bash_history; then
 fi
 ```
 
-## Also see
-{: .-one-column}
 
-* [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
-* [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
-* [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
-* [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
-* [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
+## 更多
+
+[Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
+
+[Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
+
+[Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
+
+[Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+
+[ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
+
+

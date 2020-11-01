@@ -36,7 +36,7 @@
                 let logStat = data[1]
                 let value = data[0]
                 if (logStat) {
-                    history.pushState({ 'page_id': value }, null, './#' + value)
+                    history.pushState({ 'page_id': value }, null, './#/' + value)
                 }
 
                 $.get(`./data/${value}.md`).then((rawText) => {
@@ -163,11 +163,12 @@
                         if (h3_section.length > 0) {
                             h2_section.push(`
                             <div class="h2-section" id="${h2_section_title}">
-                                ${h2_section_title ? `<div class='h2-section-title'><h2>${h2_section_title}</h2></div>` : ''}
+                                ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${h2_section_title}</h2></div>` : ''}
                                 ${h3_section.join('\n')}
                             </div>
                             `)
                             h3_section = []
+                            h3_section_title = ''
                         }
                         h2_section_title = _line.substr(3)
 
@@ -244,7 +245,7 @@
             if (h3_section.length > 0) {
                 h2_section.push(`
                 <div class="h2-section"  id="${h2_section_title}">
-                    ${h2_section_title ? `<div class='h2-section-title'><h2>${h2_section_title}</h2></div>` : ''}
+                    ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${h2_section_title}</h2></div>` : ''}
                     ${h3_section.join('\n')}
                 </div>
                 `)

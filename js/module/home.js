@@ -47,6 +47,16 @@
             $.bindEvent('#go-home', 'click', (e) => {
                 window.eventHub.emit('open-home', true)
             })
+            $.bindEvent('a', 'click', (e) => {
+                let a = e.target
+                let aLink = a.getAttribute('href')
+                if (aLink && aLink.startsWith('#')) {
+                    // find id and go
+                    e.preventDefault()
+                    e.stopPropagation()
+                    window.scrollTo({ top: el(aLink).offsetTop, left: 0, behavior: 'auto' })
+                }
+            })
         },
         bindEventHub() {
             window.eventHub.on('open-home', (logStat) => {
