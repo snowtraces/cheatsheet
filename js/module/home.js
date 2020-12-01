@@ -25,7 +25,7 @@
         data: [
             'markdown', 'mysql', 'bash', 'vim',
             'powershell', 'git', 'es6', 'regex',
-            'awk', 'sed', 'redis'
+            'awk', 'sed', 'redis', "springCloud"
         ]
     }
 
