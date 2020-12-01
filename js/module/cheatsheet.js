@@ -58,6 +58,7 @@
             let h3_section_title = null;
             let block_status = false;
             let table_status = false;
+            let list_status = false;
             let block_type = null;
             let data_cache = []
             let item_cache = []
@@ -76,6 +77,16 @@
                     }
                     table_status = false;
                 }
+
+                if (list_status && !_line.startsWith('- ')) {
+                    // table 结束
+                    if (data_cache.length > 0) {
+                        item_cache.push(`${this.listParser(data_cache)}`)
+                        data_cache = []
+                    }
+                    list_status = false;
+                }
+
 
                 if (_line === '---') {
                     block_status = !block_status;
@@ -137,6 +148,19 @@
                         table_status = true
                     }
                     data_cache.push(line)
+                } else if (!block_status && _line.startsWith('- ')) {
+                    // 解析列表
+                    if (!list_status) {
+                        // 开始list
+                        let linesText = this.mergeTextLines(data_cache);
+                        data_cache = []
+                        if (linesText) {
+                            item_cache.push(linesText)
+                        }
+
+                        list_status = true
+                    }
+                    data_cache.push(line)
 
                 } else if (!block_status && _line.startsWith('##')) {
                     // 标题
@@ -151,7 +175,7 @@
                         if (item_cache.length > 0) {
                             h3_section.push(`
                             <div class="sheet-section">
-                            <div class="section-title"><h3>${h3_section_title}</h3></div>
+                            <div class="section-title"><h3>${this.parserText(h3_section_title)}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -163,7 +187,7 @@
                         if (h3_section.length > 0) {
                             h2_section.push(`
                             <div class="h2-section" id="${h2_section_title}">
-                                ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${h2_section_title}</h2></div>` : ''}
+                                ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${this.parserText(h2_section_title)}</h2></div>` : ''}
                                 ${h3_section.join('\n')}
                             </div>
                             `)
@@ -183,7 +207,7 @@
                         if (item_cache.length > 0) {
                             h3_section.push(`
                             <div class="sheet-section">
-                            <div class="section-title"><h3>${h3_section_title}</h3></div>
+                            <div class="section-title"><h3>${this.parserText(h3_section_title)}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -199,8 +223,8 @@
                         if (linesText) {
                             item_cache.push(linesText)
                         }
-                        
-                        item_cache.push(`<h4>${_line.substr(5)}</h4>`);
+
+                        item_cache.push(`<h4>${this.parserText(_line.substr(5))}</h4>`);
                     }
 
                 } else if (!block_status && _line.startsWith('{')) {
@@ -226,6 +250,14 @@
                 }
             }
 
+            if (list_status) {
+                // list 结束
+                if (data_cache.length > 0) {
+                    item_cache.push(`${this.listParser(data_cache)}`)
+                    data_cache = []
+                }
+            }
+
             let linesText = this.mergeTextLines(data_cache);
             data_cache = []
             if (linesText) {
@@ -235,7 +267,7 @@
             if (item_cache.length > 0) {
                 h3_section.push(`
                 <div class="sheet-section">
-                <div class="section-title"><h3>${h3_section_title}</h3></div>
+                <div class="section-title"><h3>${this.parserText(h3_section_title)}</h3></div>
                     <div class="section-body">
                         ${item_cache.join('\n')}
                     </div>
@@ -245,7 +277,7 @@
             if (h3_section.length > 0) {
                 h2_section.push(`
                 <div class="h2-section"  id="${h2_section_title}">
-                    ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${h2_section_title}</h2></div>` : ''}
+                    ${h2_section_title ? `<div class='h2-section-title'><h2 id="${this.parserText(h2_section_title)}">${h2_section_title}</h2></div>` : ''}
                     ${h3_section.join('\n')}
                 </div>
                 `)
@@ -289,15 +321,24 @@
             text = rawText
             // <code>
             text = text.replace(/`([^`]+)`/g, (word) => `<code>${this.html2Escape(word.substring(1, word.length - 1))}</code>`)
+            // 强调
+            text = text.replace(/([^*])?\*\*([^*]+)\*\*([^*])?/g, '$1<em>$2</em>$3')
             // 斜体
             text = text.replace(/([^_])?_([^_]+)_([^_])?/g, '$1<i>$2</i>$3')
-            // 强调
-            text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<em>$2</em>$3')
+            text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
             // 超链接
             text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2">$1</a>')
 
 
             return text
+        },
+
+        listParser(listLines) {
+            log(listLines)
+            return `<ul>` + listLines
+                .map(line => line.substr(3))
+                .map(line => `<li>${this.parserText(line)}</li>`)
+                .join('') + `</ul>`;
         },
         tableParser(tableLines) {
 
@@ -330,7 +371,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                ${  data_rows.map(row =>
+                ${data_rows.map(row =>
                 /^-+$/.test(row.join(''))
                     ? ''
                     : `<tr>${row.map(data => `<td>${this.parserText(data)}</td>`).join('')}</tr>`).join('')

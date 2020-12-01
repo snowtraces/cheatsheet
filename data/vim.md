@@ -408,6 +408,6 @@ See [Operators](#操作指令) for other things you can do.
 
 ## 更多
 
-- [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
-- [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
-- [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_
+ - [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
+ - [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
+ - [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_

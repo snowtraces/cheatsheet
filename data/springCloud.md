@@ -1,6 +1,6 @@
 ---
 title: springCloud
-category: framework
+category: Java
 updated: 2020-11-21
 column_size: 2
 ---

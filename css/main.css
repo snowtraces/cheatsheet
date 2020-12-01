@@ -257,14 +257,29 @@ a {
 
 #sheet-wrapper #sheet-body .sheet-section .section-body > h4 {
     background: #f8f9fa;
-    padding:.6em 1em;
+    padding: .75em 1em;
     margin: 0;
-    font-size: 12px !important;
+    font-size: 12.333px !important;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body > ul {
+    background: #f8f9fa;
+    padding: .75em 2.5em;
+    font-size: 12.333px;
+    list-style: square;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body > ul li {
+    padding: .25em 0;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body em {
     font-weight: bold !important;
     font-style: normal;
+}
+
+h2 code, h3 code, h4 code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body :not(pre) code {

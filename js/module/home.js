@@ -25,7 +25,8 @@
         data: [
             'markdown', 'mysql', 'bash', 'vim',
             'powershell', 'git', 'es6', 'regex',
-            'awk', 'sed', 'redis', "springCloud"
+            'awk', 'sed', 'redis', "springCloud",
+            "java8"
         ]
     }
 
