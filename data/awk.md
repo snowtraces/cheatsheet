@@ -4,8 +4,7 @@ category: CLI
 updated: 2020-09-04
 column_size: 2
 font_size: 12px
-source:
-    - [AWK 简明教程](https://coolshell.cn/articles/9070.html)
+source: [AWK 简明教程](https://coolshell.cn/articles/9070.html)
 ---
 
 ### 开始
