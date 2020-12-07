@@ -104,6 +104,34 @@ getPrimes(numbers, StaticMethod::isPrime);
 | `Double::new`           | `n -> new Double(n)`                     |
 | `String[]::new`         | `(int n) -> new String[n]`               |
 
+### Optional
+
+在Java, 通常使用`null`表示没有结果，但是如果不检查的话很容易出现`NullPointerException`.
+
+```java
+// Optional<String> 包含一个string 或 空
+Optional<String> res = stream
+   .filter(w -> w.length() > 10)
+   .findFirst();
+
+// 返回元素长度，如果不存在返回""的长度
+int length = res.orElse("").length();
+
+// 使用lambda作为一个返回值
+res.ifPresent(v -> results.add(v));
+```
+
+返回一个 Optional
+
+```java
+Optional<Double> squareRoot(double x) {
+   if (x >= 0) { 
+        return Optional.of(Math.sqrt(x)); 
+    } else { 
+        return Optional.empty(); 
+    }
+}
+```
 
 ## Streams 流式处理
 
@@ -291,35 +319,6 @@ stream.parallelStream().unordered().distinct();
 
 *PS*: 使用streams类库, 例如使用 `filter(x -> x.length() < 9)` 代替 `forEach` 和 `if`
 
-
-## Optional
-在Java, 通常使用`null`表示没有结果，但是如果不检查的话很容易出现`NullPointerException`.
-
-```java
-// Optional<String> 包含一个string 或 空
-Optional<String> res = stream
-   .filter(w -> w.length() > 10)
-   .findFirst();
-
-// 返回元素长度，如果不存在返回""的长度
-int length = res.orElse("").length();
-
-// 使用lambda作为一个返回值
-res.ifPresent(v -> results.add(v));
-```
-
-返回一个 Optional
-
-```java
-Optional<Double> squareRoot(double x) {
-   if (x >= 0) { 
-        return Optional.of(Math.sqrt(x)); 
-    } else { 
-        return Optional.empty(); 
-    }
-}
-```
-
 ### 注意引用推测限制
 
 ```java
@@ -345,6 +344,130 @@ stream.sorted(
 ) // 有效
 ```
 
+## LocalDate
 
-This cheat sheet was based on the lecture of Cay Horstmann:
- - [http://horstmann.com/heig-vd/spring2015/poo/](http://horstmann.com/heig-vd/spring2015/poo/)
+### 简介
+
+在JAVA中，常用的处理日期和时间的类主要有`Date`，`Calendar`，而在JDK1.8中，新增了`LocalDate`、`LocalTime`、`LocalDateTime` 类的实例是不可变的对象，分别表示使用ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息，也不包含与时区相关的信息。
+
+### API
+
+#### **now()** 静态方法，根据当前时间创建对象 
+```java
+LocalDate.now();
+LocalTime.now();
+LocalDateTime.now();
+```
+
+#### **of()** 静态方法，根据指定时间创建对象
+```java
+LocalDate.of(2020, 12, 2);
+LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+```
+
+#### **plus, minus** 向当前时间添加指定长度时间
+```java
+LocalDate.now().plusDays(30);
+LocalDateTime.now().plusMonths(1);
+
+LocalDate.now().minusDays(7);
+LocalTime.now().minusHours(2);
+
+LocalDate.now().plus(7, ChronoUnit.DAYS);
+```
+
+#### **isBefore、isAfter** 比较两个时间
+```java
+LocalDate.now().isAfter(LocalDate.now().minusDays(1))
+```
+
+### Instant 时间戳
+用于`时间戳`的运算。它是以Unix元年(传统的设定为UTC时区1970年1月1日午夜时分)开始所经历的描述进行运算。
+
+```java
+Instant.now(); // 2020-12-02T09:24:27.306Z
+Instant.now().toEpochMilli() // 1606901081664
+System.currentTimeMillis() // 1606901089461
+```
+
+### Duration 和 Period
+#### **Duration:** 用于计算两个“时间”间隔
+```java
+Instant now = Instant.now();
+Instant oneHoursAfter = Instant.now().plus(1, ChronoUnit.HOURS);
+Duration duration = Duration.between(now, oneHoursAfter);
+System.out.println("duration = " + duration.getSeconds());
+// > duration = 3600
+```
+
+#### **Period:** 用于计算两个“日期”间隔
+```java
+LocalDate now = LocalDate.now();
+LocalDate aWeekAgo = LocalDate.now().minusDays(7);
+Period period = Period.between(aWeekAgo, now);
+System.out.println("period = " + period.getDays()); 
+// > period = 7
+```
+
+### 日期操作
+ 
+ - **TemporalAdjuster**: 时间校正器。
+ - **TemporalAdjusters**: 该类通过静态方法提供了大量的常用 TemporalAdjuster 的实现。
+
+```java
+LocalDateTime date = LocalDateTime.now();
+```
+
+#### 本月第一天
+```java
+LocalDateTime firstday = date.with(TemporalAdjusters.firstDayOfMonth());
+
+LocalDate now = LocalDate.now();
+LocalDate firstday1 = LocalDate.of(now.getYear(), now.getMonth(), 1);
+```
+#### 本月最后一天
+```java
+LocalDateTime lastDay = date.with(TemporalAdjusters.lastDayOfMonth());
+```
+
+#### 上个月最后一天
+```java
+LocalDateTime next_lastday = date.with(TemporalAdjusters.lastDayOfMonth());
+```
+
+#### 下个周日
+```java
+LocalDate nextSunday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
+```
+
+#### 计算两个日期相差的月份数
+```java
+long betweenMONTHS = ChronoUnit.MONTHS.between(beforeDate, afterDate);
+```
+
+### 解析与格式化
+#### 日期格式化成字符串
+```java
+LocalDate now = LocalDate.now();
+System.out.println(now.format(DateTimeFormatter.ISO_DATE));
+// > 2020-12-02
+
+System.out.println(now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+// > 2020/12/02
+```
+
+#### 字符串解析成时间
+```java
+System.out.println(LocalDate.parse("2020/12/01", DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+// > 2020-12-01
+```
+
+### 时区
+
+### 与传统时间的转换
+
+
+
+
+
+
