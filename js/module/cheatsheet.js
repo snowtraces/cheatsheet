@@ -317,8 +317,13 @@
             }
         },
         parserText(rawText) {
+            if (!rawText) {
+                return ''
+            }
+
             // text = this.html2Escape(rawText)
             text = rawText
+            text = text.replace(/\\(.)/g, '$1')
             // <code>
             text = text.replace(/`([^`]+)`/g, (word) => `<code>${this.html2Escape(word.substring(1, word.length - 1))}</code>`)
             // 强调
@@ -345,7 +350,7 @@
             // TODO 表对齐规则
             // 表数据
             let data_rows = tableLines.map(row => {
-                data_row = row.split('|')
+                data_row = row.split(/(?<!\\)\|/)
                 data_row.pop()
                 data_row.shift()
                 return data_row.map(data => data.trim())
