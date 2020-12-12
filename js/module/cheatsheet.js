@@ -332,8 +332,7 @@
             text = text.replace(/([^_])?_([^_]+)_([^_])?/g, '$1<i>$2</i>$3')
             text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
             // 超链接
-            text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2">$1</a>')
-
+            text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
 
             return text
         },

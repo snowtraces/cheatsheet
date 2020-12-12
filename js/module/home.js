@@ -26,7 +26,7 @@
             'markdown', 'mysql', 'bash', 'vim',
             'powershell', 'git', 'es6', 'regex',
             'awk', 'sed', 'redis', "springCloud",
-            "java8", "golang"
+            "java8", "golang","RESTful"
         ]
     }
 
