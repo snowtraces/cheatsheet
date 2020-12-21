@@ -245,7 +245,6 @@ a {
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body > p {
-    background: #f8f9fa;
     font-size: 13px !important;
     line-height: 1.75;
 }
@@ -280,6 +279,21 @@ a {
 
 h2 code, h3 code, h4 code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+h2 code, h3 code {
+    border: 1px solid;
+    padding: 3px 5px;
+    font-weight: 600;
+    border-radius: 2px;
+}
+
+h2 code {
+    font-size: 15px;
+}
+
+h3 code {
+    font-size: 13px;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body :not(pre) code {
