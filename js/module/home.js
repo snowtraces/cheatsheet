@@ -10,7 +10,7 @@
                 <input type="search" name="keyword">
             </div>
             <div id="recomment-list">
-                \${data.map(item => \`<div class=item value=\${item}>\${item}</div>\`).join('')}
+                \${data.map(item => \`<div class=item value="\${item}">\${item}</div>\`).join('')}
             </div>
             <div id="lastest-list">
 
@@ -26,7 +26,8 @@
             'markdown', 'mysql', 'bash', 'vim',
             'powershell', 'git', 'es6', 'regex',
             'awk', 'sed', 'redis', "springCloud",
-            "java8", "golang","RESTful"
+            "java8", "golang", "RESTful", "项目规范",
+            "面试"
         ]
     }
 

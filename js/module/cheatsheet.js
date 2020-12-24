@@ -338,7 +338,6 @@
         },
 
         listParser(listLines) {
-            log(listLines)
             return `<ul>` + listLines
                 .map(line => line.substr(3))
                 .map(line => `<li>${this.parserText(line)}</li>`)

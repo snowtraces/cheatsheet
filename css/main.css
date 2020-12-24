@@ -306,6 +306,10 @@ h3 code {
     background-color: #f9f2f4;
 }
 
+#sheet-wrapper #sheet-body .sheet-section .section-body td > code:first-child {
+    margin-left: 0;
+}
+
 #sheet-wrapper #sheet-body .sheet-section .section-body p > code {
     color: #c7254e;
     background-color: #f9f2f4;
