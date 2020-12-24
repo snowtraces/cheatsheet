@@ -15,7 +15,7 @@ let cssList = [
     './css/prism.css',
 ]
 
-let version = developModel ? new Date().getTime() : '1.0.1';
+let version = developModel ? new Date().getTime() : '1.0.5';
 
 function loadScript(url) {
     let script = document.createElement('script');

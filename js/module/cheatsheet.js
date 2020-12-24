@@ -348,7 +348,9 @@
             // TODO 表对齐规则
             // 表数据
             let data_rows = tableLines.map(row => {
-                data_row = row.split(/(?<!\\)\|/)
+                data_row = row.split(/\|/)
+                // data_row = row.split(/(?<!\\)\|/)
+                // TODO 兼容性问题，自行解析
                 data_row.pop()
                 data_row.shift()
                 return data_row.map(data => data.trim())
