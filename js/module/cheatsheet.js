@@ -343,16 +343,51 @@
                 .map(line => `<li>${this.parserText(line)}</li>`)
                 .join('') + `</ul>`;
         },
+        singleCharSplit(inString, dimiter, blockChars) {
+            let resultArray = [];
+            if (!inString) {
+                return resultArray;
+            }
+            let inBlock = false;
+            let lastChar = ''
+            let cache = []
+            for (let c of inString) {
+                if (blockChars && blockChars.includes(c)) {
+                    inBlock = !inBlock;
+                }
+
+                if (inBlock) {
+                    // 在块内，直接跳过
+                    cache.push(c);
+                } else {
+                    if (c === dimiter) {
+                        // 分隔符
+                        if ('\\' === lastChar) {
+                            // 被转义
+                            cache.push(c);
+                        } else {
+                            // 分割
+                            if (cache.length) {
+                                resultArray.push(cache.join(''));
+                                cache = [];
+                            }
+                        }
+                    } else {
+                        // 普通字符
+                        cache.push(c);
+                    }
+                }
+
+                lastChar = c;
+            }
+            return resultArray;
+        },
         tableParser(tableLines) {
 
             // TODO 表对齐规则
             // 表数据
             let data_rows = tableLines.map(row => {
-                data_row = row.split(/\|/)
-                // data_row = row.split(/(?<!\\)\|/)
-                // TODO 兼容性问题，自行解析
-                data_row.pop()
-                data_row.shift()
+                data_row = this.singleCharSplit(row, '|')
                 return data_row.map(data => data.trim())
             })
 
