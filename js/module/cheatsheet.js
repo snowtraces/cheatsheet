@@ -338,10 +338,32 @@
         },
 
         listParser(listLines) {
-            return `<ul>` + listLines
-                .map(line => line.substr(3))
-                .map(line => `<li>${this.parserText(line)}</li>`)
-                .join('') + `</ul>`;
+            let lastLevel = -1;
+            let dataResult = [];
+            listLines.forEach(line => {
+                let matched = line.match(/^\s+/);
+                let level = matched ? matched[0].length : 0;
+                if (level !== lastLevel) {
+                    if (lastLevel === -1) {
+                        // 列表开始
+                        dataResult.push('<ul>');
+                    } else {
+                        // 层级变化，结束上一层级，开启下一层级
+                        if (lastLevel > level) {
+                            dataResult.push('</ul>');
+                        }
+                        dataResult.push('<ul>');
+                    }
+                } else {
+                    // 层级未变
+                }
+                dataResult.push(`<li>${this.parserText(line.substr(2 + level))}</li>`);
+                lastLevel = level;
+            })
+
+            dataResult.push('</ul>');
+
+            return dataResult.join('')
         },
         singleCharSplit(inString, dimiter, blockChars) {
             let resultArray = [];
