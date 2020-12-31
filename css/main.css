@@ -256,21 +256,20 @@ a {
 
 #sheet-wrapper #sheet-body .sheet-section .section-body > h4 {
     background: #f8f9fa;
-    padding: .75em 1em;
+    padding: .75em 1em ;
     margin: 0;
     font-size: 12.333px !important;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body > ul {
-    background: #f8f9fa;
     padding: .75em 2.5em;
     font-size: 13px;
     list-style: square;
+    font-size: 12.3333px;
 }
 
 #sheet-wrapper #sheet-body .sheet-section .section-body > ul > ul {
-    background: #f8f9fa;
-    padding: .75em 2.5em;
+    padding: .5em 0 .5em 2.5em;
     font-size: 12.333px;
     list-style: circle;
 }

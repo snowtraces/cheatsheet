@@ -338,6 +338,7 @@
         },
 
         listParser(listLines) {
+            let count = 0;
             let lastLevel = -1;
             let dataResult = [];
             listLines.forEach(line => {
@@ -347,21 +348,25 @@
                     if (lastLevel === -1) {
                         // 列表开始
                         dataResult.push('<ul>');
+                        count++;
                     } else {
                         // 层级变化，结束上一层级，开启下一层级
                         if (lastLevel > level) {
                             dataResult.push('</ul>');
+                            count--;
+                        } else {
+                            dataResult.push('<ul>');
+                            count++;
                         }
-                        dataResult.push('<ul>');
                     }
-                } else {
-                    // 层级未变
                 }
                 dataResult.push(`<li>${this.parserText(line.substr(2 + level))}</li>`);
                 lastLevel = level;
             })
 
-            dataResult.push('</ul>');
+            for (let i = 0; i <count; i++) {
+                dataResult.push('</ul>');
+            }
 
             return dataResult.join('')
         },
@@ -405,7 +410,6 @@
             return resultArray;
         },
         tableParser(tableLines) {
-
             // TODO 表对齐规则
             // 表数据
             let data_rows = tableLines.map(row => {
