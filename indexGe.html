@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+</head>
+
+<body>
+    <button id="downloadSen">下载句子索引</button>
+    <button id="downloadKey">下载关键词索引</button>
+    <script src="./js/util/saveData.js"></script>
+    <script src="./js/util/function.js"></script>
+
+    <script>
+        let dataList = [
+            'markdown', 'mysql', 'bash', 'vim',
+            'powershell', 'git', 'es6', 'regex',
+            'awk', 'redis', "springCloud",
+            "java8", "golang", "RESTful", "项目规范",
+            "数据密集型应用", "beautifulCode", "Lisp",
+        ]
+
+        let senList = []
+        downloadSen.onclick = () => {
+            let counter = 0;
+            dataList.forEach(_name => {
+                $.get(`./data/${_name}.md`).then((rawText) => {
+                    let lines = rawText.split('\n').filter(line => !/^\s+$/.test(line)).map(line => line.trim())
+                    let group = []
+                    let move = 0
+                    let start = -1
+                    let inblock = false
+
+                    for (let idx = 0; idx < lines.length; idx++) {
+                        const line = lines[idx];
+                        if (line.startsWith('---')) {
+                            start++
+                        }
+                        if (start) {
+                            if (line.startsWith('```')) {
+                                inblock = !inblock
+                            }
+
+                            if (line.startsWith('##') && !inblock) {
+                                group.push(line)
+                                move = 1
+                            } else {
+                                if (move && move < 3 && !line.startsWith('|')) {
+                                    group.push(line)
+                                    move++
+                                } else {
+                                    if (group.length) {
+                                        senList.push(_name + '\n' + group.join('\n'))
+                                        group = []
+                                        move = 0
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    counter++;
+                    if (counter === dataList.length) {
+                        log(senList)
+                        saveData.setDataConver({
+                            name: `sen.json`,
+                            data: JSON.stringify(senList, 0, 2)
+                        })
+                    }
+                })
+
+            })
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

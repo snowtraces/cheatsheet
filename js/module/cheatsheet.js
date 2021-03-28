@@ -455,6 +455,9 @@
             let default_column_size = this.model.meta.column_size || 2;
             let column_size = default_column_size;
             let idxToYOffset = {};
+            if (!el('#sheet-body')) {
+                return
+            }
             let totalWidth = el('#sheet-body').offsetWidth
             if (totalWidth < 900) {
                 column_size = Math.min(2, column_size - 1)

@@ -39,6 +39,7 @@
             this.view.render(this.model.data)
             this.bindEvents()
             this.bindEventHub()
+            this.loadIndex()
         },
         bindEvents() {
             $.bindEvent('#recomment-list > .item', 'click', (e) => {
@@ -76,6 +77,14 @@
                 let page = url_segs[1]
                 window.eventHub.emit('open-sheet', [page, false])
             }
+        },
+        /**
+         * 搜索
+         */
+        loadIndex() {
+            $.get(`./data/idx/sen.json`).then((rawText) => {
+                log(rawText)
+            })
         }
     }
 
