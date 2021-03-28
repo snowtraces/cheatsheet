@@ -33,6 +33,9 @@
         },
         bindEventHub() {
             window.eventHub.on('open-sheet', (data) => {
+                // 加载过渡
+                window.eventHub.emit('loadingOn')
+
                 let logStat = data[1]
                 let value = data[0]
                 if (logStat) {
@@ -43,6 +46,9 @@
                     this.view.render(this.parseMarkdown(rawText))
                     this.initSectionPosition()
                     syncLoad(['./js/3rdparty/prism.js'], loadScript)
+
+                    // 结束过渡
+                    window.eventHub.emit('loadingOff')
                 })
             })
         },
@@ -364,7 +370,7 @@
                 lastLevel = level;
             })
 
-            for (let i = 0; i <count; i++) {
+            for (let i = 0; i < count; i++) {
                 dataResult.push('</ul>');
             }
 

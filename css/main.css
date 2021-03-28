@@ -61,6 +61,18 @@ a {
     padding: 0 10px;
 }
 
+/* #loading */
+#loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    transition: all .2s;
+    z-index: 9999;
+}
+
 /** top nav */
 #top-nav {
     background: #f7f7f7;

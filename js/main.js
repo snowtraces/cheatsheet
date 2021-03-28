@@ -4,6 +4,7 @@ let jsList = [
     './js/3rdparty/prism.js',
 
 
+    './js/module/loading.js',
     './js/module/home.js',
     './js/module/cheatsheet.js',
 ]
