@@ -7,7 +7,7 @@
                 <h1>Snow's Cheatsheets</h1>
             </div>
             <div id="search">
-                <input type="search" name="keyword">
+                <input type="search" name="keyword" autocomplete="off">
             </div>
             <div id="recomment-list">
                 \${data.map(item => \`<div class=item value="\${item.title}" >
@@ -154,6 +154,21 @@
                     window.scrollTo({ top: el(aLink).offsetTop, left: 0, behavior: 'auto' })
                 }
             })
+            $.bindEvent('#search > input', 'keyup', (e) => {
+                let ipt = e.target
+                let value = ipt.value
+
+                $.elAll('#recomment-list > .item').forEach(item => {
+                    let _value = item.getAttribute('value');
+                    if (_value.includes(value)) {
+                        item.classList.remove('hide')
+                        item.classList.add('show')
+                    } else {
+                        item.classList.remove('show')
+                        item.classList.add('hide')
+                    }
+                })
+            })
         },
         bindEventHub() {
             window.eventHub.on('open-home', (logStat) => {
@@ -177,7 +192,7 @@
          */
         loadIndex() {
             $.get(`./data/idx/sen.json`).then((rawText) => {
-                log(rawText)
+                // log(rawText)
             })
         }
     }
