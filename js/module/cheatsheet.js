@@ -330,19 +330,53 @@
             // text = this.html2Escape(rawText)
             text = rawText
             text = text.replace(/\\(.)/g, '$1')
-            // <code>
-            text = text.replace(/`([^`]+)`/g, (word) => `<code>${this.html2Escape(word.substring(1, word.length - 1))}</code>`)
-            // 强调
-            text = text.replace(/([^*])?\*\*([^*]+)\*\*([^*])?/g, '$1<em>$2</em>$3')
-            // 斜体
-            text = text.replace(/([^_])?_([^_]+)_([^_])?/g, '$1<i>$2</i>$3')
-            text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
-            // 超链接
-            text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
 
-            return text
+            // `分块处理
+            let dataList = []
+            let blockStatus = false;
+            let lastChar = '';
+            let cache = []
+            for (let c of text) {
+                if (c === '`' && !blockStatus) {
+                    // on block
+                    if (cache.length) {
+                        dataList.push(this.mdFormate(cache.join('')))
+                        cache = []
+                    }
+                    blockStatus = true
+                    dataList.push('<code>')
+                } else if (c === '`' && blockStatus) {
+                    // off block
+                    if (cache.length) {
+                        dataList.push(this.html2Escape(cache.join('')))
+                        cache = []
+                    }
+                    blockStatus = false
+                    dataList.push('</code>')
+                } else {
+                    // others
+                    cache.push(c)
+                }
+                lastChar = c
+            }
+
+            if (cache.length) {
+                dataList.push(this.mdFormate(cache.join('')))
+            }
+
+            return dataList.join('')
         },
-
+        mdFormate(text) {
+              // 强调
+              text = text.replace(/([^*])?\*\*([^*]+)\*\*([^*])?/g, '$1<em>$2</em>$3')
+              // 斜体
+              text = text.replace(/([^_])?_([^_]+)_([^_])?/g, '$1<i>$2</i>$3')
+              text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
+              // 超链接
+              text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
+  
+              return text
+        },
         listParser(listLines) {
             let count = 0;
             let lastLevel = -1;
