@@ -25,7 +25,7 @@
         data: [
             'markdown', 'mysql', 'bash', 'vim',
             'powershell', 'git', 'es6', 'regex',
-            'awk', 'sed', 'redis', "springCloud",
+            'awk', "cron", 'redis', "springCloud",
             "java8", "golang", "RESTful", "项目规范",
             "数据密集型应用", "beautifulCode", "Lisp",
         ]
