@@ -156,10 +156,10 @@
             })
             $.bindEvent('#search > input', 'keyup', (e) => {
                 let ipt = e.target
-                let value = ipt.value
+                let value = (ipt.value || '').toLowerCase()
 
                 $.elAll('#recomment-list > .item').forEach(item => {
-                    let _value = item.getAttribute('value');
+                    let _value = (item.getAttribute('value') || '').toLowerCase();
                     if (_value.includes(value)) {
                         item.classList.remove('hide')
                         item.classList.add('show')
