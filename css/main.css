@@ -137,17 +137,33 @@ a {
 }
 
 #recomment-list > .item {
-    padding: 20px;
+    background: #ffffff;
     border-radius: 3px;
     font-size: 14px;
-    background: #666666;
-    color: #ffffff;
     cursor: pointer;
-    transition: .1px all;
+    box-shadow: 1px 1px 3px -1px #999;
+    transition: .1s all;
+}
+
+#recomment-list > .item > .icon {
+    line-height: 44px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 44px;
+    padding: 6px;
+}
+
+#recomment-list > .item > .title {
+    line-height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 4px 8px;
+    width: calc(100% - 44px);
 }
 
 #recomment-list > .item:hover {
-    background: #555555;
+    margin: -3px 0 3px;
+    box-shadow: 1px 1px 3px 0px #999;
 }
 
 /** sheet */
