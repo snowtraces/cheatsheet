@@ -13,29 +13,29 @@ column_size: 3
 - 抽象的方法
 
 ### 表达式
-```
+```lisp
 (+ 3 5 )
 8
 (/ 10 5)
 2
 ```
 **前缀表示**，可以带任意个实参
-```
+```lisp
 (+ 1 3 5)
 9
 ```
 **可以嵌套**
-```
+```lisp
 (* (- 5 3) 10)
 20
 ```
 ### 命名和环境
 
 `define`定义变量
-```
+```lisp
 (define size 2)
 ```
-```
+```lisp
 size
 2
 (* 5 size)
@@ -52,11 +52,11 @@ size
 ### 复合过程
 
 **过程定义**为复合操作命名
-```
+```lisp
 (define (square x) (* x x))
 ```
 其一般形式为：
-```
+```lisp
 (define (name <参数> <body>))
 ```
 
@@ -69,14 +69,14 @@ size
 
 ### 条件表达式和谓词
 `cond`表示条件
-```
+```lisp
 (define (abs x)
     (cond ((> x 0) x)
           ((= x 0) 0)
           ((< x 0) (- x))))
 ```
 一般形式为：
-```
+```lisp
 (cond (<p1> <e1>)
       (<p2> <e2>)
       ...
@@ -85,7 +85,7 @@ size
 `pn`为谓词，被解释为真或假。
 
 `if`为单条件表达式
-```
+```lisp
 (define (abs x) 
     (if (< x 0) 
         (- x)
@@ -104,7 +104,7 @@ size
 
 ### 牛顿法求平方根
 计算机科学里，更关心行动性的描述。牛顿法采用逐步逼近法，对`x`的平方根有一个猜测`y`，令`y = (x + x/y) / 2`，然后判断`y`够不够接近。
-```
+```lisp
 (define (sqrt-iter guess x) 
     (if (good-enough? guess x)
         guess
@@ -112,22 +112,22 @@ size
             x)))
 ```
 其中`improve`:
-```
+```lisp
 (define (improve guess x) 
     (average guess (/ x guess)))
 ```
 其中`average`:
-```
+```lisp
 (define (average x y)
     (/ (+ x y) 2))
 ```
 足够好的定义，这里取误差`0.001`
-```
+```lisp
 (define (good-enough? guess x)
     (< (abs (- (square guess) x)) 0.001))
 ```
 一般初始值取`1.0`，开方定义：
-```
+```lisp
 (define (sqrt x) 
     (sqrt-iter 1.0 x))
 ```
@@ -135,7 +135,7 @@ size
 #### **局部名** 局部变量名不影响过程和结果
 #### **内部定义和块结构** 
 将所有辅助过程定义放到内部
-```
+```lisp
 (define (sqrt x) 
     (define (good-enough? guess x)
         (< (abs (- (square guess) x)) 0.001))
@@ -148,7 +148,7 @@ size
     (sqrt-iter 1.0 x))
 ```
 `x`定义在`sqrt`中，其他辅助过程均定义在`x`中，故可以让`x`作为内部定义中的自由变量：
-```
+```lisp
 (define (sqrt x) 
     (define (good-enough? guess)
         (< (abs (- (square guess) x)) 0.001))
@@ -168,7 +168,7 @@ size
 n!=n*(n-1)!
 ```
 翻译成过程：
-```
+```lisp
 (define (factorial n)
     (if (= n 1)
         1
@@ -177,7 +177,7 @@ n!=n*(n-1)!
 其计算过程会先展开，直到`n==1`时才开始收敛，称为**递归计算过程**
 
 另一种过程实现是`1*2*...(n-1)*n`:
-```
+```lisp
 (define (factorial n)
     (fact-iter 1 1 n))
 (define (fact-iter product counter max-count)
@@ -191,7 +191,7 @@ n!=n*(n-1)!
 
 ### 树形递归
 另一种常见到的计算模式是`树形递归`，以**斐波那契**数序列的计算为例：
-```
+```lisp
 (define (fib n)
     (cond ((= n 0) 0)
           ((= n 1) 1)
@@ -201,7 +201,7 @@ n!=n*(n-1)!
 每次计算分裂成两个，遇到`0`和`1`时收敛，做了大量冗余计算。
 
 另外一种计算过程，从`0`和`1`开始计算：
-```
+```lisp
 (define (fib n)
     (fib-iter 1 0 n))
 (define (fib-iter a b count)
@@ -219,7 +219,7 @@ r = a % b
 GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
 ```
 过程实现；
-```
+```lisp
 (define (gcd a b)
     if (= b 0)
        a
@@ -234,7 +234,7 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
 f(a)+...+f(b) 
 ```
 模板抽象为：
-```
+```lisp
 (define (sum term a next b)
     (if (> a b)
         0
@@ -244,11 +244,11 @@ f(a)+...+f(b)
 
 ### 用lambda构造过程
 `lambda`和`define`使用同样的方式创建过程，但不为过程创建名字：
-```
+```lisp
 (lambda (<parameters>) <body>)
 ```
 #### **用`let`创建局部变量**
-```
+```lisp
 (let ((<var1> <exp1>)
       (<var2> <exp2>)
       ...
