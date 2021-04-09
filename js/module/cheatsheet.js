@@ -329,7 +329,6 @@
 
             // text = this.html2Escape(rawText)
             text = rawText
-            text = text.replace(/\\(.)/g, '$1')
 
             // `分块处理
             let dataList = []
@@ -367,15 +366,15 @@
             return dataList.join('')
         },
         mdFormate(text) {
-              // 强调
-              text = text.replace(/([^*])?\*\*([^*]+)\*\*([^*])?/g, '$1<em>$2</em>$3')
-              // 斜体
-              text = text.replace(/([^_])?_([^_]+)_([^_])?/g, '$1<i>$2</i>$3')
-              text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
-              // 超链接
-              text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
-  
-              return text
+            // 强调
+            text = text.replace(/([^*])?\*\*([^*]+)\*\*([^*])?/g, '$1<em>$2</em>$3')
+            // 斜体
+            text = text.replace(/([^_])?_([^_]+)_([^_])?/g, '$1<i>$2</i>$3')
+            text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
+            // 超链接
+            text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
+
+            return text
         },
         listParser(listLines) {
             let count = 0;
@@ -454,7 +453,7 @@
             // 表数据
             let data_rows = tableLines.map(row => {
                 data_row = this.singleCharSplit(row, '|')
-                return data_row.map(data => data.trim())
+                return data_row.map(data => data.trim().replace(/\\(\|)/g, '$1'))
             })
 
             // 表头
