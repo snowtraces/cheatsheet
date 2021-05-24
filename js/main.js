@@ -9,7 +9,7 @@ let jsList = [
     './js/module/cheatsheet.js',
 ]
 
-let developModel = false;
+let developModel = true;
 
 let cssList = [
     './css/main.css',
