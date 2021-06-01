@@ -364,7 +364,23 @@ h3 code {
 }
 
 
+@media screen and (max-width: 500px) {
+    #home-wrapper #title h1 {
+        font-size: 26px;
+        font-weight: 400;
+    }
 
+    #recomment-list {
+        grid-template-columns: repeat(2, calc((100% - 10px) / 2 ));
+    }
+
+    #sheet-wrapper #sheet-title h1 {
+        font-size: 26px;
+        font-weight: 400;
+        height: 50px;
+        line-height: 50px;
+    }
+}
 
 
 
