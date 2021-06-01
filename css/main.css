@@ -102,9 +102,18 @@ a {
     left: 50%;
     transform: translate(-50%, 0);
     height: 40px;
+    width: 40px;
+    text-align: center;
     line-height: 40px;
+    border-radius: 50%;
     top: 10px;
     cursor: pointer;
+    transition: all .1s;
+}
+
+#go-home:hover {
+    background: #aaaaaa;
+    color: #ffffff;
 }
 
 /** home */

@@ -163,6 +163,9 @@
             $.bindEvent('#go-home', 'click', (e) => {
                 window.eventHub.emit('open-home', true)
             })
+            $.bindEvent('#go-back', 'click', (e) => {
+                history.go(-1)
+            })
             $.bindEvent('a', 'click', (e) => {
                 let a = e.target
                 let aLink = a.getAttribute('href')
