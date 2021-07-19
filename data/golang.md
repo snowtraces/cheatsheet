@@ -367,42 +367,42 @@ there:
 
 ### Switch
 ```go
-    switch operatingSystem {
-        case "darwin":
-            fmt.Println("Mac OS Hipster")
-            // 自动break，默认不会穿透
-        case "linux":
-            fmt.Println("Linux Geek")
-        default:
-            // Windows, BSD, ...
-            fmt.Println("Other")
-    }
+switch operatingSystem {
+    case "darwin":
+        fmt.Println("Mac OS Hipster")
+        // 自动break，默认不会穿透
+    case "linux":
+        fmt.Println("Linux Geek")
+    default:
+        // Windows, BSD, ...
+        fmt.Println("Other")
+}
 ```
 #### 与for和if一样，在switch值之前可以有一个赋值语句
 ```go
-    switch os := runtime.GOOS; os {
-        case "darwin": ...
-    }
+switch os := runtime.GOOS; os {
+    case "darwin": ...
+}
 ```
 #### 可以使用对比
 ```go
-    number := 42
-    switch {
-        case number < 42:
-            fmt.Println("Smaller")
-        case number == 42:
-            fmt.Println("Equal")
-        case number > 42:
-            fmt.Println("Greater")
-    }
+number := 42
+switch {
+    case number < 42:
+        fmt.Println("Smaller")
+    case number == 42:
+        fmt.Println("Equal")
+    case number > 42:
+        fmt.Println("Greater")
+}
 ```
 #### 多个case可用逗号分割
 ```go
-    var char byte = '?'
-    switch char {
-        case ' ', '?', '&', '=', '#', '+', '%':
-            fmt.Println("Should escape")
-    }
+var char byte = '?'
+switch char {
+    case ' ', '?', '&', '=', '#', '+', '%':
+        fmt.Println("Should escape")
+}
 ```
 
 ## 集合
@@ -430,7 +430,7 @@ var b = a[lo:hi]	// 从数组创建切片，区间[lo, hi-1)
 var b = a[1:4]		// 切片索引1到3
 var b = a[:3]		// 开始索引默认为0
 var b = a[3:]		// 结束索引默认len(a)
-a =  append(a,17,3)	// 切片追加元素
+a =  append(a,17,3)	// 切片追加元素，实际对原数组进行对应操作
 c := append(a,b...)	// 合并切片
 
 // 通过 make 创建切片
@@ -593,12 +593,12 @@ for i := range ch {
 ```go
 func doStuff(channelOut, channelIn chan int) {
     select {
-    case channelOut <- 42:
-        fmt.Println("We could write to channelOut!")
-    case x := <- channelIn:
-        fmt.Println("We could read from channelIn")
-    case <-time.After(time.Second * 1):
-        fmt.Println("timeout")
+        case channelOut <- 42:
+            fmt.Println("We could write to channelOut!")
+        case x := <- channelIn:
+            fmt.Println("We could read from channelIn")
+        case <-time.After(time.Second * 1):
+            fmt.Println("timeout")
     }
 }
 ```
