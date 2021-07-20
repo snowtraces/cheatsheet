@@ -372,51 +372,51 @@
             text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
             // 超链接
             text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
+            // 序号
+            text = text.replace(/\[(\d+)\]/g, '<span class=sn>$1</span>')
 
             // 自动高亮
-            if (this.model.meta.auto_highlight) {
-                // `分块处理
-                // debugger
-                let dataList = []
-                /**
-                 *  <  >  </  >
-                 * -------------
-                 *  1  2  3   4
-                 */
-                let blockStatus = 0;
-                let cache = []
-                let lastChar = '';
-                for (let c of text) {
-                    if (c === '<' && blockStatus === 0) {
-                        // on block
-                        if (cache.length) {
-                            dataList.push(cache.join("").replace(/([^\w]?)(\w(\w|\s|-|\.|=|_)+\w)([^\w]?)/g, '$1<code>$2</code>$4'))
-                            cache = []
-                        }
-                        blockStatus++
-                    } else if (c === '>' && blockStatus != 0) {
-                        blockStatus++
-                        if (blockStatus === 4) {
-                            // off block
-                            dataList.push(cache.join(''))
-                            cache = []
-                            blockStatus === 0
-                        }
-                    } else if (c === '/') {
-                        if (lastChar && lastChar === '<') {
-                            blockStatus++
-                        }
+            // `分块处理
+            // debugger
+            let dataList = []
+            /**
+             *  <  >  </  >
+             * -------------
+             *  1  2  3   4
+             */
+            let blockStatus = 0;
+            let cache = []
+            let lastChar = '';
+            for (let c of text) {
+                if (c === '<' && blockStatus === 0) {
+                    // on block
+                    if (cache.length) {
+                        dataList.push(this.highlight(cache.join(""), this.model.meta.auto_highlight))
+                        cache = []
                     }
-                    lastChar = c
-                    cache.push(c)
+                    blockStatus++
+                } else if (c === '>' && blockStatus != 0) {
+                    blockStatus++
+                    if (blockStatus === 4) {
+                        // off block
+                        dataList.push(cache.join(''))
+                        cache = []
+                        blockStatus = 0
+                    }
+                } else if (c === '/') {
+                    if (lastChar && lastChar === '<') {
+                        blockStatus++
+                    }
                 }
-
-                if (cache.length) {
-                    dataList.push(cache.join("").replace(/([^\w]?)(\w(\w|\s|-|\.|=|_)+\w)([^\w]?)/g, '$1<code>$2</code>$4'))
-                }
-
-                text = dataList.join('')
+                lastChar = c
+                cache.push(c)
             }
+
+            if (cache.length) {
+                dataList.push(this.highlight(cache.join(""), this.model.meta.auto_highlight))
+            }
+
+            text = dataList.join('')
 
             return text
         },
@@ -452,6 +452,13 @@
             }
 
             return dataResult.join('')
+        },
+        highlight(inString, withHight) {
+            if (withHight) {
+                return inString.replace(/([^\w]?)(\w(\w|\s|-|\.|=|_|>|<|\+){2,}\w)([^\w]?)/g, '$1<code>$2</code>$4')
+            } else {
+                return inString;
+            }
         },
         singleCharSplit(inString, dimiter, blockChars) {
             let resultArray = [];
