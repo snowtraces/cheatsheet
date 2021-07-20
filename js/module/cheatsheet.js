@@ -103,7 +103,6 @@
                         current_pair = null;
                         // TOOD 解析meta
                         this.model.meta = result.meta = this.metaParser(data_block)
-                        result
                     } else {
                         current_pair = '---'
                     }
@@ -369,10 +368,55 @@
             // 强调
             text = text.replace(/([^*])?\*\*([^*]+)\*\*([^*])?/g, '$1<em>$2</em>$3')
             // 斜体
-            text = text.replace(/([^_])?_([^_]+)_([^_])?/g, '$1<i>$2</i>$3')
+            text = text.replace(/([^_\w]|^)+_([^_]+)_([^_\w]|$)+/g, '$1<i>$2</i>$3')
             text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
             // 超链接
             text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
+
+            // 自动高亮
+            if (this.model.meta.auto_highlight) {
+                // `分块处理
+                // debugger
+                let dataList = []
+                /**
+                 *  <  >  </  >
+                 * -------------
+                 *  1  2  3   4
+                 */
+                let blockStatus = 0;
+                let cache = []
+                let lastChar = '';
+                for (let c of text) {
+                    if (c === '<' && blockStatus === 0) {
+                        // on block
+                        if (cache.length) {
+                            dataList.push(cache.join("").replace(/([^\w]?)(\w(\w|\s|-|\.|=|_)+\w)([^\w]?)/g, '$1<code>$2</code>$4'))
+                            cache = []
+                        }
+                        blockStatus++
+                    } else if (c === '>' && blockStatus != 0) {
+                        blockStatus++
+                        if (blockStatus === 4) {
+                            // off block
+                            dataList.push(cache.join(''))
+                            cache = []
+                            blockStatus === 0
+                        }
+                    } else if (c === '/') {
+                        if (lastChar && lastChar === '<') {
+                            blockStatus++
+                        }
+                    }
+                    lastChar = c
+                    cache.push(c)
+                }
+
+                if (cache.length) {
+                    dataList.push(cache.join("").replace(/([^\w]?)(\w(\w|\s|-|\.|=|_)+\w)([^\w]?)/g, '$1<code>$2</code>$4'))
+                }
+
+                text = dataList.join('')
+            }
 
             return text
         },
