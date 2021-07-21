@@ -378,12 +378,17 @@ span.sn {
     width: 1rem;
     height: 1rem;
     line-height: 1rem;
-    background: #333;
+    background: #aaa;
     color: #fff;
     text-align: center;
     vertical-align: middle;
     margin: 0 2px;
-    border-radius: 2px;
+    border-radius: 50%;
+}
+
+p:hover span.sn {
+    background: #666;
+    transition: all .3s;
 }
 
 

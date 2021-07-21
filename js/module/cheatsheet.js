@@ -368,7 +368,7 @@
             // 强调
             text = text.replace(/([^*])?\*\*([^*]+)\*\*([^*])?/g, '$1<em>$2</em>$3')
             // 斜体
-            text = text.replace(/([^_\w]|^)+_([^_]+)_([^_\w]|$)+/g, '$1<i>$2</i>$3')
+            text = text.replace(/(([^_\w]|^)+)_([^_]+)_(([^_\w]|$)+)/g, '$1<i>$3</i>$4')
             text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
             // 超链接
             text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
@@ -455,7 +455,9 @@
         },
         highlight(inString, withHight) {
             if (withHight) {
-                return inString.replace(/([^\w]?)(\w(\w|\s|-|\.|=|_|>|<|\+){2,}\w)([^\w]?)/g, '$1<code>$2</code>$4')
+                return inString.replace(
+                    /([^\w]?)((\w|-|\/|\.|=|_|\+|@)(\w|\s|-|\/|\.|=|_|>|<|\+|@|…)+(\w|-|\/|\.|=|_|\+|@))([^\w]?)/g,
+                    '$1<code>$2</code>$6')
             } else {
                 return inString;
             }
