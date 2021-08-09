@@ -191,7 +191,7 @@
 
                         if (h3_section.length > 0) {
                             h2_section.push(`
-                            <div class="h2-section" id="${h2_section_title}">
+                            <div class="h2-section" >
                                 ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${this.parserText(h2_section_title)}</h2></div>` : ''}
                                 ${h3_section.join('\n')}
                             </div>
@@ -281,7 +281,7 @@
 
             if (h3_section.length > 0) {
                 h2_section.push(`
-                <div class="h2-section"  id="${h2_section_title}">
+                <div class="h2-section"  >
                     ${h2_section_title ? `<div class='h2-section-title'><h2 id="${this.parserText(h2_section_title)}">${h2_section_title}</h2></div>` : ''}
                     ${h3_section.join('\n')}
                 </div>
@@ -370,6 +370,8 @@
             // 斜体
             text = text.replace(/(([^_\w]|^)+)_([^_]+)_(([^_\w]|$)+)/g, '$1<i>$3</i>$4')
             text = text.replace(/([^*])?\*([^*]+)\*([^*])?/g, '$1<i>$2</i>$3')
+            // 图片
+            text = text.replace(/\!\[([^\]]+)\]\(([^\)]+)\)/g, '<img title="$1" src="$2"/>')
             // 超链接
             text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a title="$1" href="$2" target="_blank">$1</a>')
             // 序号
@@ -397,7 +399,7 @@
                     blockStatus++
                 } else if (c === '>' && blockStatus != 0) {
                     blockStatus++
-                    if (blockStatus === 4) {
+                    if (blockStatus === 4 || (blockStatus === 2 && lastChar === '/')) {
                         // off block
                         dataList.push(cache.join(''))
                         cache = []

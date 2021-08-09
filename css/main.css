@@ -372,12 +372,12 @@ h3 code {
     vertical-align: super;
 }
 
-span.sn {
+#sheet-wrapper .section-body span.sn {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    line-height: 1rem;
+    width: .875rem;
+    height: .875rem;
+    line-height: .875rem;
     background: #aaa;
     color: #fff;
     text-align: center;
@@ -386,11 +386,14 @@ span.sn {
     border-radius: 50%;
 }
 
-p:hover span.sn {
+#sheet-wrapper .section-body *:hover > span.sn {
     background: #666;
     transition: all .3s;
 }
 
+#sheet-wrapper .section-body img {
+    max-width: 100%;
+}
 
 @media screen and (max-width: 500px) {
     #home-wrapper #title h1 {
