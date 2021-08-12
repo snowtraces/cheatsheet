@@ -69,6 +69,7 @@
             let data_cache = []
             let item_cache = []
             let current_pair = null
+            let table_show_head = 0
 
             lines.forEach(line => {
                 _line = line.trim()
@@ -78,7 +79,8 @@
                 if (table_status && !_line.startsWith('|')) {
                     // table 结束
                     if (data_cache.length > 0) {
-                        item_cache.push(`${this.tableParser(data_cache)}`)
+                        item_cache.push(`${this.tableParser(data_cache, table_show_head)}`)
+                        table_show_head = 0
                         data_cache = []
                     }
                     table_status = false;
@@ -192,7 +194,7 @@
                         if (h3_section.length > 0) {
                             h2_section.push(`
                             <div class="h2-section" >
-                                ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${this.parserText(h2_section_title)}</h2></div>` : ''}
+                                ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${this.parserText(h2_section_title, false)}</h2></div>` : ''}
                                 ${h3_section.join('\n')}
                             </div>
                             `)
@@ -239,6 +241,8 @@
                         if (h2_section_title) {
                             this.model.column_size[h2_section_title] = parseInt(pair[1])
                         }
+                    } else if (pair[0] === 'show_head') {
+                        table_show_head = parseInt(pair[1])
                     }
 
                 } else {
@@ -282,7 +286,7 @@
             if (h3_section.length > 0) {
                 h2_section.push(`
                 <div class="h2-section"  >
-                    ${h2_section_title ? `<div class='h2-section-title'><h2 id="${this.parserText(h2_section_title)}">${h2_section_title}</h2></div>` : ''}
+                    ${h2_section_title ? `<div class='h2-section-title'><h2 id="${this.parserText(h2_section_title, false)}">${h2_section_title}</h2></div>` : ''}
                     ${h3_section.join('\n')}
                 </div>
                 `)
@@ -321,7 +325,7 @@
                 return ''
             }
         },
-        parserText(rawText) {
+        parserText(rawText, _autoHighlight = true) {
             if (!rawText) {
                 return ''
             }
@@ -338,7 +342,7 @@
                 if (c === '`' && !blockStatus) {
                     // on block
                     if (cache.length) {
-                        dataList.push(this.mdFormate(cache.join('')))
+                        dataList.push(this.mdFormate(cache.join(''), _autoHighlight))
                         cache = []
                     }
                     blockStatus = true
@@ -359,12 +363,12 @@
             }
 
             if (cache.length) {
-                dataList.push(this.mdFormate(cache.join('')))
+                dataList.push(this.mdFormate(cache.join(''), _autoHighlight))
             }
 
             return dataList.join('')
         },
-        mdFormate(text) {
+        mdFormate(text, _autoHighlight = true) {
             // 强调
             text = text.replace(/([^*])?\*\*([^*]+)\*\*([^*])?/g, '$1<em>$2</em>$3')
             // 斜体
@@ -393,7 +397,7 @@
                 if (c === '<' && blockStatus === 0) {
                     // on block
                     if (cache.length) {
-                        dataList.push(this.highlight(cache.join(""), this.model.meta.auto_highlight))
+                        dataList.push(this.highlight(cache.join(""), this.model.meta.auto_highlight && _autoHighlight))
                         cache = []
                     }
                     blockStatus++
@@ -415,7 +419,7 @@
             }
 
             if (cache.length) {
-                dataList.push(this.highlight(cache.join(""), this.model.meta.auto_highlight))
+                dataList.push(this.highlight(cache.join(""), this.model.meta.auto_highlight && _autoHighlight))
             }
 
             text = dataList.join('')
@@ -503,7 +507,7 @@
             }
             return resultArray;
         },
-        tableParser(tableLines) {
+        tableParser(tableLines, _showHead = false) {
             // TODO 表对齐规则
             // 表数据
             let data_rows = tableLines.map(row => {
@@ -525,7 +529,7 @@
             // 转换成html
             return `
             <table>
-                <thead>
+                <thead class=${_showHead ? '' : 'hide'}>
                     <tr>
                         ${table_header.map(title => `<th>${title}</th>`).join('')}
                     </tr>
@@ -534,7 +538,7 @@
                 ${data_rows.map(row =>
                 /^-+$/.test(row.join(''))
                     ? ''
-                    : `<tr>${row.map(data => `<td>${this.parserText(data)}</td>`).join('')}</tr>`).join('')
+                    : `<tr>${row.map(data => `<td>${this.parserText(data, false)}</td>`).join('')}</tr>`).join('')
                 }
                 </tbody>
             </table>`

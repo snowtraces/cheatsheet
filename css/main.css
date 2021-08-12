@@ -227,17 +227,19 @@ a {
     width: 100%;
 }
 
-#sheet-wrapper .section-body > table thead {
-    display: none;
-}
-
 #sheet-wrapper .section-body > table tr:not(:last-child)  {
     border-bottom: 1px solid #dddddd;
 }
-#sheet-wrapper .section-body > table td {
+
+#sheet-wrapper .section-body > table td, #sheet-wrapper .section-body > table th {
     padding: 8px 12px;
     vertical-align: top;
     line-height: 23px;
+}
+
+#sheet-wrapper #sheet-body .sheet-section .section-body > table th {
+    font-weight: 600 !important;
+    text-align: left;
 }
 
 #sheet-wrapper .section-body > table td:first-child {
