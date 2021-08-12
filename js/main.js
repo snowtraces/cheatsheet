@@ -9,14 +9,14 @@ let jsList = [
     './js/module/cheatsheet.js',
 ]
 
-let developModel = true;
+let developModel = false;
 
 let cssList = [
     './css/main.css',
     './css/prism.css',
 ]
 
-let version = developModel ? new Date().getTime() : '2021052401';
+let version = developModel ? new Date().getTime() : '2021081201';
 
 function loadScript(url) {
     let script = document.createElement('script');
