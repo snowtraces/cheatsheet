@@ -346,6 +346,7 @@ a {
     border-radius: 50%;
     float: right;
     text-align: center;
+    overflow: hidden;
 }
 
 #sheet-wrapper #sheet-nav .nav-content {
