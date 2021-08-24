@@ -7,6 +7,7 @@ let jsList = [
     './js/module/loading.js',
     './js/module/home.js',
     './js/module/cheatsheet.js',
+    './js/module/nav.js',
 ]
 
 let developModel = false;
@@ -16,7 +17,7 @@ let cssList = [
     './css/prism.css',
 ]
 
-let version = developModel ? new Date().getTime() : '2021081201';
+let version = developModel ? new Date().getTime() : '2021082401';
 
 function loadScript(url) {
     let script = document.createElement('script');

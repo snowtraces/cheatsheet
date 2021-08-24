@@ -151,7 +151,7 @@ a {
     font-size: 14px;
     cursor: pointer;
     box-shadow: 1px 1px 3px -1px #999;
-    transition: .1s all;
+    transition: all .1s;
 }
 
 #recomment-list > .item > .icon {
@@ -320,6 +320,59 @@ a {
 #sheet-wrapper #sheet-body .sheet-section .section-body em {
     font-weight: bold !important;
     font-style: normal;
+}
+
+#sheet-wrapper #sheet-nav {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 200px;
+    opacity: .9;
+    max-height: 50vh;
+}
+#sheet-wrapper #sheet-nav .nav-title {
+    border: 1px solid #333;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    background: #666;
+    color: #fff;
+    margin-bottom: -1px;
+    cursor: pointer;
+}
+
+#sheet-wrapper #sheet-nav .nav-title.mini {
+    width: 40px;
+    border-radius: 50%;
+    float: right;
+    text-align: center;
+}
+
+#sheet-wrapper #sheet-nav .nav-content {
+    border: 1px solid;
+    padding: 10px;
+    background: #fff;
+    overflow-y: auto;
+    max-height: calc( 50vh - 40px );
+}
+
+#sheet-wrapper #sheet-nav .nav-content .nav-item{
+    cursor: pointer;
+    font-size: 0.875em;
+    padding: 3px;
+}
+
+#sheet-wrapper #sheet-nav .nav-content .nav-item.nav-type-H2{
+    font-weight: 600;
+}
+
+#sheet-wrapper #sheet-nav .nav-content .nav-item.nav-type-H3{
+    padding-left: 12px;
+}
+#sheet-wrapper #sheet-nav .nav-content .nav-item:hover {
+    /* font-weight: 600; */
+    color: #c7254e;
+    background-color: #f9f2f4;
 }
 
 h2 code, h3 code, h4 code {

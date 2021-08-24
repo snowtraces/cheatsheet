@@ -9,6 +9,8 @@
             <div id="sheet-body">
                 \${data.text}
             </div>
+            <div id="sheet-nav">
+            </div>
         </div>`,
         render(data) {
             $.el(this.el).innerHTML = $.evalTemplate(this.template, data)
@@ -46,6 +48,9 @@
                     this.view.render(this.parseMarkdown(rawText))
                     this.initSectionPosition()
                     syncLoad(['./js/3rdparty/prism.js'], loadScript)
+
+                    // 生成导航
+                    window.eventHub.emit('buildNav')
 
                     // 结束过渡
                     window.eventHub.emit('loadingOff')
@@ -182,7 +187,7 @@
                         if (item_cache.length > 0) {
                             h3_section.push(`
                             <div class="sheet-section">
-                            <div class="section-title"><h3>${this.parserText(h3_section_title)}</h3></div>
+                            <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -194,7 +199,7 @@
                         if (h3_section.length > 0) {
                             h2_section.push(`
                             <div class="h2-section" >
-                                ${h2_section_title ? `<div class='h2-section-title'><h2 id="${h2_section_title}">${this.parserText(h2_section_title, false)}</h2></div>` : ''}
+                                ${h2_section_title ? `<div class='h2-section-title'><h2 id="${this.buidId(h2_section_title)}">${this.parserText(h2_section_title, false)}</h2></div>` : ''}
                                 ${h3_section.join('\n')}
                             </div>
                             `)
@@ -214,7 +219,7 @@
                         if (item_cache.length > 0) {
                             h3_section.push(`
                             <div class="sheet-section">
-                            <div class="section-title"><h3>${this.parserText(h3_section_title)}</h3></div>
+                            <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -276,7 +281,7 @@
             if (item_cache.length > 0) {
                 h3_section.push(`
                 <div class="sheet-section">
-                <div class="section-title"><h3>${this.parserText(h3_section_title)}</h3></div>
+                <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
                     <div class="section-body">
                         ${item_cache.join('\n')}
                     </div>
@@ -286,7 +291,7 @@
             if (h3_section.length > 0) {
                 h2_section.push(`
                 <div class="h2-section"  >
-                    ${h2_section_title ? `<div class='h2-section-title'><h2 id="${this.parserText(h2_section_title, false)}">${h2_section_title}</h2></div>` : ''}
+                    ${h2_section_title ? `<div class='h2-section-title'><h2 id="${this.buidId(h2_section_title)}">${this.parserText(h2_section_title, false)}</h2></div>` : ''}
                     ${h3_section.join('\n')}
                 </div>
                 `)
@@ -367,6 +372,16 @@
             }
 
             return dataList.join('')
+        },
+        idMaker: function* () {
+            let id = 0
+            while (true) { yield id++ }
+        },
+        buidId(inStr) {
+            if(!this.idGen) {
+                this.idGen = this.idMaker()
+            }
+            return `id-${this.idGen.next().value}`
         },
         mdFormate(text, _autoHighlight = true) {
             // 强调
