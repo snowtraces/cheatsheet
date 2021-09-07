@@ -47,7 +47,7 @@
                 $.get(`./data/${value}.md`).then((rawText) => {
                     this.view.render(this.parseMarkdown(rawText))
                     this.initSectionPosition()
-                    syncLoad(['./js/3rdparty/prism.js'], loadScript)
+                    Prism.highlightAll()
 
                     // 生成导航
                     window.eventHub.emit('buildNav')
