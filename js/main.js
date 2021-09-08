@@ -10,7 +10,7 @@ let jsList = [
     './js/module/nav.js',
 ]
 
-let developModel = false;
+let developModel = true;
 
 let cssList = [
     './css/main.css',

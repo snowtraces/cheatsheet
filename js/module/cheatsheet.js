@@ -31,7 +31,7 @@
             this.bindEventHub()
         },
         bindEvents() {
-            window.onresize = () => this.initSectionPosition.call(this)
+            window.onresize = $.throttle(() => this.initSectionPosition.call(this))
         },
         bindEventHub() {
             window.eventHub.on('open-sheet', (data) => {

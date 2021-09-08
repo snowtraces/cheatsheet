@@ -175,7 +175,7 @@
             this.view.render(this.model.styleData)
             this.bindEvents()
             this.bindEventHub()
-            this.loadIndex()
+            // this.loadIndex()
         },
         bindEvents() {
             $.bindEvent('#recomment-list > .item', 'click', (e) => {
@@ -189,20 +189,8 @@
             $.bindEvent('#go-back', 'click', (e) => {
                 history.go(-1)
             })
-            $.bindEvent('a', 'click', (e) => {
-                let a = e.target
-                let aLink = a.getAttribute('href')
-                if (aLink && aLink.startsWith('#')) {
-                    // find id and go
-                    e.preventDefault()
-                    e.stopPropagation()
-                    window.scrollTo({ top: el(aLink).offsetTop, left: 0, behavior: 'auto' })
-                }
-            })
-            $.bindEvent('#search > input', 'keyup', $.debounce(() => {
-                let ipt = $.el('#search > input')
-                let value = (ipt.value || '').toLowerCase()
-
+            $.bindEvent('#search > input', 'keyup', $.debounce((e) => {
+                let value = (e.target.value || '').toLowerCase()
                 $.elAll('#recomment-list > .item').forEach(item => {
                     let _value = (item.getAttribute('value') || '').toLowerCase();
                     if (_value.includes(value)) {
