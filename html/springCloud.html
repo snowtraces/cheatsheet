@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>springCloud<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                <div class="h2-section" style="height: 431px">
+                    
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-251">项目结构</h3></div>
+                                <div class="section-body">
+                                    <p>项目在一个工程中，通过<code>module</code>进行组装。</p>
+<pre class="language- language-none"><code class="language- language-none" style="">├── xxx-common
+├── xxx-eureka
+├── xxx-gateway
+├── xxx-service
+│   ├── xxx-service-common
+│   ├── xxx-service-a
+│   ├── xxx-service-b
+│   └── xxx-service-c
+└── xxx-service-api
+    ├── xxx-service-a-api
+    ├── xxx-service-b-api
+    └── xxx-service-c-api
+</code></pre>
+<p><code>api</code>也可以不拆成多个<code>module</code>，直接根据文件夹进行区分</p>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                <div class="section-title"><h3 id="id-252">项目结构说明</h3></div>
+                    <div class="section-body">
+                        
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>名称</th><th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>xxx-common</td><td>工具类，异常类，通用对象等</td></tr><tr><td>xxx-eureka</td><td>注册中心，与服务无关，单独维护为保证版本一致性</td></tr><tr><td>xxx-gateway</td><td>网关，对外统一出口；可通过过滤器实现拦截、鉴权等功能</td></tr><tr><td>xxx-service</td><td>服务pom项目，主要管理公共依赖</td></tr><tr><td>xxx-service-common</td><td>服务公共代码，如短信/支付、公共异常处理类等</td></tr><tr><td>xxx-service-*</td><td>对应的具体服务，主要业务代码</td></tr><tr><td>xxx-service-*-api</td><td>对应的服务api，包含<code>pojo</code>，<code>feign</code>等</td></tr>
+                </tbody>
+            </table>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-251" data-pid="default">
+                        项目结构
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-252" data-pid="default">
+                        项目结构说明
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

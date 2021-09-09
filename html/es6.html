@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>ES2015+<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 1191px">
+                                
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-172">块作用域</h3></div>
+                                <div class="section-body">
+                                    <h4>Let</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">function</span> <span class="token function">fn</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">// 只在`if`条件块内</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4>Const</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">1</span>
+</code></pre>
+<p><code>let</code>是新版本的<code>var</code>，<code>const</code>与<code>let</code>类似，但无法重新分配。查看: <a title="Let and const" href="https://babeljs.io/learn-es2015/#let--const" target="_blank">Let and const</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="section-title"><h3 id="id-173">反引号</h3></div>
+                                <div class="section-body">
+                                    <h4>字符串模板</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+</code></pre>
+<h4>多行文本</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+hello
+world
+</span><span class="token template-punctuation string">`</span></span>
+</code></pre>
+<p>字符串模板和多行文本。查看: <a title="Template strings" href="https://babeljs.io/learn-es2015/#template-strings" target="_blank">Template strings</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 338px; left:468.5px">
+                            <div class="section-title"><h3 id="id-174">二进制和八进制</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">let</span> bin <span class="token operator">=</span> <span class="token number">0b1010010</span>
+<span class="token keyword">let</span> oct <span class="token operator">=</span> <span class="token number">0o755</span>
+</code></pre>
+<p>查看: <a title="Binary and octal literals" href="https://babeljs.io/learn-es2015/#binary-and-octal-literals" target="_blank">Binary and octal literals</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 402px; left:0px">
+                            <div class="section-title"><h3 id="id-175">新方法</h3></div>
+                                <div class="section-body">
+                                    <h4>string的新方法</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token string">"hello"</span><span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token string">"hello"</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"ll"</span><span class="token punctuation">)</span>
+<span class="token string">"hello"</span><span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"he"</span><span class="token punctuation">)</span>
+<span class="token string">"hello"</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token comment">// "   hello"</span>
+<span class="token string">"hello"</span><span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token comment">// "hello   " </span>
+<span class="token string">"hello"</span><span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'!'</span><span class="token punctuation">)</span> <span class="token comment">// hello!!!</span>
+<span class="token string">"\u1E9B\u0323"</span><span class="token punctuation">.</span><span class="token function">normalize</span><span class="token punctuation">(</span><span class="token string">"NFC"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>更多: <a title="New methods" href="https://babeljs.io/learn-es2015/#math--number--string--object-apis" target="_blank">New methods</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 518px; left:468.5px">
+                            <div class="section-title"><h3 id="id-176">类</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">class</span> <span class="token class-name">Circle</span> <span class="token keyword">extends</span> <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+</code></pre>
+<h4>构造器</h4>
+<pre class=" language-js"><code class=" language-js" style="">  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token parameter">radius</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>radius <span class="token operator">=</span> radius
+  <span class="token punctuation">}</span>
+</code></pre>
+<h4>方法</h4>
+<pre class=" language-js"><code class=" language-js" style="">  <span class="token function">getArea</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>radius
+  <span class="token punctuation">}</span>
+</code></pre>
+<h4>调用父类方法</h4>
+<pre class=" language-js"><code class=" language-js" style="">  <span class="token function">expand</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">expand</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<h4>静态方法</h4>
+<pre class=" language-js"><code class=" language-js" style="">  <span class="token keyword">static</span> <span class="token function">createFromDiameter</span><span class="token punctuation">(</span><span class="token parameter">diameter</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Circle</span><span class="token punctuation">(</span>diameter <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>原型的语法糖，查看: <a title="Classes" href="https://babeljs.io/learn-es2015/#classes" target="_blank">Classes</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 717px; left:0px">
+                            <div class="section-title"><h3 id="id-177">指数计算</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> byte <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">8</span>
+<span class="token comment">// Same as: Math.pow(2, 8)</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 654px">
+                                <div class="h2-section-title"><h2 id="id-183">Promises</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-178">创建 promises</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">resolve</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>更多异步操作，查看: <a title="Promises" href="https://babeljs.io/learn-es2015/#promises" target="_blank">Promises</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-179">使用 promises</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style="">promise
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> ··· <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> ··· <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 192px; left:468.5px">
+                            <div class="section-title"><h3 id="id-180">promises 使用 finally</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style="">promise
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> ··· <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> ··· <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>无论<code>promise</code>最终状态如何，<code>finally</code>都会执行。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 262px; left:0px">
+                            <div class="section-title"><h3 id="id-181">Promise 方法</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style="">Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>···<span class="token punctuation">)</span>
+Promise<span class="token punctuation">.</span><span class="token function">race</span><span class="token punctuation">(</span>···<span class="token punctuation">)</span>
+Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>···<span class="token punctuation">)</span>
+Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>···<span class="token punctuation">)</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 413px; left:468.5px">
+                            <div class="section-title"><h3 id="id-182">Async-await</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">run</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> tweets <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getTweets</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>user<span class="token punctuation">,</span> tweets<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>await</code>必须在<code>async</code>内部，不能单独使用。更多: <a title="async function" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank">async function</a></p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 947px">
+                                <div class="h2-section-title"><h2 id="id-191">解构</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-184">解构赋值</h3></div>
+                                <div class="section-body">
+                                    <h4>Arrays</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> last<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Nikola'</span><span class="token punctuation">,</span> <span class="token string">'Tesla'</span><span class="token punctuation">]</span>
+</code></pre>
+<h4>Objects</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">let</span> <span class="token punctuation">{</span>title<span class="token punctuation">,</span> author<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token operator">:</span> <span class="token string">'The Silkworm'</span><span class="token punctuation">,</span>
+  author<span class="token operator">:</span> <span class="token string">'R. Galbraith'</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>更多: <a title="Destructuring" href="https://babeljs.io/learn-es2015/#destructuring" target="_blank">Destructuring</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-185">默认值</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> scores <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>math <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">,</span> sci <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">,</span> arts <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">]</span> <span class="token operator">=</span> scores
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token comment">// Result:</span>
+<span class="token comment">// math === 22, sci === 33, arts === 50</span>
+</code></pre>
+<p>解构数组或对象时可以分配默认值。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 290px; left:468.5px">
+                            <div class="section-title"><h3 id="id-186">方法参数</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> name<span class="token punctuation">,</span> greeting <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>greeting<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'Larry'</span><span class="token punctuation">,</span> greeting<span class="token operator">:</span> <span class="token string">'Ahoy'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>对象和数组的解构也可以在方法参数中完成。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 380px; left:0px">
+                            <div class="section-title"><h3 id="id-187">方法参数默认值</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name <span class="token operator">=</span> <span class="token string">'Rauno'</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hi </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// Hi Rauno!</span>
+<span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'Larry'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// Hi Larry!</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 538px; left:468.5px">
+                            <div class="section-title"><h3 id="id-188">为key重新赋值</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">function</span> <span class="token function">printCoordinates</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> left<span class="token operator">:</span> x<span class="token punctuation">,</span> top<span class="token operator">:</span> y <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">x: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, y: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>y<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token function">printCoordinates</span><span class="token punctuation">(</span><span class="token punctuation">{</span> left<span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> top<span class="token operator">:</span> <span class="token number">90</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>本例将key<code>left</code>的值赋予<code>x</code>。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 598px; left:0px">
+                            <div class="section-title"><h3 id="id-189">循环</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">{</span>title<span class="token punctuation">,</span> artist<span class="token punctuation">}</span> <span class="token keyword">of</span> songs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ···
+<span class="token punctuation">}</span>
+</code></pre>
+<p>赋值表达式在循环中一样可以使用。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 787px; left:468.5px">
+                            <div class="section-title"><h3 id="id-190">对象结构</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> <span class="token punctuation">{</span> id<span class="token punctuation">,</span> <span class="token operator">...</span>detail <span class="token punctuation">}</span> <span class="token operator">=</span> song<span class="token punctuation">;</span>
+</code></pre>
+<p>使用余下的（...）运算符，逐一提取剩余的key。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 476px">
+                                <div class="h2-section-title"><h2 id="id-194">扩展运算</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-192">对象扩展</h3></div>
+                                <div class="section-body">
+                                    <h4>使用对象扩展</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span>defaults<span class="token punctuation">,</span>
+  visible<span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4>不使用对象扩展</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> options <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> defaults<span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> visible<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>对象扩展运算可以从其他对象构建新对象。更多: <a title="Object spread" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank">Object spread</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-193">数组扩展</h3></div>
+                                <div class="section-body">
+                                    <h4>使用数组扩展</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token operator">...</span>admins<span class="token punctuation">,</span>
+  <span class="token operator">...</span>editors<span class="token punctuation">,</span>
+  <span class="token string">'rstacruz'</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h4>不使用数组扩展</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> users <span class="token operator">=</span> admins
+  <span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>editors<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token string">'rstacruz'</span> <span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>扩展运算可以用相同的方式构建新数组。</p>
+<p>查看: <a title="Spread operator" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank">Spread operator</a></p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 608px">
+                                <div class="h2-section-title"><h2 id="id-197">函数</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-195">参数</h3></div>
+                                <div class="section-body">
+                                    <h4>参数默认值</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">function</span> <span class="token function">greet</span> <span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'Jerry'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4>余下的参数</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> <span class="token operator">...</span>y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// y is an Array</span>
+  <span class="token keyword">return</span> x <span class="token operator">*</span> y<span class="token punctuation">.</span>length
+<span class="token punctuation">}</span>
+</code></pre>
+<h4>扩展</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">// same as fn(1, 2, 3)</span>
+</code></pre>
+<p>默认, 余下和扩展。查看: <a title="Function arguments" href="https://babeljs.io/learn-es2015/#default--rest--spread" target="_blank">Function arguments</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-196">箭头函数</h3></div>
+                                <div class="section-body">
+                                    <h4>箭头函数</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  ···
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h4>带参数</h4>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'text.txt'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h4>隐式返回</h4>
+<pre class=" language-js"><code class=" language-js" style="">numbers<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">n</span> <span class="token operator">=&gt;</span> n <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">// 没有大括号 = 隐式返回</span>
+<span class="token comment">// 等于: numbers.map(function (n) { return n * 2 })</span>
+
+numbers<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">n</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> result<span class="token operator">:</span> n <span class="token operator">*</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">// 隐式返回对象需要在对象周围加上括号</span>
+</code></pre>
+<p>类似于函数，除非类似<code>func.call(this)</code>调用，否则不会产生新的<code>this</code>，查看: <a title="Fat arrows" href="https://babeljs.io/learn-es2015/#arrows-and-lexical-this" target="_blank">Fat arrows</a></p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 772px">
+                                <div class="h2-section-title"><h2 id="id-203">对象</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-198">速记语法</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style="">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> hello<span class="token punctuation">,</span> bye <span class="token punctuation">}</span>
+<span class="token comment">// 等于: module.exports = { hello: hello, bye: bye }</span>
+</code></pre>
+<p>更多: <a title="Object literal enhancements" href="https://babeljs.io/learn-es2015/#enhanced-object-literals" target="_blank">Object literal enhancements</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-199">方法</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'running'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 等于: App = { start: function () {···} }</span>
+</code></pre>
+<p>更多: <a title="Object literal enhancements" href="https://babeljs.io/learn-es2015/#enhanced-object-literals" target="_blank">Object literal enhancements</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 222px; left:0px">
+                            <div class="section-title"><h3 id="id-200">Getters 和 setters</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">get</span> <span class="token function">closed</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token string">'closed'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">set</span> <span class="token function">closed</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>status <span class="token operator">=</span> value <span class="token operator">?</span> <span class="token string">'closed'</span> <span class="token operator">:</span> <span class="token string">'open'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>更多: <a title="Object literal enhancements" href="https://babeljs.io/learn-es2015/#enhanced-object-literals" target="_blank">Object literal enhancements</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 302px; left:468.5px">
+                            <div class="section-title"><h3 id="id-201">计算属性名</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">let</span> event <span class="token operator">=</span> <span class="token string">'click'</span>
+<span class="token keyword">let</span> handlers <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">on</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>event<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 等于: handlers = { 'onclick': true }</span>
+</code></pre>
+<p>更多: <a title="Object literal enhancements" href="https://babeljs.io/learn-es2015/#enhanced-object-literals" target="_blank">Object literal enhancements</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 522px; left:0px">
+                            <div class="section-title"><h3 id="id-202">提取值</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> fatherJS <span class="token operator">=</span> <span class="token punctuation">{</span> age<span class="token operator">:</span> <span class="token number">57</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">"Brendan Eich"</span> <span class="token punctuation">}</span>
+
+Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>fatherJS<span class="token punctuation">)</span>     
+<span class="token comment">// ["age", "name"]</span>
+Object<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>fatherJS<span class="token punctuation">)</span>
+<span class="token comment">// [57, "Brendan Eich"]</span>
+Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>fatherJS<span class="token punctuation">)</span>
+<span class="token comment">// [["age", 57], ["name", "Brendan Eich"]]</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 510px">
+                                <div class="h2-section-title"><h2 id="id-206">模块</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-204">导入</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">import</span> <span class="token string">'helpers'</span>
+<span class="token comment">// aka: require('···')</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">import</span> Express <span class="token keyword">from</span> <span class="token string">'express'</span>
+<span class="token comment">// aka: const Express = require('···').default || require('···')</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">import</span> <span class="token punctuation">{</span> indent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'helpers'</span>
+<span class="token comment">// aka: const indent = require('···').indent</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> Helpers <span class="token keyword">from</span> <span class="token string">'helpers'</span>
+<span class="token comment">// aka: const Helpers = require('···')</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">import</span> <span class="token punctuation">{</span> indentSpaces <span class="token keyword">as</span> indent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'helpers'</span>
+<span class="token comment">// aka: const indent = require('···').indentSpaces</span>
+</code></pre>
+<p><code>import</code> 是新版 <code>require()</code>。更多: <a title="Module imports" href="https://babeljs.io/learn-es2015/#modules" target="_blank">Module imports</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-205">导出</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> ··· <span class="token punctuation">}</span>
+<span class="token comment">// aka: module.exports.default = ···</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">mymethod</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> ··· <span class="token punctuation">}</span>
+<span class="token comment">// aka: module.exports.mymethod = ···</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">export</span> <span class="token keyword">const</span> pi <span class="token operator">=</span> <span class="token number">3.14159</span>
+<span class="token comment">// aka: module.exports.pi = ···</span>
+</code></pre>
+<p><code>export</code> 是新版 <code>module.exports</code>。更多: <a title="Module exports" href="https://babeljs.io/learn-es2015/#modules" target="_blank">Module exports</a></p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 370px">
+                    <div class="h2-section-title"><h2 id="id-209">Generators</h2></div>
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-207">Generators</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">idMaker</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">yield</span> id<span class="token operator">++</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">let</span> gen <span class="token operator">=</span> <span class="token function">idMaker</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+gen<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value  <span class="token comment">// → 0</span>
+gen<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value  <span class="token comment">// → 1</span>
+gen<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value  <span class="token comment">// → 2</span>
+</code></pre>
+<p>很复杂，查看: <a title="Generators" href="https://babeljs.io/learn-es2015/#generators" target="_blank">Generators</a></p>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                <div class="section-title"><h3 id="id-208">For..of 遍历</h3></div>
+                    <div class="section-body">
+                        <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">of</span> iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ···
+<span class="token punctuation">}</span>
+</code></pre>
+<p>更多: <a title="For..of iteration" href="https://babeljs.io/learn-es2015/#iterators--forof" target="_blank">For..of iteration</a></p>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-172" data-pid="default">
+                        块作用域
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-173" data-pid="default">
+                        反引号
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-174" data-pid="default">
+                        二进制和八进制
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-175" data-pid="default">
+                        新方法
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-176" data-pid="default">
+                        类
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-177" data-pid="default">
+                        指数计算
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-183" data-pid="">
+                        Promises
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-178" data-pid="id-183">
+                        创建 promises
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-179" data-pid="id-183">
+                        使用 promises
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-180" data-pid="id-183">
+                        promises 使用 finally
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-181" data-pid="id-183">
+                        Promise 方法
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-182" data-pid="id-183">
+                        Async-await
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-191" data-pid="">
+                        解构
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-184" data-pid="id-191">
+                        解构赋值
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-185" data-pid="id-191">
+                        默认值
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-186" data-pid="id-191">
+                        方法参数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-187" data-pid="id-191">
+                        方法参数默认值
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-188" data-pid="id-191">
+                        为key重新赋值
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-189" data-pid="id-191">
+                        循环
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-190" data-pid="id-191">
+                        对象结构
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-194" data-pid="">
+                        扩展运算
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-192" data-pid="id-194">
+                        对象扩展
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-193" data-pid="id-194">
+                        数组扩展
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-197" data-pid="">
+                        函数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-195" data-pid="id-197">
+                        参数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-196" data-pid="id-197">
+                        箭头函数
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-203" data-pid="">
+                        对象
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-198" data-pid="id-203">
+                        速记语法
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-199" data-pid="id-203">
+                        方法
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-200" data-pid="id-203">
+                        Getters 和 setters
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-201" data-pid="id-203">
+                        计算属性名
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-202" data-pid="id-203">
+                        提取值
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-206" data-pid="">
+                        模块
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-204" data-pid="id-206">
+                        导入
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-205" data-pid="id-206">
+                        导出
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-209" data-pid="">
+                        Generators
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-207" data-pid="id-209">
+                        Generators
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-208" data-pid="id-209">
+                        For..of 遍历
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

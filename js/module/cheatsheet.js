@@ -29,6 +29,7 @@
             // this.view.render(this.model.data)
             this.bindEvents()
             this.bindEventHub()
+            this.initSectionPosition()
         },
         bindEvents() {
             window.onresize = $.throttle(() => this.initSectionPosition.call(this))
@@ -53,7 +54,7 @@
                     window.eventHub.emit('buildNav')
 
                     // 结束过渡
-                    window.eventHub.emit('loadingOff')
+                    window.eventHub.emit('loadingOff', value)
                 })
             })
         },

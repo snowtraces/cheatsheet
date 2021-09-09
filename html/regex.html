@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>Regex<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 1410px">
+                                
+                                
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-210">字符</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>x</code></td><td>字符<code>x</code></td></tr><tr><td><code>\\</code></td><td>反斜线字符</td></tr><tr><td><code>\t</code></td><td>制表符<code>\u0009</code></td></tr><tr><td><code>\n</code></td><td>新行（换行）符<code>\u000A</code></td></tr><tr><td><code>\r</code></td><td>回车符<code>\u000D</code></td></tr><tr><td><code>\f</code></td><td>换页符<code>\u000C</code></td></tr><tr><td><code>\a</code></td><td>报警 (bell) 符<code>\u0007</code></td></tr><tr><td><code>\e</code></td><td>转义符<code>\u001B</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-211">字符类</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>[abc]</code></td><td>a、b&nbsp;或&nbsp;c（简单类）</td></tr><tr><td><code>[^abc]</code></td><td>任何字符，除了&nbsp;a、b&nbsp;或&nbsp;c（否定）</td></tr><tr><td><code>[a-zA-Z]</code></td><td>a&nbsp;到&nbsp;z&nbsp;或&nbsp;A&nbsp;到&nbsp;Z（范围）</td></tr><tr><td><code>[a-d[m-p]]</code></td><td>等于[a-dm-p]（并集）</td></tr><tr><td><code>[a-z&amp;&amp;[def]]</code></td><td>d、e&nbsp;或&nbsp;f（交集）</td></tr><tr><td><code>[a-z&amp;&amp;[^bc]]</code></td><td>等于[ad-z]（减去）</td></tr><tr><td><code>[a-z&amp;&amp;[^m-p]]</code></td><td>等于[a-lq-z]（减去）</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-212">预定义字符类</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>.</code></td><td>任何字符（可能不匹配行结束符）</td></tr><tr><td><code>\d</code></td><td>数字：<code>[0-9]</code></td></tr><tr><td><code>\D</code></td><td>非数字：<code>[^0-9]</code></td></tr><tr><td><code>\s</code></td><td>空白字符：<code>[ \t\n\x0B\f\r]</code></td></tr><tr><td><code>\S</code></td><td>非空白字符：<code>[^\s]</code></td></tr><tr><td><code>\w</code></td><td>单词字符：<code>[a-zA-Z_0-9]</code></td></tr><tr><td><code>\W</code></td><td>非单词字符：<code>[^\w]</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 350px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-213">边界匹配器</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>^</code></td><td>行的开头</td></tr><tr><td><code>$</code></td><td>行的结尾</td></tr><tr><td><code>\b</code></td><td>单词边界</td></tr><tr><td><code>\B</code></td><td>非单词边界</td></tr><tr><td><code>\A</code></td><td>输入的开头</td></tr><tr><td><code>\G</code></td><td>上一个匹配的结尾</td></tr><tr><td><code>\Z</code></td><td>输入的结尾，仅用于最后的结束符（如果有）</td></tr><tr><td><code>\z</code></td><td>输入的结尾</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 391px; left:0px">
+                            <div class="section-title"><h3 id="id-214">Greedy 数量词</h3></div>
+                                <div class="section-body">
+                                    <p>匹配优先，优先匹配最大长度，匹配尽可能多的内容</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>X?</code></td><td>X，一次或一次也没有</td></tr><tr><td><code>X*</code></td><td>X，零次或多次</td></tr><tr><td><code>X+</code></td><td>X，一次或多次</td></tr><tr><td><code>X{n}</code></td><td>X，恰好&nbsp;n&nbsp;次</td></tr><tr><td><code>X{n,}</code></td><td>X，至少&nbsp;n&nbsp;次</td></tr><tr><td><code>X{n,m}</code></td><td>X，至少&nbsp;n&nbsp;次，但是不超过&nbsp;m&nbsp;次</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 392px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-215">Reluctant 数量词</h3></div>
+                                <div class="section-body">
+                                    <p>忽略优先，尽可能匹配最少内容，满足下限即成功</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>X??</code></td><td>X，一次或一次也没有</td></tr><tr><td><code>X*?</code></td><td>X，零次或多次</td></tr><tr><td><code>X+?</code></td><td>X，一次或多次</td></tr><tr><td><code>X{n}?</code></td><td>X，恰好&nbsp;n&nbsp;次</td></tr><tr><td><code>X{n,}?</code></td><td>X，至少&nbsp;n&nbsp;次</td></tr><tr><td><code>X{n,m}?</code></td><td>X，至少&nbsp;n&nbsp;次，但是不超过&nbsp;m&nbsp;次</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 762px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-216">Possessive 数量词</h3></div>
+                                <div class="section-body">
+                                    <p>占有优先，优先匹配最大长度，放弃备用状态</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>X?+</code></td><td>X，一次或一次也没有</td></tr><tr><td><code>X*+</code></td><td>X，零次或多次</td></tr><tr><td><code>X++</code></td><td>X，一次或多次</td></tr><tr><td><code>X{n}+</code></td><td>X，恰好&nbsp;n&nbsp;次</td></tr><tr><td><code>X{n,}+</code></td><td>X，至少&nbsp;n&nbsp;次</td></tr><tr><td><code>X{n,m}+</code></td><td>X，至少&nbsp;n&nbsp;次，但是不超过&nbsp;m&nbsp;次</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 793px; left:0px">
+                            <div class="section-title"><h3 id="id-217">Logical 运算符</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>XY</code></td><td>X&nbsp;后跟&nbsp;Y</td></tr><tr><td><code>X|Y</code></td><td>X&nbsp;或&nbsp;Y</td></tr><tr><td><code>(X)</code></td><td>X，作为捕获组</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 794px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-218"> 特殊构造（非捕获）</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>(?:X)</code></td><td>X，作为非捕获组</td></tr><tr><td><code>(?&gt;X)</code></td><td>X，固化分组，匹配后放弃备用状态</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 960px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-219"> 环视结构（非捕获）</h3></div>
+                                <div class="section-body">
+                                    <p>环视结构，包括肯定型和否定型，顺序环视和逆序环视，它们只是简单的测试，其中表达式能否在当前的位置匹配后面的内容（顺序），或者前面的内容（逆序），并不改变当前位置。</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Pattern</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>(?=X)</code></td><td>肯定型，先向前（右）匹配与X相符内容</td></tr><tr><td><code>(?!X)</code></td><td>否定型，先向前（右）匹配与X不相符内容</td></tr><tr><td><code>(?&lt;=X)</code></td><td>肯定型，先向后（左）匹配与X相符内容</td></tr><tr><td><code>(?&lt;!X)</code></td><td>否定型，先向后（左）匹配与X不相符内容</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 341px">
+                    <div class="h2-section-title"><h2 id="id-221">常见需求</h2></div>
+                    
+                <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                <div class="section-title"><h3 id="id-220">案例</h3></div>
+                    <div class="section-body">
+                        <p>// TODO</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Needs</th><th>Pattern</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>手机号：1XXXXXXXXXX</td><td><code>1\d{10}</code></td></tr><tr><td>日期：2020-09-03</td><td><code>\d{4}-\d{2}-\d{2}</code></td></tr><tr><td>日期：2020年09月03日</td><td><code>\d{4}年\d{2}月\d{2}日</code></td></tr>
+                </tbody>
+            </table>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-210" data-pid="default">
+                        字符
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-211" data-pid="default">
+                        字符类
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-212" data-pid="default">
+                        预定义字符类
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-213" data-pid="default">
+                        边界匹配器
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-214" data-pid="default">
+                        Greedy 数量词
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-215" data-pid="default">
+                        Reluctant 数量词
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-216" data-pid="default">
+                        Possessive 数量词
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-217" data-pid="default">
+                        Logical 运算符
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-218" data-pid="default">
+                        特殊构造（非捕获）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-219" data-pid="default">
+                        环视结构（非捕获）
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-221" data-pid="">
+                        常见需求
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-220" data-pid="id-221">
+                        案例
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

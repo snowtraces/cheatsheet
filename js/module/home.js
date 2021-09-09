@@ -171,24 +171,20 @@
         init(view, model) {
             this.view = view
             this.model = model
-            this.nav()
-            this.view.render(this.model.styleData)
+            if (!isHtml) {
+                this.view.render(this.model.styleData)
+            }
             this.bindEvents()
             this.bindEventHub()
             // this.loadIndex()
         },
         bindEvents() {
-            $.bindEvent('#recomment-list > .item', 'click', (e) => {
+            $.bindEvent('#recomment-list > div.item', 'click', (e) => {
                 let item = e.currentTarget;
                 let value = item.getAttribute('value');
                 window.eventHub.emit('open-sheet', [value, true])
             })
-            $.bindEvent('#go-home', 'click', (e) => {
-                window.eventHub.emit('open-home', true)
-            })
-            $.bindEvent('#go-back', 'click', (e) => {
-                history.go(-1)
-            })
+
             $.bindEvent('#search > input', 'keyup', $.debounce((e) => {
                 let value = (e.target.value || '').toLowerCase()
                 $.elAll('#recomment-list > .item').forEach(item => {
@@ -212,23 +208,6 @@
                 }
             })
         },
-        nav() {
-            let path = window.location.href
-            let url_segs = path.split('#')
-            if (url_segs.length >= 2) {
-                let page = url_segs[1]
-                window.eventHub.emit('open-sheet', [page, false])
-            }
-        },
-        /**
-         * 搜索
-         */
-        loadIndex() {
-            $.get(`./data/idx/sen.json`).then((rawText) => {
-                // log(rawText)
-                this.model.searchIdx = rawText
-            })
-        }
     }
 
     controller.init(view, model)

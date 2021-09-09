@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>分布式事务<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 952px">
+                                <div class="h2-section-title"><h2 id="id-546">基础理论</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-539">事务</h3></div>
+                                <div class="section-body">
+                                    <p>事务是应用程序中一系列严密的操作，所有操作必须成功完成，否则在每个操作中所作的所有更改都会被撤消。也就是事务具有原子性，一个事务中的一系列的操作要么全部成功，要么一个都不做。</p>
+<p>事务应该具有 4 个属性：<em>原子性</em>、<em>一致性</em>、<em>隔离性</em>、<em>持久性</em>。这四个属性通常称为 ACID 特性。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-540">分布式事务</h3></div>
+                                <div class="section-body">
+                                    <p>分布式事务是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。业务功能不仅取决于本地的 db 操作，而且依赖第三方系统的结果，这时候分布式事务就保证这些操作要么全部成功，要么全部失败。本质上来说，<em>分布式事务就是为了保证不同数据库的数据一致性</em>。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 244px; left:468.5px">
+                            <div class="section-title"><h3 id="id-541">一致性</h3></div>
+                                <div class="section-body">
+                                    <ul><li><em>Strong 强一致性</em> 任何一次读都能读到某个数据的最近一次写的数据。系统中的所有进程，看到的操作顺序，都和全局时钟下的顺序一致。简言之，在任意时刻，所有节点中的数据是一样的。
+</li><li><em>Weak 弱一致性</em> 数据更新后，读操作在数据副本上可能读出来，也可能读不出来
+</li><li><em>Eventually 最终一致性</em> 当你写入一个新值后，有可能读不出来，但在某个时间窗口之后保证最终能读出来。比如：DNS，电子邮件
+</li></ul>
+<p><code>Weak</code>和<code>Eventually</code>一般来说是异步冗余的，而<code>Strong</code>一般来说是同步冗余的，异步的通常意味着更好的性能，但也意味着更复杂的状态控制。同步意味着简单，但也意味着性能下降。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 257px; left:0px">
+                            <div class="section-title"><h3 id="id-542">CAP 原则</h3></div>
+                                <div class="section-body">
+                                    <p>CAP 原则又称 CAP 定理，指的是在一个分布式系统中， <code>Consistency</code>（一致性）、 <code>Availability</code>（可用性）、<code>Partition tolerance</code>（分区容错性），三者不可得兼。</p>
+<ul><li><em>一致性（C）</em> 在分布式系统中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最新的数据副本）
+</li><li><em>可用性（A）</em> 在集群中一部分节点故障后，集群整体是否还能响应客户端的读写请求。（对数据更新具备高可用性）
+</li><li><em>分区容错性（P）</em> 以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在 C 和 A 之间做出选择。
+</li></ul>
+<p>CAP 原则的精髓就是要么 AP（最终一致性），要么 CP（强一致），要么 AC，但是不存在 CAP。如果在某个分布式系统中数据无副本，那么系统必然满足强一致性条件，因为只有独一数据，不会出现数据不一致的情况，此时 C 和 P 两要素具备，但是如果系统发生了网络分区状况或者宕机，必然导致某些数据不可以访问，此时可用性条件就不能被满足，即在此情况下获得了 CP 系统，但是 CAP 不可同时满足。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 552px; left:468.5px">
+                            <div class="section-title"><h3 id="id-543">BASE 理论</h3></div>
+                                <div class="section-body">
+                                    <p>BASE 理论指的是基本可用 <code>Basically Available</code>，软状态 <code>Soft State</code>，最终一致性 <code>Eventual Consistency</code>，核心思想是即便无法做到强一致性，但应该<em>采用适合的方式保证最终一致性</em>。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 711px; left:468.5px">
+                            <div class="section-title"><h3 id="id-544">柔性事务</h3></div>
+                                <div class="section-body">
+                                    <p>不同于 ACID 的刚性事务，在分布式场景下基于 BASE 理论，就出现了柔性事务的概念。要想通过柔性事务来达到最终的一致性，就需要依赖于一些特性，这些特性在具体的方案中不一定都要满足，因为不同的方案要求不一样；但是都不满足的话，是不可能做柔性事务的。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 727px; left:0px">
+                            <div class="section-title"><h3 id="id-545">幂等操作</h3></div>
+                                <div class="section-body">
+                                    <p>在编程中一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。幂等函数，或幂等方法，是指可以使用相同参数重复执行，并能获得相同结果的函数。这些函数不会影响系统状态，也不用担心重复执行会对系统造成改变。例如，支付流程中第三方支付系统告知系统中某个订单支付成功，接收该支付回调接口在网络正常的情况下无论操作多少次都应该返回成功。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 402px">
+                                <div class="h2-section-title"><h2 id="id-550">使用场景</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-547">转账</h3></div>
+                                <div class="section-body">
+                                    <p>转账是最经典那的分布式事务场景，假设用户 A 使用银行 app 发起一笔跨行转账给用户 B，银行系统首先扣掉用户 A 的钱，然后增加用户 B 账户中的余额。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-548">下单扣库存</h3></div>
+                                <div class="section-body">
+                                    <p>在电商系统中，下单是用户最常见操作。在下单接口中必定会涉及生成订单 id, 扣减库存等操作，对于微服务架构系统，订单 id 与库存服务一般都是独立的服务，此时就需要分布式事务来保证整个下单接口的成功。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 200px; left:0px">
+                            <div class="section-title"><h3 id="id-549">同步超时</h3></div>
+                                <div class="section-body">
+                                    <p>继续以电商系统为例，在微服务体系架构下，我们的支付与订单都是作为单独的系统存在。订单的支付状态依赖支付系统的通知，假设一个场景：我们的支付系统收到来自第三方支付的通知，告知某个订单支付成功，接收通知接口需要同步调用订单服务变更订单状态接口，更新订单状态为成功。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1370px">
+                                <div class="h2-section-title"><h2 id="id-556">解决方案</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-551">两阶段提交(2PC)</h3></div>
+                                <div class="section-body">
+                                    <p>存在一个负责协调各个本地资源管理器的事务管理器，本地资源管理器一般是由数据库实现，事务管理器在第一阶段的时候询问各个资源管理器是否都就绪？如果收到每个资源的回复都是 yes，则在第二阶段提交事务，如果其中任意一个资源的回复是 no, 则回滚事务。</p>
+<p>第一阶段（prepare）：事务管理器向所有本地资源管理器发起请求，询问是否是 ready 状态，所有参与者都将本事务能否成功的信息反馈发给协调者；第二阶段 (commit/rollback)：事务管理器根据所有本地资源管理器的反馈，通知所有本地资源管理器，步调一致地在所有分支上提交或者回滚。</p>
+<p>存在的问题：</p>
+<ul><li><em>同步阻塞</em>：当参与事务者存在占用公共资源的情况，其中一个占用了资源，其他事务参与者就只能阻塞等待资源释放，处于阻塞状态。
+</li><li><em>单点故障</em>：一旦事务管理器出现故障，整个系统不可用
+</li><li><em>数据不一致</em>：在阶段二，如果事务管理器只发送了部分 commit 消息，此时网络发生异常，那么只有部分参与者接收到 commit 消息，也就是说只有部分参与者提交了事务，使得系统数据不一致。
+</li><li><em>不确定性</em>：当协事务管理器发送 commit 之后，并且此时只有一个参与者收到了 commit，那么当该参与者与事务管理器同时宕机之后，重新选举的事务管理器无法确定该条消息是否提交成功。
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-552">TCC</h3></div>
+                                <div class="section-body">
+                                    <p>关于 TCC（<code>Try-Confirm-Cancel</code>）的概念，最早是由 Pat Helland 于 2007 年发表的一篇名为《Life beyond Distributed Transactions:an Apostate’s Opinion》的论文提出。 TCC 事务机制相比于上面介绍的 XA，解决了其几个缺点：</p>
+<ul><li>解决了协调者单点，由主业务方发起并完成这个业务活动。业务活动管理器也变成多点，引入集群。
+</li><li>同步阻塞：引入超时，超时后进行补偿，并且不会锁定整个资源，将资源转换为业务逻辑形式，粒度变小。
+</li><li>数据一致性，有了补偿机制之后，由业务活动管理器控制一致性
+</li></ul>
+<p>流程如下：</p>
+<ul><li><em>Try 阶段</em>：尝试执行，完成所有业务检查（一致性）, 预留必须业务资源（准隔离性）
+</li><li><em>Confirm 阶段</em>：确认执行真正执行业务，不作任何业务检查，只使用 Try 阶段预留的业务资源，Confirm 操作满足幂等性。要求具备幂等设计，Confirm 失败后需要进行重试。
+</li><li><em>Cancel 阶段</em>：取消执行，释放 Try 阶段预留的业务资源 Cancel 操作满足幂等性 Cancel 阶段的异常和 Confirm 阶段异常处理方案基本上一致。
+</li></ul>
+<p>在 Try 阶段，是对业务系统进行检查及资源预览，比如订单和存储操作，需要检查库存剩余数量是否够用，并进行预留，预留操作的话就是新建一个可用库存数量字段，Try 阶段操作是对这个可用库存数量进行操作。基于 TCC 实现分布式事务，会将原来只需要一个接口就可以实现的逻辑拆分为 Try、Confirm、Cancel 三个接口，所以代码实现复杂度相对较高。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 570px; left:0px">
+                            <div class="section-title"><h3 id="id-553">本地消息表</h3></div>
+                                <div class="section-body">
+                                    <p>本地消息表这个方案最初是 ebay 架构师 Dan Pritchett 在 2008 年发表给 ACM 的文章。该方案中会有消息生产者与消费者两个角色，假设系统 A 是消息生产者，系统 B 是消息消费者，其大致流程如下：</p>
+<ul><li>当系统 A 被其他系统调用发生数据库表更操作，首先会更新数据库的业务表，其次会往相同数据库的消息表中插入一条数据，两个操作发生在同一个事务中
+</li><li>系统 A 的脚本定期轮询本地消息往 mq 中写入一条消息，如果消息发送失败会进行重试
+</li><li>系统 B 消费 mq 中的消息，并处理业务逻辑。如果本地事务处理失败，会在继续消费 mq 中的消息进行重试，如果业务上的失败，可以通知系统 A 进行回滚操作
+</li></ul>
+<p>本地消息表实现的条件：</p>
+<ul><li><span class="sn">1</span>消费者与生成者的接口都要支持幂等
+</li><li><span class="sn">2</span>生产者需要额外的创建消息表
+</li><li><span class="sn">3</span>需要提供补偿逻辑，如果消费者业务失败，需要生产者支持回滚操作
+</li></ul>
+<p>容错机制：</p>
+<ul><li>步骤 <span class="sn">1</span> 失败时，事务直接回滚
+</li><li>步骤 <span class="sn">2</span>、<span class="sn">3</span> 写 mq 与消费 mq 失败会进行重试
+</li><li>步骤 <span class="sn">3</span> 业务失败系统 B 向系统 A 发起事务回滚操作
+</li></ul>
+<p>此方案的核心是将需要分布式处理的任务通过消息日志的方式来异步执行。消息日志可以存储到本地文本、数据库或消息队列，再通过业务规则自动或人工发起重试。人工重试更多的是应用于支付场景，通过对账系统对事后问题的处理。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 695px; left:468.5px">
+                            <div class="section-title"><h3 id="id-554">可靠消息最终一致性</h3></div>
+                                <div class="section-body">
+                                    <ul><li>A 系统先向 mq 发送一条 prepare 消息，如果 prepare 消息发送失败，则直接取消操作
+</li><li>如果消息发送成功，则执行本地事务
+</li><li>如果本地事务执行成功，则想 mq 发送一条 confirm 消息，如果发送失败，则发送回滚消息
+</li><li>B 系统定期消费 mq 中的 confirm 消息，执行本地事务，并发送 ack 消息。如果 B 系统中的本地事务失败，会一直不断重试，如果是业务失败，会向 A 系统发起回滚请求
+</li><li>mq 会定期轮询所有 prepared 消息调用系统 A 提供的接口查询消息的处理情况，如果该 prepare 消息本地事务处理成功，则重新发送 confirm 消息，否则直接回滚该消息
+</li></ul>
+<p>该方案与本地消息最大的不同是去掉了本地消息表，其次本地消息表依赖消息表重试写入 mq 这一步由本方案中的轮询 prepare 消息状态来重试或者回滚该消息替代。其实现条件与余容错方案基本一致。目前市面上实现该方案的只有阿里的 RocketMq。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1101px; left:468.5px">
+                            <div class="section-title"><h3 id="id-555">尽最大努力通知</h3></div>
+                                <div class="section-body">
+                                    <p>最大努力通知是最简单的一种柔性事务，适用于一些最终一致性时间敏感度低的业务，且被动方处理结果 不影响主动方的处理结果。</p>
+<ul><li>系统 A 本地事务执行完之后，发送个消息到 MQ；
+</li><li>这里会有个专门消费 MQ 的服务，这个服务会消费 MQ 并调用系统 B 的接口；
+</li><li>要是系统 B 执行成功就 ok 了；要是系统 B 执行失败了，那么最大努力通知服务就定时尝试重新调用系统 B, 反复 N 次，最后还是不行就放弃。
+</li></ul>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 538px">
+                    <div class="h2-section-title"><h2 id="id-562">实例</h2></div>
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-557">两阶段提交/XA</h3></div>
+                                <div class="section-body">
+                                    <p>目前支付宝使用两阶段提交思想实现了分布式事务服务 (Distributed Transaction Service, DTS) ，它是一个分布式事务框架，用来保障在大规模分布式环境下事务的最终一致性。具体可参考<a title="支付宝官方文档" href="https://tech.antfin.com/docs/2/46887" target="_blank">支付宝官方文档</a>。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-558">TCC</h3></div>
+                                <div class="section-body">
+                                    <p>TCC 需要事务接口提供 try, confirm, cancel 三个接口，提高了编程的复杂性。依赖于业务方来配合提供这样的接口，推行难度大，所以一般不推荐使用这种方式。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 200px; left:0px">
+                            <div class="section-title"><h3 id="id-559">可靠消息最终一致性</h3></div>
+                                <div class="section-body">
+                                    <p>目前市面上支持该方案的 mq 只有阿里的 rocketmq, 该方案应用场景也比较多，比如用户注册成功后发送邮件、电商系统给用户发送优惠券等需要保证最终一致性的场景。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 200px; left:468.5px">
+                            <div class="section-title"><h3 id="id-560">本地消息表</h3></div>
+                                <div class="section-body">
+                                    <p>跨行转账可通过该方案实现。用户 A 向用户 B 发起转账，首先系统会扣掉用户 A 账户中的金额，将该转账消息写入消息表中，如果事务执行失败则转账失败，如果转账成功，系统中会有定时轮询消息表，往 mq 中写入转账消息，失败重试。mq 消息会被实时消费并往用户 B 中账户增加转账金额，执行失败会不断重试。</p>
+<p>小米海外商城用户订单数据状态变更，会将变更状态记录消息表中，脚本将订单状态消息写入 mq，最终消费 mq 给用户发送邮件、短信、push 等。</p>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 358px; left:0px">
+                <div class="section-title"><h3 id="id-561">最大努力通知</h3></div>
+                    <div class="section-body">
+                        <p>最大努力通知最常见的场景就是支付回调，支付服务收到第三方服务支付成功通知后，先更新自己库中订单支付状态，然后同步通知订单服务支付成功。如果此次同步通知失败，会通过异步脚步不断重试地调用订单服务的接口。</p>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H2" data-id="id-546" data-pid="">
+                        基础理论
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-539" data-pid="id-546">
+                        事务
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-540" data-pid="id-546">
+                        分布式事务
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-541" data-pid="id-546">
+                        一致性
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-542" data-pid="id-546">
+                        CAP 原则
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-543" data-pid="id-546">
+                        BASE 理论
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-544" data-pid="id-546">
+                        柔性事务
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-545" data-pid="id-546">
+                        幂等操作
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-550" data-pid="">
+                        使用场景
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-547" data-pid="id-550">
+                        转账
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-548" data-pid="id-550">
+                        下单扣库存
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-549" data-pid="id-550">
+                        同步超时
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-556" data-pid="">
+                        解决方案
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-551" data-pid="id-556">
+                        两阶段提交(2PC)
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-552" data-pid="id-556">
+                        TCC
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-553" data-pid="id-556">
+                        本地消息表
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-554" data-pid="id-556">
+                        可靠消息最终一致性
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-555" data-pid="id-556">
+                        尽最大努力通知
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-562" data-pid="">
+                        实例
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-557" data-pid="id-562">
+                        两阶段提交/XA
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-558" data-pid="id-562">
+                        TCC
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-559" data-pid="id-562">
+                        可靠消息最终一致性
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-560" data-pid="id-562">
+                        本地消息表
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-561" data-pid="id-562">
+                        最大努力通知
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

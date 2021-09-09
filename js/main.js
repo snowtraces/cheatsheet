@@ -3,11 +3,13 @@ let jsList = [
     './js/util/event-hub.js',
     './js/3rdparty/prism.js',
 
-
     './js/module/loading.js',
     './js/module/home.js',
     './js/module/cheatsheet.js',
     './js/module/nav.js',
+    './js/module/menu.js',
+
+    // './js/module/builder.js',
 ]
 
 let developModel = true;
@@ -53,3 +55,14 @@ window.onload = function () {
     syncLoad(cssList, loadCss)
     syncLoad(jsList, loadScript)
 }
+
+window.addEventListener("popstate", function (e) {
+    let path = window.location.href
+    let url_segs = path.split('/#/')
+    if (url_segs.length >= 2) {
+        let page = url_segs[1]
+        window.eventHub.emit('open-sheet', [page, false])
+    } else {
+        window.eventHub.emit('open-home')
+    }
+}, false);

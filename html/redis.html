@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>Redis<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 329px">
+                                
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-240">启动</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style="">./redis-server                      <span class="token comment"># 启动服务</span>
+./redis-server --daemonize <span class="token function">yes</span>      <span class="token comment"># 以守护进程运行</span>
+./redis-server --requirepass <span class="token operator">&lt;</span>pass<span class="token operator">&gt;</span> <span class="token comment"># 带密码启动</span>
+</code></pre>
+<h4>以配置文件方式启动</h4>
+<pre class=" language-bash"><code class=" language-bash" style="">./redis-server redis.conf <span class="token operator">&amp;</span> 
+
+<span class="token comment"># redis.conf</span>
+daemonize <span class="token function">yes</span>
+requirepass <span class="token operator">&lt;</span>pass<span class="token operator">&gt;</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="section-title"><h3 id="id-241">登录</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style="">./redis-cli           <span class="token comment"># 登录</span>
+./redis-cli -p <span class="token number">6379</span>   <span class="token comment"># 登录本机端口6379</span>
+
+:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> auth <span class="token operator">&lt;</span>pass<span class="token operator">&gt;</span>    <span class="token comment"># 密码认证</span>
+</code></pre>
+<h4>客户端参数</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>-h</code></td><td>主机</td></tr><tr><td><code>-p</code></td><td>端口</td></tr><tr><td><code>-a</code></td><td>密码 <i>命令行输入不安全</i></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 3354px">
+                    <div class="h2-section-title"><h2 id="id-250">操作</h2></div>
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-242">string（字符串）</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>APPEND</code> key value</td><td>追加</td></tr><tr><td><code>BITCOUNT</code> key [start] [end]</td><td>统计为1的位</td></tr><tr><td><code>BITOP</code> [AND|OR|NOT|XOR] key [key...]</td><td>按位操作</td></tr><tr><td><code>BITPOS</code> key bit [start] [end]</td><td>查找字符串中第一个设置为1或0的bit位</td></tr><tr><td><code>DECR</code> key</td><td>数字减1并返回</td></tr><tr><td><code>DECRBY</code> key value</td><td>数字减指定值并返回</td></tr><tr><td><code>GET</code> key</td><td>获取值</td></tr><tr><td><code>GETBIT</code> key offset</td><td>获取指定偏移量上的位(bit)</td></tr><tr><td><code>GETRANGE</code> key start end</td><td>字符串截取</td></tr><tr><td><code>GETSET</code> key value</td><td>设值，并返回旧值</td></tr><tr><td><code>INCR</code> key</td><td>数字值加一</td></tr><tr><td><code>INCRBY</code> key increment</td><td>数字值加上增量</td></tr><tr><td><code>INCRBYFLOAT</code> key increment</td><td>数字值加上浮点数增量</td></tr><tr><td><code>MGET</code> key [key ...]</td><td>返回所有给定 key 的值</td></tr><tr><td><code>MSET</code> key value [key value ...]</td><td>设置多个值</td></tr><tr><td><code>MSETNX</code> key value [key value ...]</td><td>如果不存在，设置多个值</td></tr><tr><td><code>PSETEX</code> key milliseconds value</td><td>设置过期时间 (毫秒)</td></tr><tr><td><code>SET</code> key value</td><td>设值</td></tr><tr><td><code>SETBIT</code> key offset value</td><td>设置指定偏移量上的位(bit)</td></tr><tr><td><code>SETEX</code> key seconds value</td><td>设置过期时间 (秒)</td></tr><tr><td><code>SETNX</code> key value</td><td>如果不存在，设值</td></tr><tr><td><code>SETRANGE</code> key offset value</td><td>从指定偏移量开始覆写值</td></tr><tr><td><code>STRLEN</code> key</td><td>获取长度</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-243">list（列表）</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>BLPOP</code> key [key ...] timeout</td><td>阻塞式(blocking)左侧弹出</td></tr><tr><td><code>BRPOP</code> key [key ...] timeout</td><td>阻塞式(blocking)右侧弹出</td></tr><tr><td><code>BRPOPLPUSH</code> source destination timeout</td><td>阻塞式的<code>RPOPLPUSH</code></td></tr><tr><td><code>LINDEX</code> key index</td><td>返回指定位置的值</td></tr><tr><td><code>LINSERT</code> key BEFORE|AFTER pivot value</td><td>插入到特定值的前/后</td></tr><tr><td><code>LLEN</code> key</td><td>列表长度</td></tr><tr><td><code>LPOP</code> key</td><td>左侧（头）弹出</td></tr><tr><td><code>LPUSH</code> key value [value ...]</td><td>值插入到列表头</td></tr><tr><td><code>LPUSHX</code> key value</td><td>列表存在时，值插入到列表头</td></tr><tr><td><code>LRANGE</code> key start stop</td><td>查询指定范围值</td></tr><tr><td><code>LREM</code> key count value</td><td>移除count个value<br>count&gt;0从头开始<br>count&lt;0从尾开始<br>count=0全部</td></tr><tr><td><code>LSET</code> key index value</td><td>指定位置设置值</td></tr><tr><td><code>LTRIM</code> key start stop</td><td>只保留指定范围值</td></tr><tr><td><code>RPOP</code> key</td><td>右侧（尾）弹出</td></tr><tr><td><code>RPOPLPUSH</code> source destination</td><td>source尾部弹出，destination头部插入</td></tr><tr><td><code>RPUSH</code> key value [value ...]</td><td>值插入到列尾部</td></tr><tr><td><code>RPUSHX</code> key value</td><td>列表存在时，值插入到列尾部</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 972px; left:468.5px">
+                            <div class="section-title"><h3 id="id-244">Client­/Server</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>AUTH</code> password</td><td>密码认证</td></tr><tr><td><code>ECHO</code> message</td><td>打印消息，用于测试</td></tr><tr><td><code>PING</code></td><td>测试连接</td></tr><tr><td><code>QUIT</code></td><td>关闭连接</td></tr><tr><td><code>SELECT</code> index</td><td>切换到指定的数据库</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1111px; left:0px">
+                            <div class="section-title"><h3 id="id-245">set（集合）</h3></div>
+                                <div class="section-body">
+                                    <p>显然，<code>set</code>会忽略重复元素</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>SADD</code> key member [member ...]</td><td>添加元素</td></tr><tr><td><code>SCARD</code> key</td><td>获取集合大小</td></tr><tr><td><code>SDIFF</code> key [key ...]</td><td>获取集合差集</td></tr><tr><td><code>SDIFFSTORE</code> destination key [key ...]</td><td>存储集合差集</td></tr><tr><td><code>SINTER</code> key [key ...]</td><td>获取集合交集</td></tr><tr><td><code>SINTERSTORE</code> destination key [key ...]</td><td>存储集合交集</td></tr><tr><td><code>SISMEMBER</code> key member</td><td>检查是否存在，返回0/1</td></tr><tr><td><code>SMEMBERS</code> key</td><td>获取所有元素</td></tr><tr><td><code>SMOVE</code> source destination member</td><td>集合间移动元素</td></tr><tr><td><code>SPOP</code> key</td><td>弹出一个随机元素</td></tr><tr><td><code>SRANDMEMBER</code> key</td><td>获取一个随机元素</td></tr><tr><td><code>SREM</code> key member [member ...]</td><td>移除匹配的元素</td></tr><tr><td><code>SSCAN</code></td><td>遍历</td></tr><tr><td><code>SUNION</code> key [key ...]</td><td>获取集合并集</td></tr><tr><td><code>SUNIONSTORE</code> destination key [key ...]</td><td>存储集合并集</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1240px; left:468.5px">
+                            <div class="section-title"><h3 id="id-246">database（数据库）</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>DEL</code> key [key ...]</td><td>删除指定对象</td></tr><tr><td><code>DUMP</code> key</td><td>序列化对象</td></tr><tr><td><code>EXISTS</code> key</td><td>检查是否存在</td></tr><tr><td><code>EXPIRE</code> key seconds</td><td>设值过期时间（秒）</td></tr><tr><td><code>EXPIREAT</code> key timestamp</td><td>设值过期时间点（秒 timestamp）</td></tr><tr><td><code>KEYS</code> pattern</td><td>获取符合模式的所有key</td></tr><tr><td><code>MIGRATE</code></td><td>redis实例间迁移数据</td></tr><tr><td><code>MOVE</code> key db</td><td>传输数据到指定数据库</td></tr><tr><td><code>OBJECT</code></td><td>内部检查项目</td></tr><tr><td><code>PERSIST</code> key</td><td>移除过期时间，持久化对象</td></tr><tr><td><code>PEXPIRE</code> key milliseconds</td><td>设值过期时间（毫秒）</td></tr><tr><td><code>PEXPIREAT</code> key timestamp</td><td>设值过期时间点（毫秒 timestamp）</td></tr><tr><td><code>PTTL</code> key</td><td>获取剩余生存时间（毫秒）</td></tr><tr><td><code>RANDOMKEY</code></td><td>随机返回一个key</td></tr><tr><td><code>RENAME</code> key newkey</td><td>改名</td></tr><tr><td><code>RENAMENX</code> key newkey</td><td>newkey不存在时，改名</td></tr><tr><td><code>RESTORE</code></td><td>反序列化</td></tr><tr><td><code>SCAN</code></td><td>遍历</td></tr><tr><td><code>SORT</code></td><td>返回排序后的副本</td></tr><tr><td><code>TTL</code> key</td><td>获取剩余生存时间（秒）</td></tr><tr><td><code>TYPE</code> key</td><td>返回值的类型</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1839px; left:0px">
+                            <div class="section-title"><h3 id="id-247">Script（脚本）</h3></div>
+                                <div class="section-body">
+                                    <p>redis支持<code>Lua</code>脚本</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>EVAL</code> script numkeys key [key ...] arg [arg ...]</td><td>运行</td></tr><tr><td><code>EVALSHA</code> sha1 numkeys key [key ...] arg [arg ...]</td><td>运行缓存脚本</td></tr><tr><td><code>SCRIPT EXISTS</code> script [script ...]</td><td>检查脚本是否已缓存</td></tr><tr><td><code>SCRIPT FLUSH</code></td><td>清除所有脚本缓存</td></tr><tr><td><code>SCRIPT KILL</code></td><td>杀死正在运行的脚本</td></tr><tr><td><code>SCRIPT LOAD</code> script</td><td>缓存脚本</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 2164px; left:468.5px">
+                            <div class="section-title"><h3 id="id-248">Hash（哈希表）</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>HDEL</code> key field [field ...]</td><td>移除指定的值</td></tr><tr><td><code>HEXISTS</code> key field</td><td>判断给定域是否存在</td></tr><tr><td><code>HGET</code> key field</td><td>获取指定域的值</td></tr><tr><td><code>HGETALL</code> key</td><td>获取所有的域和值</td></tr><tr><td><code>HINCRBY</code> key field increment</td><td>给定域加一</td></tr><tr><td><code>HINCRBYFLOAT</code> key field increment</td><td>给定域加指定值</td></tr><tr><td><code>HKEYS</code> key</td><td>获取所有域</td></tr><tr><td><code>HLEN</code> key</td><td>获取域数量</td></tr><tr><td><code>HMGET</code> key field [field ...]</td><td>获取多个域的值</td></tr><tr><td><code>HMSET</code> key field value [field value ...]</td><td>设值多个域的值</td></tr><tr><td><code>HSCAN</code></td><td>迭代</td></tr><tr><td><code>HSET</code> key field value</td><td>设值域和值</td></tr><tr><td><code>HSETNX</code>  key field value</td><td>如果域不存在，设值域和值</td></tr><tr><td><code>HVALS</code> key</td><td>获取所有域的值</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 2261px; left:0px">
+                <div class="section-title"><h3 id="id-249">SortedSet（有序集合）</h3></div>
+                    <div class="section-body">
+                        
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>ZADD</code> key score member [[score member] ...]</td><td>添加元素</td></tr><tr><td><code>ZCARD</code> key</td><td>获取集合数量</td></tr><tr><td><code>ZCOUNT</code> key min max</td><td>获取指定score间元素个数</td></tr><tr><td><code>ZINCRBY</code> key increment member</td><td>指定元素score加一</td></tr><tr><td><code>ZINTERSTORE</code></td><td>存储交集</td></tr><tr><td><code>ZLEXCOUNT</code> KEY MIN MAX</td><td>获取指定字典区间的元素个数</td></tr><tr><td><code>ZRANGE</code> key start stop [WITHSCORES]</td><td>获取指定下标区间内的成员</td></tr><tr><td><code>ZLEXRANGE</code> KEY MIN MAX</td><td>获取指定字典区间的元素</td></tr><tr><td><code>ZRANGEBYSCORE</code> key min max</td><td>获取指定score间的元素</td></tr><tr><td><code>ZRANK</code> key member</td><td>返回元素排名</td></tr><tr><td><code>ZREM</code> key member [member ...]</td><td>删除元素</td></tr><tr><td><code>ZREMRANGEBYLEX</code></td><td>删除指定字典区间的元素</td></tr><tr><td><code>ZREMRANGEBYRANK</code> key start stop</td><td>删除指定排名间的元素</td></tr><tr><td><code>ZREMRANGEBYSCORE</code> key min max</td><td>删除指定分数间的元素</td></tr><tr><td><code>ZREVRANGE</code>  key start stop [WITHSCORES]</td><td><code>ZRANGE</code> 逆序版本</td></tr><tr><td><code>ZREVRANGEBYSCORE</code></td><td><code>ZRANGE­BYSCORE</code>逆序版本</td></tr><tr><td><code>ZREVRANK</code> key member</td><td><code>ZRANK</code> 逆序版本</td></tr><tr><td><code>ZSCAN</code></td><td>迭代</td></tr><tr><td><code>ZSCORE</code> key member</td><td>获取score值</td></tr><tr><td><code>ZUNIONSTORE</code></td><td>存储并集</td></tr>
+                </tbody>
+            </table>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-240" data-pid="default">
+                        启动
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-241" data-pid="default">
+                        登录
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-250" data-pid="">
+                        操作
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-242" data-pid="id-250">
+                        string（字符串）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-243" data-pid="id-250">
+                        list（列表）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-244" data-pid="id-250">
+                        Client­/Server
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-245" data-pid="id-250">
+                        set（集合）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-246" data-pid="id-250">
+                        database（数据库）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-247" data-pid="id-250">
+                        Script（脚本）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-248" data-pid="id-250">
+                        Hash（哈希表）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-249" data-pid="id-250">
+                        SortedSet（有序集合）
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

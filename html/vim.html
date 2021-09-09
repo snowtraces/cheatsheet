@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>Vim<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 1665px">
+                                
+                                
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-94">退出</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>:w</code></td><td>保存</td></tr><tr><td><code>:wq</code> / <code>:x</code></td><td>保存并关闭</td></tr><tr><td><code>:q</code></td><td>关闭文件</td></tr><tr><td><code>:q!</code></td><td>关闭文件，放弃修改</td></tr><tr><td><code>:qa</code></td><td>关闭所有文件</td></tr><tr><td><code>:qa!</code></td><td>关闭所有文件，放弃修改</td></tr><tr><td><code>ZZ</code></td><td>保存并退出</td></tr><tr><td><code>ZQ</code></td><td>退出，且不检查变更</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-95">导航</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>h</code> <code>j</code> <code>k</code> <code>l</code></td><td>方向键</td></tr><tr><td><code>&lt;C-u&gt;</code> / <code>&lt;C-d&gt;</code></td><td>翻半页 上/下</td></tr><tr><td><code>&lt;C-b&gt;</code> / <code>&lt;C-f&gt;</code></td><td>翻一页 上/下</td></tr>
+                </tbody>
+            </table>
+<h4>单词</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>b</code> / <code>w</code></td><td>前一个/后一个 单词的开头</td></tr><tr><td><code>ge</code> / <code>e</code></td><td>前一个/后一个 单词的结尾</td></tr>
+                </tbody>
+            </table>
+<h4>行</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>0</code> <i>(零)</i></td><td>行开始</td></tr><tr><td><code>^</code></td><td>行开始 <i>(非空白处)</i></td></tr><tr><td><code>$</code></td><td>行结束</td></tr>
+                </tbody>
+            </table>
+<h4>字符</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>fx</code></td><td>下一个字符<code>x</code>处</td></tr><tr><td><code>Fx</code></td><td>上一个字符<code>x</code>处</td></tr>
+                </tbody>
+            </table>
+<h4>文档</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>gg</code></td><td>第一行</td></tr><tr><td><code>G</code></td><td>最后一行</td></tr><tr><td><code>:n</code></td><td>跳转到第 <code>n</code> 行</td></tr><tr><td><code>nG</code></td><td>跳转到第 <code>n</code> 行</td></tr>
+                </tbody>
+            </table>
+<h4>窗口</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>zz</code></td><td>居中本行</td></tr><tr><td><code>zt</code></td><td>置顶本行</td></tr><tr><td><code>zb</code></td><td>置尾本行</td></tr><tr><td><code>H</code></td><td>移动到窗口首行</td></tr><tr><td><code>M</code></td><td>移动到窗口中间</td></tr><tr><td><code>L</code></td><td>移动到窗口尾行</td></tr>
+                </tbody>
+            </table>
+<h4>查找</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>n</code></td><td>下一个匹配项</td></tr><tr><td><code>N</code></td><td>上一个匹配项</td></tr><tr><td><code>*</code></td><td>当前光标所在单词的下一匹配项</td></tr><tr><td><code>#</code></td><td>当前光标所在单词的上一匹配项</td></tr>
+                </tbody>
+            </table>
+<h4>Tab页</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>:tabedit [file]</code></td><td>在新tab页中编辑文件</td></tr><tr><td><code>:tabfind [file]</code></td><td>文件若存在，则在新标签中打开</td></tr><tr><td><code>:tabclose</code></td><td>关闭当前tab</td></tr><tr><td><code>:tabs</code></td><td>列出所有tab</td></tr><tr><td><code>:tabfirst</code></td><td>跳转到第一个tab</td></tr><tr><td><code>:tablast</code></td><td>跳转到最后一个tab</td></tr><tr><td><code>:tabn</code></td><td>跳转到下一个tab</td></tr><tr><td><code>:tabp</code></td><td>跳转到上一个tab</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-96">编辑</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>a</code></td><td>在光标后插入</td></tr><tr><td><code>A</code></td><td>在行尾插入</td></tr><tr><td><code>i</code></td><td>插入模式</td></tr><tr><td><code>o</code></td><td>在当前行后插入一个新行</td></tr><tr><td><code>O</code></td><td>在当前行前插入一个新行</td></tr><tr><td><code>s</code></td><td>删除当前字符，并开启插入模式</td></tr><tr><td><code>S</code></td><td>删除当前行，并开启插入模式</td></tr><tr><td><code>C</code></td><td>删除至行尾，并开启插入模式</td></tr><tr><td><code>r</code></td><td>替换一个字符</td></tr><tr><td><code>R</code></td><td>开启替换模式</td></tr><tr><td><code>u</code></td><td>撤销</td></tr><tr><td><code>&lt;C-R&gt;</code></td><td>重做</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 391px; left:0px">
+                            <div class="section-title"><h3 id="id-97">退出插入模式</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>Esc</code> / <code>&lt;C-[&gt;</code></td><td>退出插入模式</td></tr><tr><td><code>&lt;C-C&gt;</code></td><td>退出插入模式，并放弃当前命令</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 555px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-98">剪贴板</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>x</code></td><td>删除当前字符</td></tr><tr><td><code>dd</code></td><td>删除当前行 <i>(剪切)</i></td></tr><tr><td><code>yy</code></td><td>复制当前行 <i>(复制)</i>，等于 <code>ddp</code></td></tr><tr><td><code>p</code></td><td>粘贴</td></tr><tr><td><code>P</code></td><td>粘贴在当前位置之前</td></tr><tr><td><code>"*p</code> / <code>"+p</code></td><td>从系统剪贴板进行粘贴</td></tr><tr><td><code>"*y</code> / <code>"+y</code></td><td>粘贴到系统剪贴板</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 557px; left:0px">
+                            <div class="section-title"><h3 id="id-99">视觉模式</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>v</code></td><td>进入视觉模式</td></tr><tr><td><code>V</code></td><td>进入行视觉模式</td></tr><tr><td><code>&lt;C-V&gt;</code></td><td>进入块视觉模式</td></tr>
+                </tbody>
+            </table>
+<h4>在视觉模式中</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>d</code> / <code>x</code></td><td>删除选区内容</td></tr><tr><td><code>s</code></td><td>替换选取内容</td></tr><tr><td><code>y</code></td><td>复制当前行 <i>(复制)</i></td></tr>
+                </tbody>
+            </table>
+<p>更多操作可以参考 <a title="Operators" href="#操作指令" target="_blank">Operators</a></p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 515px">
+                                <div class="h2-section-title"><h2 id="id-103">操作指令</h2></div>
+                                
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-100">使用</h3></div>
+                                <div class="section-body">
+                                    <p>这些在正常模式下执行，根据<i>指令范围</i>不同，操作指定能操作一定区域的文本。</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>d</code></td><td><code>w</code></td></tr><tr><td>操作指令</td><td>指令范围</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-101">操作指令列表</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>d</code></td><td>删除</td></tr><tr><td><code>y</code></td><td>复制</td></tr><tr><td><code>c</code></td><td>变更 <i>(先删除载插入)</i></td></tr><tr><td><code>&gt;</code></td><td>向右缩进</td></tr><tr><td><code>&lt;</code></td><td>向左使劲</td></tr><tr><td><code>=</code></td><td>自动缩进</td></tr><tr><td><code>g~</code></td><td>转换大小写</td></tr><tr><td><code>gU</code></td><td>大写</td></tr><tr><td><code>gu</code></td><td>小写</td></tr><tr><td><code>!</code></td><td>通过外部程序过滤</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-102">示例</h3></div>
+                                <div class="section-body">
+                                    <p>结合<i>指令范围</i>来应用操作指令。</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>d</code><i>d</i></td><td><i>(重复字母)</i> 删除当前行</td></tr><tr><td><code>d</code><i>w</i></td><td>删除下一个单词</td></tr><tr><td><code>d</code><i>b</i></td><td>删除到单词开头</td></tr><tr><td><i>2</i><code>dd</code></td><td>删除两行</td></tr><tr><td><code>d</code><i>ip</i></td><td>删除文本对象 <i>(段落内部)</i></td></tr><tr><td><i>(在视觉模式下)</i> <code>d</code></td><td>删除选区内容</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 489px">
+                                <div class="h2-section-title"><h2 id="id-108">文本对象</h2></div>
+                                
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-104">使用</h3></div>
+                                <div class="section-body">
+                                    <p>文本对象使您可以在文本块中或周围进行操作（使用<i>操作指令</i>）。</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>v</code></td><td><code>i</code></td><td><code>p</code></td></tr><tr><td>操作指令</td><td>范围 [i]nside or [a]round</td><td>文本对象</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-105">文本对象</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>p</code></td><td>段落</td></tr><tr><td><code>w</code></td><td>单词</td></tr><tr><td><code>s</code></td><td>句子</td></tr><tr><td><code>[</code> <code>(</code> <code>{</code> <code>&lt;</code></td><td>[], (), 或 {} 区块</td></tr><tr><td><code>'</code> <code>"</code> <code><code></code></code></td><td>引用字符串</td></tr><tr><td><code>b</code></td><td>[( 块</td></tr><tr><td><code>B</code></td><td>[{ 中的块</td></tr><tr><td><code>t</code></td><td>XML 标签块</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-106">Examples</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>vip</code></td><td>选择段落</td></tr><tr><td><code>vipipipip</code></td><td>选择更多</td></tr><tr><td><code>yip</code></td><td>复制内部段落</td></tr><tr><td><code>yap</code></td><td>复制段落 (包括新行)</td></tr><tr><td><code>dip</code></td><td>删除内部段落</td></tr><tr><td><code>cip</code></td><td>更改内部段落</td></tr>
+                </tbody>
+            </table>
+<p>See <a title="Operators" href="#操作指令" target="_blank">Operators</a> for other things you can do.</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 280px; left:0px">
+                            <div class="section-title"><h3 id="id-107">Diff</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>gvimdiff file1 file2 [file3]</code></td><td>See differences between files, in HMI</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 2422px">
+                                <div class="h2-section-title"><h2 id="id-123">杂项</h2></div>
+                                
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-109">折叠</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>zo</code> / <code>zO</code></td><td>打开当前折叠</td></tr><tr><td><code>zc</code> / <code>zC</code></td><td>折叠当前行</td></tr><tr><td><code>za</code> / <code>zA</code></td><td>转换折叠状态</td></tr><tr><td><code>zv</code></td><td>查看此行</td></tr><tr><td><code>zM</code></td><td>关闭所有</td></tr><tr><td><code>zR</code></td><td>打开所有</td></tr><tr><td><code>zm</code></td><td>折叠更多 <i>(折叠层级 += 1)</i></td></tr><tr><td><code>zr</code></td><td>折叠更少 <i>(折叠层级 -= 1)</i></td></tr><tr><td><code>zx</code></td><td>更新折叠</td></tr>
+                </tbody>
+            </table>
+<p>大写的是递归操作 (例如, <code>zO</code> 是递归打开).</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-110">导航</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>%</code></td><td>最近/匹配 <code>{[()]}</code></td></tr><tr><td><code>[(</code> <code>[{</code> <code>[&lt;</code></td><td>上一个 <code>(</code> 或 <code>{</code> 或 <code>&lt;</code></td></tr><tr><td><code>])</code></td><td>下一个</td></tr><tr><td><code>[m</code></td><td>上一个方法开始</td></tr><tr><td><code>[M</code></td><td>上一个方法结束</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-111">跳转</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>&lt;C-O&gt;</code></td><td>返回上一个光标位置</td></tr><tr><td><code>&lt;C-I&gt;</code></td><td>跳转下一个光标位置</td></tr><tr><td><code>gf</code></td><td>跳转到光标中的文件</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 228px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-112">计数器</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>&lt;C-A&gt;</code></td><td>+1</td></tr><tr><td><code>&lt;C-X&gt;</code></td><td>-1</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 310px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-113">窗口</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>z{height}&lt;Cr&gt;</code></td><td>将窗格调整为高<code>{height}</code>行</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 373px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-114">标签</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>:tag Classname</code></td><td>跳转到第一个定义为Classname处</td></tr><tr><td><code>&lt;C-]&gt;</code></td><td>跳转到定义</td></tr><tr><td><code>g]</code></td><td>查看所有定义</td></tr><tr><td><code>&lt;C-T&gt;</code></td><td>返回上一个标签</td></tr><tr><td><code>&lt;C-O&gt; &lt;C-I&gt;</code></td><td>后退/前进</td></tr><tr><td><code>:tselect Classname</code></td><td>查找Classname的定义</td></tr><tr><td><code>:tjump Classname</code></td><td>查找Classname的定义 (自动选择第一个)</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 436px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-115">大小写</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>~</code></td><td>大小写转换 (Case =&gt; cASE)</td></tr><tr><td><code>gU</code></td><td>大写</td></tr><tr><td><code>gu</code></td><td>小写</td></tr><tr><td><code>gUU</code></td><td>大写当前行 (== <code>gUgU</code>)</td></tr><tr><td><code>guu</code></td><td>小写当前行 (== <code>gugu</code>)</td></tr>
+                </tbody>
+            </table>
+<p>正常模式和视觉模式均可使用</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 524px; left:0px">
+                            <div class="section-title"><h3 id="id-116">标记</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code><code>^</code></code></td><td>插入模式下光标的最后位置</td></tr><tr><td><code><code>.</code></code></td><td>当前缓冲区的最后更改</td></tr><tr><td><code><code>"</code></code></td><td>最后退出的当前缓冲区</td></tr><tr><td><code><code>0</code></code></td><td>在上次编辑的文件中</td></tr><tr><td><code>''</code></td><td>返回当前缓冲区中从哪里跳到的行</td></tr><tr><td><code><code></code></code></td><td>返回当前缓冲区的位置</td></tr><tr><td><code><code>[</code></code></td><td>到先前更改或粘贴的文本的开头</td></tr><tr><td><code><code>]</code></code></td><td>结束先前更改或粘贴的文本</td></tr><tr><td><code><code>&lt;</code></code></td><td>到最后一次视觉选择的开始</td></tr><tr><td><code><code>&gt;</code></code></td><td>结束最后的视觉选择</td></tr><tr><td><code>ma</code></td><td>将此光标位置标记为a</td></tr><tr><td><code><code>a</code></code></td><td>跳到光标位置a</td></tr><tr><td><code>'a</code></td><td>跳转到位置为<code>a</code>的行的开头</td></tr><tr><td><code>d'a</code></td><td>从当前行中删除标记 <code>a</code> 的行</td></tr><tr><td><code>d<code>a</code></code></td><td>从当前位置删除到标记a的位置</td></tr><tr><td><code>c'a</code></td><td>将文本从当前行更改为<code>a</code>行</td></tr><tr><td><code>y<code>a</code></code></td><td>将文本从当前位置复制到a的位置</td></tr><tr><td><code>:marks</code></td><td>列出所有当前标记</td></tr><tr><td><code>:delm a</code></td><td>删除标记 <code>a</code></td></tr><tr><td><code>:delm a-d</code></td><td>删除标记 <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code></td></tr><tr><td><code>:delm abc</code></td><td>删除标记 <code>a</code>, <code>b</code>, <code>c</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 754px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-117">杂项</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>.</code></td><td>重复上一条命令</td></tr><tr><td><code>]p</code></td><td>在当前缩进级别下粘贴</td></tr><tr><td><code>:set ff=unix</code></td><td>将Windows行尾转换为Unix行尾（<code>CRLF</code> =&gt; <code>LF</code>）</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 831px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-118">命令行</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>&lt;C-R&gt;&lt;C-W&gt;</code></td><td>将当前单词插入命令行</td></tr><tr><td><code>&lt;C-R&gt;"</code></td><td>从“寄存器”粘贴</td></tr><tr><td><code>&lt;C-X&gt;&lt;C-F&gt;</code></td><td>在插入模式下自动补全路径</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 987px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-119">文本对齐</h3></div>
+                                <div class="section-body">
+                                    <pre class="language- language-none"><code class="language- language-none" style="">:center [width]
+:right [width]
+:left
+</code></pre>
+<p>// TODO</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 1017px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-120">计算</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>&lt;C-R&gt;=128/2</code></td><td>显示除法结果 '64'</td></tr>
+                </tbody>
+            </table>
+<p>在插入模式中使用。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 1171px; left:624.6666666666666px">
+                            <div class="section-title"><h3 id="id-121">错误退出</h3></div>
+                                <div class="section-body">
+                                    <pre class="language- language-none"><code class="language- language-none" style="">:cq
+:cquit
+</code></pre>
+<p>与<code>:qa</code>类似，但是会引发错误。非常适合中止Git命令。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 292.3333333333333px;top: 1187px; left:312.3333333333333px">
+                            <div class="section-title"><h3 id="id-122">拼写检查</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Shortcut</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>:set spell spelllang = zh_CN</code></td><td>打开美国英语拼写检查</td></tr><tr><td><code>]s</code></td><td>光标后移至下一个拼错的单词</td></tr><tr><td><code>[s</code></td><td>移至光标之前的上一个拼写错误的单词</td></tr><tr><td><code>z=</code></td><td>在光标下方/之后建议拼写该单词</td></tr><tr><td><code>zg</code></td><td>在单词列表中添加单词</td></tr><tr><td><code>zw</code></td><td>将单词标记为错误/拼写错误</td></tr><tr><td><code>zu</code> / <code>C-X (Insert Mode)</code></td><td>光标处错误单词的拼写建议</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 168px">
+                    <div class="h2-section-title"><h2 id="id-125">更多</h2></div>
+                    
+                <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                <div class="section-title"><h3 id="id-124"></h3></div>
+                    <div class="section-body">
+                        <ul><li><a title="Vim cheatsheet" href="https://vim.rtorr.com/" target="_blank">Vim cheatsheet</a> <i>(vim.rotrr.com)</i>
+</li><li><a title="Vim documentation" href="http://vimdoc.sourceforge.net/htmldoc/" target="_blank">Vim documentation</a> <i>(vimdoc.sourceforge.net)</i>
+</li><li><a title="Interactive Vim tutorial" href="http://openvim.com/" target="_blank">Interactive Vim tutorial</a> <i>(openvim.com)</i>
+</li></ul>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-94" data-pid="default">
+                        退出
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-95" data-pid="default">
+                        导航
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-96" data-pid="default">
+                        编辑
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-97" data-pid="default">
+                        退出插入模式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-98" data-pid="default">
+                        剪贴板
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-99" data-pid="default">
+                        视觉模式
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-103" data-pid="">
+                        操作指令
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-100" data-pid="id-103">
+                        使用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-101" data-pid="id-103">
+                        操作指令列表
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-102" data-pid="id-103">
+                        示例
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-108" data-pid="">
+                        文本对象
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-104" data-pid="id-108">
+                        使用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-105" data-pid="id-108">
+                        文本对象
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-106" data-pid="id-108">
+                        Examples
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-107" data-pid="id-108">
+                        Diff
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-123" data-pid="">
+                        杂项
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-109" data-pid="id-123">
+                        折叠
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-110" data-pid="id-123">
+                        导航
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-111" data-pid="id-123">
+                        跳转
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-112" data-pid="id-123">
+                        计数器
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-113" data-pid="id-123">
+                        窗口
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-114" data-pid="id-123">
+                        标签
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-115" data-pid="id-123">
+                        大小写
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-116" data-pid="id-123">
+                        标记
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-117" data-pid="id-123">
+                        杂项
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-118" data-pid="id-123">
+                        命令行
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-119" data-pid="id-123">
+                        文本对齐
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-120" data-pid="id-123">
+                        计算
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-121" data-pid="id-123">
+                        错误退出
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-122" data-pid="id-123">
+                        拼写检查
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-125" data-pid="">
+                        更多
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

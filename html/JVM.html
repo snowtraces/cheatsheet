@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>JVM<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 772px">
+                                <div class="h2-section-title"><h2 id="id-473">Java 基本类型</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-469"></h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 引进了八个基本类型，来支持数值计算。<code>Java</code> 这么做的原因主要是工程上的考虑，因为使用基本类型能够在执行效率以及内存使用两方面提升软件性能。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-470"><code>Java</code> 虚拟机的 <code>boolean</code> 类型</h3></div>
+                                <div class="section-body">
+                                    <p>在 <code>Java</code> 虚拟机规范中，<code>boolean</code> 类型则被映射成 <code>int</code> 类型。具体来说，“<code>true</code>”被映射为整数 1，而“<code>false</code>”被映射为整数 0。这个编码规则约束了 <code>Java</code> 字节码的具体实现。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 161px; left:0px">
+                            <div class="section-title"><h3 id="id-471"><code>Java</code> 的基本类型</h3></div>
+                                <div class="section-body">
+                                    <p>除了 <code>boolean</code> 类型外，<code>Java</code> 的基本类型还包括整数类型 <code>byte</code>、<code>short</code>、<code>char</code>、<code>int</code> 和 <code>long</code>，以及浮点类型 <code>float</code> 和 <code>double</code>。</p>
+
+            <table>
+                <thead class="">
+                    <tr>
+                        <th>类型</th><th>值域</th><th>默认值</th><th>虚拟机内部符号</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>boolean</td><td>{false,true}</td><td>false</td><td>Z</td></tr><tr><td>byte</td><td>[-128,127]</td><td>0</td><td>B</td></tr><tr><td>short</td><td>[-32768,32767]</td><td>0</td><td>S</td></tr><tr><td>char</td><td>[0,65535]</td><td><code>\u0000</code></td><td>C</td></tr><tr><td>int</td><td>[-2^31, 2^31-1]</td><td>0</td><td>I</td></tr><tr><td>long</td><td>[-2^63, 2^63-1]</td><td>0</td><td>J</td></tr><tr><td>float</td><td>~[-3.4E38,3.4E38]</td><td>+0.0F</td><td>F</td></tr><tr><td>double</td><td>~[-1.8E308,1.8E308]</td><td>+0.0D</td><td>D</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 202px; left:468.5px">
+                            <div class="section-title"><h3 id="id-472"><code>Java</code> 基本类型的大小</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 虚拟机每调用一个 <code>Java</code> 方法，便会创建一个栈帧。为了方便理解，这里我只讨论供解释器使用的解释栈帧（<code>interpreted frame</code>）。</p>
+<p>这种栈帧有两个主要的组成部分，分别是局部变量区，以及字节码的操作数栈。</p>
+<p>在 <code>Java</code> 虚拟机规范中，局部变量区等价于一个数组，并且可以用正整数来索引。除了 <code>long</code>、<code>double</code> 值需要用两个数组单元来存储之外，其他基本类型以及引用类型的值均占用一个数组单元。</p>
+<p>也就是说，<code>boolean</code>、<code>byte</code>、<code>char</code>、<code>short</code> 这四种类型，在栈上占用的空间和 <code>int</code> 是一样的，和引用类型也是一样的。因此，在 32 位的 <code>HotSpot</code> 中，这些类型在栈上将占用 4 个字节；而在 64 位的 <code>HotSpot</code> 中，他们将占 8 个字节。</p>
+<p>在 <code>HotSpot</code> 中，<code>boolean</code> 字段占用一字节，而 <code>boolean</code> 数组则直接用 <code>byte</code> 数组来实现。为了保证堆中的 <code>boolean</code> 值是合法的，<code>HotSpot</code> 在存储时显式地进行掩码操作，也就是说，只取最后一位的值存入 <code>boolean</code> 字段或数组中。</p>
+<p><code>Java</code> 虚拟机的算数运算几乎全部依赖于操作数栈。也就是说，我们需要将堆中的 <code>boolean</code>、<code>byte</code>、<code>char</code> 以及 <code>short</code> 加载到操作数栈上，而后将栈上的值当成 <code>int</code> 类型来运算。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 656px">
+                                <div class="h2-section-title"><h2 id="id-477">方法</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-474">方法调用</h3></div>
+                                <div class="section-body">
+                                    <p><em>静态绑定</em>指的是在解析时便能够直接识别目标方法的情况，而<em>动态绑定</em>则指的是需要在运行过程中根据调用者的动态类型来识别目标方法的情况。<code>Java</code> 字节码中与调用相关的指令共有五种：</p>
+<ul><li><em>invokestatic</em>:用于调用静态方法。
+</li><li><em>invokespecial</em>:用于调用私有实例方法、构造器,以及使用 <code>super</code> 关键字调用父类的实例方法或构造器,和所实现接口的默认方法。
+</li><li><em>invokevirtual</em>:用于调用非私有实例方法。
+</li><li><em>invokeinterface</em>:用于调用接口方法。
+</li><li><em>invokedynamic</em>:用于调用动态方法。
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-475">虚方法调用</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 里所有<em>非私有实例方法</em>调用都会被编译成 <code>invokevirtual</code> 指令,而<em>接口方法</em>调用都会被编译成 <code>invokeinterface</code> 指令。这两种指令，均属于 <code>Java</code> 虚拟机中的虚方法调用。</p>
+<p>在绝大多数情况下，<code>Java</code> 虚拟机需要根据调用者的动态类型，来确定虚方法调用的目标方法。这个过程我们称之为动态绑定。那么，相对于静态绑定的非虚方法调用来说，虚方法调用更加耗时。静态绑定包括以下几种：</p>
+<ul><li>调用静态方法的 <code>invokestatic</code> 指令
+</li><li>调用构造器、私有实例方法以及超类非私有实例方法的 <code>invokespecial</code> 指令
+</li><li>虚方法调用指向一个标记为 <code>final</code> 的方法
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 346px; left:0px">
+                            <div class="section-title"><h3 id="id-476">方法表</h3></div>
+                                <div class="section-body">
+                                    <p>方法表本质上是一个数组，每个数组元素指向一个当前类及其祖先类中非私有的实例方法。这些方法可能是具体的、可执行的方法，也可能是没有相应字节码的抽象方法。方法表满足两个特质:</p>
+<ul><li>其一，子类方法表中包含父类方法表中的所有方法
+</li><li>其二，子类方法在方法表中的索引值，与它所重写的父类方法的索引值相同
+</li></ul>
+<p>在执行过程中，<code>Java</code> 虚拟机将获取调用者的实际类型，并在该实际类型的虚方法表中，根据索引值获得目标方法。这个过程便是动态绑定。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 623px">
+                                <div class="h2-section-title"><h2 id="id-482">异常处理</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-478">异常的基本概念</h3></div>
+                                <div class="section-body">
+                                    <p>在<code>java</code>语言规范中，所有异常都是 <code>Throwable</code> 类或者其子类的实例。<code>Throwable</code> 有两大直接子类:</p>
+<ul><li><em>Error</em> 涵盖程序不应捕获的异常。当程序触发 <code>Error</code> 时,它的执行状态已经无法恢复，需要中止线程甚至是中止虚拟机。
+</li><li><em>Exception</em> 涵盖程序可能需要捕获并且处理的异常。
+</li></ul>
+<p><code>Exception</code> 有一个特殊的子类 <code>RuntimeException</code>，用来表示<em>程序虽然无法继续执行,但是还能抢救一下</em>的情况。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-479">异常分类</h3></div>
+                                <div class="section-body">
+                                    <h4><em>非检查异常(unchecked exception)</em></h4>
+<p><code>RuntimeException</code> 和 <code>Error</code> 属于 <code>Java</code> 里的非检查异常(<code>unchecked exception</code>)</p>
+<h4><em>检查异常(checked exception)</em></h4>
+<p>其他异常则属于检查异常(<code>checked exception</code>)，在 <code>Java</code> 语法中所有的检查异常都需要程序显式地捕获，或者在方法声明中用 <code>throws</code> 关键字标注。</p>
+<p>通常情况下，程序中自定义的异常应为检查异常，以便最大化利用 <code>Java</code> 编译器的编译时检查。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 331px; left:0px">
+                            <div class="section-title"><h3 id="id-480">异常捕获</h3></div>
+                                <div class="section-body">
+                                    <p>在编译生成的字节码中，每个方法都附带一个异常表。异常表中的每一个条目代表一个异常处理器，并且由 <code>from</code> 指针、<code>to</code> 指针、<code>target</code> 指针以及所捕获的异常类型构成。这些指针的值是字节码索引（<code>bytecode index</code>，<code>bci</code>），用以定位字节码。</p>
+<p><code>finally</code> 代码块的编译比较复杂。当前版本 <code>Java</code> 编译器的做法，是复制 <code>finally</code> 代码块的内容，分别放在 <code>try-catch</code> 代码块所有正常执行路径以及异常执行路径的出口中。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 404px; left:468.5px">
+                            <div class="section-title"><h3 id="id-481"> <code>try-with-resources</code></h3></div>
+                                <div class="section-body">
+                                    <p><code>Java 7</code> 专门构造了一个名为 <code>try-with-resources</code> 的语法糖，在字节码层面自动使用 <code>Supressed</code> 异常。当然，该语法糖的主要目的并不是使用 <code>Supressed</code> 异常，而是精简资源打开关闭的用法。</p>
+<p>程序可以在 <code>try</code> 关键字后声明并实例化实现了 <code>AutoCloseable</code> 接口的类，编译器将自动添加对应的 <code>close()</code> 操作。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1380px">
+                                <div class="h2-section-title"><h2 id="id-486">工具</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-483"><code>javap</code>：查阅 <code>Java</code> 字节码</h3></div>
+                                <div class="section-body">
+                                    <p><code>javap</code> 是一个能够将 <code>class</code> 文件反汇编成人类可读格式的工具。常见参数如下：</p>
+<ul><li><em>-p</em> 默认情况下 <code>javap</code> 会打印所有非私有的字段和方法，当加了 <code>-p</code> 选项后，它还将打印私有的字段和方法
+</li><li><em>-v</em> 可能地打印所有信息。如果你只需要查阅方法对应的字节码，那么可以用 <code>-c</code> 选项来替换 <code>-v</code>
+</li></ul>
+<p><code>javap</code> 的 -v 选项的输出分为几大块：</p>
+<h4><em>1. 基本信息，涵盖了原 class 文件的相关信息</em></h4>
+<ul><li><code>class</code> 文件的版本号（<code>minor version</code> / <code>major version</code>）
+</li><li>该类的访问权限（<code>flags</code>）
+</li><li>该类（<code>this_class</code>）以及父类（<code>super_class</code>）的名字，
+</li><li>所实现接口（<code>interfaces</code>）、字段（<code>fields</code>）、方法（<code>methods</code>）以及属性（<code>attributes</code>）的数目。
+</li></ul>
+<h4><em>2. 常量池，用来存放各种常量以及符号引用</em></h4>
+<p>常量池中的每一项都有一个对应的索引（如 #1），并且可能引用其他的常量池项（#<code>1 = Methodref xx</code>）</p>
+<h4><em>3. 字段区域，用来列举该类中的各个字段</em></h4>
+<p>这里最主要的信息便是该字段的类型（<code>descriptor</code>）以及访问权限（<code>flags</code>）。对于声明为 <code>final</code> 的静态字段而言，如果它是基本类型或者字符串类型，那么字段区域还将包括它的常量值。</p>
+<h4><em>4. 方法区域，用来列举该类中的各个方法</em></h4>
+<p>除了方法描述符以及访问权限之外，每个方法还包括最为重要的代码区域（<code>Code</code>)。</p>
+<p>代码区域一开始会声明该方法中的操作数栈（<code>stack</code>）和局部变量数目（<code>locals</code>）的最大值，以及该方法接收参数的个数（<code>args_size</code>）。注意这里局部变量指的是字节码中的局部变量，而非 <code>Java</code> 程序中的局部变量。</p>
+<p>接下来则是该方法的字节码。每条字节码均标注了对应的偏移量（<code>bytecode index</code>，<code>BCI</code>），这是用来定位字节码的。比如说偏移量为 10 的跳转字节码 10: <code>goto 35</code>，将跳转至偏移量为 35 的字节码 35: <code>aload_0</code>。</p>
+<p>紧跟着的异常表（<code>Exception table</code>）也会使用偏移量来定位每个异常处理器所监控的范围（由 <code>from</code> 到 <code>to</code> 的代码区域），以及异常处理器的起始位置（<code>target</code>）。除此之外，它还会声明所捕获的异常类型（<code>type</code>）。其中，<code>any</code> 指代任意异常类型。</p>
+<p>再接下来的行数表（<code>LineNumberTable</code>）则是 <code>Java</code> 源程序到字节码偏移量的映射。如果你在编译时使用了 <code>-g</code> 参数（<code>javac -g</code>），那么这里还将出现局部变量表（<code>LocalVariableTable</code>），展示 <code>Java</code> 程序中每个局部变量的名字、类型以及作用域。行数表和局部变量表均属于调试信息。<code>Java</code> 虚拟机并不要求 <code>class</code> 文件必备这些信息。</p>
+<p>最后则是字节码操作数栈的映射表（<code>StackMapTable</code>: <code>number_of_entries</code>）。该表描述的是字节码跳转后操作数栈的分布情况，一般被 <code>Java</code> 虚拟机用于验证所加载的类，以及即时编译相关的一些操作。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-484"><code>OpenJDK</code> 项目 <code>Code Tools</code>：实用小工具集</h3></div>
+                                <div class="section-body">
+                                    <ul><li><code>ASMTools</code> 反汇编以及汇编操作
+</li><li><code>JOL</code> 查阅 <code>Java</code> 虚拟机中对象的内存分布
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 168px; left:468.5px">
+                            <div class="section-title"><h3 id="id-485"><code>ASM</code>：<code>Java</code> 字节码框架</h3></div>
+                                <div class="section-body">
+                                    <p><code>ASM</code>是一个字节码分析及修改框架。它被广泛应用于许多项目之中，甚至是 <code>Java 8</code> 中 <code>Lambda</code> 表达式的适配器类，也是借助 <code>ASM</code> 来动态生成的。</p>
+<p><code>ASM</code> 既可以生成新的 <code>class</code> 文件，也可以修改已有的 <code>class</code> 文件。前者相对比较简单一些。<code>ASM</code> 甚至还提供了一个辅助类 <code>ASMifier</code>，它将接收一个 <code>class</code> 文件并且输出一段生成该 <code>class</code> 文件原始字节数组的代码。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 551px">
+                                <div class="h2-section-title"><h2 id="id-490">反射</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-487"></h3></div>
+                                <div class="section-body">
+                                    <p>反射是 <code>Java</code> 语言中一个相当重要的特性，它允许正在运行的 <code>Java</code> 程序观测，甚至是修改程序的动态行为。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-488">反射调用的实现</h3></div>
+                                <div class="section-body">
+                                    <p>反射调用，也就是 <code>Method.invoke</code>，委派给 <code>MethodAccessor</code> 来处理。<code>MethodAccessor</code> 是一个接口，它有两个已有的具体实现：一个通过本地方法来实现反射调用，另一个则使用了委派模式。</p>
+<p>每个 <code>Method</code> 实例的第一次反射调用都会生成一个委派实现，它所委派的具体实现便是一个本地实现。本地实现非常容易理解。当进入了 <code>Java</code> 虚拟机内部之后，我们便拥有了 <code>Method</code> 实例所指向方法的具体地址。这时候，反射调用无非就是将传入的参数准备好，然后调用进入目标方法。</p>
+<p>反射调用先调用 <code>Method.invoke</code>，然后进入委派实现<code>DelegatingMethodAccessorImpl</code>，再进入本地实现<code>NativeMethodAccessorImpl</code>，最后到达目标方法。</p>
+<p>这里你可能会疑问，为什么反射调用还要采取委派实现作为中间层？直接交给本地实现不可以么？</p>
+<p>其实，<code>Java</code> 的反射调用机制还设立了另一种动态生成字节码的实现（下称动态实现），直接使用 <code>invoke</code> 指令来调用目标方法。之所以采用委派实现，便是为了能够在本地实现以及动态实现中切换。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 139px; left:0px">
+                            <div class="section-title"><h3 id="id-489">反射调用的开销</h3></div>
+                                <div class="section-body">
+                                    <p>动态实现和本地实现相比，其效率要快上 20 倍。这是因为动态实现无需经过 <code>Java -&gt; C++ -&gt; Java</code> 的切换，但由于生成字节码十分耗时，仅调用一次的话，反而是本地实现要快上 3 到 4 倍。<code>Java</code> 虚拟机设置了一个阈值 15（可以通过 <code>-Dsun.reflect.inflationThreshold=</code> 来调整），当某个反射调用的调用次数在 15 之下时，采用本地实现；当达到 15 时，切换至动态实现，这个过程我们称之为 <code>Inflation</code>。</p>
+<p><code>Class.forName</code> 会调用本地方法，<code>Class.getMethod</code> 则会遍历该类的公有方法。如果没有匹配到，它还将遍历父类的公有方法。</p>
+<p>以 <code>getMethod</code> 为代表的查找方法操作，会返回查找得到结果的一份拷贝。因此，我们应当避免在热点代码中使用返回 <code>Method</code> 数组的 <code>getMethods</code> 或者 <code>getDeclaredMethods</code> 方法，以减少不必要的堆空间消耗。在实践中，也需要对结果进行缓存。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 2063px">
+                                <div class="h2-section-title"><h2 id="id-496">invokedynamic 的实现</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-491">方法句柄的概念</h3></div>
+                                <div class="section-body">
+                                    <p>方法句柄是一个强类型的，能够被直接执行的引用。该引用可以指向常规的静态方法或者实例方法，也可以指向构造器或者字段。当指向字段时，方法句柄实则指向包含字段访问字节码的虚构方法，语义上等价于目标字段的 <code>getter</code> 或者 <code>setter</code> 方法。</p>
+<p>调用方法句柄，和原本对应的调用指令是一致的。也就是说，对于原本用 <code>invokevirtual</code> 调用的方法句柄，它也会采用<em>动态绑定</em>；而对于原本用 <code>invkespecial</code> 调用的方法句柄，它会采用<em>静态绑定</em>。</p>
+<p>方法句柄同样也有权限问题。但它与反射 <code>API</code> 不同，其权限检查是在句柄的创建阶段完成的。在实际调用过程中，<code>Java</code> 虚拟机并不会检查方法句柄的权限。方法句柄的访问权限不取决于方法句柄的创建位置，而是取决于 <code>Lookup</code> 对象的创建位置。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-492">方法句柄的操作</h3></div>
+                                <div class="section-body">
+                                    <p>方法句柄的调用可分为两种，一是需要严格匹配参数类型的 <code>invokeExact</code>，需要类型完全一致。调用方法句柄利用类似<code>Java</code>方法重载的原理，并且涉及了一个签名多态性（<code>signature polymorphism</code>）的概念。</p>
+<p>方法句柄 <code>API</code> 有一个特殊的注解类 <code>@PolymorphicSignature</code>。在碰到被它注解的方法调用时，<code>Java</code> 编译器会根据所传入参数的声明类型来生成方法描述符，而不是采用目标方法所声明的描述符。</p>
+<p>如果你需要自动适配参数类型，那么你可以选取方法句柄的第二种调用方式 <code>invoke</code>。它同样是一个签名多态性的方法。<code>invoke</code> 会调用 <code>MethodHandle.asType</code> 方法，生成一个适配器方法句柄，对传入的参数进行适配，再调用原方法句柄。调用原方法句柄的返回值同样也会先进行适配，然后再返回给调用者。</p>
+<p>方法句柄还支持增删改参数的操作，这些操作都是通过生成另一个方法句柄来实现的。这其中，改操作就是刚刚介绍的 <code>MethodHandle.asType</code> 方法。删操作指的是将传入的部分参数就地抛弃，再调用另一个方法句柄。它对应的 <code>API</code> 是 <code>MethodHandles.dropArguments</code> 方法。</p>
+<p>增操作则非常有意思。它会往传入的参数中插入额外的参数，再调用另一个方法句柄，它对应的 <code>API</code> 是 <code>MethodHandle.bindTo</code> 方法。<code>Java 8</code> 中捕获类型的 <code>Lambda</code> 表达式便是用这种操作来实现的。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 409px; left:0px">
+                            <div class="section-title"><h3 id="id-493">方法句柄的实现</h3></div>
+                                <div class="section-body">
+                                    <p>调用方法句柄所使用的 <code>invokeExact</code> 或者 <code>invoke</code> 方法具备签名多态性的特性，它们会根据具体的传入参数来生成方法描述符。</p>
+<p>实际上，<code>Java</code> 虚拟机会对 <code>invokeExact</code> 调用做特殊处理，调用至一个共享的、与方法句柄类型相关的特殊适配器中。这个适配器是一个 <code>LambdaForm</code>，我们可以通过添加虚拟机参数将之导出成 <code>class</code> 文件（<code>-Djava.lang.invoke.MethodHandle.DUMP_CLASS_FILES=true</code>）。</p>
+<p>在这个适配器中，它会调用 <code>Invokers.checkExactType</code> 方法来检查参数类型，然后调用 <code>Invokers.checkCustomized</code> 方法。后者会在方法句柄的执行次数超过一个阈值时进行优化（对应参数 <code>-Djava.lang.invoke.MethodHandle.CUSTOMIZE_THRESHOLD</code>，默认值为 <code>127</code>）。最后，它会调用方法句柄的 <code>invokeBasic</code> 方法。</p>
+<p><code>Java</code> 虚拟机同样会对 <code>invokeBasic</code> 调用做特殊处理，这会将调用至方法句柄本身所持有的适配器中。这个适配器同样是一个 <code>LambdaForm</code>。这个适配器将获取方法句柄中的 <code>MemberName</code> 类型的字段，并且以它为参数调用 <code>linkToStatic</code> 方法。<code>Java</code> 虚拟机也会对 <code>linkToStatic</code> 调用做特殊处理，它将根据传入的 <code>MemberName</code> 参数所存储的方法地址或者方法表索引，直接跳转至目标方法。</p>
+<p>那么前面那个<em>适配器中的优化</em>又是怎么回事？方法句柄一开始持有的适配器是共享的，当它被多次调用之后，<code>Invokers.checkCustomized</code> 方法会为该方法句柄生成一个特有的适配器，其会将方法句柄作为常量，直接获取其 <code>MemberName</code> 类型的字段，并继续后面的 <code>linkToStatic</code> 调用。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 618px; left:468.5px">
+                            <div class="section-title"><h3 id="id-494"><code>invokedynamic</code> 指令</h3></div>
+                                <div class="section-body">
+                                    <p><code>invokedynamic</code> 是 <code>Java 7</code> 引入的一条新指令，用以支持动态语言的方法调用。具体来说，它将调用点（<code>CallSite</code>）抽象成一个 <code>Java</code> 类，并且将原本由 <code>Java</code> 虚拟机控制的方法调用以及方法链接暴露给了应用程序。在运行过程中，每一条 <code>invokedynamic</code> 指令将捆绑一个调用点，并且会调用该调用点所链接的方法句柄。</p>
+<p>在第一次执行 <code>invokedynamic</code> 指令时，<code>Java</code> 虚拟机会调用该指令所对应的启动方法（<i>BootStrap Method</i>），来生成前面提到的调用点，并且将之绑定至该 <code>invokedynamic</code> 指令中。在之后的运行过程中，<code>Java</code> 虚拟机则会直接调用绑定的调用点所链接的方法句柄。</p>
+<p>在字节码中，启动方法是用方法句柄来指定的。这个方法句柄指向一个返回类型为调用点的静态方法。该方法必须接收三个固定的参数:</p>
+<ul><li>一个<code>Lookup</code> 类实例
+</li><li>一个用来指代目标方法名字的字符串
+</li><li>该调用点能够链接的方法句柄的类型
+</li></ul>
+<p>除了这三个必需参数之外，启动方法还可以接收若干个其他的参数，用来辅助生成调用点，或者定位所要链接的目标方法。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1079px; left:0px">
+                            <div class="section-title"><h3 id="id-495"><code>Java 8</code> 的 <code>Lambda</code> 表达式</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 编译器利用 <code>invokedynamic</code> 指令来生成实现了函数式接口的适配器。这里的函数式接口指的是仅包括一个非 <code>default</code> 接口方法的接口，一般通过 <code>@FunctionalInterface</code> 注解。不过就算是没有使用该注解，<code>Java</code> 编译器也会将符合条件的接口辨认为函数式接口。</p>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token class-name">IntStream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>i <span class="token operator">-&gt;</span> i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>i <span class="token operator">-&gt;</span> i <span class="token operator">*</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面这段代码会对 <code>IntStream</code> 中的元素进行两次映射。我们知道，映射方法 <code>map</code> 所接收的参数是 <code>IntUnaryOperator</code>（这是一个函数式接口）。也就是说，在运行过程中我们需要将 <code>i-&gt;i2</code> 和 <code>i-&gt;ix</code> 这两个 <code>Lambda</code> 表达式转化成 <code>IntUnaryOperator</code> 的实例。这个转化过程便是由 <code>invokedynamic</code> 来实现的。</p>
+<p>在编译过程中，<code>Java</code> 编译器会对 <code>Lambda</code> 表达式进行解语法糖（<code>desugar</code>），生成一个方法来保存 <code>Lambda</code> 表达式的内容。该方法的参数列表不仅包含原本 <code>Lambda</code> 表达式的参数，还包含它所捕获的变量。(注：<em>方法引用</em>不会生成生成额外的方法。)</p>
+<p>第一次执行 <code>invokedynamic</code> 指令时，它所对应的启动方法会通过 <code>ASM</code> 来生成一个适配器类。这个适配器类实现了对应的函数式接口，在我们的例子中，也就是 <code>IntUnaryOperator</code>。启动方法的返回值是一个 <code>ConstantCallSite</code>，其链接对象为一个返回适配器类实例的方法句柄。</p>
+<p>根据 <code>Lambda</code> 表达式是否捕获其他变量，启动方法生成的适配器类以及所链接的方法句柄皆不同。<span class="sn">1</span>如果该 <code>Lambda</code> 表达式没有捕获其他变量，那么可以认为它是上下文无关的。因此，启动方法将新建一个适配器类的实例，并且生成一个特殊的方法句柄，始终返回该实例。<span class="sn">2</span>如果该 <code>Lambda</code> 表达式捕获了其他变量，那么每次执行该 <code>invokedynamic</code> 指令，我们都要更新这些捕获了的变量，以防止它们发生了变化。</p>
+<p>另外，为了保证 <code>Lambda</code> 表达式的线程安全，我们无法共享同一个适配器类的实例。因此，在每次执行 <code>invokedynamic</code> 指令时，所调用的方法句柄都需要新建一个适配器类实例。在这种情况下，启动方法生成的适配器类将包含一个额外的静态方法，来构造适配器类的实例。该方法将接收这些捕获的参数，并且将它们保存为适配器类实例的实例字段。</p>
+<p>你可以通过虚拟机参数 <code>-Djdk.internal.lambda.dumpProxyClasses=/DUMP/PATH</code> 导出这些具体的适配器类。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1223px">
+                                <div class="h2-section-title"><h2 id="id-500">Java 对象的内存布局</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-497"></h3></div>
+                                <div class="section-body">
+                                    <p>在 <code>Java</code> 程序中，我们拥有多种新建对象的方式。除了最为常见的 <code>new</code> 语句之外，我们还可以通过反射机制、<code>Object.clone</code> 方法、反序列化以及 <code>Unsafe.allocateInstance</code> 方法来新建对象。</p>
+<ul><li><code>Object.clone</code> 方法和反序列化通过直接复制已有的数据，来初始化新建对象的实例字段
+</li><li><code>Unsafe.allocateInstance</code> 方法则没有初始化实例字段
+</li><li><code>new</code> 语句和反射机制，则是通过调用构造器来初始化实例字段。
+</li></ul>
+<p>如果一个类没有定义任何构造器的话， <code>Java</code> 编译器会自动添加一个无参数的构造器。</p>
+<p>子类的构造器需要调用父类的构造器。<span class="sn">1</span>如果父类存在无参数构造器的话，该调用可以是隐式的，也就是说 <code>Java</code> 编译器会自动添加对父类构造器的调用。<span class="sn">2</span>但是，如果父类没有无参数构造器，那么子类的构造器则需要显式地调用父类带参数的构造器。</p>
+<p>总而言之，当我们调用一个构造器时，它将优先调用父类的构造器，直至 <code>Object</code> 类。这些构造器的调用者皆为同一对象，也就是通过 <code>new</code> 指令新建而来的对象。通过 <code>new</code> 指令新建出来的对象，它的内存其实涵盖了所有父类中的实例字段。也就是说，虽然子类无法访问父类的私有实例字段，或者子类的实例字段隐藏了父类的同名实例字段，但是子类的实例还是会为这些父类实例字段分配内存的。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-498">压缩指针</h3></div>
+                                <div class="section-body">
+                                    <p>在 <code>Java</code> 虚拟机中，每个 <code>Java</code> 对象都有一个对象头（<code>object header</code>），这个由标记字段和类型指针所构成:</p>
+<ul><li><em>标记字段</em>用以存储 <code>Java</code> 虚拟机有关该对象的运行数据，如哈希码、GC 信息以及锁信息
+</li><li><em>类型指针</em>指向该对象的类。
+</li></ul>
+<p>在 64 位的 <code>Java</code> 虚拟机中，对象头的标记字段占 64 位，而类型指针又占了 64 位，在内存中的额外开销就是 16 个字节。</p>
+<p>为了尽量较少对象的内存使用量，64 位 <code>Java</code> 虚拟机引入了压缩指针的概念（对应虚拟机选项 <code>-XX</code>:+<code>UseCompressedOops</code>，默认开启），将堆中原本 64 位的 <code>Java</code> 对象指针压缩成 32 位的，对象头的大小从 16 字节降至 12 字节，其依托内存对齐（对应虚拟机选项 <code>-XX</code>:<code>ObjectAlignmentInBytes</code>，默认值为 8）。</p>
+<p>默认情况下，<code>Java</code> 虚拟机堆中对象的起始地址需要对齐至 8 的倍数。如果一个对象用不到 8N 个字节，那么空白的那部分空间就浪费掉了。这些浪费掉的空间我们称之为对象间的填充（<code>padding</code>）。默认情况下，<code>Java</code> 虚拟机中的 32 位压缩指针可以寻址到 2^35 个字节，也就是 <code>32GB</code> 的地址空间（超过 <code>32GB</code> 则会关闭压缩指针）。</p>
+<p>在对压缩指针解引用时，我们需要将其左移 3 位，再加上一个固定偏移量，便可以得到能够寻址 <code>32GB</code> 地址空间的伪 64 位指针了。</p>
+<p>当然，就算是关闭了压缩指针，<code>Java</code> 虚拟机还是会进行内存对齐。此外，内存对齐不仅存在于对象与对象之间，也存在于对象中的字段之间。比如说，<code>Java</code> 虚拟机要求 <code>long</code> 字段、<code>double</code> 字段，以及非压缩指针状态下的引用字段地址为 8 的倍数。</p>
+<p>字段内存对齐的其中一个原因，是让字段只出现在同一 <code>CPU</code> 的缓存行中。如果字段不是对齐的，那么就有可能出现跨缓存行的字段。也就是说，该字段的读取可能需要替换两个缓存行，而该字段的存储也会同时污染两个缓存行。这两种情况对程序的执行效率而言都是不利的。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 589px; left:0px">
+                            <div class="section-title"><h3 id="id-499">字段重排列</h3></div>
+                                <div class="section-body">
+                                    <p>字段重排列，顾名思义，就是 <code>Java</code> 虚拟机重新分配字段的先后顺序，以达到内存对齐的目的。<code>Java</code> 虚拟机中有三种排列方法（对应 <code>Java</code> 虚拟机选项 <code>-XX</code>:<code>FieldsAllocationStyle</code>，默认值为 1），但都会遵循如下两个规则。</p>
+<p><em>其一</em>，如果一个字段占据 C 个字节，那么该字段的偏移量需要对齐至 NC。这里<em>偏移量</em>指的是<em>字段地址与对象的起始地址差值</em>。以 <code>long</code> 类为例，它仅有一个 <code>long</code> 类型的实例字段。在使用了压缩指针的 64 位虚拟机中，尽管对象头的大小为 12 个字节，该 <code>long</code> 类型字段的偏移量也只能是 16，而中间空着的 4 个字节便会被浪费掉。</p>
+<p><em>其二</em>，子类所继承字段的偏移量，需要与父类对应字段的偏移量保持一致。在具体实现中，<code>Java</code> 虚拟机还会对齐子类字段的起始位置。对于使用了压缩指针的 64 位虚拟机，子类第一个字段需要对齐至 4N；而对于关闭了压缩指针的 64 位虚拟机，子类第一个字段则需要对齐至 8N。</p>
+<p><code>Java 8</code> 还引入了一个新的注释 <code>@Contended</code>，用来解决对象字段之间的虚共享（<code>false sharing</code>）问题，也会影响到字段的排列。</p>
+<p>假设两个线程分别访问同一对象中不同的 <code>volatile</code> 字段，逻辑上它们并没有共享内容，因此不需要同步。然而，如果这两个字段恰好在同一个缓存行中，那么对这些字段的写操作会导致缓存行的写回，也就造成了实质上的共享。</p>
+<p><code>Java</code> 虚拟机会让不同的 <code>@Contended</code> 字段处于独立的缓存行中，因此你会看到大量的空间被浪费掉。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 2617px">
+                                <div class="h2-section-title"><h2 id="id-506">垃圾回收</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-501">引用计数法与可达性分析</h3></div>
+                                <div class="section-body">
+                                    <p>在 <code>Java</code> 虚拟机的语境下，垃圾指的是死亡的对象所占据的堆空间。</p>
+<p>一种古老的辨别方法：<em>引用计数法（reference counting）</em>。它的做法是为每个对象添加一个引用计数器，用来统计指向该对象的引用个数。一旦某个对象的引用计数器为 0，则说明该对象已经死亡，便可以被回收了。</p>
+<p>举个例子，假设对象 a 与 b 相互引用，除此之外没有其他引用指向 a 或者 b。在这种情况下，a 和 b 实际上已经死了，但由于它们的引用计数器皆不为 0，在引用计数法的心中，这两个对象还活着。因此，这些循环引用对象所占据的空间将不可回收，从而造成了内存泄露。</p>
+<p>目前 <code>Java</code> 虚拟机的主流垃圾回收器采取的是<em>可达性分析算法</em>。这个算法的实质在于将一系列 <code>GC Roots</code> 作为初始的存活对象合集（<code>live set</code>），然后从该合集出发，探索所有能够被该集合引用到的对象，并将其加入到该集合中，这个过程我们也称之为标记（<code>mark</code>）。最终，未被探索到的对象便是死亡的，是可以回收的。</p>
+<p>一般而言，<code>GC Roots</code> 包括（但不限于）如下几种：</p>
+<ul><li><code>Java</code> 方法栈桢中的局部变量；
+</li><li>已加载类的静态变量；
+</li><li><code>JNI handles</code>；
+</li><li>已启动且未停止的 <code>Java</code> 线程
+</li></ul>
+<p>虽然可达性分析的算法本身很简明，但是在实践中还是有不少其他问题需要解决的。比如说，在多线程环境下，其他线程可能会更新已经访问过的对象中的引用，从而造成<em>误报</em>（将引用设置为 <code>null</code>）或者<em>漏报</em>（将引用设置为未被访问过的对象）。</p>
+<ul><li><em>误报</em>并没有什么伤害，<code>Java</code> 虚拟机至多损失了部分垃圾回收的机会。
+</li><li><em>漏报</em>则比较麻烦，因为垃圾回收器可能回收事实上仍被引用的对象内存。一旦从原引用访问已经被回收了的对象，则很有可能会直接导致 <code>Java</code> 虚拟机崩溃。
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-502"><code>Stop-the-world</code> 以及安全点</h3></div>
+                                <div class="section-body">
+                                    <p>为解决多线程问题，在 <code>Java</code> 虚拟机里，传统的垃圾回收算法采用<code>Stop-the-world</code>，停止其他非垃圾回收线程的工作，直到完成垃圾回收。这也就造成了垃圾回收所谓的暂停时间（<code>GC pause</code>）。</p>
+<p><code>Java</code> 虚拟机中的 <code>Stop-the-world</code> 是通过安全点（<code>safepoint</code>）机制来实现的。当 <code>Java</code> 虚拟机收到 <code>Stop-the-world</code> 请求，它便会等待所有的线程都到达安全点，才允许请求 <code>Stop-the-world</code> 的线程进行独占的工作。</p>
+<p>当然，安全点的初始目的并不是让其他线程停下，而是找到一个稳定的执行状态：在这个执行状态下，<code>Java</code> 虚拟机的堆栈不会发生变化。这么一来，垃圾回收器便能够<i>安全</i>地执行可达性分析。</p>
+<p>对于<em>解释执行</em>来说，字节码与字节码之间皆可作为安全点。<code>Java</code> 虚拟机采取的做法是，当有安全点请求时，执行一条字节码便进行一次安全点检测。</p>
+<p>执行<em>即时编译器生成的机器码</em>则比较复杂。由于这些代码直接运行在底层硬件之上，不受 <code>Java</code> 虚拟机掌控，因此在生成机器码时，即时编译器需要插入安全点检测，以避免机器码长时间没有安全点检测的情况。<code>HotSpot</code> 虚拟机的做法便是在生成代码的方法出口以及非计数循环的循环回边（<code>back-edge</code>）处插入安全点检测。</p>
+<p>那么为什么不在每一条机器码或者每一个机器码基本块处插入安全点检测呢？原因主要有两个:</p>
+<p><em>第一</em>，安全点检测本身也有一定的开销。不过 <code>HotSpot</code> 虚拟机已经将机器码中安全点检测简化为一个内存访问操作。在有安全点请求的情况下，<code>Java</code> 虚拟机会将安全点检测访问的内存所在的页设置为不可读，并且定义一个 <code>segfault</code> 处理器，来截获因访问该不可读内存而触发 <code>segfault</code> 的线程，并将它们挂起。</p>
+<p><em>第二</em>，即时编译器生成的机器码打乱了原本栈桢上的对象分布状况。在进入安全点时，机器码还需提供一些额外的信息，来表明哪些寄存器，或者当前栈帧上的哪些内存空间存放着指向对象的引用，以便垃圾回收器能够枚举 <code>GC Roots</code>。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 862px; left:0px">
+                            <div class="section-title"><h3 id="id-503">垃圾回收的三种方式</h3></div>
+                                <div class="section-body">
+                                    <p><em>第一种是清除（sweep）</em>，即把死亡对象所占据的内存标记为空闲内存，并记录在一个空闲列表（<code>free list</code>）之中。当需要新建对象时，内存管理模块便会从该空闲列表中寻找空闲内存，并划分给新建的对象。</p>
+<p>清除这种回收方式的原理及其简单，但是有两个缺点：</p>
+<ul><li>一是会造成内存碎片。由于 <code>Java</code> 虚拟机的堆中对象必须是连续分布的，因此可能出现总空闲内存足够，但是无法分配的极端情况。
+</li><li>另一个则是分配效率较低。如果是一块连续的内存空间，那么我们可以通过指针加法（<code>pointer bumping</code>）来做分配。而对于空闲列表，<code>Java</code> 虚拟机则需要逐个访问列表中的项，来查找能够放入新建对象的空闲内存。
+</li></ul>
+<p><em>第二种是压缩（compact）</em>，即把存活的对象聚集到内存区域的起始位置，从而留下一段连续的内存空间。这种做法能够解决内存碎片化的问题，但代价是压缩算法的性能开销。</p>
+<p><em>第三种则是复制（copy）</em>，即把内存区域分为两等分，分别用两个指针 <code>from</code> 和 to 来维护，并且只是用 <code>from</code> 指针指向的内存区域来分配内存。当发生垃圾回收时，便把存活的对象复制到 to 指针指向的内存区域中，并且交换 <code>from</code> 指针和 to 指针的内容。复制这种回收方式同样能够解决内存碎片化的问题，但是它的缺点也极其明显，即堆空间的使用效率极其低下。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 885px; left:468.5px">
+                            <div class="section-title"><h3 id="id-504"><code>Java</code> 虚拟机的堆划分</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 虚拟机将堆划分为<em>新生代</em>和<em>老年代</em>。其中，新生代又被划分为 <code>Eden</code> 区，以及两个大小相同的 <code>Survivor</code> 区。</p>
+<p>默认情况下，<code>Java</code> 虚拟机采取的是一种动态分配的策略（对应 <code>Java</code> 虚拟机参数 <code>-XX</code>:+<code>UsePSAdaptiveSurvivorSizePolicy</code>），根据生成对象的速率，以及 <code>Survivor</code> 区的使用情况动态调整 <code>Eden</code> 区和 <code>Survivor</code> 区的比例。当然，你也可以通过参数 <code>-XX</code>:<code>SurvivorRatio</code> 来固定这个比例。但是需要注意的是，其中一个 <code>Survivor</code> 区会一直为空，因此比例越低浪费的堆空间将越高。</p>
+<p>新生代：</p>
+<pre class="language- language-none"><code class="language- language-none" style="">                            from        to
++----------------------+ +--------+ +--------+ 
+| +----+ +----+ +----+ | | +----+ | |        | 
+| |    | |    | |    | | | |    | | |        | 
+| +----+ +----+ +----+ | | +----+ | |        | 
+| +----+               | |        | |        | 
+| |    |               | |        | |        | 
+| +----+               | |        | |        | 
++----------------------+ +--------+ +--------+ 
+        Eden                   Survivors
+</code></pre>
+<p>老年代：</p>
+<pre class="language- language-none"><code class="language- language-none" style="">+-----------------------------+
+| +----+ +----+ +----+ +----+ |
+| |    | |    | |    | |    | |
+| +----+ +----+ +----+ +----+ |
+| +----+                      |
+| |    |                      |
+| +----+                      |
++-----------------------------+
+            Tenured
+</code></pre>
+<p>调用 <code>new</code> 指令时，<em>内存申请</em>采用 <code>TLAB</code>（<code>Thread Local Allocation Buffer</code>，对应虚拟机参数 <code>-XX</code>:+<code>UseTLAB</code>，默认开启）。</p>
+<p>具体来说，每个线程可以向 <code>Java</code> 虚拟机申请一段连续的内存，比如 <code>2048</code> 字节，作为线程私有的 <code>TLAB</code>。</p>
+<p>这个操作需要加锁，线程需要维护两个指针（实际上可能更多，但重要也就两个），一个指向 <code>TLAB</code> 中空余内存的起始位置，一个则指向 <code>TLAB</code> 末尾。接下来的 <code>new</code> 指令，便可以直接通过指针加法（<code>bump the pointer</code>）来实现，即把指向空余内存位置的指针加上所请求的字节数。<span class="sn">1</span>如果加法后空余内存指针的值仍小于或等于指向末尾的指针，则代表分配成功。<span class="sn">2</span>否则，<code>TLAB</code> 已经没有足够的空间来满足本次新建操作。这个时候，便需要当前线程重新申请新的 <code>TLAB</code>。</p>
+<p>当 <code>Eden</code> 区的空间耗尽了怎么办？这个时候 <code>Java</code> 虚拟机便会触发一次 <code>Minor GC</code>，来收集新生代的垃圾。存活下来的对象，则会被送到 <code>Survivor</code> 区。</p>
+<p>当发生 <code>Minor GC</code> 时，<code>Eden</code> 区和 <code>from</code> 指向的 <code>Survivor</code> 区中的存活对象会被复制到 to 指向的 <code>Survivor</code> 区中，然后交换 <code>from</code> 和 to 指针，以保证下一次 <code>Minor GC</code> 时，to 指向的 <code>Survivor</code> 区还是空的。</p>
+<p><code>Java</code> 虚拟机会记录 <code>Survivor</code> 区中的对象一共被来回复制了几次。如果一个对象被复制的次数为 15（对应虚拟机参数 <code>-XX</code>:+<code>MaxTenuringThreshold</code>），那么该对象将被晋升（<code>promote</code>）至老年代。另外，如果单个 <code>Survivor</code> 区已经被占用了 50%（对应虚拟机参数 <code>-XX</code>:<code>TargetSurvivorRatio</code>），那么较高复制次数的对象也会被晋升至老年代。</p>
+<p>总而言之，当发生 <code>Minor GC</code> 时，我们应用了<em>标记 - 复制</em>算法，将 <code>Survivor</code> 区中的老存活对象晋升到老年代，然后将剩下的存活对象和 <code>Eden</code> 区的存活对象复制到另一个 <code>Survivor</code> 区中。理想情况下，<code>Eden</code> 区中的对象基本都死亡了，那么需要复制的数据将非常少，因此采用这种标记 - 复制算法的效果极好。</p>
+<p><code>Minor GC</code> 的另外一个好处是不用对整个堆进行垃圾回收。但是，它却有一个问题，那就是老年代的对象可能引用新生代的对象。也就是说，在标记存活对象的时候，我们需要扫描老年代中的对象。如果该对象拥有对新生代对象的引用，那么这个引用也会被作为 <code>GC Roots</code>。这样一来，岂不是又做了一次全堆扫描呢？</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1426px; left:0px">
+                            <div class="section-title"><h3 id="id-505">卡表</h3></div>
+                                <div class="section-body">
+                                    <p><code>HotSpot</code> 给出的解决方案是一项叫做<em>卡表（Card Table）</em>的技术。该技术将整个堆划分为一个个大小为 <code>512</code> 字节的卡，并且维护一个卡表，用来存储每张卡的一个<em>标识位</em>。这个<em>标识位</em>代表对应的卡<em>是否可能存有指向新生代对象的引用</em>。如果可能存在，那么我们就认为这张卡是脏的。</p>
+<p>在进行 <code>Minor GC</code> 的时候，我们便可以不用扫描整个老年代，而是在卡表中寻找脏卡，并将脏卡中的对象加入到 <code>Minor GC</code> 的 <code>GC Roots</code> 里。当完成所有脏卡的扫描之后，<code>Java</code> 虚拟机便会将所有脏卡的标识位清零。</p>
+<p>由于 <code>Minor GC</code> 伴随着存活对象的复制，而复制需要更新指向该对象的引用。因此，在更新引用的同时，我们又会设置引用所在的卡的标识位。这个时候，我们可以确保脏卡中必定包含指向新生代对象的引用。</p>
+<pre class="language- language-none"><code class="language- language-none" style="">复制 -&gt; 标记脏卡
+Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
+</code></pre>
+<p>在 <code>Minor GC</code> 之前，我们并不能确保脏卡中包含指向新生代对象的引用。其原因和如何设置卡的标识位有关。</p>
+<p>如果想要保证每个可能有指向新生代对象引用的卡都被标记为脏卡，那么 <code>Java</code> 虚拟机需要截获每个引用型实例变量的写操作，并作出对应的写标识位操作。</p>
+<p>这个操作在解释执行器中比较容易实现。但是在即时编译器生成的机器码中，则需要插入额外的逻辑。这也就是所谓的写屏障（<code>write barrier</code>，注意不要和 <code>volatile</code> 字段的写屏障混淆）。</p>
+<p>写屏障需要尽可能地保持简洁。这是因为我们并不希望在每条引用型实例变量的写指令后跟着一大串注入的指令。因此，写屏障并不会判断更新后的引用是否指向新生代中的对象，而是宁可错杀，不可放过，一律当成可能指向新生代对象的引用。</p>
+<p>虽然写屏障不可避免地带来一些开销，但是它能够加大 <code>Minor GC</code> 的吞吐率（ 应用运行时间 /(应用运行时间 + 垃圾回收时间) ）。总的来说还是值得的。不过，在高并发环境下，写屏障又带来了虚共享（<code>false sharing</code>）问题。</p>
+<p>之前提到 <code>volatile</code> 字段出现在同一缓存行里造成的虚共享。这里的虚共享则是卡表中不同卡的标识位之间的虚共享问题。</p>
+<p>在 <code>HotSpot</code> 中，卡表是通过 <code>byte</code> 数组来实现的。对于一个 64 字节的缓存行来说，如果用它来加载部分卡表，那么它将对应 64 张卡，也就是 <code>32KB</code> 的内存。如果同时有两个 <code>Java</code> 线程，在这 <code>32KB</code> 内存中进行引用更新操作，那么也将造成存储卡表的同一部分的缓存行的写回、无效化或者同步操作，因而间接影响程序性能。</p>
+<p>为此，<code>HotSpot</code> 引入了一个新的参数 <code>-XX</code>:+<code>UseCondCardMark</code>，来尽量减少写卡表的操作，其通过<code>CAS</code>实现。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1666px">
+                                <div class="h2-section-title"><h2 id="id-511">Java内存模型</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-507">编译器优化的重排序</h3></div>
+                                <div class="section-body">
+                                    <p><em>首先</em>，即时编译器（和处理器）需要保证程序能够遵守 <code>as-if-serial</code> 属性。通俗地说，就是在<em>单线程</em>情况下，要给程序一个<em>顺序执行的假象</em>。即经过重排序的执行结果要与顺序执行的结果保持一致。</p>
+<p><em>另外</em>，如果两个操作之间存在数据依赖，那么即时编译器（和处理器）不能调整它们的顺序，否则将会造成程序语义的改变。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-508"><code>Java</code> 内存模型与 <code>happens-before</code> 关系</h3></div>
+                                <div class="section-body">
+                                    <p><code>happens-before</code> 关系是用来描述两个操作的内存可见性的。如果操作 X <code>happens-before</code> 操作 Y，那么 X 的结果对于 Y 可见。</p>
+<p>在同一个线程中，字节码的先后顺序（<code>program order</code>）也暗含了 <code>happens-before</code> 关系：在程序控制流路径中靠前的字节码 <code>happens-before</code> 靠后的字节码。然而，这并不意味着前者一定在后者之前执行。实际上，如果后者没有观测前者的运行结果，即后者没有数据依赖于前者，那么它们可能会被重排序。</p>
+<p>除了线程内的 <code>happens-before</code> 关系之外，<code>Java</code> 内存模型还定义了下述线程间的 <code>happens-before</code> 关系。</p>
+<ul><li>解锁操作 <code>happens-before</code> 之后（这里指时钟顺序先后）对同一把锁的加锁操作。
+</li><li><code>volatile</code> 字段的写操作 <code>happens-before</code> 之后（这里指时钟顺序先后）对同一字段的读操作。
+</li><li>线程的启动操作（即 <code>Thread.starts</code>()） <code>happens-before</code> 该线程的第一个操作。
+</li><li>线程的最后一个操作 <code>happens-before</code> 它的终止事件（即其他线程通过 <code>Thread.isAlive</code>() 或 <code>Thread.join</code>() 判断该线程是否中止）。
+</li><li>线程对其他线程的中断操作 <code>happens-before</code> 被中断线程所收到的中断事件（即被中断线程的 <code>InterruptedException</code> 异常，或者第三个线程针对被中断线程的 <code>Thread.interrupted</code> 或者 <code>Thread.isInterrupted</code> 调用）。
+</li><li>构造器中的最后一个操作 <code>happens-before</code> 析构器的第一个操作。
+</li></ul>
+<p><code>happens-before</code> 关系还具备传递性。如果操作 X <code>happens-before</code> 操作 Y，而操作 Y <code>happens-before</code> 操作 Z，那么操作 X <code>happens-before</code> 操作 Z。</p>
+<p>拥有 <code>happens-before</code> 关系的两对赋值操作之间<em>没有数据依赖</em>，因此即时编译器、处理器都<em>可能对其进行重排序</em>。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 258px; left:0px">
+                            <div class="section-title"><h3 id="id-509"><code>Java</code> 内存模型的底层实现</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 内存模型是通过内存屏障（<code>memory barrier</code>）来禁止重排序的。</p>
+<p>对于即时编译器来说，它会针对前面提到的每一个 <code>happens-before</code> 关系，向正在编译的目标方法中插入相应的读读、读写、写读以及写写内存屏障。</p>
+<p>这些内存屏障会限制即时编译器的重排序操作。以 <code>volatile</code> 字段访问为例，所插入的内存屏障将不允许 <code>volatile</code> 字段写操作之前的内存访问被重排序至其之后；也将不允许 <code>volatile</code> 字段读操作之后的内存访问被重排序至其之前。</p>
+<p>然后，即时编译器将根据具体的底层体系架构，将这些内存屏障替换成具体的 <code>CPU</code> 指令。以我们日常接触的 <code>X86_64</code> 架构来说，读读、读写以及写写内存屏障是空操作（<code>no-op</code>），只有写读内存屏障会被替换成具体指令。</p>
+<p>举例来说，对于 <code>volatile</code> 字段，即时编译器将在 <code>volatile</code> 字段的读写操作前后各插入一些内存屏障。然而，在 <code>X86_64</code> 架构上，只有 <code>volatile</code> 字段<em>写操作</em>之后的<em>写读内存屏障</em>需要用具体指令来替代。</p>
+<p>该具体指令的效果，可以简单理解为强制刷新处理器的写缓存。写缓存是处理器用来加速内存存储效率的一项技术。在碰到内存写操作时，处理器并不会等待该指令结束，而是直接开始下一指令，并且依赖于写缓存将更改的数据同步至主内存（<code>main memory</code>）之中。</p>
+<p>强制刷新写缓存，将使得当前线程写入 <code>volatile</code> 字段的值（以及写缓存中已有的其他内存修改），同步至主内存之中。由于<em>内存写操作同时会无效化其他处理器所持有的、指向同一内存地址的缓存行</em>，因此可以认为其他处理器能够立即见到该 <code>volatile</code> 字段的最新值。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 784px; left:468.5px">
+                            <div class="section-title"><h3 id="id-510">锁，<code>volatile</code> 字段，<code>final</code> 字段与安全发布</h3></div>
+                                <div class="section-body">
+                                    <p>下面我来讲讲 <code>Java</code> 内存模型涉及的几个关键词。</p>
+<p>前面提到，<em>锁操作</em>同样具备 <code>happens-before</code> 关系。具体来说，解锁操作 <code>happens-before</code> 之后对同一把锁的加锁操作。实际上，<em>在解锁时，Java 虚拟机同样需要强制刷新缓存</em>，使得当前线程所修改的内存对其他线程可见。</p>
+<p>需要注意的是，锁操作的 <code>happens-before</code> 规则的关键字是同一把锁。也就意味着，如果编译器能够（通过逃逸分析）证明某把锁仅被同一线程持有，那么它可以移除相应的加锁解锁操作。</p>
+<p>因此也就不再强制刷新缓存。举个例子，即时编译后的 <code>synchronized</code> (<code>new Object</code>()) {}，可能等同于空操作，而不会强制刷新缓存。</p>
+<p><em>volatile</em> 字段可以看成一种轻量级的、不保证原子性的同步，其性能往往优于（至少不亚于）锁操作。然而，频繁地访问 <code>volatile</code> 字段也会因为不断地强制刷新缓存而严重影响程序的性能。</p>
+<p>在 <code>X86_64</code> 平台上，只有 <code>volatile</code> 字段的写操作会强制刷新缓存。因此，理想情况下对 <code>volatile</code> 字段的使用应当多读少写，并且应当只有一个线程进行写操作。</p>
+<p><code>volatile</code> 字段的另一个特性是即时编译器无法将其分配到寄存器里。换句话说，<code>volatile</code> 字段的每次访问均需要直接从内存中读写。</p>
+<p><em>final</em> 实例字段则涉及新建对象的发布问题。当一个对象包含 <code>final</code> 实例字段时，我们希望其他线程只能看到已初始化的 <code>final</code> 实例字段。</p>
+<p>因此，即时编译器会在 <code>final</code> 字段的写操作后插入一个写写屏障，以防某些优化将新建对象的发布（即将实例对象写入一个共享引用中）重排序至 <code>final</code> 字段的写操作之前。在 <code>X86_64</code> 平台上，写写屏障是空操作。</p>
+<p>新建对象的<em>安全发布</em>（<code>safe publication</code>）问题不仅仅包括 <code>final</code> 实例字段的可见性，还包括其他实例字段的可见性。</p>
+<p>当发布一个已初始化的对象时，我们希望所有已初始化的实例字段对其他线程可见。否则，其他线程可能见到一个仅部分初始化的新建对象，从而造成程序错误。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1489px">
+                                <div class="h2-section-title"><h2 id="id-516">Java虚拟机synchronized实现</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-512"></h3></div>
+                                <div class="section-body">
+                                    <p>在 <code>Java</code> 程序中，我们可以利用 <code>synchronized</code> 关键字来对程序进行加锁。它既可以用来声明一个 <code>synchronized</code> 代码块，也可以直接标记静态方法或者实例方法。</p>
+<p>当声明 <code>synchronized</code> 代码块时，编译而成的字节码将包含 <code>monitorenter</code> 和 <code>monitorexit</code> 指令。这两种指令均会消耗操作数栈上的一个引用类型的元素（也就是 <code>synchronized</code> 关键字括号里的引用），作为所要加锁解锁的锁对象。</p>
+<p>关于 <code>monitorenter</code> 和 <code>monitorexit</code> 的作用，我们可以抽象地理解为每个锁对象拥有一个锁计数器和一个指向持有该锁的线程的指针。</p>
+<p>当执行 <code>monitorenter</code> 时，如果目标锁对象的计数器为 0，那么说明它没有被其他线程所持有。在这个情况下，<code>Java</code> 虚拟机会将该锁对象的持有线程设置为当前线程，并且将其计数器加 1。</p>
+<p>在目标锁对象的计数器不为 0 的情况下，如果锁对象的持有线程是当前线程，那么 <code>Java</code> 虚拟机可以将其计数器加 1，否则需要等待，直至持有线程释放该锁。</p>
+<p>当执行 <code>monitorexit</code> 时，<code>Java</code> 虚拟机则需将锁对象的计数器减 1。当计数器减为 0 时，那便代表该锁已经被释放掉了。</p>
+<p>之所以采用这种计数器的方式，是为了允许同一个线程重复获取同一把锁。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-513">重量级锁</h3></div>
+                                <div class="section-body">
+                                    <p>重量级锁是 <code>Java</code> 虚拟机中最为基础的锁实现。在这种状态下，<code>Java</code> 虚拟机会阻塞加锁失败的线程，并且在目标锁被释放的时候，唤醒这些线程。</p>
+<p><code>Java</code> 线程的阻塞以及唤醒，都是依靠操作系统来完成的。举例来说，对于符合 <code>posix</code> 接口的操作系统（如 <code>macOS</code> 和绝大部分的 <code>Linux</code>），上述操作是通过 <code>pthread</code> 的互斥锁（<code>mutex</code>）来实现的。此外，这些操作将涉及系统调用，需要从操作系统的用户态切换至内核态，其开销非常之大。</p>
+<p>为了尽量避免昂贵的线程阻塞、唤醒操作，<code>Java</code> 虚拟机会在线程进入阻塞状态之前，以及被唤醒后竞争不到锁的情况下，进入<a title="自旋状态" href="https://zh.wikipedia.org/wiki/%E8%87%AA%E6%97%8B%E9%94%81" target="_blank">自旋状态</a>。</p>
+<p>然而，对于 <code>Java</code> 虚拟机来说，它并不能看到自选等待的剩余时间，也就没办法根据等待时间的长短来选择自旋还是阻塞。<code>Java</code> 虚拟机给出的方案是自适应自旋，根据以往自旋等待时是否能够获得锁，来动态调整自旋的时间（循环数目）。</p>
+<p>自旋状态还带来另外一个副作用，那便是<em>不公平的锁机制</em>。处于阻塞状态的线程，并没有办法立刻竞争被释放的锁。然而，处于自旋状态的线程，则很有可能优先获得这把锁。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 571px; left:468.5px">
+                            <div class="section-title"><h3 id="id-514">轻量级锁</h3></div>
+                                <div class="section-body">
+                                    <p>多个线程在不同的时间段请求同一把锁，也就是说没有锁竞争。针对这种情形，<code>Java</code> 虚拟机采用了轻量级锁，来避免重量级锁的阻塞以及唤醒。</p>
+<p>在介绍轻量级锁的原理之前，我们先来了解一下 <code>Java</code> 虚拟机是怎么区分轻量级锁和重量级锁的。</p>
+<p><em>对象头</em>中的标记字段（<code>mark word</code>）。它的最后两位便被用来表示该对象的锁状态。</p>
+<ul><li>00 代表轻量级锁，
+</li><li>01 代表无锁（或偏向锁），
+</li><li>10 代表重量级锁，
+</li><li>11 则跟垃圾回收算法的标记有关。
+</li></ul>
+<p>当进行加锁操作时，<code>Java</code> 虚拟机会判断是否已经是重量级锁。如果不是，它会在当前线程的当前栈桢中划出一块空间，作为该锁的锁记录，并且将锁对象的标记字段复制到该锁记录中。</p>
+<p>然后，<code>Java</code> 虚拟机会尝试用 <code>CAS</code>（<code>compare-and-swap</code>，原子操作）操作替换锁对象的标记字段。</p>
+<p>假设当前锁对象的标记字段为 <code>X…XYZ</code>，<code>Java</code> 虚拟机会比较该字段是否为 <code>X…X01</code>。<span class="sn">1</span>如果是，则替换为刚才分配的锁记录的地址。由于内存对齐的缘故，它的最后两位为 00。此时，该线程已成功获得这把锁，可以继续执行了。<span class="sn">2</span>如果不是 <code>X…X01</code>，那么有两种可能。第一，该线程重复获取同一把锁。此时，<code>Java</code> 虚拟机会将锁记录清零，以代表该锁被重复获取。第二，其他线程持有该锁。此时，<code>Java</code> 虚拟机会将这把锁膨胀为重量级锁，并且阻塞当前线程。</p>
+<p>当进行解锁操作时，如果当前锁记录（你可以将一个线程的所有锁记录想象成一个栈结构，每次加锁压入一条锁记录，解锁弹出一条锁记录，当前锁记录指的便是栈顶的锁记录）的值为 0，则代表重复进入同一把锁，直接返回即可。</p>
+<p>否则，<code>Java</code> 虚拟机会尝试用 <code>CAS</code> 操作，比较锁对象的标记字段的值是否为当前锁记录的地址。<span class="sn">1</span>如果是，则替换为锁记录中的值，也就是锁对象原本的标记字段。此时，该线程已经成功释放这把锁。<span class="sn">2</span>如果不是，则意味着这把锁已经被膨胀为重量级锁。此时，<code>Java</code> 虚拟机会进入重量级锁的释放过程，唤醒因竞争该锁而被阻塞了的线程。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 604px; left:0px">
+                            <div class="section-title"><h3 id="id-515">偏向锁</h3></div>
+                                <div class="section-body">
+                                    <p>如果说轻量级锁针对的情况很乐观，那么接下来的偏向锁针对的情况则更加乐观：从始至终只有一个线程请求某一把锁。</p>
+<p>在线程进行加锁时，如果该锁对象支持偏向锁，那么 <code>Java</code> 虚拟机会通过 <code>CAS</code> 操作，将当前线程的地址记录在锁对象的标记字段之中，并且将标记字段的最后三位设置为 <code>101</code>。</p>
+<p>在接下来的运行过程中，每当有线程请求这把锁，<code>Java</code> 虚拟机只需判断锁对象标记字段中：最后三位是否为 <code>101</code>，是否包含当前线程的地址，以及 <code>epoch</code> 值是否和锁对象的类的 <code>epoch</code> 值相同。如果都满足，那么当前线程持有该偏向锁，可以直接返回。</p>
+<p>这里的 <code>epoch</code> 值是一个什么概念呢？我们先从偏向锁的撤销讲起。</p>
+<p>当请求<em>加锁的线程</em>和<em>锁对象</em>标记字段保持的线程地址不匹配时（而且 <code>epoch</code> 值相等，如若不等，那么当前线程可以将该锁重偏向至自己），<code>Java</code> 虚拟机需要撤销该偏向锁。这个撤销过程非常麻烦，它要求持有偏向锁的线程到达安全点，再将偏向锁替换成轻量级锁。</p>
+<p>如果某一类锁对象的总撤销数超过了一个阈值（对应 <code>Java</code> 虚拟机参数 <code>-XX</code>:<code>BiasedLockingBulkRebiasThreshold</code>，默认为 20），那么 <code>Java</code> 虚拟机会宣布这个类的偏向锁失效。</p>
+<p>具体的做法便是在每个类中维护一个 <code>epoch</code> 值，你可以理解为第几代偏向锁。当设置偏向锁时，<code>Java</code> 虚拟机需要将该 <code>epoch</code> 值复制到锁对象的标记字段中。在宣布某个类的偏向锁失效时，<code>Java</code> 虚拟机实则将该类的 <code>epoch</code> 值加 1，表示之前那一代的偏向锁已经失效。而新设置的偏向锁则需要复制新的 <code>epoch</code> 值。为了保证当前持有偏向锁并且已加锁的线程不至于因此丢锁，<code>Java</code> 虚拟机需要遍历所有线程的 <code>Java</code> 栈，找出该类已加锁的实例，并且将它们标记字段中的 <code>epoch</code> 值加 1。该操作需要所有线程处于安全点状态。</p>
+<p>如果总撤销数超过另一个阈值（对应 <code>Java</code> 虚拟机参数 <code>-XX</code>:<code>BiasedLockingBulkRevokeThreshold</code>，默认值为 40），那么 <code>Java</code> 虚拟机会认为这个类已经不再适合偏向锁。此时，<code>Java</code> 虚拟机会撤销该类实例的偏向锁，并且在之后的加锁过程中直接为该类实例设置轻量级锁。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 608px">
+                                <div class="h2-section-title"><h2 id="id-520">Java语法糖与Java编译器</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-517">自动装箱与自动拆箱</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 语言拥有 8 个基本类型，每个基本类型都有对应的包装（<code>wrapper</code>）类型。</p>
+<p>之所以需要包装类型，是因为许多 <code>Java</code> 核心类库的 <code>API</code> 都是面向对象的。举个例子，<code>Java</code> 核心类库中的容器类，就只支持引用类型。</p>
+<p>在 <code>Java</code> 程序中，这个转换可以是显式，也可以是隐式的，后者正是 <code>Java</code> 中的自动装箱。以 <code>int</code> 为例，指令会调用 <code>Integer.valueOf</code> 和 <code>Integer.intValue</code> 方法进行自动拆装箱。</p>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Integer</span> <span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;=</span> <span class="token class-name">IntegerCache</span><span class="token punctuation">.</span>low <span class="token operator">&amp;&amp;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">IntegerCache</span><span class="token punctuation">.</span>high<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token class-name">IntegerCache</span><span class="token punctuation">.</span>cache<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token class-name">IntegerCache</span><span class="token punctuation">.</span>low<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>int</code> 值在某个范围内时，会返回缓存了的 <code>Integer</code> 对象。<code>Java</code> 虚拟机参数 <code>-XX</code>:+<code>AggressiveOpts</code> 也会将 <code>IntegerCache.high</code> 调整至 <code>20000</code>。但是，<code>Java</code> 并不支持对 <code>IntegerCache.low</code> 的更改，也就是说，对于小于 <code>-128</code> 的整数，我们无法直接使用由 <code>Java</code> 核心类库所缓存的 <code>Integer</code> 对象。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-518">泛型与类型擦除</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 程序里的泛型信息，在 <code>Java</code> 虚拟机里全部都丢失了。这么做主要是为了兼容引入泛型之前的代码。</p>
+<p>当然，并不是每一个泛型参数被擦除类型后都会变成 <code>Object</code> 类。对于限定了继承类的泛型参数，经过类型擦除后，所有的泛型参数都将变成所限定的继承类。也就是说，<code>Java</code> 编译器将选取该泛型所能指代的所有类中层次最高的那个，作为替换泛型的类。例如一个 <code>T extends Number</code> 的泛型参数，类型擦除的结果为 <code>Number</code>。</p>
+<p>不过，字节码中仍存在泛型参数的信息，主要由 <code>Java</code> 编译器在编译他类时使用，类型擦除可以用于编译时类型的验证。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 364px; left:468.5px">
+                            <div class="section-title"><h3 id="id-519">桥接方法</h3></div>
+                                <div class="section-body">
+                                    <p>泛型的类型擦除带来了不少问题，其中一个便是方法重写。为了保证编译而成的 <code>Java</code> 字节码能够保留重写的语义，<code>Java</code> 编译器额外添加了一个桥接方法。该桥接方法在字节码层面重写了父类的方法，并将调用子类的方法。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 2165px">
+                                <div class="h2-section-title"><h2 id="id-528">即时编译</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-521"></h3></div>
+                                <div class="section-body">
+                                    <p>通常而言，代码会先被 <code>Java</code> 虚拟机解释执行，之后反复执行的热点代码则会被即时编译成为机器码，直接运行在底层硬件之上。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-522">分层编译模式</h3></div>
+                                <div class="section-body">
+                                    <p><code>HotSpot</code> 虚拟机包含多个即时编译器 C1、C2 和 <code>Graal</code>。其中，<code>Graal</code> 是一个实验性质的即时编译器，可以通过参数 <code>-XX</code>:+<code>UnlockExperimentalVMOptions -XX</code>:+<code>UseJVMCICompiler</code> 启用，并且替换 C2。</p>
+<p><code>Java 7</code> 引入了分层编译（对应参数 <code>-XX</code>:+<code>TieredCompilation</code>）的概念，综合了 C1 的启动性能优势和 C2 的峰值性能优势。</p>
+<p>分层编译将 <code>Java</code> 虚拟机的执行状态分为了五个层次。为了方便阐述，我用“C1 代码”来指代由 C1 生成的机器码，“C2 代码”来指代由 C2 生成的机器码。五个层级分别是：</p>
+<ul><li><span class="sn">0</span>解释执行；
+</li><li><span class="sn">1</span>执行不带 <code>profiling</code> 的 C1 代码；
+</li><li><span class="sn">2</span>执行仅带方法调用次数以及循环回边执行次数 <code>profiling</code> 的 C1 代码；
+</li><li><span class="sn">3</span>执行带所有 <code>profiling</code> 的 C1 代码；
+</li><li><span class="sn">4</span>执行 C2 代码。
+</li></ul>
+<p>通常情况下，C2 代码的执行效率要比 C1 代码的高出 30% 以上。然而，对于 C1 代码的三种状态，按执行效率从高至低则是 1 层 &gt; 2 层 &gt; 3 层。</p>
+<p>其中 1 层的性能比 2 层的稍微高一些，而 2 层的性能又比 3 层高出 30%。这是因为 <code>profiling</code> 越多，其额外的性能开销越大。</p>
+<p>这里解释一下，<code>profiling</code> 是指在程序执行过程中，收集能够反映程序执行状态的数据。这里所收集的数据我们称之为程序的 <code>profile</code>。</p>
+<p>在 5 个层次的执行状态中，1 层和 4 层为终止状态。当一个方法被终止状态编译过后，如果编译后的代码并没有失效，那么 <code>Java</code> 虚拟机是不会再次发出该方法的编译请求的。</p>
+<pre class="language- language-none"><code class="language- language-none" style="">Interpreter  |          C1(client)                   |   C2(server)
+             | no [profiling]   limited      full    |             
+             |                                       |               
+common  (0) -|------------------------------&gt; (3) ---|------&gt; (4)
+             |                                       |             
+trivial (0) -|------------------------------&gt; (3)    |                
+method       |     (1) ----------------------        |                    
+             |                                       |            
+c1 busy (0) -|---------------------------------------|------&gt; (4)
+             |                                       |               
+c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
+             |                                       |               
+
+</code></pre>
+<p>通常情况下，热点方法会被 3 层的 C1 编译，然后再被 4 层的 C2 编译。</p>
+<p>如果方法的字节码数目比较少（如 <code>getter/setter</code>），而且 3 层的 <code>profiling</code> 没有可收集的数据。</p>
+<p>那么，<code>Java</code> 虚拟机断定该方法对于 C1 代码和 C2 代码的执行效率相同。在这种情况下，<code>Java</code> 虚拟机会在 3 层编译之后，直接选择用 1 层的 C1 编译。由于这是一个终止状态，因此 <code>Java</code> 虚拟机不会继续用 4 层的 C2 编译。</p>
+<p>在 C1 忙碌的情况下，<code>Java</code> 虚拟机在解释执行过程中对程序进行 <code>profiling</code>，而后直接由 4 层的 C2 编译。在 C2 忙碌的情况下，方法会被 2 层的 C1 编译，然后再被 3 层的 C1 编译，以减少方法在 3 层的执行时间。</p>
+<p><code>Java 8</code> 默认开启了分层编译。不管是开启还是关闭分层编译，原本用来选择即时编译器的参数 <code>-client</code> 和 <code>-server</code> 都是无效的。当关闭分层编译的情况下，<code>Java</code> 虚拟机将直接采用 C2。</p>
+<p>如果你希望只是用 C1，那么你可以在打开分层编译的情况下使用参数 <code>-XX</code>:<code>TieredStopAtLevel=1</code>。在这种情况下，<code>Java</code> 虚拟机会在解释执行之后直接由 1 层的 C1 进行编译。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 139px; left:0px">
+                            <div class="section-title"><h3 id="id-523">即时编译的触发</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 虚拟机是根据方法的调用次数以及循环回边的执行次数来触发即时编译的。前面提到，<code>Java</code> 虚拟机在 0 层、2 层和 3 层执行状态时进行 <code>profiling</code>，其中就包含方法的调用次数和循环回边的执行次数。</p>
+<p>这里的循环回边是一个控制流图中的概念。在字节码中，我们可以简单理解为往回跳转的指令。在即时编译过程中，我们会识别循环的头部和尾部。循环尾部到循环头部的控制流边就是真正意义上的循环回边。也就是说，C1 将在这个位置插入增加循环回边计数器的代码。</p>
+<p>解释执行和 C1 代码中增加循环回边计数器的位置并不相同，但这并不会对程序造成影响。</p>
+<p>实际上，<code>Java</code> 虚拟机并不会对这些计数器进行同步操作，因此<em>收集而来的执行次数也并非精确值</em>。不管如何，即时编译的触发并不需要非常精确的数值。只要该数值足够大，就能说明对应的方法包含热点代码。</p>
+<p>具体来说，在不启用分层编译的情况下，当方法的调用次数和循环回边的次数的和，超过由参数 <code>-XX</code>:<code>CompileThreshold</code> 指定的阈值时（使用 C1 时，该值为 <code>1500</code>；使用 C2 时，该值为 <code>10000</code>），便会触发即时编译。</p>
+<p>当启用分层编译时，<code>Java</code> 虚拟机将不再采用由参数 <code>-XX</code>:<code>CompileThreshold</code> 指定的阈值（该参数失效），而是使用另一套阈值系统。在这套系统中，阈值的大小是动态调整的。</p>
+<p>所谓的动态调整其实并不复杂：在比较阈值时，<code>Java</code> 虚拟机会将阈值与某个系数 s 相乘。该系数与当前待编译的方法数目成正相关，与编译线程的数目成负相关。</p>
+<p>在 64 位 <code>Java</code> 虚拟机中，默认情况下编译线程的总数目是根据处理器数量来调整的（对应参数 <code>-XX</code>:+<code>CICompilerCountPerCPU</code>，默认为 <code>true</code>；当通过参数 <code>-XX</code>:+<code>CICompilerCount=N</code> 强制设定总编译线程数目时，<code>CICompilerCountPerCPU</code> 将被设置为 <code>false</code>）。</p>
+<p><code>Java</code> 虚拟机会将这些编译线程按照 1:2 的比例分配给 C1 和 C2（至少各为 1 个）。举个例子，对于一个四核机器来说，总的编译线程数目为 3，其中包含一个 C1 编译线程和两个 C2 编译线程。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 994px; left:0px">
+                            <div class="section-title"><h3 id="id-524"><code>Profiling</code></h3></div>
+                                <div class="section-body">
+                                    <p>分层编译中的 0 层、2 层和 3 层都会进行 <code>profiling</code>，收集能够反映程序执行状态的数据。其中，最为基础的便是方法的调用次数以及循环回边的执行次数。它们被用于触发即时编译。</p>
+<p>此外，0 层和 3 层还会收集用于 4 层 C2 编译的数据，比如说分支跳转字节码的分支 <code>profile</code>（<code>branch profile</code>），包括跳转次数和不跳转次数，以及非私有实例方法调用指令、强制类型转换 <code>checkcast</code> 指令、类型测试 <code>instanceof</code> 指令，和引用类型的数组存储 <code>aastore</code> 指令的类型 <code>profile</code>（<code>receiver type profile</code>）。</p>
+<p>分支 <code>profile</code> 和类型 <code>profile</code> 的收集将给应用程序带来不少的性能开销。据统计，正是因为这部分额外的 <code>profiling</code>，使得 3 层 C1 代码的性能比 2 层 C1 代码的低 30%。</p>
+<p>在通常情况下，我们不会在解释执行过程中收集分支 <code>profile</code> 以及类型 <code>profile</code>。只有在方法触发 C1 编译后，<code>Java</code> 虚拟机认为该方法有可能被 C2 编译，方才在该方法的 C1 代码中收集这些 <code>profile</code>。只要在比较极端的情况下，例如等待 C1 编译的方法数目太多时，<code>Java</code> 虚拟机才会开始在解释执行过程中收集这些 <code>profile</code>。</p>
+<p>C2 可以根据收集得到的数据进行猜测，假设接下来的执行同样会按照所收集的 <code>profile</code> 进行，从而作出比较激进的优化。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1550px; left:0px">
+                            <div class="section-title"><h3 id="id-525">基于分支 <code>profile</code> 的优化</h3></div>
+                                <div class="section-body">
+                                    <p>根据条件跳转指令的分支 <code>profile</code>，即时编译器可以将从未执行过的分支剪掉，以避免编译这些很有可能不会用到的代码，从而节省编译时间以及部署代码所要消耗的内存空间。此外，“剪枝”将精简程序的数据流，从而触发更多的优化。</p>
+<p>在现实中，分支 <code>profile</code> 出现仅跳转或者仅不跳转的情况并不多见。当然，即时编译器对分支 <code>profile</code> 的利用也不仅限于“剪枝”。它还会根据分支 <code>profile</code>，计算每一条程序执行路径的概率，以便某些编译器优化优先处理概率较高的路径。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1569px; left:468.5px">
+                            <div class="section-title"><h3 id="id-526">基于类型 <code>profile</code> 的优化</h3></div>
+                                <div class="section-body">
+                                    <p>和基于分支 <code>profile</code> 的优化一样，基于类型 <code>profile</code> 的优化同样也是作出假设，从而精简控制流以及数据流。这两者的核心都是假设。</p>
+<p>对于分支 <code>profile</code>，即时编译器假设的是仅执行某一分支；对于类型 <code>profile</code>，即时编译器假设的是对象的动态类型仅为类型 <code>profile</code> 中的那几个。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1787px; left:468.5px">
+                            <div class="section-title"><h3 id="id-527">去优化</h3></div>
+                                <div class="section-body">
+                                    <p>当假设失败的情况下，<code>Java</code> 虚拟机给出的解决方案便是去优化，即从执行即时编译生成的机器码切换回解释执行。</p>
+<p>在生成的机器码中，即时编译器将在假设失败的位置上插入一个陷阱（<code>trap</code>）。该陷阱实际上是一条 <code>call</code> 指令，调用至 <code>Java</code> 虚拟机里专门负责去优化的方法。与普通的 <code>call</code> 指令不一样的是，去优化方法将更改栈上的返回地址，并不再返回即时编译器生成的机器码中。</p>
+<p>去优化的过程相当复杂。由于即时编译器采用了许多优化方式，其生成的代码和原本的字节码的差异非常之大。</p>
+<p>在去优化的过程中，需要将当前机器码的执行状态转换至某一字节码之前的执行状态，并从该字节码开始执行。这便要求即时编译器在编译过程中记录好这两种执行状态的映射。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 753px">
+                                <div class="h2-section-title"><h2 id="id-532">即时编译器的中间表达形式</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-529">中间表达形式（IR）</h3></div>
+                                <div class="section-body">
+                                    <p>在编译原理课程中，我们通常将编译器分为前端和后端。其中，前端会对所输入的程序进行词法分析、语法分析、语义分析，然后生成中间表达形式，也就是 IR（<code>Intermediate Representation</code> ）。后端会对 IR 进行优化，然后生成目标代码。</p>
+<p>如果不考虑解释执行的话，从 <code>Java</code> 源代码到最终的机器码实际上经过了两轮编译：<code>Java</code> 编译器将 <code>Java</code> 源代码编译成 <code>Java</code> 字节码，而即时编译器则将 <code>Java</code> 字节码编译成机器码。</p>
+<p>对于<em>即时编译器</em>来说，所输入的 <code>Java</code> 字节码剥离了很多高级的 <code>Java</code> 语法，而且其采用的基于栈的计算模型非常容易建模。因此，即时编译器并不需要重新进行词法分析、语法分析以及语义分析，而是<em>直接将 Java 字节码作为一种 IR</em>。</p>
+<p>不过，<code>Java</code> 字节码本身并不适合直接作为可供优化的 IR。这是因为现代编译器一般采用静态单赋值（<code>Static Single Assignment</code>，<code>SSA</code>）IR。这种 IR 的特点是每个变量只能被赋值一次，而且只有当变量被赋值之后才能使用。</p>
+<p>总之，即时编译器会将 <code>Java</code> 字节码转换成 <code>SSA IR</code>。更确切的说，是一张包含控制流和数据流的 IR 图，每个字节码对应其中的若干个节点（注意，有些字节码并没有对应的 IR 节点）。然后，即时编译器在 IR 图上面进行优化。</p>
+<p>我们可以将每一种优化看成一个独立的图算法，它接收一个 IR 图，并输出经过转换后的 IR 图。整个编译器优化过程便是一个个优化串联起来的。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-530"><code>Sea-of-nodes</code></h3></div>
+                                <div class="section-body">
+                                    <p><code>HotSpot</code> 里的 C2 采用的是一种名为 <code>Sea-of-Nodes</code> 的 <code>SSA IR</code>。它的最大特点，便是去除了变量的概念，直接采用变量所指向的值，来进行运算。</p>
+<p><code>Graal</code> 的 IR 同样也是 <code>Sea-of-Nodes</code> 类型的，并且可以认为是 <code>C2 IR</code> 的精简版本。<code>Graal</code> 的 IR 系统更加容易理解，而且工具支持相对来说也比较全、比较新。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 282px; left:468.5px">
+                            <div class="section-title"><h3 id="id-531"><code>Gloval Value Numbering</code></h3></div>
+                                <div class="section-body">
+                                    <p><code>GVN</code> 是一种发现并消除等价计算的优化技术。举例来说，如果一段程序中出现了多次操作数相同的乘法，那么即时编译器可以将这些乘法并为一个，从而降低输出机器码的大小。如果这些乘法出现在同一执行路径上，那么 <code>GVN</code> 还将省下冗余的乘法操作。</p>
+<p>在 <code>Sea-of-Nodes</code> 中，由于只存在值的概念，因此 <code>GVN</code> 算法将非常简单：如果一个浮动节点本身不存在内存副作用（由于 <code>GVN</code> 可能影响节点调度，如果有内存副作用的话，那么将引发一些源代码中不可能出现的情况） ，那么即时编译器只需判断该浮动节点是否与已存在的浮动节点的类型相同，所输入的 IR 节点是否一致，便可以将这两个浮动节点归并成一个。</p>
+<p>我们可以将 <code>GVN</code> 理解为在 IR 图上的公共子表达式消除（<code>Common Subexpression Elimination</code>，<code>CSE</code>）。</p>
+<p>这两者的区别在于，<code>GVN</code> 直接比较值的相同与否，而 <code>CSE</code> 则是借助词法分析器来判断两个表达式相同与否。因此，在不少情况下，<code>CSE</code> 还需借助常量传播来达到消除的效果。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1215px">
+                                <div class="h2-section-title"><h2 id="id-535">Java 字节码</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-533">操作数栈</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 字节码是 <code>Java</code> 虚拟机所使用的指令集。因此，它与 <code>Java</code> 虚拟机基于栈的计算模型是密不可分的。</p>
+<p>在解释执行过程中，每当为 <code>Java</code> 方法分配栈桢时，<code>Java</code> 虚拟机往往需要开辟一块额外的空间作为操作数栈，来存放计算的操作数以及返回结果。</p>
+<p><em>具体来说便是</em>：执行每一条指令之前，<code>Java</code> 虚拟机要求该指令的操作数已被压入操作数栈中。在执行指令时，<code>Java</code> 虚拟机会将该指令所需的操作数弹出，并且将指令的结果重新压入栈中。</p>
+<p><code>Java</code> 字节码中有好几条指令是直接作用在操作数栈上的。最为常见的便是 <code>dup</code>： 复制栈顶元素，以及 <code>pop</code>：舍弃栈顶元素。</p>
+<p>除此之外，不算常见但也是直接作用于操作数栈的还有 <code>swap</code> 指令，它将交换栈顶两个元素的值。</p>
+<p>在 <code>Java</code> 字节码中，有一部分指令可以直接将常量加载到操作数栈上。以 <code>int</code> 类型为例，<code>Java</code> 虚拟机既可以通过 <code>iconst</code> 指令加载 -1 至 5 之间的 <code>int</code> 值，也可以通过 <code>bipush</code>、<code>sipush</code> 加载一个字节、两个字节所能代表的 <code>int</code> 值。</p>
+<p><code>Java</code> 虚拟机还可以通过 <code>ldc</code> 加载常量池中的常量值。这些常量包括 <code>int</code> 类型、<code>long</code> 类型、<code>float</code> 类型、<code>double</code> 类型、<code>String</code> 类型以及 <code>Class</code> 类型的常量。</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>类型</th><th>常数指令</th><th>范围</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>int ( byte, short, char, boolean)</td><td>iconst</td><td>[-1, 5]</td></tr><tr><td></td><td>bipush</td><td>[-128, 127]</td></tr><tr><td></td><td>sipush</td><td>[-32768, 32767]</td></tr><tr><td></td><td>ldc</td><td>any int value</td></tr><tr><td>long</td><td>lconst</td><td>0, 1</td></tr><tr><td></td><td>ldc</td><td>any long value</td></tr><tr><td>float</td><td>fconst</td><td>0, 1, 2</td></tr><tr><td></td><td>ldc</td><td>any float value</td></tr><tr><td>double</td><td>dconst</td><td>0, 1</td></tr><tr><td></td><td>ldc</td><td>any double value</td></tr><tr><td>reference</td><td>aconst</td><td>null</td></tr><tr><td></td><td>ldc</td><td>索引</td></tr>
+                </tbody>
+            </table>
+<p>正常情况下，操作数栈的压入弹出都是一条条指令完成的。唯一的例外情况是在抛异常时，<code>Java</code> 虚拟机会清除操作数栈上的所有内容，而后将异常实例压入操作数栈上。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-534">局部变量区</h3></div>
+                                <div class="section-body">
+                                    <p><code>Java</code> 方法栈桢的另外一个重要组成部分则是局部变量区，字节码程序可以将计算的结果缓存在局部变量区之中。</p>
+<p>实际上，<code>Java</code> 虚拟机将局部变量区当成一个数组，依次存放 <code>this</code> 指针（仅非静态方法），所传入的参数，以及字节码中的局部变量。</p>
+<p>和操作数栈一样，<code>long</code> 类型以及 <code>double</code> 类型的值将占据两个单元，其余类型仅占据一个单元。</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>类型</th><th>加载指令</th><th>范围</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>byte/boolean</td><td>baload</td><td>bastore</td></tr><tr><td>char</td><td>caload</td><td>castore</td></tr><tr><td>short</td><td>saload</td><td>sastore</td></tr><tr><td>int</td><td>iaload</td><td>iastore</td></tr><tr><td>long</td><td>laload</td><td>lastore</td></tr><tr><td>float</td><td>faload</td><td>fastore</td></tr><tr><td>double</td><td>daload</td><td>dastore</td></tr><tr><td>reference</td><td>aaload</td><td>aastore</td></tr>
+                </tbody>
+            </table>
+<p>局部变量数组的加载、存储指令都需要指明所加载单元的下标。举例来说，<code>aload 0</code> 指的是加载第 0 个单元所存储的引用。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 647px">
+                    <div class="h2-section-title"><h2 id="id-538">方法内联</h2></div>
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-536"></h3></div>
+                                <div class="section-body">
+                                    <p>在编译过程中遇到方法调用时，将目标方法的方法体纳入编译范围之中，并取代原方法调用的优化手段。</p>
+<p>方法内联不仅可以消除调用本身带来的性能开销，还可以进一步触发更多的优化。因此，它可以算是编译优化里最为重要的一环。</p>
+<p>以 <code>getter/setter</code> 为例，如果没有方法内联，在调用 <code>getter/setter</code> 时，程序需要保存当前方法的执行位置，创建并压入用于 <code>getter/setter</code> 的栈帧、访问字段、弹出栈帧，最后再恢复当前方法的执行。而当内联了对 <code>getter/setter</code> 的方法调用后，上述操作仅剩字段访问。</p>
+<p>在 C2 中，方法内联是在解析字节码的过程中完成的。每当碰到方法调用字节码时，C2 将决定是否需要内联该方法调用。如果需要内联，则开始解析目标方法的字节码。</p>
+<p>即时编译器首先解析字节码，并生成 IR 图，然后在该 IR 图上进行优化。优化是由一个个独立的优化阶段（<code>optimization phase</code>）串联起来的。每个优化阶段都会对 IR 图进行转换。最后即时编译器根据 IR 图的节点以及调度顺序生成机器码。</p>
+<p>同 C2 一样，<code>Graal</code> 也会在解析字节码的过程中进行方法调用的内联。此外，<code>Graal</code> 还拥有一个独立的优化阶段，来寻找指代方法调用的 IR 节点，并将之替换为目标方法的 IR 图。</p>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                <div class="section-title"><h3 id="id-537">方法内联的条件</h3></div>
+                    <div class="section-body">
+                        <p>方法内联能够触发更多的优化。通常而言，内联越多，生成代码的执行效率越高。然而，对于即时编译器来说，内联越多，编译时间也就越长，而程序达到峰值性能的时刻也将被推迟。</p>
+<p>此外，内联越多也将导致生成的机器码越长。在 <code>Java</code> 虚拟机里，编译生成的机器码会被部署到 <code>Code Cache</code> 之中。这个 <code>Code Cache</code> 是有大小限制的（由 <code>Java</code> 虚拟机参数 <code>-XX</code>:<code>ReservedCodeCacheSize</code> 控制）。</p>
+<p>内联有一些规则添加，如自动拆箱总会被内联、<code>Throwable</code> 类的方法不能被其他类中的方法所内联。</p>
+<ul><li><em>首先</em>，由 <code>-XX</code>:<code>CompileCommand</code> 中的 <code>inline</code> 指令指定的方法，以及由 <code>@ForceInline</code> 注解的方法（仅限于 <code>JDK</code> 内部方法），会被强制内联。 而由 <code>-XX</code>:<code>CompileCommand</code> 中的 <code>dontinline</code> 指令或 <code>exclude</code> 指令（表示不编译）指定的方法，以及由 <code>@DontInline</code> 注解的方法（仅限于 <code>JDK</code> 内部方法），则始终不会被内联。
+</li><li><em>其次</em>，如果调用字节码对应的符号引用未被解析、目标方法所在的类未被初始化，或者目标方法是 <code>native</code> 方法，都将导致方法调用无法内联。
+</li><li><em>再次</em>，C2 不支持内联超过 9 层的调用（可以通过虚拟机参数 <code>-XX</code>:<code>MaxInlineLevel</code> 调整），以及 1 层的直接递归调用（可以通过虚拟机参数 <code>-XX</code>:<code>MaxRecursiveInlineLevel</code> 调整）。
+</li><li><em>最后</em>，即时编译器将根据方法调用指令所在的程序路径的热度，目标方法的调用次数及大小，以及当前 IR 图的大小来决定方法调用能否被内联。
+</li></ul>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H2" data-id="id-473" data-pid="">
+                        Java 基本类型
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-470" data-pid="id-473">
+                        Java 虚拟机的 boolean 类型
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-471" data-pid="id-473">
+                        Java 的基本类型
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-472" data-pid="id-473">
+                        Java 基本类型的大小
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-477" data-pid="">
+                        方法
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-474" data-pid="id-477">
+                        方法调用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-475" data-pid="id-477">
+                        虚方法调用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-476" data-pid="id-477">
+                        方法表
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-482" data-pid="">
+                        异常处理
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-478" data-pid="id-482">
+                        异常的基本概念
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-479" data-pid="id-482">
+                        异常分类
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-480" data-pid="id-482">
+                        异常捕获
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-481" data-pid="id-482">
+                        try-with-resources
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-486" data-pid="">
+                        工具
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-483" data-pid="id-486">
+                        javap：查阅 Java 字节码
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-484" data-pid="id-486">
+                        OpenJDK 项目 Code Tools：实用小工具集
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-485" data-pid="id-486">
+                        ASM：Java 字节码框架
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-490" data-pid="">
+                        反射
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-488" data-pid="id-490">
+                        反射调用的实现
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-489" data-pid="id-490">
+                        反射调用的开销
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-496" data-pid="">
+                        invokedynamic 的实现
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-491" data-pid="id-496">
+                        方法句柄的概念
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-492" data-pid="id-496">
+                        方法句柄的操作
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-493" data-pid="id-496">
+                        方法句柄的实现
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-494" data-pid="id-496">
+                        invokedynamic 指令
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-495" data-pid="id-496">
+                        Java 8 的 Lambda 表达式
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-500" data-pid="">
+                        Java 对象的内存布局
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-498" data-pid="id-500">
+                        压缩指针
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-499" data-pid="id-500">
+                        字段重排列
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-506" data-pid="">
+                        垃圾回收
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-501" data-pid="id-506">
+                        引用计数法与可达性分析
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-502" data-pid="id-506">
+                        Stop-the-world 以及安全点
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-503" data-pid="id-506">
+                        垃圾回收的三种方式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-504" data-pid="id-506">
+                        Java 虚拟机的堆划分
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-505" data-pid="id-506">
+                        卡表
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-511" data-pid="">
+                        Java内存模型
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-507" data-pid="id-511">
+                        编译器优化的重排序
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-508" data-pid="id-511">
+                        Java 内存模型与 happens-before 关系
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-509" data-pid="id-511">
+                        Java 内存模型的底层实现
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-510" data-pid="id-511">
+                        锁，volatile 字段，final 字段与安全发布
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-516" data-pid="">
+                        Java虚拟机synchronized实现
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-513" data-pid="id-516">
+                        重量级锁
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-514" data-pid="id-516">
+                        轻量级锁
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-515" data-pid="id-516">
+                        偏向锁
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-520" data-pid="">
+                        Java语法糖与Java编译器
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-517" data-pid="id-520">
+                        自动装箱与自动拆箱
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-518" data-pid="id-520">
+                        泛型与类型擦除
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-519" data-pid="id-520">
+                        桥接方法
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-528" data-pid="">
+                        即时编译
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-522" data-pid="id-528">
+                        分层编译模式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-523" data-pid="id-528">
+                        即时编译的触发
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-524" data-pid="id-528">
+                        Profiling
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-525" data-pid="id-528">
+                        基于分支 profile 的优化
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-526" data-pid="id-528">
+                        基于类型 profile 的优化
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-527" data-pid="id-528">
+                        去优化
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-532" data-pid="">
+                        即时编译器的中间表达形式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-529" data-pid="id-532">
+                        中间表达形式（IR）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-530" data-pid="id-532">
+                        Sea-of-nodes
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-531" data-pid="id-532">
+                        Gloval Value Numbering
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-535" data-pid="">
+                        Java 字节码
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-533" data-pid="id-535">
+                        操作数栈
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-534" data-pid="id-535">
+                        局部变量区
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-538" data-pid="">
+                        方法内联
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-537" data-pid="id-538">
+                        方法内联的条件
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>
