@@ -80,6 +80,13 @@ a {
     height: 60px;
 }
 
+#build-html {
+    float: right;
+    line-height: 40px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
 #go-back {
     height: 40px;
     width: 40px;
@@ -115,6 +122,7 @@ a {
     background: #aaaaaa;
     color: #ffffff;
 }
+
 
 /** home */
 #home-wrapper #title {

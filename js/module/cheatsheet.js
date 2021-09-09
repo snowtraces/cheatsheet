@@ -29,9 +29,10 @@
             // this.view.render(this.model.data)
             this.bindEvents()
             this.bindEventHub()
+            this.initSectionPosition()
         },
         bindEvents() {
-            window.onresize = () => this.initSectionPosition.call(this)
+            window.onresize = $.throttle(() => this.initSectionPosition.call(this))
         },
         bindEventHub() {
             window.eventHub.on('open-sheet', (data) => {
@@ -47,13 +48,13 @@
                 $.get(`./data/${value}.md`).then((rawText) => {
                     this.view.render(this.parseMarkdown(rawText))
                     this.initSectionPosition()
-                    syncLoad(['./js/3rdparty/prism.js'], loadScript)
+                    Prism.highlightAll()
 
                     // 生成导航
                     window.eventHub.emit('buildNav')
 
                     // 结束过渡
-                    window.eventHub.emit('loadingOff')
+                    window.eventHub.emit('loadingOff', value)
                 })
             })
         },

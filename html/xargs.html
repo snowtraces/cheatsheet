@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>xargs<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                <div class="h2-section" style="height: 2778px">
+                    
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-459">标准输入与管道命令</h3></div>
+                                <div class="section-body">
+                                    <p>Unix 命令都带有参数，有些命令可以接受"标准输入"（stdin）作为参数。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">cat</span> /etc/passwd <span class="token operator">|</span> <span class="token function">grep</span> root
+</code></pre>
+<p>管道命令<code>|</code>将标准输出转换为标准输入，所以上面的代码等同于下面的代码。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">grep</span> root /etc/passwd
+</code></pre>
+<p>但是，<em>大多数命令都不接受标准输入作为参数，只能直接在命令行输入参数，这导致无法用管道命令传递参数</em>。举例来说，<code>echo</code>命令就不接受管道传参。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token string">"hello world"</span> <span class="token operator">|</span> <span class="token builtin class-name">echo</span>
+</code></pre>
+<p>上面的代码不会有输出。因为管道右侧的echo不接受管道传来的标准输入作为参数。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="section-title"><h3 id="id-460">xargs 命令的作用</h3></div>
+                                <div class="section-body">
+                                    <p><em>xargs命令的作用，是将标准输入转为命令行参数。</em></p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token string">"hello world"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token builtin class-name">echo</span>
+hello world
+</code></pre>
+<p>上面的代码将管道左侧的标准输入，转为命令行参数<code>hello world</code>，传给第二个<code>echo</code>命令。</p>
+<h4><code>xargs</code>命令的格式</h4>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">xargs</span> <span class="token punctuation">[</span>-options<span class="token punctuation">]</span> <span class="token punctuation">[</span>command<span class="token punctuation">]</span>
+</code></pre>
+<p>真正执行的命令，紧跟在xargs后面，接受xargs传来的参数。</p>
+<p><code>xargs</code>的作用在于，大多数命令（比如<code>rm</code>、<code>mkdir</code>、<code>ls</code>）与<em>管道</em>一起使用时，都需要<code>xargs</code>将标准输入转为命令行参数。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token string">"one two three"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">mkdir</span>
+</code></pre>
+<p>上面的代码等同于<code>mkdir one two three</code>。如果不加<code>xargs</code>就会报错，提示<code>mkdir</code>缺少操作参数。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 517px; left:0px">
+                            <div class="section-title"><h3 id="id-461">xargs 的单独使用</h3></div>
+                                <div class="section-body">
+                                    <p>大多数时候，<code>xargs</code>命令都是跟管道一起使用的。但是，它也可以单独使用。<code>xargs</code>后面的命令默认是echo，<code>xargs</code>等同于<code>xargs echo</code>。</p>
+<ul><li>输入<code>xargs</code>按下回车，命令行就会等待用户输入，作为标准输入
+</li><li>输入任意内容
+</li><li>按下<code>Ctrl d</code>，表示输入结束，这时<code>echo</code>命令就会把前面的输入打印出来。
+</li></ul>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">xargs</span>
+hello <span class="token punctuation">(</span>Ctrl + d<span class="token punctuation">)</span>
+hello
+</code></pre>
+<p>再看一个例子:</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">xargs</span> <span class="token function">find</span> -name
+<span class="token string">"*.txt"</span>
+./foo.txt
+./hello.txt
+</code></pre>
+<p>上面的例子输入<code>xargs find -name</code>以后，命令行会等待用户输入所要搜索的文件。用户输入*<em>.txt</em>，表示搜索当前目录下的所有TXT文件，然后按下<code>Ctrl d</code>，表示输入结束。这时就相当执行<code>find -name *.txt</code>。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 566px; left:468.5px">
+                            <div class="section-title"><h3 id="id-462"><code>-d</code> 参数与分隔符</h3></div>
+                                <div class="section-body">
+                                    <p>默认情况下，<code>xargs</code>将<em>换行符和空格作为分隔符</em>，把标准输入分解成一个个命令行参数。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token string">"one two three"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">mkdir</span>
+</code></pre>
+<p>上面代码中，<code>mkdir</code>会新建三个子目录，因为<code>xargs</code>将<code>one two three</code>分解成三个命令行参数，执行<code>mkdir one two three</code>。</p>
+<p><code>-d</code>参数可以更改分隔符。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> -e <span class="token string">"a<span class="token entity" title="\t">\t</span>b<span class="token entity" title="\t">\t</span>c"</span> <span class="token operator">|</span> <span class="token function">xargs</span> -d <span class="token string">"<span class="token entity" title="\t">\t</span>"</span> <span class="token builtin class-name">echo</span>
+a b c
+</code></pre>
+<p>上面的命令指定制表符<code>\t</code>作为分隔符，所以<code>a\tb\tc</code>就转换成了三个命令行参数。<code>echo</code>命令的<code>-e</code>参数表示解释转义字符。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1022px; left:468.5px">
+                            <div class="section-title"><h3 id="id-463"><code>-p</code> 参数，<code>-t</code> 参数</h3></div>
+                                <div class="section-body">
+                                    <p>使用<code>xargs</code>命令以后，由于存在转换参数过程，有时需要确认一下到底执行的是什么命令。</p>
+<p><code>-p</code>参数打印出要执行的命令，询问用户是否要执行。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token string">'one two three'</span> <span class="token operator">|</span> <span class="token function">xargs</span> -p <span class="token function">touch</span>
+<span class="token function">touch</span> one two three ?<span class="token punctuation">..</span>.
+</code></pre>
+<p>上面的命令执行以后，会打印出最终要执行的命令，让用户确认。用户输入<code>y</code>或<code>yes</code>以后（大小写皆可），才会真正执行。</p>
+<p><code>-t</code>参数则是打印出最终要执行的命令，然后直接执行，不需要用户确认。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token string">'one two three'</span> <span class="token operator">|</span> <span class="token function">xargs</span> -t <span class="token function">rm</span>
+<span class="token function">rm</span> one two three
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1096px; left:0px">
+                            <div class="section-title"><h3 id="id-464"><code>-0</code> 参数与 <code>find</code> 命令</h3></div>
+                                <div class="section-body">
+                                    <p>由于<code>xargs</code>默认将空格作为分隔符，所以不太适合处理文件名，因为文件名可能包含空格。</p>
+<p><code>find</code>命令有一个特别的参数<code>-print0</code>，指定输出的文件列表以null分隔。然后，<code>xargs</code>命令的<code>-0</code>参数表示用<code>null</code>当作分隔符。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">find</span> /path -type f -print0 <span class="token operator">|</span> <span class="token function">xargs</span> -0 <span class="token function">rm</span>
+</code></pre>
+<p>上面命令删除/path路径下的所有文件。由于分隔符是<code>null</code>，所以处理包含空格的文件名，也不会报错。</p>
+<p>还有一个原因，使得<code>xargs</code>特别适合<code>find</code>命令。有些命令（比如<code>rm</code>）一旦参数过多会报错"参数列表过长"，而无法执行，改用<code>xargs</code>就没有这个问题，因为它对每个参数执行一次命令。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">find</span> <span class="token builtin class-name">.</span> -name <span class="token string">"*.txt"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">grep</span> <span class="token string">"abc"</span>
+</code></pre>
+<p>上面命令找出所有 TXT 文件以后，对每个文件搜索一次是否包含字符串abc。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1460px; left:468.5px">
+                            <div class="section-title"><h3 id="id-465"><code>-L</code> 参数</h3></div>
+                                <div class="section-body">
+                                    <p>如果标准输入包含多行，<code>-L</code>参数指定多少行作为一个命令行参数。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">xargs</span> <span class="token function">find</span> -name
+<span class="token string">"*.txt"</span>   
+<span class="token string">"*.md"</span>
+find: paths must precede expression: `*.md'
+</code></pre>
+<p>上面命令同时将<i><em>.txt</em>和</i><em>.md</em>两行作为命令行参数，传给<code>find</code>命令导致报错。</p>
+<p>使用<code>-L</code>参数，指定每行作为一个命令行参数，就不会报错。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">xargs</span> -L <span class="token number">1</span> <span class="token function">find</span> -name
+<span class="token string">"*.txt"</span>
+./foo.txt
+./hello.txt
+<span class="token string">"*.md"</span>
+./README.md
+</code></pre>
+<p>上面命令指定了每一行（<code>-L 1</code>）作为命令行参数，分别运行一次命令（<code>find -name</code>）。</p>
+<p>下面是另一个例子：</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> -e <span class="token string">"a<span class="token entity" title="\n">\n</span>b<span class="token entity" title="\n">\n</span>c"</span> <span class="token operator">|</span> <span class="token function">xargs</span> -L <span class="token number">1</span> <span class="token builtin class-name">echo</span>
+a
+b
+c
+</code></pre>
+<p>上面代码指定每行运行一次<code>echo</code>命令，所以<code>echo</code>命令执行了三次，输出了三行。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1613px; left:0px">
+                            <div class="section-title"><h3 id="id-466"><code>-n</code> 参数</h3></div>
+                                <div class="section-body">
+                                    <p><code>-L</code>参数虽然解决了多行的问题，但是有时用户会在同一行输入多项。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">xargs</span> <span class="token function">find</span> -name
+<span class="token string">"*.txt"</span> <span class="token string">"*.md"</span>
+find: paths must precede expression: `*.md'
+</code></pre>
+<p>上面的命令将同一行的两项作为命令行参数，导致报错。<code>-n</code>参数指定每次将多少项，作为命令行参数。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">xargs</span> -n <span class="token number">1</span> <span class="token function">find</span> -name
+</code></pre>
+<p>上面命令指定将每一项（<code>-n 1</code>）标准输入作为命令行参数，分别执行一次命令（<code>find -name</code>）。</p>
+<p>下面是另一个例子：</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">..</span><span class="token number">9</span><span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token function">xargs</span> -n <span class="token number">2</span> <span class="token builtin class-name">echo</span>
+<span class="token number">0</span> <span class="token number">1</span>
+<span class="token number">2</span> <span class="token number">3</span>
+<span class="token number">4</span> <span class="token number">5</span>
+<span class="token number">6</span> <span class="token number">7</span>
+<span class="token number">8</span> <span class="token number">9</span>
+</code></pre>
+<p>上面命令指定，每两个参数运行一次<code>echo</code>命令。所以，10个阿拉伯数字运行了五次<code>echo</code>命令，输出了五行。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 2226px; left:468.5px">
+                            <div class="section-title"><h3 id="id-467"><code>-I</code> 参数</h3></div>
+                                <div class="section-body">
+                                    <p>如果<code>xargs</code>要将命令行参数传给多个命令，可以使用<code>-I</code>参数。</p>
+<p><code>-I</code>指定每一项命令行参数的替代字符串。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ <span class="token function">cat</span> foo.txt
+one
+two
+three
+
+$ <span class="token function">cat</span> foo.txt <span class="token operator">|</span> <span class="token function">xargs</span> -I <span class="token function">file</span> <span class="token function">sh</span> -c <span class="token string">'echo file; mkdir file'</span>
+one 
+two
+three
+
+$ <span class="token function">ls</span> 
+one two three
+</code></pre>
+<p>上面代码中，foo.txt是一个三行的文本文件。我们希望对每一项命令行参数，执行两个命令（<code>echo</code>和<code>mkdir</code>），使用<code>-I file</code>表示file是命令行参数的替代字符串。执行命令时，具体的参数会替代掉<code>echo file; mkdir file</code>里面的两个<code>file</code>。</p>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 2264px; left:0px">
+                <div class="section-title"><h3 id="id-468"><code>--max-procs</code> 参数</h3></div>
+                    <div class="section-body">
+                        <p><code>xargs</code>默认只用一个进程执行命令。如果命令要执行多次，必须等上一次执行完，才能执行下一次。</p>
+<p><code>--max-procs</code>参数指定同时用多少个进程并行执行命令。<code>--max-procs 2</code>表示同时最多使用两个进程，<code>--max-procs 0</code>表示不限制进程数。</p>
+<pre class=" language-bash"><code class=" language-bash" style="">$ docker <span class="token function">ps</span> -q <span class="token operator">|</span> <span class="token function">xargs</span> -n <span class="token number">1</span> --max-procs <span class="token number">0</span> docker <span class="token function">kill</span>
+</code></pre>
+<p>上面命令表示，同时关闭尽可能多的 Docker 容器，这样运行速度会快很多。</p>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-459" data-pid="default">
+                        标准输入与管道命令
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-460" data-pid="default">
+                        xargs 命令的作用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-461" data-pid="default">
+                        xargs 的单独使用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-462" data-pid="default">
+                        -d 参数与分隔符
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-463" data-pid="default">
+                        -p 参数，-t 参数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-464" data-pid="default">
+                        -0 参数与 find 命令
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-465" data-pid="default">
+                        -L 参数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-466" data-pid="default">
+                        -n 参数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-467" data-pid="default">
+                        -I 参数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-468" data-pid="default">
+                        --max-procs 参数
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

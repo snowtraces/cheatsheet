@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>java8<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 1307px">
+                                
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-253">Lambda 表达式</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-java"><code class=" language-java" style=""><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> a <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// 求a乘以2后的值</span>
+a <span class="token operator">-&gt;</span> a <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// 或者更直接的去掉类型也是可以的</span>
+</code></pre>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span> <span class="token comment">// 相加</span>
+</code></pre>
+<h4>如果lambda里面的代码块超过1行，可以配合使用 <code>{ }</code> 加 <code>return</code>来处理</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">int</span> sum <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> avg <span class="token operator">=</span> sum <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> avg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4>一个lamdba表达式必须依赖一个具体的功能接口而存在</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token keyword">interface</span> <span class="token class-name">MyMath</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token function">getDoubleOf</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+	
+<span class="token class-name">MyMath</span> d <span class="token operator">=</span> a <span class="token operator">-&gt;</span> a <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// 关联到具体的接口实现</span>
+d<span class="token punctuation">.</span><span class="token function">getDoubleOf</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// is 8</span>
+</code></pre>
+<h4>下面所有的测试都是用到这个<code>list</code> :</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token class-name">Bohr</span><span class="token punctuation">,</span> <span class="token class-name">Darwin</span><span class="token punctuation">,</span> <span class="token class-name">Galilei</span><span class="token punctuation">,</span> <span class="token class-name">Tesla</span><span class="token punctuation">,</span> <span class="token class-name">Einstein</span><span class="token punctuation">,</span> <span class="token class-name">Newton</span><span class="token punctuation">]</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="section-title"><h3 id="id-254">Collections 集合</h3></div>
+                                <div class="section-body">
+                                    <h4><em>sort</em> <code>sort(list, comparator)</code></h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 正序</span>
+list<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> a<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> b<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+list<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparing</span><span class="token punctuation">(</span>n <span class="token operator">-&gt;</span> n<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+list<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparing</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">::</span><span class="token function">length</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; [Bohr, Tesla, Darwin, Newton, Galilei, Einstein]</span>
+
+<span class="token comment">// 逆序</span>
+list<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparing</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">::</span><span class="token function">length</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reversed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4><em>removeIf</em></h4>
+<pre class=" language-java"><code class=" language-java" style="">list<span class="token punctuation">.</span><span class="token function">removeIf</span><span class="token punctuation">(</span>w <span class="token operator">-&gt;</span> w<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; [Darwin, Galilei, Einstein, Newton]</span>
+</code></pre>
+<h4><em>merge</em> <code>merge(key, value, remappingFunction)</code></h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> names <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Albert"</span><span class="token punctuation">,</span> <span class="token string">"Ein?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Marie"</span><span class="token punctuation">,</span> <span class="token string">"Curie"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Max"</span><span class="token punctuation">,</span> <span class="token string">"Plank"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//  "Albert" 这个值是存在的 就命中了后面处理流程</span>
+<span class="token comment">// {Marie=Curie, Max=Plank, Albert=Einstein}</span>
+names<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token string">"Albert"</span><span class="token punctuation">,</span> <span class="token string">"stein"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>old<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> old<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">+</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// "Newname" 这个值是不存在的 所以后面的流程就不处理</span>
+<span class="token comment">// {Marie=Curie, Newname=stein, Max=Plank, Albert=Einstein}</span>
+names<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token string">"Newname"</span><span class="token punctuation">,</span> <span class="token string">"stein"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>old<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> old<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">+</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 625px; left:0px">
+                            <div class="section-title"><h3 id="id-255">方法引用 <code>Class::staticMethod</code></h3></div>
+                                <div class="section-body">
+                                    <p>允许引用类方法或者构造函数，引用时候是不执行的</p>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">//通过lamdba</span>
+<span class="token function">getPrimes</span><span class="token punctuation">(</span>numbers<span class="token punctuation">,</span> a <span class="token operator">-&gt;</span> <span class="token class-name">StaticMethod</span><span class="token punctuation">.</span><span class="token function">isPrime</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//通过应用方法:</span>
+<span class="token function">getPrimes</span><span class="token punctuation">(</span>numbers<span class="token punctuation">,</span> <span class="token class-name">StaticMethod</span><span class="token operator">::</span><span class="token function">isPrime</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Method Reference</th><th>Lambda Form</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>StaticMethod::isPrime</code></td><td><code>n -&gt; StaticMethod.isPrime(n)</code></td></tr><tr><td><code>String::toUpperCase</code></td><td><code>(String w) -&gt; w.toUpperCase()</code></td></tr><tr><td><code>String::compareTo</code></td><td><code>(String s, String t) -&gt; s.compareTo(t)</code></td></tr><tr><td><code>System.out::println</code></td><td><code>x -&gt; System.out.println(x)</code></td></tr><tr><td><code>Double::new</code></td><td><code>n -&gt; new Double(n)</code></td></tr><tr><td><code>String[]::new</code></td><td><code>(int n) -&gt; new String[n]</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 726px; left:468.5px">
+                            <div class="section-title"><h3 id="id-256">Optional</h3></div>
+                                <div class="section-body">
+                                    <p>在Java, 通常使用<code>null</code>表示没有结果，但是如果不检查的话很容易出现<code>NullPointerException</code>.</p>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// Optional&lt;String&gt; 包含一个string 或 空</span>
+<span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> res <span class="token operator">=</span> stream
+   <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>w <span class="token operator">-&gt;</span> w<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">10</span><span class="token punctuation">)</span>
+   <span class="token punctuation">.</span><span class="token function">findFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 返回元素长度，如果不存在返回""的长度</span>
+<span class="token keyword">int</span> length <span class="token operator">=</span> res<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 使用lambda作为一个返回值</span>
+res<span class="token punctuation">.</span><span class="token function">ifPresent</span><span class="token punctuation">(</span>v <span class="token operator">-&gt;</span> results<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>返回一个 Optional</p>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span> <span class="token function">squareRoot</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token keyword">return</span> <span class="token class-name">Optional</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+        <span class="token keyword">return</span> <span class="token class-name">Optional</span><span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 2081px">
+                                <div class="h2-section-title"><h2 id="id-262">Streams 流式处理</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-257"></h3></div>
+                                <div class="section-body">
+                                    <p>和<code>collections</code>类似, 但有所不同:</p>
+<ul><li>不能储存数据
+</li><li>数据来源外部例如 (collection, file, db, web, ...)
+</li><li><code>immutable</code>不可变性，不影响外部数据 (因为产生了一个新的stream)
+</li><li><code>lazy</code>懒式处理 (只有在计算的时候才用到，不处理不用 !)
+</li></ul>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 仅仅计算前3个"filter"</span>
+<span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> longNames <span class="token operator">=</span> list
+   <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>n <span class="token operator">-&gt;</span> n<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">8</span><span class="token punctuation">)</span>
+   <span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4><em>创建一个stream</em></h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> stream <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> stream <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"Jazz"</span><span class="token punctuation">,</span> <span class="token string">"Blues"</span><span class="token punctuation">,</span> <span class="token string">"Rock"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> stream <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>myArray<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 通过数组</span>
+list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 通过list</span>
+
+<span class="token comment">// Infinit stream [0; inf[</span>
+<span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> integers <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">iterate</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">-&gt;</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4><em>集合结果集</em></h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">//返回成一个数组 (::new 是构造函数的引用)</span>
+<span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> myArray <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 返回成list或set</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> myList <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> mySet <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 返回成String</span>
+<span class="token class-name">String</span> str <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">joining</span><span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//返回成一个LinkedHashMap</span>
+list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toMap</span><span class="token punctuation">(</span>k <span class="token operator">-&gt;</span> k<span class="token punctuation">,</span> v <span class="token operator">-&gt;</span> v<span class="token punctuation">,</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> a<span class="token punctuation">,</span> <span class="token class-name">LinkedHashMap</span><span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//默认转换成HashMap</span>
+list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toMap</span><span class="token punctuation">(</span>k <span class="token operator">-&gt;</span> k<span class="token punctuation">,</span> v <span class="token operator">-&gt;</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4><em>map</em> <code>map(mapper)</code> 对每个元素进行类型转换</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 对每个元素使用 "toLowerCase" 处理</span>
+res <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>w <span class="token operator">-&gt;</span> w<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+res <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">::</span><span class="token function">toLowerCase</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; bohr darwin galilei tesla einstein newton</span>
+
+res <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x <span class="token operator">-&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; 2 3 4 5 6</span>
+</code></pre>
+<h4><em>filter</em> <code>filter(predicate)</code> 过滤处理，只保留匹配到的元素</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 过掉保留 "E" 开头的元素</span>
+res <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>n <span class="token operator">-&gt;</span> n<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"E"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; Einstein</span>
+
+res <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>x <span class="token operator">-&gt;</span> x <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; 1 2</span>
+</code></pre>
+<h4><em>reduce</em> 汇聚处理成为单一返回结果</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">String</span> reduced <span class="token operator">=</span> stream
+	<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>acc<span class="token punctuation">,</span> el<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> acc <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span> el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; |Bohr|Darwin|Galilei|Tesla|Einstein|Newton</span>
+</code></pre>
+<h4><em>limit</em> <code>limit(maxSize)</code> 保留前<code>maxSize</code>个元素</h4>
+<pre class=" language-java"><code class=" language-java" style="">res <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; Bohr Darwin Galilei</span>
+</code></pre>
+<h4><em>skip</em> 忽略掉前<code>n</code>个元素</h4>
+<pre class=" language-java"><code class=" language-java" style="">res <span class="token operator">=</span> strem<span class="token punctuation">.</span><span class="token function">skip</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 忽略 Bohr 和 Darwin</span>
+<span class="token comment">//&gt; Galilei Tesla Einstein Newton</span>
+</code></pre>
+<h4><em>distinct</em> 去重</h4>
+<pre class=" language-java"><code class=" language-java" style="">res <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">distinct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; 1 0</span>
+</code></pre>
+<h4><em>sorted</em> 排序 (必须使用 <i>Comparable</i> 接口)</h4>
+<pre class=" language-java"><code class=" language-java" style="">res <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; Bohr Darwin Einstein Galilei Newton Tesla </span>
+</code></pre>
+<h4><em>allMatch</em> 全匹配</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 检查是否每个元素包含“e“</span>
+<span class="token keyword">boolean</span> res <span class="token operator">=</span> words<span class="token punctuation">.</span><span class="token function">allMatch</span><span class="token punctuation">(</span>n <span class="token operator">-&gt;</span> n<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"e"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>anyMatch</code>: 只要其中一个元素包含"e"即可 <br><code>noneMatch</code>: 元素里面是否没有"e"</p>
+<h4><em>parallel</em> 返回一个并行的stream</h4>
+<h4><em>findAny</em> 在并行流上findFirst执行更快</h4>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-258">原始类型的 Streams</h3></div>
+                                <div class="section-body">
+                                    <p>原始类型的stream自动封装是低效的 (例如 Stream<integer>) ，因为它需要对每个元素进行大量拆箱和装箱. 所以最好使用 <code>IntStream</code>, <code>DoubleStream</code>, 等等.</integer></p>
+<h4><em>初始化</em></h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">IntStream</span> stream <span class="token operator">=</span> <span class="token class-name">IntStream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+stream <span class="token operator">=</span> <span class="token class-name">IntStream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>myArray<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 通过数组</span>
+stream <span class="token operator">=</span> <span class="token class-name">IntStream</span><span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//  5 到 80范围</span>
+
+<span class="token class-name">Random</span> gen <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">IntStream</span> rand <span class="token operator">=</span> <span class="token function">gen</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// stream of randoms</span>
+</code></pre>
+<p>如果需要把字段转换成 <code>Object</code>, <code>double</code>, <code>long</code>，使用对应的<i>mapToX</i>方法。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 456px; left:468.5px">
+                            <div class="section-title"><h3 id="id-259">Grouping 结果集</h3></div>
+                                <div class="section-body">
+                                    <h4><em>Collectors.groupingBy</em></h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 通过长度分组</span>
+<span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> groups <span class="token operator">=</span> stream
+	<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">groupingBy</span><span class="token punctuation">(</span>w <span class="token operator">-&gt;</span> w<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&gt; 4=[Bohr], 5=[Tesla], 6=[Darwin, Newton], ...</span>
+</code></pre>
+<h4><em>Collectors.toSet</em></h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 和之前一样但是使用的是Set</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">groupingBy</span><span class="token punctuation">(</span>
+	w <span class="token operator">-&gt;</span> w<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h4><em>Collectors.counting</em> 计算个数</h4>
+<h4><em>Collectors.summing__</em> 计算累加 <code>summingInt</code>, <code>summingLong</code>, <code>summingDouble</code></h4>
+<h4><em>Collectors.averaging__</em> 计算平均数 <code>averagingInt</code>, <code>averagingLong</code>, ...</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">averagingInt</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">::</span><span class="token function">length</span><span class="token punctuation">)</span>
+</code></pre>
+<p><i>PS</i>: 另外不要忘记 Optional (例如 <code>Map&lt;T, Optional&lt;T&gt;&gt;</code>) 有同样的处理方法 (例如 <code>Collectors.maxBy</code>).</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1029px; left:468.5px">
+                            <div class="section-title"><h3 id="id-260">并行 Streams</h3></div>
+                                <div class="section-body">
+                                    <h4><em>创建并行处理stream</em></h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> parStream <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">parallelStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> parStream <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>myArray<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parallel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4><em>unordered</em> 能提高计算 <code>limit</code>，<code>distinct</code>的速度</h4>
+<pre class=" language-java"><code class=" language-java" style="">stream<span class="token punctuation">.</span><span class="token function">parallelStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unordered</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">distinct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><i>PS</i>: 使用streams类库, 例如使用 <code>filter(x -&gt; x.length() &lt; 9)</code> 代替 <code>forEach</code> 和 <code>if</code></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1351px; left:468.5px">
+                            <div class="section-title"><h3 id="id-261">注意引用推测限制</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-java"><code class=" language-java" style=""><span class="token keyword">interface</span> <span class="token class-name">Pair</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">A</span><span class="token punctuation">,</span> <span class="token class-name">B</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+    <span class="token class-name">A</span> <span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">B</span> <span class="token function">second</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>一个 steam 类型 <code>Stream&lt;Pair&lt;String, Long&gt;&gt;</code> :</p>
+<ul><li><code>stream.sorted(Comparator.comparing(Pair::first)) // 有效</code>
+</li><li><code>stream.sorted(Comparator.comparing(Pair::first).thenComparing(Pair::second)) // 无效</code>
+</li></ul>
+<p>Java不能通过 <code>.comparing(Pair::first)</code>回调过来的数据来判断类型, 故 <code>Pair::first</code> 就不能这样用了</p>
+<p>如果需要使用泛型接口的话需要显示写清楚，否则无效</p>
+<pre class=" language-java"><code class=" language-java" style="">stream<span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span>
+    <span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pair</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">&gt;</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token function">comparing</span><span class="token punctuation">(</span><span class="token class-name">Pair</span><span class="token operator">::</span><span class="token function">first</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">thenComparing</span><span class="token punctuation">(</span><span class="token class-name">Pair</span><span class="token operator">::</span><span class="token function">second</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token comment">// 有效</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 1367px">
+                    <div class="h2-section-title"><h2 id="id-269">LocalDate</h2></div>
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-263">简介</h3></div>
+                                <div class="section-body">
+                                    <p>在JAVA中，常用的处理日期和时间的类主要有<code>Date</code>，<code>Calendar</code>，而在JDK1.8中，新增了<code>LocalDate</code>、<code>LocalTime</code>、<code>LocalDateTime</code> 类的实例是不可变的对象，分别表示使用ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息，也不包含与时区相关的信息。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-264">API</h3></div>
+                                <div class="section-body">
+                                    <h4><em>now()</em> 静态方法，根据当前时间创建对象</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4><em>of()</em> 静态方法，根据指定时间创建对象</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">LocalTime</span><span class="token punctuation">.</span>MIN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4><em>plus, minus</em> 向当前时间添加指定长度时间</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plusMonths</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusHours</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span>DAYS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4><em>isBefore、isAfter</em> 比较两个时间</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isAfter</span><span class="token punctuation">(</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 246px; left:0px">
+                            <div class="section-title"><h3 id="id-265">Instant 时间戳</h3></div>
+                                <div class="section-body">
+                                    <p>用于<code>时间戳</code>的运算。它是以Unix元年(传统的设定为UTC时区1970年1月1日午夜时分)开始所经历的描述进行运算。</p>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2020-12-02T09:24:27.306Z</span>
+<span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochMilli</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 1606901081664</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 1606901089461</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 469px; left:0px">
+                            <div class="section-title"><h3 id="id-266">Duration 和 Period</h3></div>
+                                <div class="section-body">
+                                    <h4><em>Duration:</em> 用于计算两个“时间”间隔</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Instant</span> now <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Instant</span> oneHoursAfter <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span>HOURS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Duration</span> duration <span class="token operator">=</span> <span class="token class-name">Duration</span><span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>now<span class="token punctuation">,</span> oneHoursAfter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"duration = "</span> <span class="token operator">+</span> duration<span class="token punctuation">.</span><span class="token function">getSeconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &gt; duration = 3600</span>
+</code></pre>
+<h4><em>Period:</em> 用于计算两个“日期”间隔</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span> now <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> aWeekAgo <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Period</span> period <span class="token operator">=</span> <span class="token class-name">Period</span><span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>aWeekAgo<span class="token punctuation">,</span> now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"period = "</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment">// &gt; period = 7</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 617px; left:468.5px">
+                            <div class="section-title"><h3 id="id-267">日期操作</h3></div>
+                                <div class="section-body">
+                                    <ul><li><em>TemporalAdjuster</em>: 时间校正器。
+</li><li><em>TemporalAdjusters</em>: 该类通过静态方法提供了大量的常用 TemporalAdjuster 的实现。
+</li></ul>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDateTime</span> date <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4>本月第一天</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDateTime</span> firstday <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token keyword">with</span><span class="token punctuation">(</span><span class="token class-name">TemporalAdjusters</span><span class="token punctuation">.</span><span class="token function">firstDayOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">LocalDate</span> now <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> firstday1 <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>now<span class="token punctuation">.</span><span class="token function">getYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> now<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4>本月最后一天</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDateTime</span> lastDay <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token keyword">with</span><span class="token punctuation">(</span><span class="token class-name">TemporalAdjusters</span><span class="token punctuation">.</span><span class="token function">lastDayOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4>上个月最后一天</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDateTime</span> next_lastday <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token keyword">with</span><span class="token punctuation">(</span><span class="token class-name">TemporalAdjusters</span><span class="token punctuation">.</span><span class="token function">lastDayOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4>下个周日</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span> nextSunday <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">with</span><span class="token punctuation">(</span><span class="token class-name">TemporalAdjusters</span><span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token class-name">DayOfWeek</span><span class="token punctuation">.</span>SUNDAY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4>计算两个日期相差的月份数</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token keyword">long</span> betweenMONTHS <span class="token operator">=</span> <span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span>MONTHS<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>beforeDate<span class="token punctuation">,</span> afterDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 875px; left:0px">
+                            <div class="section-title"><h3 id="id-268">解析与格式化</h3></div>
+                                <div class="section-body">
+                                    <h4>日期格式化成字符串</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span> now <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>now<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span>ISO_DATE<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &gt; 2020-12-02</span>
+
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>now<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy/MM/dd"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &gt; 2020/12/02</span>
+</code></pre>
+<h4>字符串解析成时间</h4>
+<pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"2020/12/01"</span><span class="token punctuation">,</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy/MM/dd"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &gt; 2020-12-01</span>
+</code></pre>
+                                </div>
+                            </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-253" data-pid="default">
+                        Lambda 表达式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-254" data-pid="default">
+                        Collections 集合
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-255" data-pid="default">
+                        方法引用 Class::staticMethod
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-256" data-pid="default">
+                        Optional
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-262" data-pid="">
+                        Streams 流式处理
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-258" data-pid="id-262">
+                        原始类型的 Streams
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-259" data-pid="id-262">
+                        Grouping 结果集
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-260" data-pid="id-262">
+                        并行 Streams
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-261" data-pid="id-262">
+                        注意引用推测限制
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-269" data-pid="">
+                        LocalDate
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-263" data-pid="id-269">
+                        简介
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-264" data-pid="id-269">
+                        API
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-265" data-pid="id-269">
+                        Instant 时间戳
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-266" data-pid="id-269">
+                        Duration 和 Period
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-267" data-pid="id-269">
+                        日期操作
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-268" data-pid="id-269">
+                        解析与格式化
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

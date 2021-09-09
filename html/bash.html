@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>Bash scripting<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 973px">
+                                
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-26">示例</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token shebang important">#!/usr/bin/env bash</span>
+
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span><span class="token string">"John"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"Hello <span class="token variable">$NAME</span>!"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="section-title"><h3 id="id-27">变量</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">NAME</span><span class="token operator">=</span><span class="token string">"John"</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$NAME</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$NAME</span>"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${NAME}</span>!"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 170px; left:0px">
+                            <div class="section-title"><h3 id="id-28">字符串引号</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">NAME</span><span class="token operator">=</span><span class="token string">"John"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"Hi <span class="token variable">$NAME</span>"</span>  <span class="token comment">#=&gt; Hi John</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'Hi <span class="token variable">$NAME</span>'</span>  <span class="token comment">#=&gt; Hi $NAME</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 170px; left:468.5px">
+                            <div class="section-title"><h3 id="id-29">Shell执行</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">echo</span> <span class="token string">"I'm in <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"I'm in <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>"</span>
+<span class="token comment"># Same</span>
+</code></pre>
+<p>更多 <a title="Command substitution" href="http://wiki.bash-hackers.org/syntax/expansion/cmdsubst" target="_blank">Command substitution</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 320px; left:0px">
+                            <div class="section-title"><h3 id="id-30">条件执行</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> commit <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> push
+<span class="token function">git</span> commit <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token string">"Commit failed"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 370px; left:468.5px">
+                            <div class="section-title"><h3 id="id-31">函数</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function-name function">get_name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"John"</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">"You are <span class="token variable"><span class="token variable">$(</span>get_name<span class="token variable">)</span></span>"</span>
+</code></pre>
+<p>更多: <a title="Functions" href="#函数" target="_blank">Functions</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 450px; left:0px">
+                            <div class="section-title"><h3 id="id-32">条件判断</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$string</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"String is empty"</span>
+<span class="token keyword">elif</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -n <span class="token string">"<span class="token variable">$string</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"String is not empty"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<p>更多: <a title="Conditionals" href="#条件分支" target="_blank">Conditionals</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 610px; left:468.5px">
+                            <div class="section-title"><h3 id="id-33">Strict 模式</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">set</span> -euo pipefail
+<span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span>$<span class="token string">'<span class="token entity" title="\n">\n</span><span class="token entity" title="\t">\t</span>'</span>
+</code></pre>
+<p>更多: <a title="Unofficial bash strict mode" href="http://redsymbol.net/articles/unofficial-bash-strict-mode/" target="_blank">Unofficial bash strict mode</a></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 690px; left:0px">
+                            <div class="section-title"><h3 id="id-34">花括号展开</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">echo</span> <span class="token punctuation">{</span>A,B<span class="token punctuation">}</span>.js
+</code></pre>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Expression</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>{A,B}</code></td><td>Same as <code>A B</code></td></tr><tr><td><code>{A,B}.js</code></td><td>Same as <code>A.js B.js</code></td></tr><tr><td><code>{1..5}</code></td><td>Same as <code>1 2 3 4 5</code></td></tr>
+                </tbody>
+            </table>
+<p>更多: <a title="Brace expansion" href="http://wiki.bash-hackers.org/syntax/expansion/brace" target="_blank">Brace expansion</a></p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1319px">
+                                <div class="h2-section-title"><h2 id="id-42">参数扩展</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-35">基本使用</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"John"</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${name}</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${name<span class="token operator">/</span>J<span class="token operator">/</span>j}</span>    <span class="token comment">#=&gt; "john" (替换)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${name<span class="token operator">:</span>0<span class="token operator">:</span>2}</span>    <span class="token comment">#=&gt; "Jo" (切片)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${name<span class="token operator">:</span><span class="token operator">:</span>2}</span>     <span class="token comment">#=&gt; "Jo" (切片)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${name<span class="token operator">:</span><span class="token operator">:-</span>1}</span>    <span class="token comment">#=&gt; "Joh" (切片)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${name<span class="token operator">:</span>(-1)}</span>   <span class="token comment">#=&gt; "n" (右侧开始切片)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${name<span class="token operator">:</span>(-2)<span class="token operator">:</span>1}</span> <span class="token comment">#=&gt; "h" (右侧开始切片)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${food<span class="token operator">:-</span>Cake}</span>  <span class="token comment">#=&gt; $food or "Cake"</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">length</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${name<span class="token operator">:</span>0<span class="token operator">:</span>length}</span>  <span class="token comment">#=&gt; "Jo"</span>
+</code></pre>
+<p>更多: <a title="Parameter expansion" href="http://wiki.bash-hackers.org/syntax/pe" target="_blank">Parameter expansion</a></p>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">STR</span><span class="token operator">=</span><span class="token string">"/path/to/foo.cpp"</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">%</span>.cpp}</span>    <span class="token comment"># /path/to/foo</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">%</span>.cpp}</span>.o  <span class="token comment"># /path/to/foo.o</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">%</span><span class="token operator">/</span>*}</span>      <span class="token comment"># /path/to</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">%%</span><span class="token operator">/</span>*}</span>     <span class="token comment"># (空)</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">##</span>*.}</span>     <span class="token comment"># cpp (extension)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">##</span>*<span class="token operator">/</span>}</span>     <span class="token comment"># foo.cpp (basepath)</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">#</span>*<span class="token operator">/</span>}</span>      <span class="token comment"># path/to/foo.cpp</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">##</span>*<span class="token operator">/</span>}</span>     <span class="token comment"># foo.cpp</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">/</span>foo<span class="token operator">/</span>bar}</span> <span class="token comment"># /path/to/bar.cpp</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">STR</span><span class="token operator">=</span><span class="token string">"Hello world"</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">:</span>6<span class="token operator">:</span>5}</span>    <span class="token comment"># "world"</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">:</span> -5<span class="token operator">:</span>5}</span>  <span class="token comment"># "world"</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">SRC</span><span class="token operator">=</span><span class="token string">"/path/to/foo.cpp"</span>
+<span class="token assign-left variable">BASE</span><span class="token operator">=</span><span class="token variable">${SRC<span class="token operator">##</span>*<span class="token operator">/</span>}</span>   <span class="token comment">#=&gt; "foo.cpp" (basepath)</span>
+<span class="token assign-left variable">DIR</span><span class="token operator">=</span><span class="token variable">${SRC<span class="token operator">%</span>$BASE}</span>  <span class="token comment">#=&gt; "/path/to/" (dirpath)</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-36">替换</h3></div>
+                                <div class="section-body">
+                                    <p><code>%rule</code>删除<code>rule</code>到结束匹配的内容，<code>#rule</code>删除开始到<code>rule</code>匹配的内容，即<code>%</code>删除后缀、<code>#</code>删除前缀。另外，默认为最小匹配，叠字<code>%%</code>、<code>##</code>为贪婪匹配。</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Code</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>${FOO%suffix}</code></td><td>删除后缀</td></tr><tr><td><code>${FOO#prefix}</code></td><td>删除前缀</td></tr><tr><td><code>${FOO%%suffix}</code></td><td>删除最大匹配后缀</td></tr><tr><td><code>${FOO##prefix}</code></td><td>删除最大匹配前缀</td></tr><tr><td><code>${FOO/from/to}</code></td><td>替换第一各匹配项</td></tr><tr><td><code>${FOO//from/to}</code></td><td>替换所有匹配项</td></tr><tr><td><code>${FOO/%from/to}</code></td><td>替换前缀</td></tr><tr><td><code>${FOO/#from/to}</code></td><td>替换后缀</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 530px; left:468.5px">
+                            <div class="section-title"><h3 id="id-37">注释</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token comment"># Single line comment</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">:</span> <span class="token string">'
+This is a
+multi line
+comment
+'</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 768px; left:468.5px">
+                            <div class="section-title"><h3 id="id-38">子串</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Expression</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>${FOO:0:3}</code></td><td>Substring <i>(position, length)</i></td></tr><tr><td><code>${FOO:(-3):3}</code></td><td>Substring from the right</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 892px; left:0px">
+                            <div class="section-title"><h3 id="id-39">长度</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Expression</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>${#FOO}</code></td><td>Length of <code>$FOO</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 913px; left:468.5px">
+                            <div class="section-title"><h3 id="id-40">操作</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">STR</span><span class="token operator">=</span><span class="token string">"HELLO WORLD!"</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">,</span>}</span>   <span class="token comment">#=&gt; "hELLO WORLD!" (首字母小写)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">,,</span>}</span>  <span class="token comment">#=&gt; "hello world!" (全部小写)</span>
+
+<span class="token assign-left variable">STR</span><span class="token operator">=</span><span class="token string">"hello world!"</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">^</span>}</span>   <span class="token comment">#=&gt; "Hello world!" (首字母大写)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${STR<span class="token operator">^^</span>}</span>  <span class="token comment">#=&gt; "HELLO WORLD!" (全部大写)</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 996px; left:0px">
+                            <div class="section-title"><h3 id="id-41">默认值</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Expression</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>${FOO:-val}</code></td><td><code>$FOO</code>, or <code>val</code> if unset (or null)</td></tr><tr><td><code>${FOO:=val}</code></td><td>Set <code>$FOO</code> to <code>val</code> if unset (or null)</td></tr><tr><td><code>${FOO:+val}</code></td><td><code>val</code> if <code>$FOO</code> is set (and not null)</td></tr><tr><td><code>${FOO:?message}</code></td><td>Show error message and exit if <code>$FOO</code> is unset (or null)</td></tr>
+                </tbody>
+            </table>
+<p>Omitting the <code>:</code> removes the (non)nullity checks, e.g. <code>${FOO-val}</code> expands to <code>val</code> if unset otherwise <code>$FOO</code>.</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 492px">
+                                <div class="h2-section-title"><h2 id="id-48">循环</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-43">基本循环</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> /etc/rc*<span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-44">C-like 循环</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span>i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">))</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 192px; left:0px">
+                            <div class="section-title"><h3 id="id-45">范围</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">..</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"Welcome <span class="token variable">$i</span>"</span>
+<span class="token keyword">done</span>
+</code></pre>
+<h4>带步长的范围</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">..</span><span class="token number">50</span><span class="token punctuation">..</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"Welcome <span class="token variable">$i</span>"</span>
+<span class="token keyword">done</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 192px; left:468.5px">
+                            <div class="section-title"><h3 id="id-46">读取行</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">cat</span> file.txt <span class="token operator">|</span> <span class="token keyword">while</span> <span class="token builtin class-name">read</span> line<span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$line</span>
+<span class="token keyword">done</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 342px; left:468.5px">
+                            <div class="section-title"><h3 id="id-47">死循环</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">while</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  ···
+<span class="token keyword">done</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 666px">
+                                <div class="h2-section-title"><h2 id="id-53">函数</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-49">定义函数</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function-name function">myfunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"hello <span class="token variable">$1</span>"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token comment"># Same as above (alternate syntax)</span>
+<span class="token keyword">function</span> <span class="token function-name function">myfunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"hello <span class="token variable">$1</span>"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style="">myfunc <span class="token string">"John"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-50">返回值</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function-name function">myfunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">local</span> <span class="token assign-left variable">myresult</span><span class="token operator">=</span><span class="token string">'some value'</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$myresult</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">result</span><span class="token operator">=</span><span class="token string">"<span class="token variable"><span class="token variable">$(</span>myfunc<span class="token variable">)</span></span>"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 260px; left:468.5px">
+                            <div class="section-title"><h3 id="id-51">引发错误</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function-name function">myfunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">return</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> myfunc<span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"success"</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"failure"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 348px; left:0px">
+                            <div class="section-title"><h3 id="id-52">参数</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Expression</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>$#</code></td><td>参数个数</td></tr><tr><td><code>$*</code></td><td>所有参数</td></tr><tr><td><code>$@</code></td><td>所有参数，从第一个开始</td></tr><tr><td><code>$1</code></td><td>第一个参数</td></tr><tr><td><code>$_</code></td><td>上一个命令的最后一个参数</td></tr>
+                </tbody>
+            </table>
+<p>更多 <a title="Special parameters" href="http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables" target="_blank">Special parameters</a>.</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1358px">
+                                <div class="h2-section-title"><h2 id="id-57">条件语句</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-54">条件</h3></div>
+                                <div class="section-body">
+                                    <p><code>[[</code>会返回<code>0</code>(假)或<code>1</code>(真)，其他任意遵守相同逻辑的程序均可以作为条件，详见示例。</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Condition</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>[[ -z STRING ]]</code></td><td>字符串为空</td></tr><tr><td><code>[[ -n STRING ]]</code></td><td>字符串非空</td></tr><tr><td><code>[[ STRING == STRING ]]</code></td><td>字符串相等</td></tr><tr><td><code>[[ STRING != STRING ]]</code></td><td>字符串不等</td></tr><tr><td><code>[[ NUM -eq NUM ]]</code></td><td>相等</td></tr><tr><td><code>[[ NUM -ne NUM ]]</code></td><td>不等</td></tr><tr><td><code>[[ NUM -lt NUM ]]</code></td><td>小于</td></tr><tr><td><code>[[ NUM -le NUM ]]</code></td><td>小于等于</td></tr><tr><td><code>[[ NUM -gt NUM ]]</code></td><td>大于</td></tr><tr><td><code>[[ NUM -ge NUM ]]</code></td><td>大于等于</td></tr><tr><td><code>[[ STRING =~ REGEXP ]]</code></td><td>正则匹配</td></tr><tr><td><code>(( NUM &lt; NUM ))</code></td><td>数值条件</td></tr>
+                </tbody>
+            </table>
+<h4>更多条件</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Condition</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>[[ -o noclobber ]]</code></td><td>如果<i>xx设置</i>开启</td></tr><tr><td><code>[[ ! EXPR ]]</code></td><td>非</td></tr><tr><td><code>[[ X &amp;&amp; Y ]]</code></td><td>与</td></tr><tr><td><code>[[ X || Y ]]</code></td><td>或</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-55">文件条件</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Condition</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>[[ -e FILE ]]</code></td><td>存在</td></tr><tr><td><code>[[ -r FILE ]]</code></td><td>可读</td></tr><tr><td><code>[[ -h FILE ]]</code></td><td>符号链接</td></tr><tr><td><code>[[ -d FILE ]]</code></td><td>目录</td></tr><tr><td><code>[[ -w FILE ]]</code></td><td>可写</td></tr><tr><td><code>[[ -s FILE ]]</code></td><td>文件大小大于0</td></tr><tr><td><code>[[ -f FILE ]]</code></td><td>普通文件</td></tr><tr><td><code>[[ -x FILE ]]</code></td><td>可执行</td></tr><tr><td><code>[[ FILE1 -nt FILE2 ]]</code></td><td>1比2更新，或1存在2不存在</td></tr><tr><td><code>[[ FILE1 -ot FILE2 ]]</code></td><td>1比2更旧，或2存在1不存在</td></tr><tr><td><code>[[ FILE1 -ef FILE2 ]]</code></td><td>相同文件</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 556px; left:468.5px">
+                            <div class="section-title"><h3 id="id-56">示例</h3></div>
+                                <div class="section-body">
+                                    <h4>字符串</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$string</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"String为空"</span>
+<span class="token keyword">elif</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -n <span class="token string">"<span class="token variable">$string</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"String非空"</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"此处不可达"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<h4>组合</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> X <span class="token operator">&amp;&amp;</span> Y <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token punctuation">..</span>.
+<span class="token keyword">fi</span>
+</code></pre>
+<h4>相等</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$A</span>"</span> <span class="token operator">==</span> <span class="token string">"<span class="token variable">$B</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
+</code></pre>
+<h4>正则</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"A"</span> <span class="token operator">=</span>~ <span class="token builtin class-name">.</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
+</code></pre>
+<h4>数值</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token variable"><span class="token punctuation">((</span> $a <span class="token operator">&lt;</span> $b <span class="token punctuation">))</span></span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+   <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$a</span>比<span class="token variable">$b</span>小"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<h4>文件</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -e <span class="token string">"file.txt"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"文件存在"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 450px">
+                                <div class="h2-section-title"><h2 id="id-62">数组</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-58">定义数组</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">Fruits</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'Apple'</span> <span class="token string">'Banana'</span> <span class="token string">'Orange'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style="">Fruits<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"Apple"</span>
+Fruits<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"Banana"</span>
+Fruits<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"Orange"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-59">数组使用</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">echo</span> <span class="token variable">${Fruits<span class="token punctuation">[</span>0<span class="token punctuation">]</span>}</span>           <span class="token comment"># 第一个元素 #0</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${Fruits<span class="token punctuation">[</span>-1<span class="token punctuation">]</span>}</span>          <span class="token comment"># 最后一个元素</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${Fruits<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>           <span class="token comment"># 所有元素，空格隔开</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">#</span>Fruits<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>          <span class="token comment"># 元素个数</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">#</span>Fruits}</span>             <span class="token comment"># 第一个元素长度</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">#</span>Fruits<span class="token punctuation">[</span>3<span class="token punctuation">]</span>}</span>          <span class="token comment"># 第n个元素长度  </span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${Fruits<span class="token punctuation">[</span>@<span class="token punctuation">]</span><span class="token operator">:</span>3<span class="token operator">:</span>2}</span>       <span class="token comment"># 范围 (3开始，长度2)</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">!</span>Fruits<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>          <span class="token comment"># 所有元素的键，空格隔开</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 240px; left:0px">
+                            <div class="section-title"><h3 id="id-60">操作</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">Fruits</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">${Fruits<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>"</span> <span class="token string">"Watermelon"</span><span class="token punctuation">)</span>    <span class="token comment"># Push</span>
+<span class="token assign-left variable">Fruits</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token string">'Watermelon'</span><span class="token punctuation">)</span>                  <span class="token comment"># Also Push</span>
+<span class="token assign-left variable">Fruits</span><span class="token operator">=</span><span class="token punctuation">(</span> <span class="token variable">${Fruits<span class="token punctuation">[</span>@<span class="token punctuation">]</span><span class="token operator">/</span>Ap*<span class="token operator">/</span>}</span> <span class="token punctuation">)</span>            <span class="token comment"># 按正则匹配移除</span>
+<span class="token builtin class-name">unset</span> Fruits<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>                         <span class="token comment"># 删除指定元素</span>
+<span class="token assign-left variable">Fruits</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">${Fruits<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>"</span> <span class="token string">"<span class="token variable">${Veggies<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>"</span><span class="token punctuation">)</span> <span class="token comment"># 合并</span>
+<span class="token assign-left variable">lines</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> <span class="token string">"logfile"</span><span class="token variable">`</span></span><span class="token punctuation">)</span>                 <span class="token comment"># 从文件中读取</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 292px; left:468.5px">
+                            <div class="section-title"><h3 id="id-61">变量</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token string">"<span class="token variable">${arrayName<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>"</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 542px">
+                                <div class="h2-section-title"><h2 id="id-66">字典</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-63">定义</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">declare</span> -A sounds
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style="">sounds<span class="token punctuation">[</span>dog<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"bark"</span>
+sounds<span class="token punctuation">[</span>cow<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"moo"</span>
+sounds<span class="token punctuation">[</span>bird<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"tweet"</span>
+sounds<span class="token punctuation">[</span>wolf<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"howl"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-64">字典使用</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">echo</span> <span class="token variable">${sounds<span class="token punctuation">[</span>dog<span class="token punctuation">]</span>}</span> <span class="token comment"># 按key取值</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${sounds<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>   <span class="token comment"># 所有值</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">!</span>sounds<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>  <span class="token comment"># 所有键</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">#</span>sounds<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>  <span class="token comment"># 长度</span>
+<span class="token builtin class-name">unset</span> sounds<span class="token punctuation">[</span>dog<span class="token punctuation">]</span>   <span class="token comment"># 按key移除</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 232px; left:468.5px">
+                            <div class="section-title"><h3 id="id-65">遍历</h3></div>
+                                <div class="section-body">
+                                    <h4>值遍历</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">for</span> <span class="token for-or-select variable">val</span> <span class="token keyword">in</span> <span class="token string">"<span class="token variable">${sounds<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>"</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$val</span>
+<span class="token keyword">done</span>
+</code></pre>
+<h4>键遍历</h4>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">for</span> <span class="token for-or-select variable">key</span> <span class="token keyword">in</span> <span class="token string">"<span class="token variable">${<span class="token operator">!</span>sounds<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>"</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$key</span>
+<span class="token keyword">done</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 249px">
+                                <div class="h2-section-title"><h2 id="id-69">选项</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-67">选项</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">set</span> -o noclobber  <span class="token comment"># 避免覆盖文件 (echo "hi" &gt; foo)</span>
+<span class="token builtin class-name">set</span> -o errexit    <span class="token comment"># 用于在出错时退出，避免级联错误</span>
+<span class="token builtin class-name">set</span> -o pipefail   <span class="token comment"># 显示隐藏的错误</span>
+<span class="token builtin class-name">set</span> -o nounset    <span class="token comment"># </span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-68">扩展选项</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">shopt</span> -s nullglob    <span class="token comment"># 移除不匹配扩展项 ('*.foo' =&gt; '')</span>
+<span class="token builtin class-name">shopt</span> -s failglob    <span class="token comment"># 无匹配扩展时直接报错</span>
+<span class="token builtin class-name">shopt</span> -s nocaseglob  <span class="token comment"># 扩展大小写不敏感</span>
+<span class="token builtin class-name">shopt</span> -s dotglob     <span class="token comment"># 通配符匹配点文件 ("*.sh" =&gt; ".foo.sh")</span>
+<span class="token builtin class-name">shopt</span> -s globstar    <span class="token comment"># **匹配零个或多个子目录 ('lib/**/*.rb' =&gt; 'lib/a/b/c.rb')</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 651px">
+                                <div class="h2-section-title"><h2 id="id-74">历史</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-70">命令</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Command</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>history</code></td><td>查看历史</td></tr><tr><td><code>shopt -s histverify</code></td><td>不要立即执行扩展结果</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-71">表达式</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Expression</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>!$</code></td><td>展开最新命令的最后一个参数</td></tr><tr><td><code>!*</code></td><td>展开最新命令的所有参数</td></tr><tr><td><code>!-n</code></td><td>展开第 <code>n</code>个最近参数</td></tr><tr><td><code>!n</code></td><td>展开第 <code>n</code>个参数</td></tr><tr><td><code>!&lt;command&gt;</code></td><td>展开命令<code>&lt;command&gt;</code>的最新调用</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 187px; left:0px">
+                            <div class="section-title"><h3 id="id-72">操作</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Code</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>!!</code></td><td>再次执行上一条命令</td></tr><tr><td><code>!!:s/&lt;FROM&gt;/&lt;TO&gt;/</code></td><td>在最新命令中将第一次出现的<code>&lt;FROM&gt;</code>替换为<code>&lt;TO&gt;</code></td></tr><tr><td><code>!!:gs/&lt;FROM&gt;/&lt;TO&gt;/</code></td><td>在最新命令中将所有的<code>&lt;FROM&gt;</code>替换为<code>&lt;TO&gt;</code></td></tr><tr><td><code>!$:t</code></td><td>仅从最近命令的最后一个参数扩展基本称</td></tr><tr><td><code>!$:h</code></td><td>仅从最近命令的最后一个参数扩展目录</td></tr>
+                </tbody>
+            </table>
+<p><code>!!</code>和<code>!$</code>可以替换为任何有效的扩展。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 310px; left:468.5px">
+                            <div class="section-title"><h3 id="id-73">切分</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Code</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>!!:n</code></td><td>展开最新命令的第<code>n</code>个指令  （<code>0</code>是命令;<code>1</code>是第一个参数)</td></tr><tr><td><code>!^</code></td><td>展开最新命令中的第一个参数</td></tr><tr><td><code>!$</code></td><td>展开最新命令的最后一个指令</td></tr><tr><td><code>!!:n-m</code></td><td>展开最新命令的指定范围的指令</td></tr><tr><td><code>!!:n-$</code></td><td>展开最新命令的第<code>n</code>到最后一个指令</td></tr>
+                </tbody>
+            </table>
+<p><code>!!</code> 可以替换为任何有效的扩展， <code>!cat</code>, <code>!-2</code>, <code>!42</code>, etc.</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1652px">
+                                <div class="h2-section-title"><h2 id="id-91">杂项</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-75">数值计算</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token variable"><span class="token variable">$((</span>a <span class="token operator">+</span> <span class="token number">200</span><span class="token variable">))</span></span>      <span class="token comment"># $a加上200</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token variable"><span class="token variable">$((</span>$RANDOM<span class="token operator">%</span><span class="token number">200</span><span class="token variable">))</span></span>  <span class="token comment"># 0..199间的随机数</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-76">子脚本</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token punctuation">(</span>cd somedir<span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> <span class="token string">"I'm now in <span class="token environment constant">$PWD</span>"</span><span class="token punctuation">)</span>
+<span class="token builtin class-name">pwd</span> <span class="token comment"># 还在最初的目录中</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 172px; left:468.5px">
+                            <div class="section-title"><h3 id="id-77">重定向</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style="">python hello.py <span class="token operator">&gt;</span> output.txt   <span class="token comment"># 标准输出到（文件）</span>
+python hello.py <span class="token operator">&gt;&gt;</span> output.txt  <span class="token comment"># 标准输出到（文件），追加</span>
+python hello.py <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> error.log   <span class="token comment"># 标准错误输出到（文件）</span>
+python hello.py <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>           <span class="token comment"># 标准错误输出到 标准输出</span>
+python hello.py <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null    <span class="token comment"># 标准错误输出到（null）</span>
+python hello.py <span class="token operator">&amp;&gt;</span>/dev/null    <span class="token comment"># 标准输出和标准错误输出到（null）</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style="">python hello.py <span class="token operator">&lt;</span> foo.txt      <span class="token comment"># 将 foo.txt 标准输入到 python</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 200px; left:0px">
+                            <div class="section-title"><h3 id="id-78">检查命令</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">command</span> -V <span class="token builtin class-name">cd</span>
+<span class="token comment">#=&gt; "cd is a shell builtin"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 330px; left:0px">
+                            <div class="section-title"><h3 id="id-79">捕获错误</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">trap</span> <span class="token string">'echo Error at about <span class="token variable">$LINENO</span>'</span> ERR
+</code></pre>
+<p>or</p>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function-name function">traperr</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"ERROR: <span class="token variable">${<span class="token environment constant">BASH_SOURCE</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span>}</span> at about <span class="token variable">${<span class="token environment constant">BASH_LINENO</span><span class="token punctuation">[</span>0<span class="token punctuation">]</span>}</span>"</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin class-name">set</span> -o errtrace
+<span class="token builtin class-name">trap</span> traperr ERR
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 464px; left:468.5px">
+                            <div class="section-title"><h3 id="id-80">Case/switch</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">case</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token keyword">in</span>
+  start <span class="token operator">|</span> up<span class="token punctuation">)</span>
+    vagrant up
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+  *<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"Usage: <span class="token variable">$0</span> {start|stop|ssh}"</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 655px; left:0px">
+                            <div class="section-title"><h3 id="id-81">Source relative</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">source</span> <span class="token string">"<span class="token variable">${0<span class="token operator">%</span><span class="token operator">/</span>*}</span>/../share/foo.sh"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 734px; left:468.5px">
+                            <div class="section-title"><h3 id="id-82">printf</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">printf</span> <span class="token string">"Hello %s, I'm %s"</span> Sven Olga
+<span class="token comment">#=&gt; "Hello Sven, I'm Olga</span>
+
+<span class="token builtin class-name">printf</span> <span class="token string">"1 + 1 = %d"</span> <span class="token number">2</span>
+<span class="token comment">#=&gt; "1 + 1 = 2"</span>
+
+<span class="token builtin class-name">printf</span> <span class="token string">"This is how you print a float: %f"</span> <span class="token number">2</span>
+<span class="token comment">#=&gt; "This is how you print a float: 2.000000"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 765px; left:0px">
+                            <div class="section-title"><h3 id="id-83">Directory of script</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token assign-left variable">DIR</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${0<span class="token operator">%</span><span class="token operator">/</span>*}</span>"</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 875px; left:0px">
+                            <div class="section-title"><h3 id="id-84">获取选项</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">while</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token operator">=</span>~ ^- <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token operator">==</span> <span class="token string">"--"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token keyword">case</span> <span class="token variable">$1</span> <span class="token keyword">in</span>
+  -V <span class="token operator">|</span> --version <span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$version</span>
+    <span class="token builtin class-name">exit</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  -s <span class="token operator">|</span> --string <span class="token punctuation">)</span>
+    <span class="token builtin class-name">shift</span><span class="token punctuation">;</span> <span class="token assign-left variable">string</span><span class="token operator">=</span><span class="token variable">$1</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  -f <span class="token operator">|</span> --flag <span class="token punctuation">)</span>
+    <span class="token assign-left variable">flag</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span><span class="token punctuation">;</span> <span class="token builtin class-name">shift</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token operator">==</span> <span class="token string">'--'</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token builtin class-name">shift</span><span class="token punctuation">;</span> <span class="token keyword">fi</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 984px; left:468.5px">
+                            <div class="section-title"><h3 id="id-85">Heredoc</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-sh"><code class=" language-sh" style="">cat &lt;&lt;END
+hello world
+END
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1134px; left:468.5px">
+                            <div class="section-title"><h3 id="id-86">读取输入</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">echo</span> -n <span class="token string">"Proceed? [y/n]: "</span>
+<span class="token builtin class-name">read</span> ans
+<span class="token builtin class-name">echo</span> <span class="token variable">$ans</span>
+</code></pre>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">read</span> -n <span class="token number">1</span> ans    <span class="token comment"># Just one character</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1225px; left:0px">
+                            <div class="section-title"><h3 id="id-87">特殊变量</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Expression</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>$?</code></td><td>上一个任务的退出状态</td></tr><tr><td><code>$!</code></td><td>上一个后台任务的PID</td></tr><tr><td><code>$$</code></td><td>shell的PID</td></tr><tr><td><code>$0</code></td><td>Shell脚本的文件名</td></tr>
+                </tbody>
+            </table>
+<p>更多 <a title="特殊变量" href="http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables" target="_blank">特殊变量</a>.</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1332px; left:468.5px">
+                            <div class="section-title"><h3 id="id-88">返回先前目录</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token builtin class-name">cd</span> -
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1442px; left:468.5px">
+                            <div class="section-title"><h3 id="id-89">命令结果检查</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token function">ping</span> -c <span class="token number">1</span> google.com<span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"It appears you have a working internet connection"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1502px; left:0px">
+                            <div class="section-title"><h3 id="id-90">GREP结果检查</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token keyword">if</span> <span class="token function">grep</span> -q <span class="token string">'foo'</span> ~/.bash_history<span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"You appear to have typed 'foo' in the past"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 196px">
+                    <div class="h2-section-title"><h2 id="id-93">更多</h2></div>
+                    
+                <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                <div class="section-title"><h3 id="id-92"></h3></div>
+                    <div class="section-body">
+                        <ul><li><a title="Bash-hackers wiki" href="http://wiki.bash-hackers.org/" target="_blank">Bash-hackers wiki</a> <i>(bash-hackers.org)</i>
+</li><li><a title="Shell vars" href="http://wiki.bash-hackers.org/syntax/shellvars" target="_blank">Shell vars</a> <i>(bash-hackers.org)</i>
+</li><li><a title="Learn bash in y minutes" href="https://learnxinyminutes.com/docs/bash/" target="_blank">Learn bash in y minutes</a> <i>(learnxinyminutes.com)</i>
+</li><li><a title="Bash Guide" href="http://mywiki.wooledge.org/BashGuide" target="_blank">Bash Guide</a> <i>(mywiki.wooledge.org)</i>
+</li><li><a title="ShellCheck" href="https://www.shellcheck.net/" target="_blank">ShellCheck</a> <i>(shellcheck.net)</i>
+</li></ul>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-26" data-pid="default">
+                        示例
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-27" data-pid="default">
+                        变量
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-28" data-pid="default">
+                        字符串引号
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-29" data-pid="default">
+                        Shell执行
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-30" data-pid="default">
+                        条件执行
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-31" data-pid="default">
+                        函数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-32" data-pid="default">
+                        条件判断
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-33" data-pid="default">
+                        Strict 模式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-34" data-pid="default">
+                        花括号展开
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-42" data-pid="">
+                        参数扩展
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-35" data-pid="id-42">
+                        基本使用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-36" data-pid="id-42">
+                        替换
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-37" data-pid="id-42">
+                        注释
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-38" data-pid="id-42">
+                        子串
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-39" data-pid="id-42">
+                        长度
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-40" data-pid="id-42">
+                        操作
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-41" data-pid="id-42">
+                        默认值
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-48" data-pid="">
+                        循环
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-43" data-pid="id-48">
+                        基本循环
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-44" data-pid="id-48">
+                        C-like 循环
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-45" data-pid="id-48">
+                        范围
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-46" data-pid="id-48">
+                        读取行
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-47" data-pid="id-48">
+                        死循环
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-53" data-pid="">
+                        函数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-49" data-pid="id-53">
+                        定义函数
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-50" data-pid="id-53">
+                        返回值
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-51" data-pid="id-53">
+                        引发错误
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-52" data-pid="id-53">
+                        参数
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-57" data-pid="">
+                        条件语句
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-54" data-pid="id-57">
+                        条件
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-55" data-pid="id-57">
+                        文件条件
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-56" data-pid="id-57">
+                        示例
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-62" data-pid="">
+                        数组
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-58" data-pid="id-62">
+                        定义数组
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-59" data-pid="id-62">
+                        数组使用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-60" data-pid="id-62">
+                        操作
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-61" data-pid="id-62">
+                        变量
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-66" data-pid="">
+                        字典
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-63" data-pid="id-66">
+                        定义
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-64" data-pid="id-66">
+                        字典使用
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-65" data-pid="id-66">
+                        遍历
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-69" data-pid="">
+                        选项
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-67" data-pid="id-69">
+                        选项
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-68" data-pid="id-69">
+                        扩展选项
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-74" data-pid="">
+                        历史
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-70" data-pid="id-74">
+                        命令
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-71" data-pid="id-74">
+                        表达式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-72" data-pid="id-74">
+                        操作
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-73" data-pid="id-74">
+                        切分
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-91" data-pid="">
+                        杂项
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-75" data-pid="id-91">
+                        数值计算
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-76" data-pid="id-91">
+                        子脚本
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-77" data-pid="id-91">
+                        重定向
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-78" data-pid="id-91">
+                        检查命令
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-79" data-pid="id-91">
+                        捕获错误
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-80" data-pid="id-91">
+                        Case/switch
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-81" data-pid="id-91">
+                        Source relative
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-82" data-pid="id-91">
+                        printf
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-83" data-pid="id-91">
+                        Directory of script
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-84" data-pid="id-91">
+                        获取选项
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-85" data-pid="id-91">
+                        Heredoc
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-86" data-pid="id-91">
+                        读取输入
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-87" data-pid="id-91">
+                        特殊变量
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-88" data-pid="id-91">
+                        返回先前目录
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-89" data-pid="id-91">
+                        命令结果检查
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-90" data-pid="id-91">
+                        GREP结果检查
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-93" data-pid="">
+                        更多
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

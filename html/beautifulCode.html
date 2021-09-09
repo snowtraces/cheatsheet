@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>beautifulCode<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                <div class="h2-section" style="height: 1333px">
+                    
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-363">max(a, b)</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token punctuation">(</span>b <span class="token operator">&amp;</span> <span class="token punctuation">(</span>a <span class="token operator">-</span> b <span class="token operator">&gt;&gt;</span> <span class="token number">31</span><span class="token punctuation">)</span> <span class="token operator">|</span> a <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b <span class="token operator">&gt;&gt;</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="section-title"><h3 id="id-364">html随机颜色边框</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token comment">// 命令行中 $$ 等同于 document.querySelectorAll</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token function">$$</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> a<span class="token punctuation">.</span>style<span class="token punctuation">.</span>outline <span class="token operator">=</span> <span class="token string">"1px solid #"</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">~</span><span class="token operator">~</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 110px; left:0px">
+                            <div class="section-title"><h3 id="id-365">评分</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">let</span> rating <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token string">"★★★★★☆☆☆☆☆"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">-</span> rating<span class="token punctuation">,</span> <span class="token number">10</span> <span class="token operator">-</span> rating<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 147px; left:468.5px">
+                            <div class="section-title"><h3 id="id-366">值交换</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-js"><code class=" language-js" style="">a <span class="token operator">=</span> a <span class="token operator">^</span> b
+b <span class="token operator">=</span> a <span class="token operator">^</span> b
+a <span class="token operator">=</span> a <span class="token operator">^</span> b
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 240px; left:0px">
+                            <div class="section-title"><h3 id="id-367">正则表达式简单解析器</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>字符</th><th>含义</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>c</code></td><td>匹配任意的字母c</td></tr><tr><td><code>.</code></td><td>匹配任意单个字符</td></tr><tr><td><code>^</code></td><td>匹配输入字符串的开头</td></tr><tr><td><code>$</code></td><td>匹配输入字符串的结尾</td></tr><tr><td><code>*</code></td><td>匹配前一个字符的零个或多个</td></tr>
+                </tbody>
+            </table>
+<pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">const</span> <span class="token function-variable function">match</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">regexp<span class="token punctuation">,</span> text</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>regexp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'^'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">matchHere</span><span class="token punctuation">(</span>regexp<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">matchHere</span><span class="token punctuation">(</span>regexp<span class="token punctuation">,</span> text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>text <span class="token operator">=</span> text<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">matchHere</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">regexp<span class="token punctuation">,</span> text</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>regexp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>regexp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'*'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">matchStar</span><span class="token punctuation">(</span>regexp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> regexp<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>regexp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'$'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>regexp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> text <span class="token operator">===</span> <span class="token string">''</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">!==</span> <span class="token string">''</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>regexp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'.'</span> <span class="token operator">||</span> regexp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> text<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">matchHere</span><span class="token punctuation">(</span>regexp<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> text<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">matchStar</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">c<span class="token punctuation">,</span> regexp<span class="token punctuation">,</span> text</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">matchHere</span><span class="token punctuation">(</span>regexp<span class="token punctuation">,</span> text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>text <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>text <span class="token operator">=</span> text<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> c <span class="token operator">||</span> c <span class="token operator">===</span> <span class="token string">'.'</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 297px; left:468.5px">
+                <div class="section-title"><h3 id="id-368">js简写</h3></div>
+                    <div class="section-body">
+                        <pre class=" language-js"><code class=" language-js" style=""><span class="token comment">//取整</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Before</span>
+Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Before</span>
+a<span class="token operator">&gt;&gt;</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//Before</span>
+<span class="token operator">~</span><span class="token operator">~</span>a<span class="token punctuation">;</span> <span class="token comment">//After</span>
+a<span class="token operator">|</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//After</span>
+
+<span class="token comment">//四舍五入</span>
+Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Before</span>
+a<span class="token operator">+</span><span class="token number">.5</span><span class="token operator">|</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//After</span>
+
+<span class="token comment">//内置值</span>
+<span class="token keyword">undefined</span><span class="token punctuation">;</span> <span class="token comment">//Before</span>
+<span class="token keyword">void</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//After, 快</span>
+<span class="token number">0</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//After, 略慢</span>
+
+<span class="token comment">//内置值</span>
+<span class="token number">Infinity</span><span class="token punctuation">;</span>
+<span class="token number">1</span><span class="token operator">/</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment">//布尔值短写法</span>
+<span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">//Before</span>
+<span class="token operator">!</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//After</span>
+
+<span class="token comment">//布尔值短写法</span>
+<span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">//Before</span>
+<span class="token operator">!</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">//After</span>
+</code></pre>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-363" data-pid="default">
+                        max(a, b)
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-364" data-pid="default">
+                        html随机颜色边框
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-365" data-pid="default">
+                        评分
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-366" data-pid="default">
+                        值交换
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-367" data-pid="default">
+                        正则表达式简单解析器
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-368" data-pid="default">
+                        js简写
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

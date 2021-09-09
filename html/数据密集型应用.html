@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>数据密集型应用<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 1296px">
+                                <div class="h2-section-title"><h2 id="id-347">可靠性、可扩展性、可维护性</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-344">可靠性</h3></div>
+                                <div class="section-body">
+                                    <h4>典型期望</h4>
+<ul><li>应用程序表现出用户所期望的功能。
+</li><li>允许用户犯错，允许用户以出乎意料的方式使用软件。
+</li><li>在预期的负载和数据量下，性能满足要求。
+</li><li>系统能防止未经授权的访问和滥用。
+</li></ul>
+<p>造成错误的原因叫做故障（fault），能预料并应对故障的系统特性可称为容错（faulttolerant）</p>
+<h4>可以恢复的故障种类</h4>
+<ul><li>硬件故障
+</li><li>软件错误
+</li><li>人为错误
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-345">可扩展性</h3></div>
+                                <div class="section-body">
+                                    <p>可扩展性（Scalability）是用来描述系统应对负载增长能力的术语。</p>
+<h4>描述负载</h4>
+<p>负载可以用一些称为负载参数（load parameters）的数字来描述。参数的最佳选择取决于系统架构，它可能是每秒向Web服务器发出的请求、数据库中的读写比率、聊天室中同时活跃的用户数量、缓存命中率或其他东西。除此之外，也许平均情况对你很重要，也许你的瓶颈是少数极端场景。</p>
+<h4><code>案例</code>推特</h4>
+<p>用户时间线上展示关注的用户动态，有两种常见方案：</p>
+<ul><li>发帖，粉丝上线后关联查询所有关注用户动态，按时间序合并
+</li><li>每个用户维护一个时间线缓存，发帖后收入缓存
+</li></ul>
+<p>由于查看的频率比发帖的频率高了两个数量级，所以采用第二种方案，但由于大V粉丝特别多，最终采用大V内容方案一，其他用户内容方案二，然后进行内容合并。</p>
+<h4>描述性能</h4>
+<p>一旦系统的负载被描述好，就可以研究当负载增加会发生什么：</p>
+<ul><li>增加负载参数并保持系统资源（CPU、内存、网络带宽等）不变时，系统性能将受到什么影响？
+</li><li>增加负载参数并希望保持性能不变时，需要增加多少系统资源？
+</li></ul>
+<p>这两个问题都需要性能数据，如何描述系统性能：</p>
+<ul><li>对于Hadoop这样的批处理系统，通常关心的是吞吐量（throughput）
+</li><li>对于在线系统，通常更重要的是服务的响应时间（response time）
+</li></ul>
+<p>亚马逊内部服务要求<code>99.9</code>百分位，请求最慢的用户往往是数据最多的用户，也是最有价值的用户。</p>
+<h4>应对负载的方法</h4>
+<p>适应某个级别负载的架构不太可能应付10倍于此的负载。如果你正在开发一个快速增长的服务，那么每次负载发生数量级的增长时，你可能都需要重新考虑架构。</p>
+<ul><li><em>纵向扩展</em>（scaling up），垂直扩展（vertical scaling），转向更强大的机器
+</li><li><em>横向扩展</em>（scaling out），水平扩展（horizontal scaling），将负载分布到多台小机器上之间的对立。跨多台机器分配负载也称为“无共享（shared-nothing）”架构。
+</li></ul>
+<p>跨多台机器部署无状态服务（stateless services）非常简单，但将带状态的数据系统从单节点变为分布式配置则可能引入许多额外复杂度。出于这个原因，常识告诉我们应该将数据库放在单个节点上（纵向扩展），直到扩展成本或可用性需求迫使其改为分布式。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 442px; left:0px">
+                            <div class="section-title"><h3 id="id-346">可维护性</h3></div>
+                                <div class="section-body">
+                                    <p>软件的大部分开销并不在最初的开发阶段，而是在持续的维护阶段，一般包括：</p>
+<ul><li>修复漏洞
+</li><li>保持系统正常运行
+</li><li>调查失效
+</li><li>适配新的平台
+</li><li>为新的场景进行修改
+</li><li>偿还技术债
+</li><li>添加新的功能
+</li></ul>
+<p>在设计之初就尽量考虑尽可能减少维护期间的痛苦，从而避免自己的软件系统变成遗留系统。为此，我们将特别关注软件系统的三个<em>设计原则</em>：</p>
+<ul><li><em>可操作性</em>（Operability），便于运维团队保持系统平稳运行。
+</li><li><em>简单性</em>（Simplicity），从系统中消除尽可能多的复杂度（complexity），使新工程师也能轻松理解系统。
+</li><li><em>可演化性</em>（evolability），使工程师在未来能轻松地对系统进行更改，当需求变化时为新应用场景做适配。
+</li></ul>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 1504px">
+                                <div class="h2-section-title"><h2 id="id-353">数据模型与查询语言</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-348"></h3></div>
+                                <div class="section-body">
+                                    <p>应用每个层都通过提供一个明确的数据模型来隐藏更低层次中的复杂性。这些抽象允许不同的人群有效地协作（例如数据库厂商的工程师和使用数据库的应用程序开发人员）。</p>
+<p>数据模型对上层软件的功能（能做什么，不能做什么）有着至深的影响，所以选择一个适合的数据模型是非常重要的。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-349">关系模型与文档模型</h3></div>
+                                <div class="section-body">
+                                    <p>现在最著名的数据模型可能是SQL。它基于Edgar Codd在1970年提出的关系模型：<em>数据被组织成关系（SQL中称作表），其中每个关系是元组（SQL中称作行)的无序集合。</em></p>
+<p>多年来，在数据存储和查询方面存在着许多相互竞争的方法。在20世纪70年代和80年代初，网络模型和分层模型曾是主要的选择，但关系模型随后占据了主导地位。</p>
+<h4>NoSQL的诞生</h4>
+<p>NoSQL被追溯性地重新解释为不仅是SQL（Not Only SQL）。采用NoSQL数据库的背后有几个驱动因素，其中包括：</p>
+<ul><li>需要比关系数据库更好的<em>可扩展性</em>，包括非常大的数据集或非常高的写入<em>吞吐量</em>
+</li><li>相比商业数据库产品，<em>免费和开源</em>软件更受偏爱。
+</li><li>关系模型不能很好地支持一些<em>特殊的查询操作</em>
+</li><li>受挫于关系模型的限制性，渴望一种更具<em>多动态性与表现力</em>的数据模型
+</li></ul>
+<h4>对象关系不匹配</h4>
+<p>目前大多数应用程序开发都使用面向对象的编程语言来开发，这导致了对SQL数据模型的普遍批评：如果数据存储在关系表中，那么需要一个笨拙的转换层，处于应用程序代码中的对象和表，行，列的数据库模型之间。<em>模型之间的不连贯有时被称为阻抗不匹配（impedance mismatch）</em></p>
+<h4>数据模型选择</h4>
+<p>于高度相联的数据，选用文档模型是糟糕的，选用关系模型是可接受的，而选用图形模型是最自然的</p>
+<h4>文档模型中的架构灵活性</h4>
+<p>文档数据库有时称为无模式（schemaless），但这具有误导性，因为读取数据的代码通常假定某种结构——即存在隐式模式，但不由数据库强制执行。一个更精确的术语是<em>读时模式（schema-on-read）</em>，相应的是<em>写时模式（schema-on-write）</em>。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 218px; left:0px">
+                            <div class="section-title"><h3 id="id-350">数据查询语言</h3></div>
+                                <div class="section-body">
+                                    <p>SQL是一种声明式查询语言，而IMS和CODASYL使用命令式代码来查询数据库。</p>
+<h4>Web上的声明式查询</h4>
+<p>在Web浏览器中，使用声明式CSS样式比使用JavaScript命令式地操作样式要好得多。类似地，在数据库中，使用像SQL这样的声明式查询语言比使用命令式查询API要好得多。</p>
+<h4>MapReduce查询</h4>
+<p>MapReduce是一个由Google推广的编程模型，用于在多台机器上批量处理大规模的数据。一些NoSQL数据存储（包括MongoDB和CouchDB）支持有限形式的MapReduce，作为在多个文档中执行只读查询的机制。</p>
+<p>MapReduce既不是一个声明式的查询语言，也不是一个完全命令式的查询API，而是处于两者之间：查询的逻辑用代码片断来表示，这些代码片段会被处理框架重复性调用。它基于 map （也称为 collect ）和 reduce （也称为 fold 或 inject ）函数，两个函数存在于许多函数式编程语言中。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 737px; left:0px">
+                            <div class="section-title"><h3 id="id-351">图数据模型</h3></div>
+                                <div class="section-body">
+                                    <p>随着数据之间的连接变得更加复杂，将数据建模为图形显得更加自然。</p>
+<p>一个图由两种对象组成：</p>
+<ul><li><em>顶点（vertices）</em>，也称为节点（nodes） 或实体（entities）
+</li><li><em>边（edges）</em>，也称为关系（relationships）或弧 （arcs）
+</li></ul>
+<h4>属性图</h4>
+<p>在属性图模型中，每个<em>顶点（vertex）</em>包括：</p>
+<ul><li>唯一的标识符
+</li><li>一组出边（outgoing edges）
+</li><li>一组入边（ingoing edges）
+</li><li>一组属性（键值对）
+</li></ul>
+<p>每条<em>边（edge）</em>包括：</p>
+<ul><li>唯一标识符
+</li><li>边的起点/尾部顶点（tail vertex）
+</li><li>边的终点/头部顶点（head vertex）
+</li><li>描述两个顶点之间关系类型的标签
+</li><li>一组属性（键值对）
+</li></ul>
+<p>可以将图存储看作由两个关系表组成：一个存储顶点，另一个存储边。</p>
+<ul><li>任何顶点都可以有一条边连接到任何其他顶点。没有模式限制哪种事物可不可以关联。
+</li><li>给定任何顶点，可以高效地找到它的入边和出边，从而遍历图，即沿着一系列顶点的路径前后移动。
+</li><li>通过对不同类型的关系使用不同的标签，可以在一个图中存储几种不同的信息，同时仍然保持一个清晰的数据模型。
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 922px; left:468.5px">
+                            <div class="section-title"><h3 id="id-352">三元组存储和SPARQL</h3></div>
+                                <div class="section-body">
+                                    <p>三元组存储中，所有信息都以非常简单的三部分表示形式存储（主语，谓语，宾语）。</p>
+<p>三元组的<em>主语</em>相当于图中的一个<em>顶点</em>。而<em>宾语</em>是下面两者之一：</p>
+<ul><li>原始数据类型中的值。在这种情况下，三元组的谓语和宾语相当于主语顶点上的属性的键和值
+</li><li>图中的另一个顶点。在这种情况下，谓语是图中的一条边
+</li></ul>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 2133px">
+                    <div class="h2-section-title"><h2 id="id-362">存储与检索</h2></div>
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-354">驱动数据库的数据结构</h3></div>
+                                <div class="section-body">
+                                    <p>世界上最简单的数据库可以用两个Bash函数实现：</p>
+<pre class=" language-bash"><code class=" language-bash" style=""><span class="token shebang important">#!/bin/bash</span>
+<span class="token function-name function">db_set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$1</span>,<span class="token variable">$2</span>"</span> <span class="token operator">&gt;&gt;</span> database
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">db_get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">grep</span> <span class="token string">"^<span class="token variable">$1</span>,"</span> database <span class="token operator">|</span> <span class="token function">sed</span> -e <span class="token string">"s/^<span class="token variable">$1</span>,//"</span> <span class="token operator">|</span> <span class="token function">tail</span> -n <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>查找的开销是 <code>O(n)</code>，为了高效查找数据库中特定键的值，我们需要一个数据结构：<em>索引（index）</em>。索引是从主数据衍生的附加（additional）结构。许多数据库允许添加与删除索引，这不会影响数据的内容，它只影响查询的性能。维护额外的结构会产生开销，特别是在写入时。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-355">哈希索引</h3></div>
+                                <div class="section-body">
+                                    <p>最简单的索引策略就是：保留一个内存中的哈希映射，其中每个键都映射到一个数据文件中的字节偏移量，指明了可以找到对应值的位置。</p>
+<h4>避免最终用完磁盘空间</h4>
+<p>一种好的解决方案是：</p>
+<ul><li>将日志分为特定大小的段
+</li><li>当日志增长到特定尺寸时关闭当前段文件，并开始写入一个新的段文件
+</li><li>对这些段进行压缩（compaction），即在日志中丢弃重复的键，只保留每个键的最近更新
+</li><li>执行压缩的同时将多个段合并在一起，合并完成后使用新的段替换旧的段
+</li><li>每个段现在都有自己的内存散列表，将键映射到文件偏移量
+</li></ul>
+<h4>实践中的问题</h4>
+<ul><li>文件格式
+</li><ul><li>CSV不是日志的最佳格式。使用二进制格式更快，更简单，首先以字节为单位对字符串的长度进行编码，然后使用原始字符串（不需要转义）。
+</li></ul><li>删除记录
+</li><ul><li>在数据文件（有时称为逻辑删除）中附加一个特殊的删除记录。当日志段被合并时，逻辑删除告诉合并过程放弃删除键的任何以前的值。
+</li></ul><li>崩溃恢复
+</li><ul><li>如果数据库重新启动，则内存散列映射将丢失。原则上，可以通过从头到尾读取整个段文件并在每次按键时注意每个键的最近值的偏移量来恢复每个段的哈希映射。但是，如果段文件很大，这可能需要很长时间。 通过存储每个段的哈希映射的快照，更快地加载到内存中。
+</li></ul><li>部分写入记录
+</li><ul><li>数据库可能随时崩溃，包括将记录附加到日志中途。 Bitcask文件包含校验和，允许检测和忽略日志的这些损坏部分。
+</li></ul><li>并发控制
+</li><ul><li>由于写操作是以严格顺序的顺序附加到日志中的，所以常见的实现选择是只有一个写入器线程。数据文件段是附加的，否则是不可变的，所以它们可以被多个线程同时读取。
+</li></ul></ul>
+<p>乍一看，只有追加日志看起来很浪费：为什么不更新文件，用新值覆盖旧值？但是只能追加设计的原因有几个：</p>
+<ul><li>追加和分段合并是顺序写入操作，通常比随机写入快得多
+</li><li>段文件是附加的或不可变的，并发和崩溃恢复比较简单
+</li></ul>
+<h4>哈希表索引局限性</h4>
+<ul><li>散列表必须能放进内存
+</li><li>范围查询效率不高
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 460px; left:0px">
+                            <div class="section-title"><h3 id="id-356">SSTables和LSM树</h3></div>
+                                <div class="section-body">
+                                    <p>现在对段文件的格式做一个简单的改变：要求键值对的序列<em>按键排序</em>。</p>
+<p>这个格式称为排序字符串表（Sorted String Table），简称SSTable。我们还要求每个键只在每个合并的段文件中出现一次（压缩过程已经保证），与散列比有以下优势：</p>
+<ul><li>合并段是简单而高效的，即使文件大于可用内存，也可以使用文件到文件的转移。
+</li><li>为了在文件中找到一个特定的键，不再需要保存内存中所有键的索引。但仍然需要一个内存中索引来告诉您一些键的偏移量，但它可能很稀疏：每几千字节的段文件就有一个键就足够。
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 764px; left:0px">
+                            <div class="section-title"><h3 id="id-357">构建和维护SSTables</h3></div>
+                                <div class="section-body">
+                                    <ul><li>写入时，将其添加到内存中的平衡树数据结构（例如，红黑树）。这个内存树有时被称为<em>内存表</em>（memtable）。
+</li><li>当内存表大于某个<em>阈值</em>（通常为几兆字节）时，将其作为SSTable文件<em>写入磁盘</em>。新的SSTable文件成为数据库的最新部分。当SSTable被写入磁盘时，写入可以继续到一个新的内存表实例。
+</li><li>为了提供读取请求，首先尝试在<em>内存表</em>中找到关键字，然后在<em>最近的段</em>中，然后在下一个<em>较旧的段</em>中找到该关键字。
+</li><li>有时会在后台运行合并和压缩过程，以组合段文件并丢弃覆盖或删除的值。
+</li></ul>
+<p>为防止崩溃数据丢失，每个新内存表对应一份磁盘顺序日志，以供恢复内存表。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1087px; left:0px">
+                            <div class="section-title"><h3 id="id-358">用SSTables制作LSM树</h3></div>
+                                <div class="section-body">
+                                    <p><em>日志结构合并树</em>（或LSM树）的基础上，建立在以前的工作上日志结构的文件系统。基于这种合并和压缩排序文件原理的存储引擎通常被称为LSM存储引擎。</p>
+<p><code>Lucene</code>是<code>Elasticsearch</code>和<code>Solr</code>使用的一种全文搜索的索引引擎，它使用类似的方法来存储它的词典。全文索引比键值索引复杂得多，但是基于类似的想法：在搜索查询中给出一个单词，找到提及单词的所有文档（网页，产品描述等）。在Lucene中，从术语到发布列表的这种映射保存在SSTable类的有序文件中，根据需要在后台合并。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1173px; left:468.5px">
+                            <div class="section-title"><h3 id="id-359">性能优化</h3></div>
+                                <div class="section-body">
+                                    <p>查找不存在的键时，必须遍历内存表和所有文件段，为了优化这种访问，存储引擎通常使用额外的Bloom过滤器。</p>
+<p>还有不同的策略来确定SSTables如何被压缩和合并的顺序和时间。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 1343px; left:468.5px">
+                            <div class="section-title"><h3 id="id-360">B树</h3></div>
+                                <div class="section-body">
+                                    <p>在几乎所有的关系数据库中，它们仍然是标准的索引实现，许多非关系数据库也使用它们。</p>
+<p>B树将数据库分解成固定大小的块或页面，传统上大小为4KB（有时会更大），并且一次只能读取或写入一个页面。</p>
+<p>每个页面都可以使用地址或位置来标识，这允许一个页面引用另一个页面 —— 类似于指针，但在磁盘而不是在内存中。我们可以使用这些页面引用来构建一个页面树：</p>
+<ul><li>根页面
+</li><ul><li>在索引中查找一个键时，从根开始
+</li><li>该页面包含几个键和对子页面的引用
+</li></ul><li>子页面
+</li><ul><li>每个子页面负责一段连续范围的键，引用之间的键，指明了引用子页面的键范围
+</li><li>包含单个键（叶页/叶子节点）的页面，该页面包含每个键的内联值，或者包含对可以找到值的页面的引用。
+</li></ul></ul>
+<p>在B树的一个页面中对子页面的引用的数量称为分支因子。在实践中，分支因子取决于存储页面参考和范围边界所需的空间量，但通常是几百个。</p>
+<h4>更新数据</h4>
+<ul><li>搜索包含该键的叶页
+</li><li>更改该页中的值
+</li><li>并将该页写回到磁盘（对该页的任何引用保持有效）
+</li></ul>
+<h4>添加新数据</h4>
+<ul><li>找到其范围包含新键的页面，并将其添加到该页面
+</li><li>如果页面中没有足够的可用空间容纳新键，则将其分成两个半满页面，并更新父页面以解释键范围的新分区
+</li></ul>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 1370px; left:0px">
+                <div class="section-title"><h3 id="id-361">让B树更可靠</h3></div>
+                    <div class="section-body">
+                        <p>B树实现通常会带有一个额外的磁盘数据结构：<em>预写式日志</em>（WAL, write-ahead-log），也称为<em>重做日志</em>（redo log）</p>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H2" data-id="id-347" data-pid="">
+                        可靠性、可扩展性、可维护性
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-344" data-pid="id-347">
+                        可靠性
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-345" data-pid="id-347">
+                        可扩展性
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-346" data-pid="id-347">
+                        可维护性
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-353" data-pid="">
+                        数据模型与查询语言
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-349" data-pid="id-353">
+                        关系模型与文档模型
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-350" data-pid="id-353">
+                        数据查询语言
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-351" data-pid="id-353">
+                        图数据模型
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-352" data-pid="id-353">
+                        三元组存储和SPARQL
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-362" data-pid="">
+                        存储与检索
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-354" data-pid="id-362">
+                        驱动数据库的数据结构
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-355" data-pid="id-362">
+                        哈希索引
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-356" data-pid="id-362">
+                        SSTables和LSM树
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-357" data-pid="id-362">
+                        构建和维护SSTables
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-358" data-pid="id-362">
+                        用SSTables制作LSM树
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-359" data-pid="id-362">
+                        性能优化
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-360" data-pid="id-362">
+                        B树
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-361" data-pid="id-362">
+                        让B树更可靠
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>

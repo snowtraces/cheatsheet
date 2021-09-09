@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEAT SHEETS</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+
+<body>
+    <script>
+        if (
+            location.protocol === 'http:'
+            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide"></div>
+    <div id="top-nav">
+        <div id="nav-wrapper" class="w">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper" class="w">
+            <div id="sheet-title">
+                <h1>CSS<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" style="height: 993px">
+                                
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="section-title"><h3 id="id-440">选择器</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-css"><code class=" language-css" style=""><span class="token selector">.class</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Selector</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>*</code></td><td>所有元素</td></tr><tr><td><code>div</code></td><td>标签</td></tr><tr><td><code>.class</code></td><td>Class</td></tr><tr><td><code>#id</code></td><td>ID</td></tr><tr><td><code>[disabled]</code></td><td>属性</td></tr><tr><td><code>[role="dialog"]</code></td><td>属性</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="section-title"><h3 id="id-441">组合</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Selector</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>.parent .child</code></td><td>子级</td></tr><tr><td><code>.parent &gt; .child</code></td><td>直接子级</td></tr><tr><td><code>.child + .sibling</code></td><td>相邻同级</td></tr><tr><td><code>.child ~ .sibling</code></td><td>非相邻同级</td></tr><tr><td><code>.class1.class2</code></td><td>同时有两个class</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 268px; left:468.5px">
+                            <div class="section-title"><h3 id="id-442">属性选择器</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Selector</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>[role="dialog"]</code></td><td><code>=</code> 相等</td></tr><tr><td><code>[class~="box"]</code></td><td><code>~=</code> 包含单词（空格分隔）</td></tr><tr><td><code>[class|="box"]</code></td><td><code>|=</code> 相对或前缀</td></tr><tr><td><code>[href$=".doc"]</code></td><td><code>$=</code> 以结尾</td></tr><tr><td><code>[href^="/index"]</code></td><td><code>^=</code> 以开头</td></tr><tr><td><code>[class*="-is-"]</code></td><td><code>*=</code> 包含</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 397px; left:0px">
+                            <div class="section-title"><h3 id="id-443">伪类</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Selector</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>:target</code></td><td></td></tr><tr><td><code>:disabled</code></td><td></td></tr><tr><td><code>:focus</code></td><td></td></tr><tr><td><code>:active</code></td><td></td></tr><tr><td><code>:nth-child(3)</code></td><td>第3个子元素</td></tr><tr><td><code>:nth-child(3n+2)</code></td><td></td></tr><tr><td><code>:nth-child(-n+4)</code></td><td></td></tr><tr><td><code>:nth-last-child(2)</code></td><td></td></tr><tr><td><code>:nth-of-type(2)</code></td><td></td></tr><tr><td><code>:checked</code></td><td>Checked inputs</td></tr><tr><td><code>:disabled</code></td><td>Disabled elements</td></tr><tr><td><code>:default</code></td><td>Default element in a group</td></tr><tr><td><code>:empty</code></td><td>无子级的元素</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 577px; left:468.5px">
+                            <div class="section-title"><h3 id="id-444">伪类变体</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Selector</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>:first-of-type</code></td></tr><tr><td><code>:last-of-type</code></td></tr><tr><td><code>:nth-of-type(2)</code></td></tr><tr><td><code>:only-of-type</code></td></tr><tr><td><code>:first-child</code></td></tr><tr><td><code>:last-child</code></td></tr><tr><td><code>:nth-child(2)</code></td></tr><tr><td><code>:only-child</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 585px">
+                                <div class="h2-section-title"><h2 id="id-449">字体</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-445">属性值</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Property</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>font-family:</code></td><td><code>&lt;font&gt;, &lt;fontN&gt;</code></td></tr><tr><td><code>font-size:</code></td><td><code>&lt;size&gt;</code></td></tr><tr><td><code>letter-spacing:</code></td><td><code>&lt;size&gt;</code></td></tr><tr><td><code>line-height:</code></td><td><code>&lt;number&gt;</code></td></tr><tr><td><code>font-weight:</code></td><td><code>bold</code> <code>normal</code></td></tr><tr><td><code>font-style:</code></td><td><code>italic</code> <code>normal</code></td></tr><tr><td><code>text-decoration:</code></td><td><code>underline</code> <code>none</code></td></tr><tr><td><code>text-align:</code></td><td><code>left</code> <code>right</code> <code>center</code> <code>justify</code></td></tr><tr><td><code>text-transform:</code></td><td><code>capitalize</code> <code>uppercase</code> <code>lowercase</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-446">简写</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th></th><th>style</th><th>weight</th><th>size (required)</th><th></th><th>line-height</th><th>family</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>font:</code></td><td><code>italic</code></td><td><code>400</code></td><td><code>14px</code></td><td><code>/</code></td><td><code>1.5</code></td><td><code>sans-serif</code></td></tr><tr><td></td><td>style</td><td>weight</td><td>size *</td><td></td><td>line-height</td><td>family *</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 245px; left:468.5px">
+                            <div class="section-title"><h3 id="id-447">示例</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-css"><code class=" language-css" style=""><span class="token property">font-family</span><span class="token punctuation">:</span> Arial<span class="token punctuation">;</span>
+<span class="token property">font-size</span><span class="token punctuation">:</span> 12pt<span class="token punctuation">;</span>
+<span class="token property">line-height</span><span class="token punctuation">:</span> 1.5<span class="token punctuation">;</span>
+<span class="token property">letter-spacing</span><span class="token punctuation">:</span> 0.02em<span class="token punctuation">;</span>
+<span class="token property">color</span><span class="token punctuation">:</span> #aa3322<span class="token punctuation">;</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 435px; left:468.5px">
+                            <div class="section-title"><h3 id="id-448">大小写</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-css"><code class=" language-css" style=""><span class="token property">text-transform</span><span class="token punctuation">:</span> capitalize<span class="token punctuation">;</span> <span class="token comment">/* Hello */</span>
+<span class="token property">text-transform</span><span class="token punctuation">:</span> uppercase<span class="token punctuation">;</span> <span class="token comment">/* HELLO */</span>
+<span class="token property">text-transform</span><span class="token punctuation">:</span> lowercase<span class="token punctuation">;</span> <span class="token comment">/* hello */</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" style="height: 481px">
+                                <div class="h2-section-title"><h2 id="id-453">背景</h2></div>
+                                
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-450">属性值</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Property</th><th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>background:</code></td><td><i>(简写)</i></td></tr><tr><td><code>background-color:</code></td><td><code>&lt;color&gt;</code></td></tr><tr><td><code>background-image:</code></td><td><code>url(...)</code></td></tr><tr><td><code>background-position:</code></td><td><code>left/center/right</code> <code>top/center/bottom</code></td></tr><tr><td><code>background-size:</code></td><td><code>cover</code> <code>X Y</code></td></tr><tr><td><code>background-clip:</code></td><td><code>border-box</code> <code>padding-box</code> <code>content-box</code></td></tr><tr><td><code>background-repeat:</code></td><td><code>no-repeat</code> <code>repeat-x</code> <code>repeat-y</code></td></tr><tr><td><code>background-attachment:</code></td><td><code>scroll</code> <code>fixed</code> <code>local</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-451">简写</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th></th><th>color</th><th>image</th><th>positionX</th><th>positionY</th><th></th><th>size</th><th>repeat</th><th>attachment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>background:</code></td><td><code>#ff0</code></td><td><code>url(bg.jpg)</code></td><td><code>left</code></td><td><code>top</code></td><td><code>/</code></td><td><code>100px</code> <code>auto</code></td><td><code>no-repeat</code></td><td><code>fixed;</code></td></tr><tr><td><code>background:</code></td><td><code>#abc</code></td><td><code>url(bg.png)</code></td><td><code>center</code></td><td><code>center</code></td><td><code>/</code></td><td><code>cover</code></td><td><code>repeat-x</code></td><td><code>local;</code></td></tr><tr><td></td><td>color</td><td>image</td><td>positionX</td><td>positionY</td><td></td><td>size</td><td>repeat</td><td>attachment</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 288px; left:468.5px">
+                            <div class="section-title"><h3 id="id-452">多种背景</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-css"><code class=" language-css" style=""><span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to bottom<span class="token punctuation">,</span> <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'background.jpg'</span><span class="token punctuation">)</span></span> center center / cover<span class="token punctuation">,</span> #333<span class="token punctuation">;</span>
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" style="height: 618px">
+                    <div class="h2-section-title"><h2 id="id-458">动画</h2></div>
+                    
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="section-title"><h3 id="id-454">属性值</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>Property</th><th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>animation:</code></td><td><i>(shorthand)</i></td></tr><tr><td><code>animation-name:</code></td><td><code>&lt;name&gt;</code></td></tr><tr><td><code>animation-duration:</code></td><td><code>&lt;time&gt;ms</code></td></tr><tr><td><code>animation-timing-function:</code></td><td><code>ease</code> <code>linear</code> <code>ease-in</code> <code>ease-out</code> <code>ease-in-out</code></td></tr><tr><td><code>animation-delay:</code></td><td><code>&lt;time&gt;ms</code></td></tr><tr><td><code>animation-iteration-count:</code></td><td><code>infinite</code> <code>&lt;number&gt;</code></td></tr><tr><td><code>animation-direction:</code></td><td><code>normal</code> <code>reverse</code> <code>alternate</code> <code>alternate-reverse</code></td></tr><tr><td><code>animation-fill-mode:</code></td><td><code>none</code> <code>forwards</code> <code>backwards</code> <code>both</code> <code>initial</code> <code>inherit</code></td></tr><tr><td><code>animation-play-state:</code></td><td><code>normal</code> <code>reverse</code> <code>alternate</code> <code>alternate-reverse</code></td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="section-title"><h3 id="id-455">简写</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th></th><th>name</th><th>duration</th><th>timing-function</th><th>delay</th><th>count</th><th>direction</th><th>fill-mode</th><th>play-state</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>animation:</code></td><td><code>bounce</code></td><td><code>300ms</code></td><td><code>linear</code></td><td><code>100ms</code></td><td><code>infinite</code></td><td><code>alternate-reverse</code></td><td><code>both</code></td><td><code>reverse</code></td></tr><tr><td></td><td>name</td><td>duration</td><td>timing-function</td><td>delay</td><td>count</td><td>direction</td><td>fill-mode</td><td>play-state</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section" style="width: 448.5px;top: 245px; left:468.5px">
+                            <div class="section-title"><h3 id="id-456">示例</h3></div>
+                                <div class="section-body">
+                                    <pre class=" language-css"><code class=" language-css" style=""><span class="token property">animation</span><span class="token punctuation">:</span> bounce 300ms linear 0s infinite normal<span class="token punctuation">;</span>
+<span class="token property">animation</span><span class="token punctuation">:</span> bounce 300ms linear infinite<span class="token punctuation">;</span>
+<span class="token property">animation</span><span class="token punctuation">:</span> bounce 300ms linear infinite alternate-reverse<span class="token punctuation">;</span>
+<span class="token property">animation</span><span class="token punctuation">:</span> bounce 300ms linear 2s infinite alternate-reverse forwards normal<span class="token punctuation">;</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                <div class="sheet-section" style="width: 448.5px;top: 432px; left:468.5px">
+                <div class="section-title"><h3 id="id-457">事件</h3></div>
+                    <div class="section-body">
+                        <pre class=" language-js"><code class=" language-js" style=""><span class="token punctuation">.</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token string">'webkitAnimationEnd oanimationend msAnimationEnd animationend'</span><span class="token punctuation">)</span>
+</code></pre>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-title mini">菜单</div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3" data-id="id-440" data-pid="default">
+                        选择器
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-441" data-pid="default">
+                        组合
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-442" data-pid="default">
+                        属性选择器
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-443" data-pid="default">
+                        伪类
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-444" data-pid="default">
+                        伪类变体
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-449" data-pid="">
+                        字体
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-445" data-pid="id-449">
+                        属性值
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-446" data-pid="id-449">
+                        简写
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-447" data-pid="id-449">
+                        示例
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-448" data-pid="id-449">
+                        大小写
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-453" data-pid="">
+                        背景
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-450" data-pid="id-453">
+                        属性值
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-451" data-pid="id-453">
+                        简写
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-452" data-pid="id-453">
+                        多种背景
+                    </div>
+                
+                    <div class="nav-item nav-type-H2" data-id="id-458" data-pid="">
+                        动画
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-454" data-pid="id-458">
+                        属性值
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-455" data-pid="id-458">
+                        简写
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-456" data-pid="id-458">
+                        示例
+                    </div>
+                
+                    <div class="nav-item nav-type-H3" data-id="id-457" data-pid="id-458">
+                        事件
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>
