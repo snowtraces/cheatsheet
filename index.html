@@ -18,9 +18,9 @@
             } else if (location.pathname === '/') {
                 // 静态跳转
                 if ((/#\/[^/]+/).test(location.hash)) {
-                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                    location.href = `https://${location.hostname}/docs/${location.hash.substring(2)}.html`
                 } else {
-                    location.href = `https:${location.hostname}/docs/`
+                    location.href = `https://${location.hostname}/docs/`
                 }
             }
         }
