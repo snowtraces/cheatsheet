@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>regex cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631586286699"><link rel="stylesheet" href="../css/prism.css?version=1631586286699"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631590085424"><link rel="stylesheet" href="../css/prism.css?version=1631590085424"></head>
 
 <body>
     <script>
@@ -16,9 +16,9 @@
             } else if (location.pathname === '/') {
                 // 静态跳转
                 if ((/#\/[^/]+/).test(location.hash)) {
-                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                    location.href = `https://${location.hostname}/docs/${location.hash.substring(2)}.html`
                 } else {
-                    location.href = `https:${location.hostname}/docs/`
+                    location.href = `https://${location.hostname}/docs/`
                 }
             }
         }
@@ -40,10 +40,10 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 3186px">
+                            <div class="h2-section" style="height: 3209px">
                                 
                                 
-                            <div class="sheet-section" style="width: 593px;top: 0px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 0px; left:0px">
                             <div class="section-title"><h3 id="id-210">字符</h3></div>
                                 <div class="section-body">
                                     
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 391px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 391px; left:0px">
                             <div class="section-title"><h3 id="id-211">字符类</h3></div>
                                 <div class="section-body">
                                     
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 741px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 741px; left:0px">
                             <div class="section-title"><h3 id="id-212">预定义字符类</h3></div>
                                 <div class="section-body">
                                     
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1091px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 1091px; left:0px">
                             <div class="section-title"><h3 id="id-213">边界匹配器</h3></div>
                                 <div class="section-body">
                                     
@@ -111,7 +111,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1482px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 1482px; left:0px">
                             <div class="section-title"><h3 id="id-214">Greedy 数量词</h3></div>
                                 <div class="section-body">
                                     <p>匹配优先，优先匹配最大长度，匹配尽可能多的内容</p>
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1840px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 1840px; left:0px">
                             <div class="section-title"><h3 id="id-215">Reluctant 数量词</h3></div>
                                 <div class="section-body">
                                     <p>忽略优先，尽可能匹配最少内容，满足下限即成功</p>
@@ -147,7 +147,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 2198px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 2198px; left:0px">
                             <div class="section-title"><h3 id="id-216">Possessive 数量词</h3></div>
                                 <div class="section-body">
                                     <p>占有优先，优先匹配最大长度，放弃备用状态</p>
@@ -165,7 +165,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 2556px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 2556px; left:0px">
                             <div class="section-title"><h3 id="id-217">Logical 运算符</h3></div>
                                 <div class="section-body">
                                     
@@ -182,7 +182,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 2742px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 2742px; left:0px">
                             <div class="section-title"><h3 id="id-218"> 特殊构造（非捕获）</h3></div>
                                 <div class="section-body">
                                     
@@ -199,7 +199,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 2887px; left:0px">
+                            <div class="sheet-section" style="width: 546px;top: 2887px; left:0px">
                             <div class="section-title"><h3 id="id-219"> 环视结构（非捕获）</h3></div>
                                 <div class="section-body">
                                     <p>环视结构，包括肯定型和否定型，顺序环视和逆序环视，它们只是简单的测试，其中表达式能否在当前的位置匹配后面的内容（顺序），或者前面的内容（逆序），并不改变当前位置。</p>
@@ -222,7 +222,7 @@
                 <div class="h2-section" style="height: 277px">
                     <div class="h2-section-title"><h2 id="id-221">常见需求</h2></div>
                     
-                <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
+                <div class="sheet-section" style="width: 546px;top: 42px; left:0px">
                 <div class="section-title"><h3 id="id-220">案例</h3></div>
                     <div class="section-body">
                         <p>// TODO</p>
@@ -302,4 +302,4 @@
 
 
 
-<script src="../js/util/function.js?version=1631586286699"></script><script src="../js/util/event-hub.js?version=1631586286699"></script><script src="../js/3rdparty/prism.js?version=1631586286699"></script><script src="../js/module/loading.js?version=1631586286699"></script><script src="../js/module/home.js?version=1631586286699"></script><script src="../js/module/cheatsheet.js?version=1631586286699"></script><script src="../js/module/menu.js?version=1631586286699"></script><script src="../js/3rdparty/jszip.min.js?version=1631586286699"></script><script src="../js/util/saveData.js?version=1631586286699"></script></body></html>
+<script src="../js/util/function.js?version=1631590085424"></script><script src="../js/util/event-hub.js?version=1631590085424"></script><script src="../js/3rdparty/prism.js?version=1631590085424"></script><script src="../js/module/loading.js?version=1631590085424"></script><script src="../js/module/home.js?version=1631590085424"></script><script src="../js/module/cheatsheet.js?version=1631590085424"></script><script src="../js/module/menu.js?version=1631590085424"></script><script src="../js/3rdparty/jszip.min.js?version=1631590085424"></script><script src="../js/util/saveData.js?version=1631590085424"></script></body></html>
