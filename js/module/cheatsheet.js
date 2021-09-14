@@ -45,6 +45,7 @@
                     history.pushState({ 'page_id': value }, null, './#/' + value)
                 }
 
+                document.title = `${value} cheatsheet`
                 $.get(`./data/${value}.md`).then((rawText) => {
                     this.view.render(this.parseMarkdown(rawText))
                     this.initSectionPosition()

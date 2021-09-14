@@ -2,17 +2,25 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHEAT SHEETS</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+    <title>redis cheatsheet</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631586286699"><link rel="stylesheet" href="../css/prism.css?version=1631586286699"></head>
 
 <body>
     <script>
-        if (
-            location.protocol === 'http:'
-            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+        if (!location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
             && location.hostname !== 'localhost'
         ) {
-            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            if (location.protocol === 'http:') {
+                // https 跳转
+                location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            } else if (location.pathname === '/') {
+                // 静态跳转
+                if ((/#\/[^/]+/).test(location.hash)) {
+                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                } else {
+                    location.href = `https:${location.hostname}/docs/`
+                }
+            }
         }
         let isHtml = true
     </script>
@@ -32,10 +40,10 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 329px">
+                            <div class="h2-section" style="height: 643px">
                                 
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 0px; left:0px">
                             <div class="section-title"><h3 id="id-240">启动</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style="">./redis-server                      <span class="token comment"># 启动服务</span>
@@ -52,7 +60,7 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 314px; left:0px">
                             <div class="section-title"><h3 id="id-241">登录</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style="">./redis-cli           <span class="token comment"># 登录</span>
@@ -77,10 +85,10 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                             </div>
                             
 
-                <div class="h2-section" style="height: 3354px">
+                <div class="h2-section" style="height: 5673px">
                     <div class="h2-section-title"><h2 id="id-250">操作</h2></div>
                     
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-242">string（字符串）</h3></div>
                                 <div class="section-body">
                                     
@@ -97,7 +105,7 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1048px; left:0px">
                             <div class="section-title"><h3 id="id-243">list（列表）</h3></div>
                                 <div class="section-body">
                                     
@@ -114,7 +122,7 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 972px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1874px; left:0px">
                             <div class="section-title"><h3 id="id-244">Client­/Server</h3></div>
                                 <div class="section-body">
                                     
@@ -131,7 +139,7 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1111px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 2142px; left:0px">
                             <div class="section-title"><h3 id="id-245">set（集合）</h3></div>
                                 <div class="section-body">
                                     <p>显然，<code>set</code>会忽略重复元素</p>
@@ -149,7 +157,7 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1240px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 2870px; left:0px">
                             <div class="section-title"><h3 id="id-246">database（数据库）</h3></div>
                                 <div class="section-body">
                                     
@@ -166,7 +174,7 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1839px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 3794px; left:0px">
                             <div class="section-title"><h3 id="id-247">Script（脚本）</h3></div>
                                 <div class="section-body">
                                     <p>redis支持<code>Lua</code>脚本</p>
@@ -184,7 +192,7 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 2164px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 4153px; left:0px">
                             <div class="section-title"><h3 id="id-248">Hash（哈希表）</h3></div>
                                 <div class="section-body">
                                     
@@ -201,7 +209,7 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
                                 </div>
                             </div>
 
-                <div class="sheet-section" style="width: 448.5px;top: 2261px; left:0px">
+                <div class="sheet-section" style="width: 593px;top: 4790px; left:0px">
                 <div class="section-title"><h3 id="id-249">SortedSet（有序集合）</h3></div>
                     <div class="section-body">
                         
@@ -276,4 +284,4 @@ requirepass <span class="token operator">&lt;</span>pass<span class="token opera
 
 
 
-<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>
+<script src="../js/util/function.js?version=1631586286699"></script><script src="../js/util/event-hub.js?version=1631586286699"></script><script src="../js/3rdparty/prism.js?version=1631586286699"></script><script src="../js/module/loading.js?version=1631586286699"></script><script src="../js/module/home.js?version=1631586286699"></script><script src="../js/module/cheatsheet.js?version=1631586286699"></script><script src="../js/module/menu.js?version=1631586286699"></script><script src="../js/3rdparty/jszip.min.js?version=1631586286699"></script><script src="../js/util/saveData.js?version=1631586286699"></script></body></html>
