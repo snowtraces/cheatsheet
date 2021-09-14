@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RESTful cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631590085424"><link rel="stylesheet" href="../css/prism.css?version=1631590085424"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631590210503"><link rel="stylesheet" href="../css/prism.css?version=1631590210503"></head>
 
 <body>
     <script>
@@ -43,7 +43,7 @@
                             <div class="h2-section" style="height: 96px">
                                 
                                 
-                            <div class="sheet-section" style="width: 546px;top: 0px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 0px; left:0px">
                             <div class="section-title"><h3 id="id-312"></h3></div>
                                 <div class="section-body">
                                     <p><i>REST</i>，即<em>Representational State Transfer</em>的缩写——"表现层状态转化"。如果一个架构符合REST原则，就称它为RESTful架构。</p>
@@ -52,10 +52,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1576px">
+                            <div class="h2-section" style="height: 1013px">
                                 <div class="h2-section-title"><h2 id="id-318">URL设计</h2></div>
                                 
-                            <div class="sheet-section" style="width: 546px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-313">动词 + 宾语</h3></div>
                                 <div class="section-body">
                                     <p>RESTful的核心思想就是，客户端发出的数据操作指令都是"动词 + 宾语"的结构。比如，<code>GET /articles</code>这个命令，<code>GET</code>是动词，<code>/articles</code>是宾语。</p>
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 375px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-314">动词的覆盖</h3></div>
                                 <div class="section-body">
                                     <p>有些客户端只能使用<code>GET</code>和<code>POST</code>这两种方法，服务器必须接受<code>POST</code>模拟其他三个方法（<code>PUT</code>、<code>PATCH</code>、<code>DELETE</code>）。</p>
@@ -84,7 +84,7 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 615px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 282px; left:600px">
                             <div class="section-title"><h3 id="id-315">宾语必须是名词</h3></div>
                                 <div class="section-body">
                                     <p>宾语显然是名称，它是API的URL，是HTTP动词作用的对象。比如，<code>/articles</code>这个URL就是正确的，而下面的URL是错误的:</p>
@@ -95,7 +95,7 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 837px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 375px; left:0px">
                             <div class="section-title"><h3 id="id-316">复数 URL</h3></div>
                                 <div class="section-body">
                                     <p>既然URL是名词，那么应该使用复数，还是单数？</p>
@@ -104,7 +104,7 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 1067px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 504px; left:600px">
                             <div class="section-title"><h3 id="id-317">避免多级 URL</h3></div>
                                 <div class="section-body">
                                     <p>常见的情况是，资源需要多级分类，因此很容易写出多级的 URL，比如获取某个作者的某一类文章。</p>
@@ -125,10 +125,10 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2100px">
+                            <div class="h2-section" style="height: 1084px">
                                 <div class="h2-section-title"><h2 id="id-324">状态码</h2></div>
                                 
-                            <div class="sheet-section" style="width: 546px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-319">状态码必须精确</h3></div>
                                 <div class="section-body">
                                     <p>客户端的每一次请求，服务器都必须给出回应。回应包括 <em>HTTP状态码</em>和<em>数据</em>两部分。</p>
@@ -148,7 +148,7 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 437px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-320">2xx 状态码</h3></div>
                                 <div class="section-body">
                                     <p><code>200</code>状态码表示操作成功，但是不同的方法可以返回更精确的状态码。</p>
@@ -176,7 +176,7 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 985px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 437px; left:0px">
                             <div class="section-title"><h3 id="id-321">3xx 状态码</h3></div>
                                 <div class="section-body">
                                     <h4>应用级别，浏览器会直接跳转</h4>
@@ -210,7 +210,7 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 1440px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 590px; left:600px">
                             <div class="section-title"><h3 id="id-322">4xx 状态码</h3></div>
                                 <div class="section-body">
                                     <p><code>4xx</code>状态码表示客户端错误，主要有下面几种。</p>
@@ -228,7 +228,7 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 1908px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 892px; left:0px">
                             <div class="section-title"><h3 id="id-323">5xx 状态码</h3></div>
                                 <div class="section-body">
                                     <p><code>5xx</code>表示服务端错误。一般来说，API 不会向用户透露服务器的详细信息。</p>
@@ -248,10 +248,10 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1652px">
+                            <div class="h2-section" style="height: 977px">
                                 <div class="h2-section-title"><h2 id="id-328">服务器响应</h2></div>
                                 
-                            <div class="sheet-section" style="width: 546px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-325">响应数据格式</h3></div>
                                 <div class="section-body">
                                     <p>API 返回的数据格式，应该是一个<code>JSON</code>对象，所以：</p>
@@ -261,7 +261,7 @@ X<span class="token operator">-</span><span class="token keyword">HTTP</span><sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 219px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-326">错误时，不返回200状态码</h3></div>
                                 <div class="section-body">
                                     <p>有一种<em>不恰当</em>的做法是，即使发生错误，也返回200状态码，把错误信息放在数据体里面：</p>
@@ -290,7 +290,7 @@ Content<span class="token operator">-</span>Type<span class="token punctuation">
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 854px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 219px; left:0px">
                             <div class="section-title"><h3 id="id-327">提供链接</h3></div>
                                 <div class="section-body">
                                     <p>API 的使用者未必知道，URL 是怎么设计的。一个解决方法就是，在回应中，给出相关链接，便于下一步操作。这样的话，用户只要记住一个 URL，就可以发现其他的 URL。这种方法叫做<code>HATEOAS</code>。</p>
@@ -323,10 +323,10 @@ Content<span class="token operator">-</span>Type<span class="token punctuation">
                             </div>
                             
 
-                            <div class="h2-section" style="height: 4435px">
+                            <div class="h2-section" style="height: 2324px">
                                 <div class="h2-section-title"><h2 id="id-334">RESTful 成熟度</h2></div>
                                 
-                            <div class="sheet-section" style="width: 546px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-329">Richardson 成熟度模型</h3></div>
                                 <div class="section-body">
                                     <p><a title="RESTful Web APIs" href="https://book.douban.com/subject/22139962/" target="_blank">RESTful Web APIs</a>和<a title="RESTful Web Services" href="https://book.douban.com/subject/2054201/" target="_blank">RESTful Web Services</a>的作者伦纳德 · 理查德森（Leonard Richardson），曾提出过一个衡量<em>服务有多么 REST</em>的 <i>Richardson 成熟度模型</i>（<a title="Richardson Maturity Model" href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank">Richardson Maturity Model</a>，RMM）。这个模型的一个用处是，方便那些原本不使用 REST 的服务，能够逐步导入 REST。</p>
@@ -341,7 +341,7 @@ Content<span class="token operator">-</span>Type<span class="token punctuation">
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 565px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-330">第 0 级成熟度：The Swamp of Plain Old XML</h3></div>
                                 <div class="section-body">
                                     <p>医院开放了一个 <code>/appointmentService</code> 的 Web API，传入日期、医生姓名作为参数，就可以得到该时间段、该医生的空闲时间。</p>
@@ -380,7 +380,7 @@ Content<span class="token operator">-</span>Type<span class="token punctuation">
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 1587px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 549px; left:0px">
                             <div class="section-title"><h3 id="id-331">第 1 级成熟度：Resources</h3></div>
                                 <div class="section-body">
                                     <p>实际上你可以发现，第 0 级是 RPC 的风格，所以如果需求永远不会变化，也不会增加，那它完全可以良好地工作下去。但是，如果你不想为预约医生之外的其他操作、为获取空闲时间之外的其他信息去编写额外的方法，或者改动现有方法的接口，那就应该考虑一下如何使用 REST 来抽象资源。</p>
@@ -409,7 +409,7 @@ Content<span class="token operator">-</span>Type<span class="token punctuation">
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 2491px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 1048px; left:600px">
                             <div class="section-title"><h3 id="id-332">第 2 级成熟度：HTTP Verbs</h3></div>
                                 <div class="section-body">
                                     <p>前面说到，第 1 级中遗留的这三个问题，都可以靠引入统一接口来解决，而 HTTP 协议的标准方法便是最常接触到的统一接口。</p>
@@ -445,7 +445,7 @@ doctor not available
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 3564px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 1453px; left:0px">
                             <div class="section-title"><h3 id="id-333">第 3 级成熟度：Hypermedia Controls</h3></div>
                                 <div class="section-body">
                                     <p>或许你第一眼看到这个问题会说，这当然是程序写的啊，我为什么会问这么奇怪的问题。但问题是，REST 并不认同这种已烙在程序员脑海中许久的想法。</p>
@@ -481,10 +481,10 @@ doctor not available
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2989px">
+                            <div class="h2-section" style="height: 1774px">
                                 <div class="h2-section-title"><h2 id="id-340">REST 的不足与争议</h2></div>
                                 
-                            <div class="sheet-section" style="width: 546px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-335"><code>争议一</code> 面向资源只适合做 CRUD</h3></div>
                                 <div class="section-body">
                                     <p>面向资源的编程思想只适合做 CRUD，只有面向过程、面向对象编程才能处理真正复杂的业务逻辑。原因也很简单，HTTP 的 4 个最基础的命令 POST、GET、PUT 和 DELETE，很容易让人联想到 CRUD 操作。</p>
@@ -502,7 +502,7 @@ doctor not available
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 796px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-336"><code>争议二</code> REST 与 HTTP 完全绑定，不适用于要求高性能传输</h3></div>
                                 <div class="section-body">
                                     <p>其实，我在很大程度上赞同这个观点，但我并不认为这是 REST 的缺陷，因为锤子不能当扳手用，并不是锤子的质量有问题。</p>
@@ -511,7 +511,7 @@ doctor not available
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 1114px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 360px; left:600px">
                             <div class="section-title"><h3 id="id-337"><code>争议三</code> REST 不利于事务支持</h3></div>
                                 <div class="section-body">
                                     <p>其实，这个问题首先要看我们怎么去理解<em>事务（Transaction）</em>这个概念了。</p>
@@ -524,7 +524,7 @@ doctor not available
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 1464px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 694px; left:600px">
                             <div class="section-title"><h3 id="id-338"><code>争议四</code> REST 没有传输可靠性支持</h3></div>
                                 <div class="section-body">
                                     <p>是的，REST 并没有提供对传输可靠性的支持。在 HTTP 中，你发送出去一个请求，通常会收到一个与之相对的响应，比如 <code>HTTP/1.1 200 OK</code> 或者 <code>HTTP/1.1 404 Not Found</code> 等。但是，如果你没有收到任何响应，那就无法确定消息到底是没有发送出去，还是没有从服务端返回回来。这其中的关键差别，是服务端到底是否被触发了某些处理？</p>
@@ -535,7 +535,7 @@ doctor not available
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 546px;top: 1966px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 773px; left:0px">
                             <div class="section-title"><h3 id="id-339"><code>争议五</code> REST 缺乏对资源进行“部分”和“批量”的处理能力</h3></div>
                                 <div class="section-body">
                                     <p>这个观点我是认同的，而且我认为这很可能是未来面向资源的思想和 API 设计风格的发展方向。</p>
@@ -558,7 +558,7 @@ doctor not available
                 <div class="h2-section" style="height: 130px">
                     <div class="h2-section-title"><h2 id="id-342">来源 &amp; 参考</h2></div>
                     
-                <div class="sheet-section" style="width: 546px;top: 42px; left:0px">
+                <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                 <div class="section-title"><h3 id="id-341"></h3></div>
                     <div class="section-body">
                         <ul><li><a title="RESTful API 最佳实践 - 阮一峰的网络日志" href="https://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html" target="_blank">RESTful API 最佳实践 - 阮一峰的网络日志</a>
@@ -696,4 +696,4 @@ doctor not available
 
 
 
-<script src="../js/util/function.js?version=1631590085424"></script><script src="../js/util/event-hub.js?version=1631590085424"></script><script src="../js/3rdparty/prism.js?version=1631590085424"></script><script src="../js/module/loading.js?version=1631590085424"></script><script src="../js/module/home.js?version=1631590085424"></script><script src="../js/module/cheatsheet.js?version=1631590085424"></script><script src="../js/module/menu.js?version=1631590085424"></script><script src="../js/3rdparty/jszip.min.js?version=1631590085424"></script><script src="../js/util/saveData.js?version=1631590085424"></script></body></html>
+<script src="../js/util/function.js?version=1631590210503"></script><script src="../js/util/event-hub.js?version=1631590210503"></script><script src="../js/3rdparty/prism.js?version=1631590210503"></script><script src="../js/module/loading.js?version=1631590210503"></script><script src="../js/module/home.js?version=1631590210503"></script><script src="../js/module/cheatsheet.js?version=1631590210503"></script><script src="../js/module/menu.js?version=1631590210503"></script><script src="../js/3rdparty/jszip.min.js?version=1631590210503"></script><script src="../js/util/saveData.js?version=1631590210503"></script></body></html>
