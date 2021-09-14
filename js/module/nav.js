@@ -34,7 +34,7 @@
             let path = window.location.href
             let url_segs = path.split('#')
             if (url_segs.length >= 2) {
-                let page = url_segs[1]
+                let page = url_segs[1].substring(1)
                 window.eventHub.emit('open-sheet', [page, false])
             }
         },

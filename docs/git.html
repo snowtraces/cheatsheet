@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>git cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631586286699"><link rel="stylesheet" href="../css/prism.css?version=1631586286699"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631590210503"><link rel="stylesheet" href="../css/prism.css?version=1631590210503"></head>
 
 <body>
     <script>
@@ -16,9 +16,9 @@
             } else if (location.pathname === '/') {
                 // 静态跳转
                 if ((/#\/[^/]+/).test(location.hash)) {
-                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                    location.href = `https://${location.hostname}/docs/${location.hash.substring(2)}.html`
                 } else {
-                    location.href = `https:${location.hostname}/docs/`
+                    location.href = `https://${location.hostname}/docs/`
                 }
             }
         }
@@ -40,10 +40,10 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 803px">
+                            <div class="h2-section" style="height: 486px">
                                 
                                 
-                            <div class="sheet-section" style="width: 593px;top: 0px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 0px; left:0px">
                             <div class="section-title"><h3 id="id-136">配置</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> config --global <span class="token string">"Your Name"</span>
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 130px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 0px; left:600px">
                             <div class="section-title"><h3 id="id-137">初始化</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> init
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 240px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 110px; left:600px">
                             <div class="section-title"><h3 id="id-138"> 提交修改</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 447px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 130px; left:0px">
                             <div class="section-title"><h3 id="id-139">查看状态、比对</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> status
@@ -100,10 +100,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1530px">
+                            <div class="h2-section" style="height: 876px">
                                 <div class="h2-section-title"><h2 id="id-143">Git Log</h2></div>
                                 
-                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-140">log 记录和对比</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> log
@@ -122,7 +122,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 389px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-141">log 格式化</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> log <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span> --oneline                     <span class="token comment"># 对提交历史单行排列</span>
@@ -146,7 +146,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1223px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 389px; left:0px">
                             <div class="section-title"><h3 id="id-142">log 时间和提交者</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> log --since --after     <span class="token comment"># 显示时间之后的提交</span>
@@ -165,10 +165,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 803px">
+                            <div class="h2-section" style="height: 486px">
                                 <div class="h2-section-title"><h2 id="id-148">版本管理</h2></div>
                                 
-                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-144">版本回退、前进</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> reset --hard HEAD^   <span class="token comment"># 回退到上1版本</span>
@@ -178,7 +178,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 192px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-145">撤销修改</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> checkout -- <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>   <span class="token comment"># 撤销修改：误修改工作区文件，未git add/commit</span>
@@ -189,7 +189,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 379px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 192px; left:0px">
                             <div class="section-title"><h3 id="id-146">删除与恢复</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> rm/add <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
@@ -199,7 +199,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 546px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 229px; left:600px">
                             <div class="section-title"><h3 id="id-147">清理工作区</h3></div>
                                 <div class="section-body">
                                     <p>包括未track也未ignore的文件或文件夹，如各种临时.swp, .patch文件等</p>
@@ -214,10 +214,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2493px">
+                            <div class="h2-section" style="height: 1320px">
                                 <div class="h2-section-title"><h2 id="id-159">仓库与分支</h2></div>
                                 
-                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-149">关联GitHub远程仓库（本地到远程）</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> remote <span class="token function">add</span> origin <span class="token operator">&lt;</span>remote address<span class="token operator">&gt;</span>  <span class="token comment"># 在本地工作区目录下按照 GitHub 提示进行关联</span>
@@ -231,7 +231,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 289px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-150">克隆GitHub远程仓库（远程到本地）</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> clone <span class="token operator">&lt;</span>remote address<span class="token operator">&gt;</span>  <span class="token comment"># git协议速度更快但通常公司内网不允许，https协议速度慢</span>
@@ -239,7 +239,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 416px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 169px; left:600px">
                             <div class="section-title"><h3 id="id-151">分支管理：创建、切换、查看、合并、删除</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> branch <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>       <span class="token comment"># 创建&lt;branch name&gt;分支</span>
@@ -254,7 +254,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 683px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 289px; left:0px">
                             <div class="section-title"><h3 id="id-152">解决合并冲突</h3></div>
                                 <div class="section-body">
                                     <p>合并时报错“分支发生冲突”，首先vim相应文件，修改冲突位置，然后按照git add/commit重新提交，最后删除多余分支即可。</p>
@@ -264,7 +264,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 885px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 436px; left:600px">
                             <div class="section-title"><h3 id="id-153">分支管理：合并后删除分支也在 log 中保留分支记录</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> merge --no-ff -m <span class="token string">"descriptions"</span> <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>
@@ -272,7 +272,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 995px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 491px; left:0px">
                             <div class="section-title"><h3 id="id-154">开发流程</h3></div>
                                 <div class="section-body">
                                     
@@ -290,7 +290,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1230px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 546px; left:600px">
                             <div class="section-title"><h3 id="id-155">Bug分支管理（建立单独分支进行bug修复）</h3></div>
                                 <div class="section-body">
                                     <p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
@@ -304,7 +304,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1529px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 726px; left:0px">
                             <div class="section-title"><h3 id="id-156">Feature分支管理（建立单独分支添加新功能）</h3></div>
                                 <div class="section-body">
                                     <p>软件开发中，总有无穷无尽的新的功能要不断添加进来。添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
@@ -313,7 +313,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1734px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 868px; left:600px">
                             <div class="section-title"><h3 id="id-157">协作与分支推送</h3></div>
                                 <div class="section-body">
                                     <h4>User 1:</h4>
@@ -335,7 +335,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 2186px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 931px; left:0px">
                             <div class="section-title"><h3 id="id-158">标签管理（常用于版本管理）：查看、创建、操作</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> tag                           <span class="token comment"># 查看标签</span>
@@ -354,10 +354,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 3847px">
+                            <div class="h2-section" style="height: 2016px">
                                 <div class="h2-section-title"><h2 id="id-164">rebase(换基)</h2></div>
                                 
-                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-160">目的</h3></div>
                                 <div class="section-body">
                                     <p><code>rebase</code>在日常中常用功能主要是两个，多人协同开发定期<code>rebase master</code>，以及压缩某分支多个<code>commit</code>。</p>
@@ -365,7 +365,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 260px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-161">案例一</h3></div>
                                 <div class="section-body">
                                     <p><code>master</code>分支上有三个提交<code>C1</code>, <code>C2</code>, <code>C3</code></p>
@@ -429,7 +429,7 @@ C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1945px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 260px; left:0px">
                             <div class="section-title"><h3 id="id-162">案例二</h3></div>
                                 <div class="section-body">
                                     <p>// TODO</p>
@@ -494,7 +494,7 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 3580px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 1749px; left:600px">
                             <div class="section-title"><h3 id="id-163">其他</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token comment"># 压缩当前分支的n个commit并合并为1个commit, 常见第一行为pick, 剩下的n-1行为squash</span>
@@ -511,10 +511,10 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                             </div>
                             
 
-                <div class="h2-section" style="height: 1857px">
+                <div class="h2-section" style="height: 988px">
                     <div class="h2-section-title"><h2 id="id-171">杂项</h2></div>
                     
-                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-165">打patch(补丁)</h3></div>
                                 <div class="section-body">
                                     <h4>生成diff patch文件(git可以识别diff文件)</h4>
@@ -544,7 +544,7 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 744px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
                             <div class="section-title"><h3 id="id-166">bundle(打包)</h3></div>
                                 <div class="section-body">
                                     <p>该命令会将git工程打包, 默认情况下会打包所有commit记录和track的文件不同于简单粗暴tar.gz打包整个文件夹, bundle只打包那些push过的记录如某git工程下存在.build构建后的目录, 而.gitignore又忽略了该文件夹如果利用tar.gz打包则会将那些忽略的文件文件夹一并打包, 可能会造成压缩包极大的臃肿而又不想仅仅为了打个包就删除整个build目录(如重新build时间成本太大)那么就可以使用bundle进行打包, 该命令只打包track过的文件并且像url那样直接调用git clone来重建</p>
@@ -561,7 +561,7 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1216px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 514px; left:600px">
                             <div class="section-title"><h3 id="id-167">使用GitHub</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-markup"><code class=" language-markup" style="">fork --&gt; clone --&gt; add/commit/push --&gt; pull request
@@ -569,7 +569,7 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1326px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 624px; left:600px">
                             <div class="section-title"><h3 id="id-168">其他配置</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> config --global color.ui <span class="token boolean">true</span>  <span class="token comment"># 显示颜色</span>
@@ -577,7 +577,7 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 593px;top: 1436px; left:0px">
+                            <div class="sheet-section" style="width: 580px;top: 734px; left:600px">
                             <div class="section-title"><h3 id="id-169">配置.gitignore文件</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-markup"><code class=" language-markup" style="">/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dir</span> <span class="token attr-name">name</span><span class="token punctuation">&gt;</span></span>/               # 忽略文件夹
@@ -591,7 +591,7 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 </div>
                             </div>
 
-                <div class="sheet-section" style="width: 593px;top: 1690px; left:0px">
+                <div class="sheet-section" style="width: 580px;top: 744px; left:0px">
                 <div class="section-title"><h3 id="id-170">配置别名</h3></div>
                     <div class="section-body">
                         <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> alias.<span class="token operator">&lt;</span>alias<span class="token operator">&gt;</span> <span class="token string">'&lt;original command&gt;'</span>  <span class="token comment"># 为所有工作区/当前工作区配置别名</span>
@@ -759,4 +759,4 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
 
 
 
-<script src="../js/util/function.js?version=1631586286699"></script><script src="../js/util/event-hub.js?version=1631586286699"></script><script src="../js/3rdparty/prism.js?version=1631586286699"></script><script src="../js/module/loading.js?version=1631586286699"></script><script src="../js/module/home.js?version=1631586286699"></script><script src="../js/module/cheatsheet.js?version=1631586286699"></script><script src="../js/module/menu.js?version=1631586286699"></script><script src="../js/3rdparty/jszip.min.js?version=1631586286699"></script><script src="../js/util/saveData.js?version=1631586286699"></script></body></html>
+<script src="../js/util/function.js?version=1631590210503"></script><script src="../js/util/event-hub.js?version=1631590210503"></script><script src="../js/3rdparty/prism.js?version=1631590210503"></script><script src="../js/module/loading.js?version=1631590210503"></script><script src="../js/module/home.js?version=1631590210503"></script><script src="../js/module/cheatsheet.js?version=1631590210503"></script><script src="../js/module/menu.js?version=1631590210503"></script><script src="../js/3rdparty/jszip.min.js?version=1631590210503"></script><script src="../js/util/saveData.js?version=1631590210503"></script></body></html>
