@@ -2,17 +2,25 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHEAT SHEETS</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+    <title>vim cheatsheet</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631586286699"><link rel="stylesheet" href="../css/prism.css?version=1631586286699"></head>
 
 <body>
     <script>
-        if (
-            location.protocol === 'http:'
-            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+        if (!location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
             && location.hostname !== 'localhost'
         ) {
-            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            if (location.protocol === 'http:') {
+                // https 跳转
+                location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            } else if (location.pathname === '/') {
+                // 静态跳转
+                if ((/#\/[^/]+/).test(location.hash)) {
+                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                } else {
+                    location.href = `https:${location.hostname}/docs/`
+                }
+            }
         }
         let isHtml = true
     </script>
@@ -32,10 +40,10 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 1665px">
+                            <div class="h2-section" style="height: 3458px">
                                 
                                 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 0px; left:0px">
                             <div class="section-title"><h3 id="id-94">退出</h3></div>
                                 <div class="section-body">
                                     
@@ -52,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 391px; left:0px">
                             <div class="section-title"><h3 id="id-95">导航</h3></div>
                                 <div class="section-body">
                                     
@@ -153,7 +161,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 0px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 2014px; left:0px">
                             <div class="section-title"><h3 id="id-96">编辑</h3></div>
                                 <div class="section-body">
                                     
@@ -170,7 +178,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 391px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 2569px; left:0px">
                             <div class="section-title"><h3 id="id-97">退出插入模式</h3></div>
                                 <div class="section-body">
                                     
@@ -187,7 +195,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 555px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 2714px; left:0px">
                             <div class="section-title"><h3 id="id-98">剪贴板</h3></div>
                                 <div class="section-body">
                                     
@@ -204,7 +212,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 557px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 3064px; left:0px">
                             <div class="section-title"><h3 id="id-99">视觉模式</h3></div>
                                 <div class="section-body">
                                     
@@ -236,10 +244,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 515px">
+                            <div class="h2-section" style="height: 1066px">
                                 <div class="h2-section-title"><h2 id="id-103">操作指令</h2></div>
                                 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-100">使用</h3></div>
                                 <div class="section-body">
                                     <p>这些在正常模式下执行，根据<i>指令范围</i>不同，操作指定能操作一定区域的文本。</p>
@@ -257,7 +265,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 235px; left:0px">
                             <div class="section-title"><h3 id="id-101">操作指令列表</h3></div>
                                 <div class="section-body">
                                     
@@ -274,7 +282,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 708px; left:0px">
                             <div class="section-title"><h3 id="id-102">示例</h3></div>
                                 <div class="section-body">
                                     <p>结合<i>指令范围</i>来应用操作指令。</p>
@@ -294,10 +302,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 489px">
+                            <div class="h2-section" style="height: 1088px">
                                 <div class="h2-section-title"><h2 id="id-108">文本对象</h2></div>
                                 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-104">使用</h3></div>
                                 <div class="section-body">
                                     <p>文本对象使您可以在文本块中或周围进行操作（使用<i>操作指令</i>）。</p>
@@ -315,7 +323,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 235px; left:0px">
                             <div class="section-title"><h3 id="id-105">文本对象</h3></div>
                                 <div class="section-body">
                                     
@@ -332,7 +340,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 626px; left:0px">
                             <div class="section-title"><h3 id="id-106">Examples</h3></div>
                                 <div class="section-body">
                                     
@@ -350,7 +358,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 280px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 984px; left:0px">
                             <div class="section-title"><h3 id="id-107">Diff</h3></div>
                                 <div class="section-body">
                                     
@@ -369,10 +377,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2422px">
+                            <div class="h2-section" style="height: 4076px">
                                 <div class="h2-section-title"><h2 id="id-123">杂项</h2></div>
                                 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-109">折叠</h3></div>
                                 <div class="section-body">
                                     
@@ -390,7 +398,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 524px; left:0px">
                             <div class="section-title"><h3 id="id-110">导航</h3></div>
                                 <div class="section-body">
                                     
@@ -407,7 +415,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 792px; left:0px">
                             <div class="section-title"><h3 id="id-111">跳转</h3></div>
                                 <div class="section-body">
                                     
@@ -424,7 +432,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 228px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 978px; left:0px">
                             <div class="section-title"><h3 id="id-112">计数器</h3></div>
                                 <div class="section-body">
                                     
@@ -441,7 +449,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 310px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 1123px; left:0px">
                             <div class="section-title"><h3 id="id-113">窗口</h3></div>
                                 <div class="section-body">
                                     
@@ -458,7 +466,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 373px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 1227px; left:0px">
                             <div class="section-title"><h3 id="id-114">标签</h3></div>
                                 <div class="section-body">
                                     
@@ -475,7 +483,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 436px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 1577px; left:0px">
                             <div class="section-title"><h3 id="id-115">大小写</h3></div>
                                 <div class="section-body">
                                     
@@ -493,7 +501,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 524px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 1895px; left:0px">
                             <div class="section-title"><h3 id="id-116">标记</h3></div>
                                 <div class="section-body">
                                     
@@ -510,7 +518,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 754px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 2819px; left:0px">
                             <div class="section-title"><h3 id="id-117">杂项</h3></div>
                                 <div class="section-body">
                                     
@@ -527,7 +535,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 831px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 3005px; left:0px">
                             <div class="section-title"><h3 id="id-118">命令行</h3></div>
                                 <div class="section-body">
                                     
@@ -544,7 +552,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 987px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 3191px; left:0px">
                             <div class="section-title"><h3 id="id-119">文本对齐</h3></div>
                                 <div class="section-body">
                                     <pre class="language- language-none"><code class="language- language-none" style="">:center [width]
@@ -555,7 +563,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 1017px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 3391px; left:0px">
                             <div class="section-title"><h3 id="id-120">计算</h3></div>
                                 <div class="section-body">
                                     
@@ -573,7 +581,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 1171px; left:624.6666666666666px">
+                            <div class="sheet-section" style="width: 593px;top: 3545px; left:0px">
                             <div class="section-title"><h3 id="id-121">错误退出</h3></div>
                                 <div class="section-body">
                                     <pre class="language- language-none"><code class="language- language-none" style="">:cq
@@ -583,7 +591,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 292.3333333333333px;top: 1187px; left:312.3333333333333px">
+                            <div class="sheet-section" style="width: 593px;top: 3726px; left:0px">
                             <div class="section-title"><h3 id="id-122">拼写检查</h3></div>
                                 <div class="section-body">
                                     
@@ -602,10 +610,10 @@
                             </div>
                             
 
-                <div class="h2-section" style="height: 168px">
+                <div class="h2-section" style="height: 152px">
                     <div class="h2-section-title"><h2 id="id-125">更多</h2></div>
                     
-                <div class="sheet-section" style="width: 292.3333333333333px;top: 42px; left:0px">
+                <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                 <div class="section-title"><h3 id="id-124"></h3></div>
                     <div class="section-body">
                         <ul><li><a title="Vim cheatsheet" href="https://vim.rtorr.com/" target="_blank">Vim cheatsheet</a> <i>(vim.rotrr.com)</i>
@@ -753,4 +761,4 @@
 
 
 
-<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>
+<script src="../js/util/function.js?version=1631586286699"></script><script src="../js/util/event-hub.js?version=1631586286699"></script><script src="../js/3rdparty/prism.js?version=1631586286699"></script><script src="../js/module/loading.js?version=1631586286699"></script><script src="../js/module/home.js?version=1631586286699"></script><script src="../js/module/cheatsheet.js?version=1631586286699"></script><script src="../js/module/menu.js?version=1631586286699"></script><script src="../js/3rdparty/jszip.min.js?version=1631586286699"></script><script src="../js/util/saveData.js?version=1631586286699"></script></body></html>

@@ -2,17 +2,25 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHEAT SHEETS</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+    <title>awk cheatsheet</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631586286699"><link rel="stylesheet" href="../css/prism.css?version=1631586286699"></head>
 
 <body>
     <script>
-        if (
-            location.protocol === 'http:'
-            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+        if (!location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
             && location.hostname !== 'localhost'
         ) {
-            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            if (location.protocol === 'http:') {
+                // https 跳转
+                location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            } else if (location.pathname === '/') {
+                // 静态跳转
+                if ((/#\/[^/]+/).test(location.hash)) {
+                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                } else {
+                    location.href = `https:${location.hostname}/docs/`
+                }
+            }
         }
         let isHtml = true
     </script>
@@ -32,10 +40,10 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 1172px">
+                            <div class="h2-section" style="height: 1728px">
                                 
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 0px; left:0px">
                             <div class="section-title"><h3 id="id-222">开始</h3></div>
                                 <div class="section-body">
                                     <h4>从netstat命令中提取了如下信息作为用例</h4>
@@ -64,7 +72,7 @@ tcp        0      0 :::22                  :::*                        LISTEN
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 554px; left:0px">
                             <div class="section-title"><h3 id="id-223">第一个例子</h3></div>
                                 <div class="section-body">
                                     <p>其中单引号中的被<em>大括号</em>括着的就是<code>awk</code>的语句，注意，其只能被<em>单引号</em>包含。</p>
@@ -94,7 +102,7 @@ tcp :::22
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 570px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 1159px; left:0px">
                             <div class="section-title"><h3 id="id-224">格式化输出</h3></div>
                                 <div class="section-body">
                                     <p><code>awk</code>的格式化输出，和<code>C</code>语言的<code>printf</code>没什么两样：</p>
@@ -125,10 +133,10 @@ tcp      0        0        :::22              :::*                   LISTEN
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1580px">
+                            <div class="h2-section" style="height: 2519px">
                                 <div class="h2-section-title"><h2 id="id-228">起步</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-225">过滤记录</h3></div>
                                 <div class="section-body">
                                     <h4>过滤条件为：<em>第3列</em>的值为<code>0</code> &amp;&amp; <em>第6列</em>的值为<code>LISTEN</code></h4>
@@ -169,7 +177,7 @@ tcp        0      0 :::22                  :::*                        LISTEN
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1003px; left:0px">
                             <div class="section-title"><h3 id="id-226">内建变量</h3></div>
                                 <div class="section-body">
                                     
@@ -196,7 +204,7 @@ tcp        0      0 :::22                  :::*                        LISTEN
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 818px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1758px; left:0px">
                             <div class="section-title"><h3 id="id-227">指定分隔符</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$  <span class="token function">awk</span>  <span class="token string">'BEGIN{FS=":"} {print <span class="token variable">$1</span>,<span class="token variable">$3</span>,<span class="token variable">$6</span>}'</span> /etc/passwd
@@ -231,10 +239,10 @@ sync    5       /sbin
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2298px">
+                            <div class="h2-section" style="height: 4187px">
                                 <div class="h2-section-title"><h2 id="id-232">进阶</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-229">字符串匹配</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$6</span> ~ /FIN/ || NR==1 {print NR,<span class="token variable">$4</span>,<span class="token variable">$5</span>,<span class="token variable">$6</span>}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
@@ -297,7 +305,7 @@ tcp        0      0 :::22                   :::*                    LISTEN
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1481px; left:0px">
                             <div class="section-title"><h3 id="id-230">折分文件</h3></div>
                                 <div class="section-body">
                                     <p>awk拆分文件很简单，使用重定向就好了。下面这个例子，是按第6列分隔文件（<code>group by</code>，不同值分到不同的文件中），相当的简单（其中的<code>NR!=1</code>表示不处理表头）。</p>
@@ -385,7 +393,7 @@ tcp        0      0 coolshell.cn:80        117.136.20.85:50025         FIN_WAIT2
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1565px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 3488px; left:0px">
                             <div class="section-title"><h3 id="id-231">统计</h3></div>
                                 <div class="section-body">
                                     <p>下面的命令计算所有的C文件，CPP文件和H文件的文件大小总和。</p>
@@ -417,10 +425,10 @@ hchen, 6020KB
                             </div>
                             
 
-                <div class="h2-section" style="height: 1564px">
+                <div class="h2-section" style="height: 2258px">
                     <div class="h2-section-title"><h2 id="id-236">深入</h2></div>
                     
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-233">awk脚本</h3></div>
                                 <div class="section-body">
                                     <h4>运行前</h4>
@@ -486,7 +494,7 @@ AVERAGE:     63.80    78.60    70.00
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1524px; left:0px">
                             <div class="section-title"><h3 id="id-234">环境变量</h3></div>
                                 <div class="section-body">
                                     <p>即然说到了脚本，我们来看看怎么和环境变量交互：（使用<code>-v</code>参数和<code>ENVIRON</code>，使用<code>ENVIRON</code>的环境变量需要<code>export</code>）</p>
@@ -508,7 +516,7 @@ Bob     2415    40      62      72
                                 </div>
                             </div>
 
-                <div class="sheet-section" style="width: 448.5px;top: 526px; left:468.5px">
+                <div class="sheet-section" style="width: 593px;top: 1991px; left:0px">
                 <div class="section-title"><h3 id="id-235">几个小例子</h3></div>
                     <div class="section-body">
                         <pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;"><span class="token comment">#从file文件中找出长度大于80的行</span>
@@ -597,4 +605,4 @@ Bob     2415    40      62      72
 
 
 
-<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>
+<script src="../js/util/function.js?version=1631586286699"></script><script src="../js/util/event-hub.js?version=1631586286699"></script><script src="../js/3rdparty/prism.js?version=1631586286699"></script><script src="../js/module/loading.js?version=1631586286699"></script><script src="../js/module/home.js?version=1631586286699"></script><script src="../js/module/cheatsheet.js?version=1631586286699"></script><script src="../js/module/menu.js?version=1631586286699"></script><script src="../js/3rdparty/jszip.min.js?version=1631586286699"></script><script src="../js/util/saveData.js?version=1631586286699"></script></body></html>

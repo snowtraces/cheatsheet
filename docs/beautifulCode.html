@@ -2,17 +2,25 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHEAT SHEETS</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+    <title>beautifulCode cheatsheet</title>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631586286699"><link rel="stylesheet" href="../css/prism.css?version=1631586286699"></head>
 
 <body>
     <script>
-        if (
-            location.protocol === 'http:'
-            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+        if (!location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
             && location.hostname !== 'localhost'
         ) {
-            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            if (location.protocol === 'http:') {
+                // https 跳转
+                location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            } else if (location.pathname === '/') {
+                // 静态跳转
+                if ((/#\/[^/]+/).test(location.hash)) {
+                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                } else {
+                    location.href = `https:${location.hostname}/docs/`
+                }
+            }
         }
         let isHtml = true
     </script>
@@ -32,10 +40,10 @@
             </div>
             <div id="sheet-body">
                 
-                <div class="h2-section" style="height: 1333px">
+                <div class="h2-section" style="height: 2243px">
                     
                     
-                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 0px; left:0px">
                             <div class="section-title"><h3 id="id-363">max(a, b)</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-js"><code class=" language-js" style=""><span class="token punctuation">(</span>b <span class="token operator">&amp;</span> <span class="token punctuation">(</span>a <span class="token operator">-</span> b <span class="token operator">&gt;&gt;</span> <span class="token number">31</span><span class="token punctuation">)</span> <span class="token operator">|</span> a <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b <span class="token operator">&gt;&gt;</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -43,7 +51,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 0px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 110px; left:0px">
                             <div class="section-title"><h3 id="id-364">html随机颜色边框</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-js"><code class=" language-js" style=""><span class="token comment">// 命令行中 $$ 等同于 document.querySelectorAll</span>
@@ -52,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 110px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 257px; left:0px">
                             <div class="section-title"><h3 id="id-365">评分</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-js"><code class=" language-js" style=""><span class="token keyword">let</span> rating <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
@@ -61,7 +69,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 147px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 387px; left:0px">
                             <div class="section-title"><h3 id="id-366">值交换</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-js"><code class=" language-js" style="">a <span class="token operator">=</span> a <span class="token operator">^</span> b
@@ -71,7 +79,7 @@ a <span class="token operator">=</span> a <span class="token operator">^</span> 
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 240px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 537px; left:0px">
                             <div class="section-title"><h3 id="id-367">正则表达式简单解析器</h3></div>
                                 <div class="section-body">
                                     
@@ -128,7 +136,7 @@ a <span class="token operator">=</span> a <span class="token operator">^</span> 
                                 </div>
                             </div>
 
-                <div class="sheet-section" style="width: 448.5px;top: 297px; left:468.5px">
+                <div class="sheet-section" style="width: 593px;top: 1613px; left:0px">
                 <div class="section-title"><h3 id="id-368">js简写</h3></div>
                     <div class="section-body">
                         <pre class=" language-js"><code class=" language-js" style=""><span class="token comment">//取整</span>
@@ -200,4 +208,4 @@ a<span class="token operator">+</span><span class="token number">.5</span><span 
 
 
 
-<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>
+<script src="../js/util/function.js?version=1631586286699"></script><script src="../js/util/event-hub.js?version=1631586286699"></script><script src="../js/3rdparty/prism.js?version=1631586286699"></script><script src="../js/module/loading.js?version=1631586286699"></script><script src="../js/module/home.js?version=1631586286699"></script><script src="../js/module/cheatsheet.js?version=1631586286699"></script><script src="../js/module/menu.js?version=1631586286699"></script><script src="../js/3rdparty/jszip.min.js?version=1631586286699"></script><script src="../js/util/saveData.js?version=1631586286699"></script></body></html>

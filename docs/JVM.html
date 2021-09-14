@@ -2,17 +2,25 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHEAT SHEETS</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1631183370600"><link rel="stylesheet" href="../css/prism.css?version=1631183370600"></head>
+    <title>JVM cheatsheet</title>
+<link rel="stylesheet" href="../css/main.css?version=1631586286699"><link rel="stylesheet" href="../css/prism.css?version=1631586286699"></head>
 
 <body>
     <script>
-        if (
-            location.protocol === 'http:'
-            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+        if (!location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
             && location.hostname !== 'localhost'
         ) {
-            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            if (location.protocol === 'http:') {
+                // https 跳转
+                location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            } else if (location.pathname === '/') {
+                // 静态跳转
+                if ((/#\/[^/]+/).test(location.hash)) {
+                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                } else {
+                    location.href = `https:${location.hostname}/docs/`
+                }
+            }
         }
         let isHtml = true
     </script>
@@ -32,24 +40,24 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 772px">
+                            <div class="h2-section" style="height: 1246px">
                                 <div class="h2-section-title"><h2 id="id-473">Java 基本类型</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-469"></h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 引进了八个基本类型，来支持数值计算。<code>Java</code> 这么做的原因主要是工程上的考虑，因为使用基本类型能够在执行效率以及内存使用两方面提升软件性能。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 139px; left:0px">
                             <div class="section-title"><h3 id="id-470"><code>Java</code> 虚拟机的 <code>boolean</code> 类型</h3></div>
                                 <div class="section-body">
                                     <p>在 <code>Java</code> 虚拟机规范中，<code>boolean</code> 类型则被映射成 <code>int</code> 类型。具体来说，“<code>true</code>”被映射为整数 1，而“<code>false</code>”被映射为整数 0。这个编码规则约束了 <code>Java</code> 字节码的具体实现。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 161px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 276px; left:0px">
                             <div class="section-title"><h3 id="id-471"><code>Java</code> 的基本类型</h3></div>
                                 <div class="section-body">
                                     <p>除了 <code>boolean</code> 类型外，<code>Java</code> 的基本类型还包括整数类型 <code>byte</code>、<code>short</code>、<code>char</code>、<code>int</code> 和 <code>long</code>，以及浮点类型 <code>float</code> 和 <code>double</code>。</p>
@@ -67,7 +75,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 202px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 768px; left:0px">
                             <div class="section-title"><h3 id="id-472"><code>Java</code> 基本类型的大小</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 虚拟机每调用一个 <code>Java</code> 方法，便会创建一个栈帧。为了方便理解，这里我只讨论供解释器使用的解释栈帧（<code>interpreted frame</code>）。</p>
@@ -81,10 +89,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 656px">
+                            <div class="h2-section" style="height: 898px">
                                 <div class="h2-section-title"><h2 id="id-477">方法</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-474">方法调用</h3></div>
                                 <div class="section-body">
                                     <p><em>静态绑定</em>指的是在解析时便能够直接识别目标方法的情况，而<em>动态绑定</em>则指的是需要在运行过程中根据调用者的动态类型来识别目标方法的情况。<code>Java</code> 字节码中与调用相关的指令共有五种：</p>
@@ -97,7 +105,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 324px; left:0px">
                             <div class="section-title"><h3 id="id-475">虚方法调用</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 里所有<em>非私有实例方法</em>调用都会被编译成 <code>invokevirtual</code> 指令,而<em>接口方法</em>调用都会被编译成 <code>invokeinterface</code> 指令。这两种指令，均属于 <code>Java</code> 虚拟机中的虚方法调用。</p>
@@ -109,7 +117,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 346px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 627px; left:0px">
                             <div class="section-title"><h3 id="id-476">方法表</h3></div>
                                 <div class="section-body">
                                     <p>方法表本质上是一个数组，每个数组元素指向一个当前类及其祖先类中非私有的实例方法。这些方法可能是具体的、可执行的方法，也可能是没有相应字节码的抽象方法。方法表满足两个特质:</p>
@@ -122,10 +130,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 623px">
+                            <div class="h2-section" style="height: 1060px">
                                 <div class="h2-section-title"><h2 id="id-482">异常处理</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-478">异常的基本概念</h3></div>
                                 <div class="section-body">
                                     <p>在<code>java</code>语言规范中，所有异常都是 <code>Throwable</code> 类或者其子类的实例。<code>Throwable</code> 有两大直接子类:</p>
@@ -136,7 +144,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 330px; left:0px">
                             <div class="section-title"><h3 id="id-479">异常分类</h3></div>
                                 <div class="section-body">
                                     <h4><em>非检查异常(unchecked exception)</em></h4>
@@ -147,7 +155,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 331px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 624px; left:0px">
                             <div class="section-title"><h3 id="id-480">异常捕获</h3></div>
                                 <div class="section-body">
                                     <p>在编译生成的字节码中，每个方法都附带一个异常表。异常表中的每一个条目代表一个异常处理器，并且由 <code>from</code> 指针、<code>to</code> 指针、<code>target</code> 指针以及所捕获的异常类型构成。这些指针的值是字节码索引（<code>bytecode index</code>，<code>bci</code>），用以定位字节码。</p>
@@ -155,7 +163,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 404px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 842px; left:0px">
                             <div class="section-title"><h3 id="id-481"> <code>try-with-resources</code></h3></div>
                                 <div class="section-body">
                                     <p><code>Java 7</code> 专门构造了一个名为 <code>try-with-resources</code> 的语法糖，在字节码层面自动使用 <code>Supressed</code> 异常。当然，该语法糖的主要目的并不是使用 <code>Supressed</code> 异常，而是精简资源打开关闭的用法。</p>
@@ -165,10 +173,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1380px">
+                            <div class="h2-section" style="height: 1566px">
                                 <div class="h2-section-title"><h2 id="id-486">工具</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-483"><code>javap</code>：查阅 <code>Java</code> 字节码</h3></div>
                                 <div class="section-body">
                                     <p><code>javap</code> 是一个能够将 <code>class</code> 文件反汇编成人类可读格式的工具。常见参数如下：</p>
@@ -196,7 +204,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1221px; left:0px">
                             <div class="section-title"><h3 id="id-484"><code>OpenJDK</code> 项目 <code>Code Tools</code>：实用小工具集</h3></div>
                                 <div class="section-body">
                                     <ul><li><code>ASMTools</code> 反汇编以及汇编操作
@@ -205,7 +213,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 168px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1347px; left:0px">
                             <div class="section-title"><h3 id="id-485"><code>ASM</code>：<code>Java</code> 字节码框架</h3></div>
                                 <div class="section-body">
                                     <p><code>ASM</code>是一个字节码分析及修改框架。它被广泛应用于许多项目之中，甚至是 <code>Java 8</code> 中 <code>Lambda</code> 表达式的适配器类，也是借助 <code>ASM</code> 来动态生成的。</p>
@@ -215,17 +223,17 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 551px">
+                            <div class="h2-section" style="height: 902px">
                                 <div class="h2-section-title"><h2 id="id-490">反射</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-487"></h3></div>
                                 <div class="section-body">
                                     <p>反射是 <code>Java</code> 语言中一个相当重要的特性，它允许正在运行的 <code>Java</code> 程序观测，甚至是修改程序的动态行为。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 139px; left:0px">
                             <div class="section-title"><h3 id="id-488">反射调用的实现</h3></div>
                                 <div class="section-body">
                                     <p>反射调用，也就是 <code>Method.invoke</code>，委派给 <code>MethodAccessor</code> 来处理。<code>MethodAccessor</code> 是一个接口，它有两个已有的具体实现：一个通过本地方法来实现反射调用，另一个则使用了委派模式。</p>
@@ -236,7 +244,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 139px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 556px; left:0px">
                             <div class="section-title"><h3 id="id-489">反射调用的开销</h3></div>
                                 <div class="section-body">
                                     <p>动态实现和本地实现相比，其效率要快上 20 倍。这是因为动态实现无需经过 <code>Java -&gt; C++ -&gt; Java</code> 的切换，但由于生成字节码十分耗时，仅调用一次的话，反而是本地实现要快上 3 到 4 倍。<code>Java</code> 虚拟机设置了一个阈值 15（可以通过 <code>-Dsun.reflect.inflationThreshold=</code> 来调整），当某个反射调用的调用次数在 15 之下时，采用本地实现；当达到 15 时，切换至动态实现，这个过程我们称之为 <code>Inflation</code>。</p>
@@ -247,10 +255,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2063px">
+                            <div class="h2-section" style="height: 2689px">
                                 <div class="h2-section-title"><h2 id="id-496">invokedynamic 的实现</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-491">方法句柄的概念</h3></div>
                                 <div class="section-body">
                                     <p>方法句柄是一个强类型的，能够被直接执行的引用。该引用可以指向常规的静态方法或者实例方法，也可以指向构造器或者字段。当指向字段时，方法句柄实则指向包含字段访问字节码的虚构方法，语义上等价于目标字段的 <code>getter</code> 或者 <code>setter</code> 方法。</p>
@@ -259,7 +267,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 364px; left:0px">
                             <div class="section-title"><h3 id="id-492">方法句柄的操作</h3></div>
                                 <div class="section-body">
                                     <p>方法句柄的调用可分为两种，一是需要严格匹配参数类型的 <code>invokeExact</code>，需要类型完全一致。调用方法句柄利用类似<code>Java</code>方法重载的原理，并且涉及了一个签名多态性（<code>signature polymorphism</code>）的概念。</p>
@@ -270,7 +278,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 409px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 873px; left:0px">
                             <div class="section-title"><h3 id="id-493">方法句柄的实现</h3></div>
                                 <div class="section-body">
                                     <p>调用方法句柄所使用的 <code>invokeExact</code> 或者 <code>invoke</code> 方法具备签名多态性的特性，它们会根据具体的传入参数来生成方法描述符。</p>
@@ -281,7 +289,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 618px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1407px; left:0px">
                             <div class="section-title"><h3 id="id-494"><code>invokedynamic</code> 指令</h3></div>
                                 <div class="section-body">
                                     <p><code>invokedynamic</code> 是 <code>Java 7</code> 引入的一条新指令，用以支持动态语言的方法调用。具体来说，它将调用点（<code>CallSite</code>）抽象成一个 <code>Java</code> 类，并且将原本由 <code>Java</code> 虚拟机控制的方法调用以及方法链接暴露给了应用程序。在运行过程中，每一条 <code>invokedynamic</code> 指令将捆绑一个调用点，并且会调用该调用点所链接的方法句柄。</p>
@@ -295,7 +303,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1079px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 1887px; left:0px">
                             <div class="section-title"><h3 id="id-495"><code>Java 8</code> 的 <code>Lambda</code> 表达式</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 编译器利用 <code>invokedynamic</code> 指令来生成实现了函数式接口的适配器。这里的函数式接口指的是仅包括一个非 <code>default</code> 接口方法的接口，一般通过 <code>@FunctionalInterface</code> 注解。不过就算是没有使用该注解，<code>Java</code> 编译器也会将符合条件的接口辨认为函数式接口。</p>
@@ -313,10 +321,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1223px">
+                            <div class="h2-section" style="height: 1752px">
                                 <div class="h2-section-title"><h2 id="id-500">Java 对象的内存布局</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-497"></h3></div>
                                 <div class="section-body">
                                     <p>在 <code>Java</code> 程序中，我们拥有多种新建对象的方式。除了最为常见的 <code>new</code> 语句之外，我们还可以通过反射机制、<code>Object.clone</code> 方法、反序列化以及 <code>Unsafe.allocateInstance</code> 方法来新建对象。</p>
@@ -330,7 +338,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 505px; left:0px">
                             <div class="section-title"><h3 id="id-498">压缩指针</h3></div>
                                 <div class="section-body">
                                     <p>在 <code>Java</code> 虚拟机中，每个 <code>Java</code> 对象都有一个对象头（<code>object header</code>），这个由标记字段和类型指针所构成:</p>
@@ -346,7 +354,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 589px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 1209px; left:0px">
                             <div class="section-title"><h3 id="id-499">字段重排列</h3></div>
                                 <div class="section-body">
                                     <p>字段重排列，顾名思义，就是 <code>Java</code> 虚拟机重新分配字段的先后顺序，以达到内存对齐的目的。<code>Java</code> 虚拟机中有三种排列方法（对应 <code>Java</code> 虚拟机选项 <code>-XX</code>:<code>FieldsAllocationStyle</code>，默认值为 1），但都会遵循如下两个规则。</p>
@@ -360,10 +368,10 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2617px">
+                            <div class="h2-section" style="height: 4396px">
                                 <div class="h2-section-title"><h2 id="id-506">垃圾回收</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-501">引用计数法与可达性分析</h3></div>
                                 <div class="section-body">
                                     <p>在 <code>Java</code> 虚拟机的语境下，垃圾指的是死亡的对象所占据的堆空间。</p>
@@ -383,7 +391,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 740px; left:0px">
                             <div class="section-title"><h3 id="id-502"><code>Stop-the-world</code> 以及安全点</h3></div>
                                 <div class="section-body">
                                     <p>为解决多线程问题，在 <code>Java</code> 虚拟机里，传统的垃圾回收算法采用<code>Stop-the-world</code>，停止其他非垃圾回收线程的工作，直到完成垃圾回收。这也就造成了垃圾回收所谓的暂停时间（<code>GC pause</code>）。</p>
@@ -397,7 +405,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 862px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 1425px; left:0px">
                             <div class="section-title"><h3 id="id-503">垃圾回收的三种方式</h3></div>
                                 <div class="section-body">
                                     <p><em>第一种是清除（sweep）</em>，即把死亡对象所占据的内存标记为空闲内存，并记录在一个空闲列表（<code>free list</code>）之中。当需要新建对象时，内存管理模块便会从该空闲列表中寻找空闲内存，并划分给新建的对象。</p>
@@ -410,7 +418,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 885px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1907px; left:0px">
                             <div class="section-title"><h3 id="id-504"><code>Java</code> 虚拟机的堆划分</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 虚拟机将堆划分为<em>新生代</em>和<em>老年代</em>。其中，新生代又被划分为 <code>Eden</code> 区，以及两个大小相同的 <code>Survivor</code> 区。</p>
@@ -449,7 +457,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1426px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 3432px; left:0px">
                             <div class="section-title"><h3 id="id-505">卡表</h3></div>
                                 <div class="section-body">
                                     <p><code>HotSpot</code> 给出的解决方案是一项叫做<em>卡表（Card Table）</em>的技术。该技术将整个堆划分为一个个大小为 <code>512</code> 字节的卡，并且维护一个卡表，用来存储每张卡的一个<em>标识位</em>。这个<em>标识位</em>代表对应的卡<em>是否可能存有指向新生代对象的引用</em>。如果可能存在，那么我们就认为这张卡是脏的。</p>
@@ -471,10 +479,10 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1666px">
+                            <div class="h2-section" style="height: 2231px">
                                 <div class="h2-section-title"><h2 id="id-511">Java内存模型</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-507">编译器优化的重排序</h3></div>
                                 <div class="section-body">
                                     <p><em>首先</em>，即时编译器（和处理器）需要保证程序能够遵守 <code>as-if-serial</code> 属性。通俗地说，就是在<em>单线程</em>情况下，要给程序一个<em>顺序执行的假象</em>。即经过重排序的执行结果要与顺序执行的结果保持一致。</p>
@@ -482,7 +490,7 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 258px; left:0px">
                             <div class="section-title"><h3 id="id-508"><code>Java</code> 内存模型与 <code>happens-before</code> 关系</h3></div>
                                 <div class="section-body">
                                     <p><code>happens-before</code> 关系是用来描述两个操作的内存可见性的。如果操作 X <code>happens-before</code> 操作 Y，那么 X 的结果对于 Y 可见。</p>
@@ -500,7 +508,7 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 258px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 905px; left:0px">
                             <div class="section-title"><h3 id="id-509"><code>Java</code> 内存模型的底层实现</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 内存模型是通过内存屏障（<code>memory barrier</code>）来禁止重排序的。</p>
@@ -513,7 +521,7 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 784px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1485px; left:0px">
                             <div class="section-title"><h3 id="id-510">锁，<code>volatile</code> 字段，<code>final</code> 字段与安全发布</h3></div>
                                 <div class="section-body">
                                     <p>下面我来讲讲 <code>Java</code> 内存模型涉及的几个关键词。</p>
@@ -532,10 +540,10 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1489px">
+                            <div class="h2-section" style="height: 2445px">
                                 <div class="h2-section-title"><h2 id="id-516">Java虚拟机synchronized实现</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-512"></h3></div>
                                 <div class="section-body">
                                     <p>在 <code>Java</code> 程序中，我们可以利用 <code>synchronized</code> 关键字来对程序进行加锁。它既可以用来声明一个 <code>synchronized</code> 代码块，也可以直接标记静态方法或者实例方法。</p>
@@ -548,7 +556,7 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 492px; left:0px">
                             <div class="section-title"><h3 id="id-513">重量级锁</h3></div>
                                 <div class="section-body">
                                     <p>重量级锁是 <code>Java</code> 虚拟机中最为基础的锁实现。在这种状态下，<code>Java</code> 虚拟机会阻塞加锁失败的线程，并且在目标锁被释放的时候，唤醒这些线程。</p>
@@ -559,7 +567,7 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 571px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 930px; left:0px">
                             <div class="section-title"><h3 id="id-514">轻量级锁</h3></div>
                                 <div class="section-body">
                                     <p>多个线程在不同的时间段请求同一把锁，也就是说没有锁竞争。针对这种情形，<code>Java</code> 虚拟机采用了轻量级锁，来避免重量级锁的阻塞以及唤醒。</p>
@@ -578,7 +586,7 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 604px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 1712px; left:0px">
                             <div class="section-title"><h3 id="id-515">偏向锁</h3></div>
                                 <div class="section-body">
                                     <p>如果说轻量级锁针对的情况很乐观，那么接下来的偏向锁针对的情况则更加乐观：从始至终只有一个线程请求某一把锁。</p>
@@ -594,10 +602,10 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                             </div>
                             
 
-                            <div class="h2-section" style="height: 608px">
+                            <div class="h2-section" style="height: 979px">
                                 <div class="h2-section-title"><h2 id="id-520">Java语法糖与Java编译器</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-517">自动装箱与自动拆箱</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 语言拥有 8 个基本类型，每个基本类型都有对应的包装（<code>wrapper</code>）类型。</p>
@@ -613,7 +621,7 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 520px; left:0px">
                             <div class="section-title"><h3 id="id-518">泛型与类型擦除</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 程序里的泛型信息，在 <code>Java</code> 虚拟机里全部都丢失了。这么做主要是为了兼容引入泛型之前的代码。</p>
@@ -622,7 +630,7 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 364px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 820px; left:0px">
                             <div class="section-title"><h3 id="id-519">桥接方法</h3></div>
                                 <div class="section-body">
                                     <p>泛型的类型擦除带来了不少问题，其中一个便是方法重写。为了保证编译而成的 <code>Java</code> 字节码能够保留重写的语义，<code>Java</code> 编译器额外添加了一个桥接方法。该桥接方法在字节码层面重写了父类的方法，并将调用子类的方法。</p>
@@ -631,17 +639,17 @@ Minor GC -&gt; 卡表 -&gt; 脏卡加入GC Roots -&gt; 清理脏卡
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2165px">
+                            <div class="h2-section" style="height: 3426px">
                                 <div class="h2-section-title"><h2 id="id-528">即时编译</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-521"></h3></div>
                                 <div class="section-body">
                                     <p>通常而言，代码会先被 <code>Java</code> 虚拟机解释执行，之后反复执行的热点代码则会被即时编译成为机器码，直接运行在底层硬件之上。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 139px; left:0px">
                             <div class="section-title"><h3 id="id-522">分层编译模式</h3></div>
                                 <div class="section-body">
                                     <p><code>HotSpot</code> 虚拟机包含多个即时编译器 C1、C2 和 <code>Graal</code>。其中，<code>Graal</code> 是一个实验性质的即时编译器，可以通过参数 <code>-XX</code>:+<code>UnlockExperimentalVMOptions -XX</code>:+<code>UseJVMCICompiler</code> 启用，并且替换 C2。</p>
@@ -680,7 +688,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 139px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 1496px; left:0px">
                             <div class="section-title"><h3 id="id-523">即时编译的触发</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 虚拟机是根据方法的调用次数以及循环回边的执行次数来触发即时编译的。前面提到，<code>Java</code> 虚拟机在 0 层、2 层和 3 层执行状态时进行 <code>profiling</code>，其中就包含方法的调用次数和循环回边的执行次数。</p>
@@ -695,7 +703,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 994px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 2192px; left:0px">
                             <div class="section-title"><h3 id="id-524"><code>Profiling</code></h3></div>
                                 <div class="section-body">
                                     <p>分层编译中的 0 层、2 层和 3 层都会进行 <code>profiling</code>，收集能够反映程序执行状态的数据。其中，最为基础的便是方法的调用次数以及循环回边的执行次数。它们被用于触发即时编译。</p>
@@ -706,7 +714,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1550px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 2658px; left:0px">
                             <div class="section-title"><h3 id="id-525">基于分支 <code>profile</code> 的优化</h3></div>
                                 <div class="section-body">
                                     <p>根据条件跳转指令的分支 <code>profile</code>，即时编译器可以将从未执行过的分支剪掉，以避免编译这些很有可能不会用到的代码，从而节省编译时间以及部署代码所要消耗的内存空间。此外，“剪枝”将精简程序的数据流，从而触发更多的优化。</p>
@@ -714,7 +722,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1569px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 2898px; left:0px">
                             <div class="section-title"><h3 id="id-526">基于类型 <code>profile</code> 的优化</h3></div>
                                 <div class="section-body">
                                     <p>和基于分支 <code>profile</code> 的优化一样，基于类型 <code>profile</code> 的优化同样也是作出假设，从而精简控制流以及数据流。这两者的核心都是假设。</p>
@@ -722,7 +730,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 1787px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 3093px; left:0px">
                             <div class="section-title"><h3 id="id-527">去优化</h3></div>
                                 <div class="section-body">
                                     <p>当假设失败的情况下，<code>Java</code> 虚拟机给出的解决方案便是去优化，即从执行即时编译生成的机器码切换回解释执行。</p>
@@ -734,10 +742,10 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                             </div>
                             
 
-                            <div class="h2-section" style="height: 753px">
+                            <div class="h2-section" style="height: 1137px">
                                 <div class="h2-section-title"><h2 id="id-532">即时编译器的中间表达形式</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-529">中间表达形式（IR）</h3></div>
                                 <div class="section-body">
                                     <p>在编译原理课程中，我们通常将编译器分为前端和后端。其中，前端会对所输入的程序进行词法分析、语法分析、语义分析，然后生成中间表达形式，也就是 IR（<code>Intermediate Representation</code> ）。后端会对 IR 进行优化，然后生成目标代码。</p>
@@ -749,7 +757,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 561px; left:0px">
                             <div class="section-title"><h3 id="id-530"><code>Sea-of-nodes</code></h3></div>
                                 <div class="section-body">
                                     <p><code>HotSpot</code> 里的 C2 采用的是一种名为 <code>Sea-of-Nodes</code> 的 <code>SSA IR</code>。它的最大特点，便是去除了变量的概念，直接采用变量所指向的值，来进行运算。</p>
@@ -757,7 +765,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 282px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 755px; left:0px">
                             <div class="section-title"><h3 id="id-531"><code>Gloval Value Numbering</code></h3></div>
                                 <div class="section-body">
                                     <p><code>GVN</code> 是一种发现并消除等价计算的优化技术。举例来说，如果一段程序中出现了多次操作数相同的乘法，那么即时编译器可以将这些乘法并为一个，从而降低输出机器码的大小。如果这些乘法出现在同一执行路径上，那么 <code>GVN</code> 还将省下冗余的乘法操作。</p>
@@ -769,10 +777,10 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1215px">
+                            <div class="h2-section" style="height: 1742px">
                                 <div class="h2-section-title"><h2 id="id-535">Java 字节码</h2></div>
                                 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-533">操作数栈</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 字节码是 <code>Java</code> 虚拟机所使用的指令集。因此，它与 <code>Java</code> 虚拟机基于栈的计算模型是密不可分的。</p>
@@ -797,7 +805,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                            <div class="sheet-section" style="width: 593px;top: 1101px; left:0px">
                             <div class="section-title"><h3 id="id-534">局部变量区</h3></div>
                                 <div class="section-body">
                                     <p><code>Java</code> 方法栈桢的另外一个重要组成部分则是局部变量区，字节码程序可以将计算的结果缓存在局部变量区之中。</p>
@@ -820,10 +828,10 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                             </div>
                             
 
-                <div class="h2-section" style="height: 647px">
+                <div class="h2-section" style="height: 956px">
                     <div class="h2-section-title"><h2 id="id-538">方法内联</h2></div>
                     
-                            <div class="sheet-section" style="width: 448.5px;top: 42px; left:0px">
+                            <div class="sheet-section" style="width: 593px;top: 42px; left:0px">
                             <div class="section-title"><h3 id="id-536"></h3></div>
                                 <div class="section-body">
                                     <p>在编译过程中遇到方法调用时，将目标方法的方法体纳入编译范围之中，并取代原方法调用的优化手段。</p>
@@ -835,7 +843,7 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
                                 </div>
                             </div>
 
-                <div class="sheet-section" style="width: 448.5px;top: 42px; left:468.5px">
+                <div class="sheet-section" style="width: 593px;top: 476px; left:0px">
                 <div class="section-title"><h3 id="id-537">方法内联的条件</h3></div>
                     <div class="section-body">
                         <p>方法内联能够触发更多的优化。通常而言，内联越多，生成代码的执行效率越高。然而，对于即时编译器来说，内联越多，编译时间也就越长，而程序达到峰值性能的时刻也将被推迟。</p>
@@ -1119,4 +1127,4 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
 
 
 
-<script src="../js/util/function.js?version=1631183370600"></script><script src="../js/util/event-hub.js?version=1631183370600"></script><script src="../js/3rdparty/prism.js?version=1631183370600"></script><script src="../js/module/loading.js?version=1631183370600"></script><script src="../js/module/home.js?version=1631183370600"></script><script src="../js/module/cheatsheet.js?version=1631183370600"></script><script src="../js/module/menu.js?version=1631183370600"></script><script src="../js/3rdparty/jszip.min.js?version=1631183370600"></script><script src="../js/util/saveData.js?version=1631183370600"></script></body></html>
+<script src="../js/util/function.js?version=1631586286699"></script><script src="../js/util/event-hub.js?version=1631586286699"></script><script src="../js/3rdparty/prism.js?version=1631586286699"></script><script src="../js/module/loading.js?version=1631586286699"></script><script src="../js/module/home.js?version=1631586286699"></script><script src="../js/module/cheatsheet.js?version=1631586286699"></script><script src="../js/module/menu.js?version=1631586286699"></script><script src="../js/3rdparty/jszip.min.js?version=1631586286699"></script><script src="../js/util/saveData.js?version=1631586286699"></script></body></html>

@@ -9,12 +9,20 @@
 
 <body>
     <script>
-        if (
-            location.protocol === 'http:'
-            && !location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+        if (!location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
             && location.hostname !== 'localhost'
         ) {
-            location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            if (location.protocol === 'http:') {
+                // https 跳转
+                location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            } else if (location.pathname === '/') {
+                // 静态跳转
+                if ((/#\/[^/]+/).test(location.hash)) {
+                    location.href = `https:${location.hostname}/docs/${location.hash.substring(2)}.html`
+                } else {
+                    location.href = `https:${location.hostname}/docs/`
+                }
+            }
         }
         let isHtml = false
     </script>
