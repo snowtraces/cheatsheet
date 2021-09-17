@@ -1,4 +1,4 @@
-@import 'common.css';
+@import "common.css";
 
 $max-width: 1200px;
 
@@ -9,10 +9,10 @@ $max-width: 1200px;
     position: fixed;
     top: 0;
     left: 0;
-    transition: all .2s;
+    transition: all 0.2s;
     z-index: 9999;
     &[data-cs-theme="light"] {
-        background: rgba(0, 0, 0, .5);
+        background: rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -45,7 +45,7 @@ $top_nav_height: 60px;
         line-height: $top_nav_btn_height;
         border-radius: 50%;
         cursor: pointer;
-        transition: all .1s;
+        transition: all 0.1s;
     }
     #go-back {
         @include top_nav_btn();
@@ -54,7 +54,7 @@ $top_nav_height: 60px;
             color: #ffffff;
         }
     }
-    
+
     #go-home {
         @include top_nav_btn();
         justify-self: center;
@@ -101,7 +101,6 @@ $top_nav_height: 60px;
     }
 }
 
-
 #recomment-list {
     margin-top: 30px;
     display: grid;
@@ -115,7 +114,7 @@ $top_nav_height: 60px;
         font-size: 14px;
         cursor: pointer;
         box-shadow: 1px 1px 3px -1px #999;
-        transition: all .1s;
+        transition: all 0.1s;
         > .icon {
             line-height: 44px;
             display: inline-block;
@@ -136,7 +135,6 @@ $top_nav_height: 60px;
         }
     }
 }
-
 
 /** sheet */
 #sheet-wrapper {
@@ -167,30 +165,31 @@ $top_nav_height: 60px;
             position: relative;
             .h2-section-title {
                 overflow: show;
-                h2{
+                h2 {
                     font-size: 32px;
                     font-weight: 100;
                     margin: 0 0 16px 0;
                     &::before {
                         content: "#";
                         padding-right: 10px;
-                        color: #999999
+                        color: #999999;
                     }
                 }
             }
 
             .sheet-section {
                 position: absolute;
-                .section-title{ 
-                    h3{
+                .section-title {
+                    h3 {
                         font-size: 18px;
                         font-weight: normal;
                         margin: 25px 0 15px 0;
                     }
-                 }
-                 .section-body {
+                }
+                .section-body {
                     background: #ffffff;
-                    box-shadow: 0 6px 8px rgba(85,102,119,.03), 0 1px 1px rgba(85,102,119,.4);
+                    box-shadow: 0 6px 8px rgba(85, 102, 119, 0.03),
+                        0 1px 1px rgba(85, 102, 119, 0.4);
                     overflow: auto;
                     font-size: 13.3333px !important;
                     * {
@@ -209,7 +208,7 @@ $top_nav_height: 60px;
                             background-color: #f9f2f4;
                         }
                     }
-                    > p+p:not(:first-child) {
+                    > p + p:not(:first-child) {
                         margin-top: -1em;
                         border-top: 0;
                     }
@@ -218,9 +217,9 @@ $top_nav_height: 60px;
                         margin: 0;
                     }
                     > table {
-                        border-collapse:collapse; 
+                        border-collapse: collapse;
                         width: 100%;
-                        tr:not(:last-child)  {
+                        tr:not(:last-child) {
                             border-bottom: 1px solid #dddddd;
                         }
                         td {
@@ -231,7 +230,7 @@ $top_nav_height: 60px;
                                 margin-left: 0;
                             }
                             &:first-child {
-                                white-space:nowrap
+                                white-space: nowrap;
                             }
                             &:nth-child(2):last-child {
                                 text-align: right;
@@ -247,22 +246,22 @@ $top_nav_height: 60px;
                     }
                     > h4 {
                         background: #f8f9fa;
-                        padding: .75em 1em ;
+                        padding: 0.75em 1em;
                         margin: 0;
                         font-size: 12.333px !important;
                     }
                     > ul {
-                        padding: .75em 2.5em;
+                        padding: 0.75em 2.5em;
                         font-size: 13px;
                         list-style: square;
                         font-size: 12.3333px;
                         > ul {
-                            padding: .5em 0 .5em 2.5em;
+                            padding: 0.5em 0 0.5em 2.5em;
                             font-size: 12.333px;
                             list-style: circle;
                         }
                         li {
-                            padding: .25em 0;
+                            padding: 0.25em 0;
                         }
                     }
                     em {
@@ -270,7 +269,8 @@ $top_nav_height: 60px;
                         font-style: normal;
                     }
                     :not(pre) code {
-                        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+                        font-family: Consolas, Monaco, "Andale Mono",
+                            "Ubuntu Mono", monospace;
                         display: inline-block;
                         padding: 0 4px;
                         margin: 0 2px;
@@ -279,11 +279,12 @@ $top_nav_height: 60px;
                         background-color: #f9f2f4;
                     }
                     span.sn {
-                        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+                        font-family: Consolas, Monaco, "Andale Mono",
+                            "Ubuntu Mono", monospace;
                         display: inline-block;
-                        width: .875rem;
-                        height: .875rem;
-                        line-height: .875rem;
+                        width: 0.875rem;
+                        height: 0.875rem;
+                        line-height: 0.875rem;
                         background: #aaa;
                         color: #fff;
                         text-align: center;
@@ -293,7 +294,7 @@ $top_nav_height: 60px;
                     }
                     *:hover > span.sn {
                         background: #666;
-                        transition: all .3s;
+                        transition: all 0.3s;
                     }
                     img {
                         max-width: 100%;
@@ -301,12 +302,12 @@ $top_nav_height: 60px;
                 }
             }
         }
-        .h2-section+.h2-section {
+        .h2-section + .h2-section {
             margin-top: 48px;
         }
         a {
             text-decoration: underline;
-            transition: .1 all;
+            transition: 0.1 all;
             &:hover {
                 color: #666666;
             }
@@ -317,10 +318,10 @@ $top_nav_height: 60px;
         right: 30px;
         bottom: 30px;
         width: 200px;
-        opacity: .9;
+        opacity: 0.9;
         max-height: 50vh;
         .nav-title {
-            border: 1px solid #333;
+            border: 1px solid #ddd;
             padding: 0 10px;
             height: 40px;
             line-height: 40px;
@@ -337,19 +338,19 @@ $top_nav_height: 60px;
             }
         }
         .nav-content {
-            border: 1px solid;
+            border: 1px solid #ddd;
             padding: 10px;
             background: #fff;
             overflow-y: auto;
-            max-height: calc( 50vh - 40px );
-            .nav-item{
+            max-height: calc(50vh - 40px);
+            .nav-item {
                 cursor: pointer;
                 font-size: 0.875em;
                 padding: 3px;
-                &.nav-type-H2{
+                &.nav-type-H2 {
                     font-weight: 600;
                 }
-                &.nav-type-H3{
+                &.nav-type-H3 {
                     padding-left: 12px;
                 }
                 &:hover {
@@ -384,15 +385,3 @@ $top_nav_height: 60px;
         line-height: 50px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
