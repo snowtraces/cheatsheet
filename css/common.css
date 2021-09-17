@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-size: 13.3333px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f1f3f5;
+  overflow-y: scroll;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+pre {
+  margin: 0;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+button, input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+h2 code, h3 code, h4 code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+h2 code, h3 code {
+  border: 1px solid;
+  padding: 3px 5px;
+  font-weight: 600;
+  border-radius: 2px;
+}
+
+h2 code {
+  font-size: 15px;
+}
+
+h3 code {
+  font-size: 13px;
+}
