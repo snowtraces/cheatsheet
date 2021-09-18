@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JVM cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1631873641809"><link rel="stylesheet" href="../css/prism.css?version=1631873641809"></head>
+<link rel="stylesheet" href="../css/main.css?version=1631933298132"><link rel="stylesheet" href="../css/prism.css?version=1631933298132"></head>
 
 <body>
     <script>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div id="main">
-        <div id="sheet-wrapper" class="w">
+        <div id="sheet-wrapper">
             <div id="sheet-title">
                 <h1>JVM<span> cheatsheet</span></h1>
             </div>
@@ -861,261 +861,264 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
             </div>
             <div id="sheet-nav">
         <div class="nav-wrapper">
-            <div class="nav-title mini">菜单</div>
+            <div class="nav-btn">
+                <div class="nav-btn__item nav-btn-top">顶</div>
+                <div class="nav-btn__item nav-btn-menu">菜</div>
+            </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H2" data-id="id-473" data-pid="">
+                    <div class="nav-item nav-type-H2" title="Java 基本类型" data-id="id-473" data-pid="">
                         Java 基本类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-470" data-pid="id-473">
+                    <div class="nav-item nav-type-H3" title="Java 虚拟机的 boolean 类型" data-id="id-470" data-pid="id-473">
                         Java 虚拟机的 boolean 类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-471" data-pid="id-473">
+                    <div class="nav-item nav-type-H3" title="Java 的基本类型" data-id="id-471" data-pid="id-473">
                         Java 的基本类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-472" data-pid="id-473">
+                    <div class="nav-item nav-type-H3" title="Java 基本类型的大小" data-id="id-472" data-pid="id-473">
                         Java 基本类型的大小
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-477" data-pid="">
+                    <div class="nav-item nav-type-H2" title="方法" data-id="id-477" data-pid="">
                         方法
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-474" data-pid="id-477">
+                    <div class="nav-item nav-type-H3" title="方法调用" data-id="id-474" data-pid="id-477">
                         方法调用
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-475" data-pid="id-477">
+                    <div class="nav-item nav-type-H3" title="虚方法调用" data-id="id-475" data-pid="id-477">
                         虚方法调用
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-476" data-pid="id-477">
+                    <div class="nav-item nav-type-H3" title="方法表" data-id="id-476" data-pid="id-477">
                         方法表
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-482" data-pid="">
+                    <div class="nav-item nav-type-H2" title="异常处理" data-id="id-482" data-pid="">
                         异常处理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-478" data-pid="id-482">
+                    <div class="nav-item nav-type-H3" title="异常的基本概念" data-id="id-478" data-pid="id-482">
                         异常的基本概念
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-479" data-pid="id-482">
+                    <div class="nav-item nav-type-H3" title="异常分类" data-id="id-479" data-pid="id-482">
                         异常分类
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-480" data-pid="id-482">
+                    <div class="nav-item nav-type-H3" title="异常捕获" data-id="id-480" data-pid="id-482">
                         异常捕获
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-481" data-pid="id-482">
+                    <div class="nav-item nav-type-H3" title="try-with-resources" data-id="id-481" data-pid="id-482">
                         try-with-resources
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-486" data-pid="">
+                    <div class="nav-item nav-type-H2" title="工具" data-id="id-486" data-pid="">
                         工具
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-483" data-pid="id-486">
+                    <div class="nav-item nav-type-H3" title="javap：查阅 Java 字节码" data-id="id-483" data-pid="id-486">
                         javap：查阅 Java 字节码
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-484" data-pid="id-486">
+                    <div class="nav-item nav-type-H3" title="OpenJDK 项目 Code Tools：实用小工具集" data-id="id-484" data-pid="id-486">
                         OpenJDK 项目 Code Tools：实用小工具集
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-485" data-pid="id-486">
+                    <div class="nav-item nav-type-H3" title="ASM：Java 字节码框架" data-id="id-485" data-pid="id-486">
                         ASM：Java 字节码框架
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-490" data-pid="">
+                    <div class="nav-item nav-type-H2" title="反射" data-id="id-490" data-pid="">
                         反射
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-488" data-pid="id-490">
+                    <div class="nav-item nav-type-H3" title="反射调用的实现" data-id="id-488" data-pid="id-490">
                         反射调用的实现
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-489" data-pid="id-490">
+                    <div class="nav-item nav-type-H3" title="反射调用的开销" data-id="id-489" data-pid="id-490">
                         反射调用的开销
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-496" data-pid="">
+                    <div class="nav-item nav-type-H2" title="invokedynamic 的实现" data-id="id-496" data-pid="">
                         invokedynamic 的实现
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-491" data-pid="id-496">
+                    <div class="nav-item nav-type-H3" title="方法句柄的概念" data-id="id-491" data-pid="id-496">
                         方法句柄的概念
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-492" data-pid="id-496">
+                    <div class="nav-item nav-type-H3" title="方法句柄的操作" data-id="id-492" data-pid="id-496">
                         方法句柄的操作
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-493" data-pid="id-496">
+                    <div class="nav-item nav-type-H3" title="方法句柄的实现" data-id="id-493" data-pid="id-496">
                         方法句柄的实现
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-494" data-pid="id-496">
+                    <div class="nav-item nav-type-H3" title="invokedynamic 指令" data-id="id-494" data-pid="id-496">
                         invokedynamic 指令
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-495" data-pid="id-496">
+                    <div class="nav-item nav-type-H3" title="Java 8 的 Lambda 表达式" data-id="id-495" data-pid="id-496">
                         Java 8 的 Lambda 表达式
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-500" data-pid="">
+                    <div class="nav-item nav-type-H2" title="Java 对象的内存布局" data-id="id-500" data-pid="">
                         Java 对象的内存布局
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-498" data-pid="id-500">
+                    <div class="nav-item nav-type-H3" title="压缩指针" data-id="id-498" data-pid="id-500">
                         压缩指针
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-499" data-pid="id-500">
+                    <div class="nav-item nav-type-H3" title="字段重排列" data-id="id-499" data-pid="id-500">
                         字段重排列
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-506" data-pid="">
+                    <div class="nav-item nav-type-H2" title="垃圾回收" data-id="id-506" data-pid="">
                         垃圾回收
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-501" data-pid="id-506">
+                    <div class="nav-item nav-type-H3" title="引用计数法与可达性分析" data-id="id-501" data-pid="id-506">
                         引用计数法与可达性分析
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-502" data-pid="id-506">
+                    <div class="nav-item nav-type-H3" title="Stop-the-world 以及安全点" data-id="id-502" data-pid="id-506">
                         Stop-the-world 以及安全点
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-503" data-pid="id-506">
+                    <div class="nav-item nav-type-H3" title="垃圾回收的三种方式" data-id="id-503" data-pid="id-506">
                         垃圾回收的三种方式
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-504" data-pid="id-506">
+                    <div class="nav-item nav-type-H3" title="Java 虚拟机的堆划分" data-id="id-504" data-pid="id-506">
                         Java 虚拟机的堆划分
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-505" data-pid="id-506">
+                    <div class="nav-item nav-type-H3" title="卡表" data-id="id-505" data-pid="id-506">
                         卡表
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-511" data-pid="">
+                    <div class="nav-item nav-type-H2" title="Java内存模型" data-id="id-511" data-pid="">
                         Java内存模型
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-507" data-pid="id-511">
+                    <div class="nav-item nav-type-H3" title="编译器优化的重排序" data-id="id-507" data-pid="id-511">
                         编译器优化的重排序
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-508" data-pid="id-511">
+                    <div class="nav-item nav-type-H3" title="Java 内存模型与 happens-before 关系" data-id="id-508" data-pid="id-511">
                         Java 内存模型与 happens-before 关系
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-509" data-pid="id-511">
+                    <div class="nav-item nav-type-H3" title="Java 内存模型的底层实现" data-id="id-509" data-pid="id-511">
                         Java 内存模型的底层实现
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-510" data-pid="id-511">
+                    <div class="nav-item nav-type-H3" title="锁，volatile 字段，final 字段与安全发布" data-id="id-510" data-pid="id-511">
                         锁，volatile 字段，final 字段与安全发布
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-516" data-pid="">
+                    <div class="nav-item nav-type-H2" title="Java虚拟机synchronized实现" data-id="id-516" data-pid="">
                         Java虚拟机synchronized实现
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-513" data-pid="id-516">
+                    <div class="nav-item nav-type-H3" title="重量级锁" data-id="id-513" data-pid="id-516">
                         重量级锁
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-514" data-pid="id-516">
+                    <div class="nav-item nav-type-H3" title="轻量级锁" data-id="id-514" data-pid="id-516">
                         轻量级锁
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-515" data-pid="id-516">
+                    <div class="nav-item nav-type-H3" title="偏向锁" data-id="id-515" data-pid="id-516">
                         偏向锁
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-520" data-pid="">
+                    <div class="nav-item nav-type-H2" title="Java语法糖与Java编译器" data-id="id-520" data-pid="">
                         Java语法糖与Java编译器
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-517" data-pid="id-520">
+                    <div class="nav-item nav-type-H3" title="自动装箱与自动拆箱" data-id="id-517" data-pid="id-520">
                         自动装箱与自动拆箱
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-518" data-pid="id-520">
+                    <div class="nav-item nav-type-H3" title="泛型与类型擦除" data-id="id-518" data-pid="id-520">
                         泛型与类型擦除
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-519" data-pid="id-520">
+                    <div class="nav-item nav-type-H3" title="桥接方法" data-id="id-519" data-pid="id-520">
                         桥接方法
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-528" data-pid="">
+                    <div class="nav-item nav-type-H2" title="即时编译" data-id="id-528" data-pid="">
                         即时编译
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-522" data-pid="id-528">
+                    <div class="nav-item nav-type-H3" title="分层编译模式" data-id="id-522" data-pid="id-528">
                         分层编译模式
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-523" data-pid="id-528">
+                    <div class="nav-item nav-type-H3" title="即时编译的触发" data-id="id-523" data-pid="id-528">
                         即时编译的触发
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-524" data-pid="id-528">
+                    <div class="nav-item nav-type-H3" title="Profiling" data-id="id-524" data-pid="id-528">
                         Profiling
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-525" data-pid="id-528">
+                    <div class="nav-item nav-type-H3" title="基于分支 profile 的优化" data-id="id-525" data-pid="id-528">
                         基于分支 profile 的优化
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-526" data-pid="id-528">
+                    <div class="nav-item nav-type-H3" title="基于类型 profile 的优化" data-id="id-526" data-pid="id-528">
                         基于类型 profile 的优化
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-527" data-pid="id-528">
+                    <div class="nav-item nav-type-H3" title="去优化" data-id="id-527" data-pid="id-528">
                         去优化
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-532" data-pid="">
+                    <div class="nav-item nav-type-H2" title="即时编译器的中间表达形式" data-id="id-532" data-pid="">
                         即时编译器的中间表达形式
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-529" data-pid="id-532">
+                    <div class="nav-item nav-type-H3" title="中间表达形式（IR）" data-id="id-529" data-pid="id-532">
                         中间表达形式（IR）
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-530" data-pid="id-532">
+                    <div class="nav-item nav-type-H3" title="Sea-of-nodes" data-id="id-530" data-pid="id-532">
                         Sea-of-nodes
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-531" data-pid="id-532">
+                    <div class="nav-item nav-type-H3" title="Gloval Value Numbering" data-id="id-531" data-pid="id-532">
                         Gloval Value Numbering
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-535" data-pid="">
+                    <div class="nav-item nav-type-H2" title="Java 字节码" data-id="id-535" data-pid="">
                         Java 字节码
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-533" data-pid="id-535">
+                    <div class="nav-item nav-type-H3" title="操作数栈" data-id="id-533" data-pid="id-535">
                         操作数栈
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-534" data-pid="id-535">
+                    <div class="nav-item nav-type-H3" title="局部变量区" data-id="id-534" data-pid="id-535">
                         局部变量区
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-538" data-pid="">
+                    <div class="nav-item nav-type-H2" title="方法内联" data-id="id-538" data-pid="">
                         方法内联
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-537" data-pid="id-538">
+                    <div class="nav-item nav-type-H3" title="方法内联的条件" data-id="id-537" data-pid="id-538">
                         方法内联的条件
                     </div>
                 </div>
@@ -1127,4 +1130,4 @@ c2 busy (0) -|-----------------&gt; (2)--------&gt; (3) ---|------&gt; (4)
 
 
 
-<script src="../js/util/function.js?version=1631873641809"></script><script src="../js/util/event-hub.js?version=1631873641809"></script><script src="../js/3rdparty/prism.js?version=1631873641809"></script><script src="../js/module/loading.js?version=1631873641809"></script><script src="../js/module/home.js?version=1631873641809"></script><script src="../js/module/cheatsheet.js?version=1631873641809"></script><script src="../js/module/menu.js?version=1631873641809"></script><script src="../js/3rdparty/jszip.min.js?version=1631873641809"></script><script src="../js/util/saveData.js?version=1631873641809"></script></body></html>
+<script src="../js/util/function.js?version=1631933298132"></script><script src="../js/util/event-hub.js?version=1631933298132"></script><script src="../js/3rdparty/prism.js?version=1631933298132"></script><script src="../js/module/loading.js?version=1631933298132"></script><script src="../js/module/home.js?version=1631933298132"></script><script src="../js/module/cheatsheet.js?version=1631933298132"></script><script src="../js/module/menu.js?version=1631933298132"></script><script src="../js/3rdparty/jszip.min.js?version=1631933298132"></script><script src="../js/util/saveData.js?version=1631933298132"></script></body></html>

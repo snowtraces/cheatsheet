@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nginx cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1631873641809"><link rel="stylesheet" href="../css/prism.css?version=1631873641809"></head>
+<link rel="stylesheet" href="../css/main.css?version=1631933298132"><link rel="stylesheet" href="../css/prism.css?version=1631933298132"></head>
 
 <body>
     <script>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div id="main">
-        <div id="sheet-wrapper" class="w">
+        <div id="sheet-wrapper">
             <div id="sheet-title">
                 <h1>nginx<span> cheatsheet</span></h1>
             </div>
@@ -532,121 +532,124 @@
             </div>
             <div id="sheet-nav">
         <div class="nav-wrapper">
-            <div class="nav-title mini">菜单</div>
+            <div class="nav-btn">
+                <div class="nav-btn__item nav-btn-top">顶</div>
+                <div class="nav-btn__item nav-btn-menu">菜</div>
+            </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3" data-id="id-410" data-pid="default">
+                    <div class="nav-item nav-type-H3" title="端口 listen" data-id="id-410" data-pid="default">
                         端口 listen
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-411" data-pid="default">
+                    <div class="nav-item nav-type-H3" title="域名 server_name" data-id="id-411" data-pid="default">
                         域名 server_name
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-412" data-pid="default">
+                    <div class="nav-item nav-type-H3" title="访问日志 access_log" data-id="id-412" data-pid="default">
                         访问日志 access_log
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-413" data-pid="default">
+                    <div class="nav-item nav-type-H3" title="杂项 gzip, client_max_body_size" data-id="id-413" data-pid="default">
                         杂项 gzip, client_max_body_size
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-415" data-pid="">
+                    <div class="nav-item nav-type-H2" title="文件服务" data-id="id-415" data-pid="">
                         文件服务
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-419" data-pid="">
+                    <div class="nav-item nav-type-H2" title="重定向" data-id="id-419" data-pid="">
                         重定向
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-416" data-pid="id-419">
+                    <div class="nav-item nav-type-H3" title="301 永久重定向" data-id="id-416" data-pid="id-419">
                         301 永久重定向
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-417" data-pid="id-419">
+                    <div class="nav-item nav-type-H3" title="302 临时重定向" data-id="id-417" data-pid="id-419">
                         302 临时重定向
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-418" data-pid="id-419">
+                    <div class="nav-item nav-type-H3" title="特殊URL的重定向" data-id="id-418" data-pid="id-419">
                         特殊URL的重定向
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-422" data-pid="">
+                    <div class="nav-item nav-type-H2" title="反向代理" data-id="id-422" data-pid="">
                         反向代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-420" data-pid="id-422">
+                    <div class="nav-item nav-type-H3" title="基本使用" data-id="id-420" data-pid="id-422">
                         基本使用
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-421" data-pid="id-422">
+                    <div class="nav-item nav-type-H3" title="升级连接（推荐用于Node.js应用程序）" data-id="id-421" data-pid="id-422">
                         升级连接（推荐用于Node.js应用程序）
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-424" data-pid="">
+                    <div class="nav-item nav-type-H2" title="TLS/SSL (HTTPS)" data-id="id-424" data-pid="">
                         TLS/SSL (HTTPS)
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-423" data-pid="id-424">
+                    <div class="nav-item nav-type-H3" title="基本使用" data-id="id-423" data-pid="id-424">
                         基本使用
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-428" data-pid="">
+                    <div class="nav-item nav-type-H2" title="负载均衡" data-id="id-428" data-pid="">
                         负载均衡
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-425" data-pid="id-428">
+                    <div class="nav-item nav-type-H3" title="php-fpm Unix socket" data-id="id-425" data-pid="id-428">
                         php-fpm Unix socket
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-426" data-pid="id-428">
+                    <div class="nav-item nav-type-H3" title="php-fpm TCP" data-id="id-426" data-pid="id-428">
                         php-fpm TCP
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-427" data-pid="id-428">
+                    <div class="nav-item nav-type-H3" title="HTTP 负载均衡" data-id="id-427" data-pid="id-428">
                         HTTP 负载均衡
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-433" data-pid="">
+                    <div class="nav-item nav-type-H2" title="代理" data-id="id-433" data-pid="">
                         代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-429" data-pid="id-433">
+                    <div class="nav-item nav-type-H3" title="简单代理" data-id="id-429" data-pid="id-433">
                         简单代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-430" data-pid="id-433">
+                    <div class="nav-item nav-type-H3" title="子文件夹代理" data-id="id-430" data-pid="id-433">
                         子文件夹代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-431" data-pid="id-433">
+                    <div class="nav-item nav-type-H3" title="websocket keepalive 代理" data-id="id-431" data-pid="id-433">
                         websocket keepalive 代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-432" data-pid="id-433">
+                    <div class="nav-item nav-type-H3" title="反向代理 Apache" data-id="id-432" data-pid="id-433">
                         反向代理 Apache
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-436" data-pid="">
+                    <div class="nav-item nav-type-H2" title="Nginx 安全" data-id="id-436" data-pid="">
                         Nginx 安全
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-434" data-pid="id-436">
+                    <div class="nav-item nav-type-H3" title="访问限制" data-id="id-434" data-pid="id-436">
                         访问限制
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-435" data-pid="id-436">
+                    <div class="nav-item nav-type-H3" title="阻止常见攻击" data-id="id-435" data-pid="id-436">
                         阻止常见攻击
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-439" data-pid="">
+                    <div class="nav-item nav-type-H2" title="Nginx Media" data-id="id-439" data-pid="">
                         Nginx Media
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-437" data-pid="id-439">
+                    <div class="nav-item nav-type-H3" title="MP4 stream module" data-id="id-437" data-pid="id-439">
                         MP4 stream module
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-438" data-pid="id-439">
+                    <div class="nav-item nav-type-H3" title="WebP images" data-id="id-438" data-pid="id-439">
                         WebP images
                     </div>
                 </div>
@@ -658,4 +661,4 @@
 
 
 
-<script src="../js/util/function.js?version=1631873641809"></script><script src="../js/util/event-hub.js?version=1631873641809"></script><script src="../js/3rdparty/prism.js?version=1631873641809"></script><script src="../js/module/loading.js?version=1631873641809"></script><script src="../js/module/home.js?version=1631873641809"></script><script src="../js/module/cheatsheet.js?version=1631873641809"></script><script src="../js/module/menu.js?version=1631873641809"></script><script src="../js/3rdparty/jszip.min.js?version=1631873641809"></script><script src="../js/util/saveData.js?version=1631873641809"></script></body></html>
+<script src="../js/util/function.js?version=1631933298132"></script><script src="../js/util/event-hub.js?version=1631933298132"></script><script src="../js/3rdparty/prism.js?version=1631933298132"></script><script src="../js/module/loading.js?version=1631933298132"></script><script src="../js/module/home.js?version=1631933298132"></script><script src="../js/module/cheatsheet.js?version=1631933298132"></script><script src="../js/module/menu.js?version=1631933298132"></script><script src="../js/3rdparty/jszip.min.js?version=1631933298132"></script><script src="../js/util/saveData.js?version=1631933298132"></script></body></html>

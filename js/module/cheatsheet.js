@@ -2,7 +2,7 @@
     let view = {
         el: '#main',
         template: `
-        <div id="sheet-wrapper" class="w">
+        <div id="sheet-wrapper">
             <div id="sheet-title">
                 <h1>\${data.meta.title}<span> cheatsheet</span></h1>
             </div>
