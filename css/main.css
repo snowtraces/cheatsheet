@@ -66,10 +66,6 @@
 #top-nav #build-html:hover {
   border-bottom: 3px solid;
 }
-#top-nav #build-html:hover {
-  background: #aaaaaa;
-  color: #ffffff;
-}
 
 /** home */
 #home-wrapper {

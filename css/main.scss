@@ -59,10 +59,6 @@ $top_nav_height: 50px;
     }
     #build-html {
         @include top_nav_btn();
-        &:hover {
-            background: #aaaaaa;
-            color: #ffffff;
-        }
     }
 }
 

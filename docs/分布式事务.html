@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>分布式事务 cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1631873641809"><link rel="stylesheet" href="../css/prism.css?version=1631873641809"></head>
+<link rel="stylesheet" href="../css/main.css?version=1631933298132"><link rel="stylesheet" href="../css/prism.css?version=1631933298132"></head>
 
 <body>
     <script>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div id="main">
-        <div id="sheet-wrapper" class="w">
+        <div id="sheet-wrapper">
             <div id="sheet-title">
                 <h1>分布式事务<span> cheatsheet</span></h1>
             </div>
@@ -255,101 +255,104 @@
             </div>
             <div id="sheet-nav">
         <div class="nav-wrapper">
-            <div class="nav-title mini">菜单</div>
+            <div class="nav-btn">
+                <div class="nav-btn__item nav-btn-top">顶</div>
+                <div class="nav-btn__item nav-btn-menu">菜</div>
+            </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H2" data-id="id-546" data-pid="">
+                    <div class="nav-item nav-type-H2" title="基础理论" data-id="id-546" data-pid="">
                         基础理论
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-539" data-pid="id-546">
+                    <div class="nav-item nav-type-H3" title="事务" data-id="id-539" data-pid="id-546">
                         事务
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-540" data-pid="id-546">
+                    <div class="nav-item nav-type-H3" title="分布式事务" data-id="id-540" data-pid="id-546">
                         分布式事务
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-541" data-pid="id-546">
+                    <div class="nav-item nav-type-H3" title="一致性" data-id="id-541" data-pid="id-546">
                         一致性
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-542" data-pid="id-546">
+                    <div class="nav-item nav-type-H3" title="CAP 原则" data-id="id-542" data-pid="id-546">
                         CAP 原则
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-543" data-pid="id-546">
+                    <div class="nav-item nav-type-H3" title="BASE 理论" data-id="id-543" data-pid="id-546">
                         BASE 理论
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-544" data-pid="id-546">
+                    <div class="nav-item nav-type-H3" title="柔性事务" data-id="id-544" data-pid="id-546">
                         柔性事务
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-545" data-pid="id-546">
+                    <div class="nav-item nav-type-H3" title="幂等操作" data-id="id-545" data-pid="id-546">
                         幂等操作
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-550" data-pid="">
+                    <div class="nav-item nav-type-H2" title="使用场景" data-id="id-550" data-pid="">
                         使用场景
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-547" data-pid="id-550">
+                    <div class="nav-item nav-type-H3" title="转账" data-id="id-547" data-pid="id-550">
                         转账
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-548" data-pid="id-550">
+                    <div class="nav-item nav-type-H3" title="下单扣库存" data-id="id-548" data-pid="id-550">
                         下单扣库存
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-549" data-pid="id-550">
+                    <div class="nav-item nav-type-H3" title="同步超时" data-id="id-549" data-pid="id-550">
                         同步超时
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-556" data-pid="">
+                    <div class="nav-item nav-type-H2" title="解决方案" data-id="id-556" data-pid="">
                         解决方案
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-551" data-pid="id-556">
+                    <div class="nav-item nav-type-H3" title="两阶段提交(2PC)" data-id="id-551" data-pid="id-556">
                         两阶段提交(2PC)
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-552" data-pid="id-556">
+                    <div class="nav-item nav-type-H3" title="TCC" data-id="id-552" data-pid="id-556">
                         TCC
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-553" data-pid="id-556">
+                    <div class="nav-item nav-type-H3" title="本地消息表" data-id="id-553" data-pid="id-556">
                         本地消息表
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-554" data-pid="id-556">
+                    <div class="nav-item nav-type-H3" title="可靠消息最终一致性" data-id="id-554" data-pid="id-556">
                         可靠消息最终一致性
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-555" data-pid="id-556">
+                    <div class="nav-item nav-type-H3" title="尽最大努力通知" data-id="id-555" data-pid="id-556">
                         尽最大努力通知
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-562" data-pid="">
+                    <div class="nav-item nav-type-H2" title="实例" data-id="id-562" data-pid="">
                         实例
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-557" data-pid="id-562">
+                    <div class="nav-item nav-type-H3" title="两阶段提交/XA" data-id="id-557" data-pid="id-562">
                         两阶段提交/XA
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-558" data-pid="id-562">
+                    <div class="nav-item nav-type-H3" title="TCC" data-id="id-558" data-pid="id-562">
                         TCC
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-559" data-pid="id-562">
+                    <div class="nav-item nav-type-H3" title="可靠消息最终一致性" data-id="id-559" data-pid="id-562">
                         可靠消息最终一致性
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-560" data-pid="id-562">
+                    <div class="nav-item nav-type-H3" title="本地消息表" data-id="id-560" data-pid="id-562">
                         本地消息表
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-561" data-pid="id-562">
+                    <div class="nav-item nav-type-H3" title="最大努力通知" data-id="id-561" data-pid="id-562">
                         最大努力通知
                     </div>
                 </div>
@@ -361,4 +364,4 @@
 
 
 
-<script src="../js/util/function.js?version=1631873641809"></script><script src="../js/util/event-hub.js?version=1631873641809"></script><script src="../js/3rdparty/prism.js?version=1631873641809"></script><script src="../js/module/loading.js?version=1631873641809"></script><script src="../js/module/home.js?version=1631873641809"></script><script src="../js/module/cheatsheet.js?version=1631873641809"></script><script src="../js/module/menu.js?version=1631873641809"></script><script src="../js/3rdparty/jszip.min.js?version=1631873641809"></script><script src="../js/util/saveData.js?version=1631873641809"></script></body></html>
+<script src="../js/util/function.js?version=1631933298132"></script><script src="../js/util/event-hub.js?version=1631933298132"></script><script src="../js/3rdparty/prism.js?version=1631933298132"></script><script src="../js/module/loading.js?version=1631933298132"></script><script src="../js/module/home.js?version=1631933298132"></script><script src="../js/module/cheatsheet.js?version=1631933298132"></script><script src="../js/module/menu.js?version=1631933298132"></script><script src="../js/3rdparty/jszip.min.js?version=1631933298132"></script><script src="../js/util/saveData.js?version=1631933298132"></script></body></html>

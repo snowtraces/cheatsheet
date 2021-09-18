@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lisp cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1631873641809"><link rel="stylesheet" href="../css/prism.css?version=1631873641809"></head>
+<link rel="stylesheet" href="../css/main.css?version=1631933298132"><link rel="stylesheet" href="../css/prism.css?version=1631933298132"></head>
 
 <body>
     <script>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div id="main">
-        <div id="sheet-wrapper" class="w">
+        <div id="sheet-wrapper">
             <div id="sheet-title">
                 <h1>Lisp<span> cheatsheet</span></h1>
             </div>
@@ -329,69 +329,72 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
             </div>
             <div id="sheet-nav">
         <div class="nav-wrapper">
-            <div class="nav-title mini">菜单</div>
+            <div class="nav-btn">
+                <div class="nav-btn__item nav-btn-top">顶</div>
+                <div class="nav-btn__item nav-btn-menu">菜</div>
+            </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H2" data-id="id-378" data-pid="">
+                    <div class="nav-item nav-type-H2" title="构造过程抽象" data-id="id-378" data-pid="">
                         构造过程抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-370" data-pid="id-378">
+                    <div class="nav-item nav-type-H3" title="表达式" data-id="id-370" data-pid="id-378">
                         表达式
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-371" data-pid="id-378">
+                    <div class="nav-item nav-type-H3" title="命名和环境" data-id="id-371" data-pid="id-378">
                         命名和环境
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-372" data-pid="id-378">
+                    <div class="nav-item nav-type-H3" title="组合式的求值" data-id="id-372" data-pid="id-378">
                         组合式的求值
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-373" data-pid="id-378">
+                    <div class="nav-item nav-type-H3" title="复合过程" data-id="id-373" data-pid="id-378">
                         复合过程
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-374" data-pid="id-378">
+                    <div class="nav-item nav-type-H3" title="过程应用的代换模型" data-id="id-374" data-pid="id-378">
                         过程应用的代换模型
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-375" data-pid="id-378">
+                    <div class="nav-item nav-type-H3" title="条件表达式和谓词" data-id="id-375" data-pid="id-378">
                         条件表达式和谓词
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-376" data-pid="id-378">
+                    <div class="nav-item nav-type-H3" title="牛顿法求平方根" data-id="id-376" data-pid="id-378">
                         牛顿法求平方根
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-377" data-pid="id-378">
+                    <div class="nav-item nav-type-H3" title="过程作为黑箱抽象" data-id="id-377" data-pid="id-378">
                         过程作为黑箱抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-382" data-pid="">
+                    <div class="nav-item nav-type-H2" title="过程与所产生的计算" data-id="id-382" data-pid="">
                         过程与所产生的计算
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-379" data-pid="id-382">
+                    <div class="nav-item nav-type-H3" title="线性的递归和迭代" data-id="id-379" data-pid="id-382">
                         线性的递归和迭代
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-380" data-pid="id-382">
+                    <div class="nav-item nav-type-H3" title="树形递归" data-id="id-380" data-pid="id-382">
                         树形递归
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-381" data-pid="id-382">
+                    <div class="nav-item nav-type-H3" title="最大公约数" data-id="id-381" data-pid="id-382">
                         最大公约数
                     </div>
                 
-                    <div class="nav-item nav-type-H2" data-id="id-385" data-pid="">
+                    <div class="nav-item nav-type-H2" title="用高阶函数做抽象" data-id="id-385" data-pid="">
                         用高阶函数做抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-383" data-pid="id-385">
+                    <div class="nav-item nav-type-H3" title="过程作为参数" data-id="id-383" data-pid="id-385">
                         过程作为参数
                     </div>
                 
-                    <div class="nav-item nav-type-H3" data-id="id-384" data-pid="id-385">
+                    <div class="nav-item nav-type-H3" title="用lambda构造过程" data-id="id-384" data-pid="id-385">
                         用lambda构造过程
                     </div>
                 </div>
@@ -403,4 +406,4 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
 
 
 
-<script src="../js/util/function.js?version=1631873641809"></script><script src="../js/util/event-hub.js?version=1631873641809"></script><script src="../js/3rdparty/prism.js?version=1631873641809"></script><script src="../js/module/loading.js?version=1631873641809"></script><script src="../js/module/home.js?version=1631873641809"></script><script src="../js/module/cheatsheet.js?version=1631873641809"></script><script src="../js/module/menu.js?version=1631873641809"></script><script src="../js/3rdparty/jszip.min.js?version=1631873641809"></script><script src="../js/util/saveData.js?version=1631873641809"></script></body></html>
+<script src="../js/util/function.js?version=1631933298132"></script><script src="../js/util/event-hub.js?version=1631933298132"></script><script src="../js/3rdparty/prism.js?version=1631933298132"></script><script src="../js/module/loading.js?version=1631933298132"></script><script src="../js/module/home.js?version=1631933298132"></script><script src="../js/module/cheatsheet.js?version=1631933298132"></script><script src="../js/module/menu.js?version=1631933298132"></script><script src="../js/3rdparty/jszip.min.js?version=1631933298132"></script><script src="../js/util/saveData.js?version=1631933298132"></script></body></html>

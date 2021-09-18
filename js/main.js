@@ -9,7 +9,7 @@ let jsList = [
     './js/module/nav.js',
     './js/module/menu.js',
 
-    // './js/module/builder.js',
+    './js/module/builder.js',
 ]
 
 let developModel = true;
