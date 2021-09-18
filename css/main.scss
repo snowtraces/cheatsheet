@@ -17,7 +17,7 @@ $max-width: 1200px;
 }
 
 /** top nav */
-$top_nav_height: 60px;
+$top_nav_height: 50px;
 #top-nav {
     width: 100%;
     height: $top_nav_height;
@@ -39,29 +39,23 @@ $top_nav_height: 60px;
 
     $top_nav_btn_height: 40px;
     @mixin top_nav_btn {
-        height: $top_nav_btn_height;
-        width: $top_nav_btn_height;
+        height: $top_nav_height;
+        width: $top_nav_height;
         text-align: center;
-        line-height: $top_nav_btn_height;
-        border-radius: 50%;
+        line-height: $top_nav_height;
         cursor: pointer;
         transition: all 0.1s;
+        &:hover {
+            border-bottom: 3px solid;
+        }
     }
     #go-back {
         @include top_nav_btn();
-        &:hover {
-            background: #aaaaaa;
-            color: #ffffff;
-        }
     }
 
     #go-home {
         @include top_nav_btn();
         justify-self: center;
-        &:hover {
-            background: #aaaaaa;
-            color: #ffffff;
-        }
     }
     #build-html {
         @include top_nav_btn();
@@ -188,8 +182,8 @@ $top_nav_height: 60px;
                 }
                 .section-body {
                     background: #ffffff;
-                    box-shadow: 0 6px 8px rgba(85, 102, 119, 0.03),
-                        0 1px 1px rgba(85, 102, 119, 0.4);
+                    box-shadow: 1px 1px 3px -1px #ccc;
+                    border-radius: 5px;
                     overflow: auto;
                     font-size: 13.3333px !important;
                     * {
@@ -313,51 +307,64 @@ $top_nav_height: 60px;
             }
         }
     }
-    #sheet-nav {
-        position: fixed;
-        right: 30px;
-        bottom: 30px;
-        width: 200px;
-        opacity: 0.9;
-        max-height: 50vh;
-        .nav-title {
-            border: 1px solid #ddd;
+}
+
+$max-nav-height: 80vh;
+#sheet-nav {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 245px;
+    opacity: 0.9;
+    max-height: $max-nav-height;
+    .nav-btn {
+        display: grid;
+        width: 40px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        &__item {
+            margin-top: 3px;
+            border-radius: 3px;
             padding: 0 10px;
             height: 40px;
+            width: 40px;
+            text-align: center;
             line-height: 40px;
             background: #666;
             color: #fff;
-            margin-bottom: -1px;
             cursor: pointer;
-            &.mini {
-                width: 40px;
-                border-radius: 50%;
-                float: right;
-                text-align: center;
-                overflow: hidden;
+            opacity: 0.5;
+            &:hover,
+            &.active {
+                opacity: 1;
             }
         }
-        .nav-content {
-            border: 1px solid #ddd;
-            padding: 10px;
-            background: #fff;
-            overflow-y: auto;
-            max-height: calc(50vh - 40px);
-            .nav-item {
-                cursor: pointer;
-                font-size: 0.875em;
-                padding: 3px;
-                &.nav-type-H2 {
-                    font-weight: 600;
-                }
-                &.nav-type-H3 {
-                    padding-left: 12px;
-                }
-                &:hover {
-                    /* font-weight: 600; */
-                    color: #c7254e;
-                    background-color: #f9f2f4;
-                }
+    }
+    .nav-content {
+        border-right: 3px solid #999;
+        box-shadow: -2px 2px 8px -1px #aaa;
+        width: 200px;
+        padding: 10px;
+        background: #fff;
+        overflow-y: auto;
+        max-height: $max-nav-height;
+        .nav-item {
+            cursor: pointer;
+            font-size: 0.875em;
+            padding: 3px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            &.nav-type-H2 {
+                font-weight: 600;
+            }
+            &.nav-type-H3 {
+                padding-left: 12px;
+            }
+            &:hover {
+                color: #c7254e;
+                background-color: #f9f2f4;
             }
         }
     }

@@ -3,7 +3,10 @@
         el: '#sheet-nav',
         template: `
         <div class="nav-wrapper">
-            <div class="nav-title mini">菜单</div>
+            <div class="nav-btn">
+                <div class="nav-btn__item nav-btn-top">顶</div>
+                <div class="nav-btn__item nav-btn-menu">菜</div>
+            </div>
             <div class="nav-content hide">\${data}</div>
         </div>
         `,
@@ -22,17 +25,20 @@
             this.bindEventHub()
         },
         bindEvents() {
-            $.bindEvent('.nav-title', 'click', () => {
+            $.bindEvent('.nav-btn-menu', 'click', () => {
                 let isShow = $.el('.nav-content').classList.contains('show')
                 if (isShow) {
                     $.el('.nav-content').classList.remove('show')
                     $.el('.nav-content').classList.add('hide')
-                    $.el('.nav-title').classList.add('mini')
+                    $.el('.nav-btn-menu').classList.remove('active')
                 } else {
                     $.el('.nav-content').classList.remove('hide')
                     $.el('.nav-content').classList.add('show')
-                    $.el('.nav-title').classList.remove('mini')
+                    $.el('.nav-btn-menu').classList.add('active')
                 }
+            })
+            $.bindEvent('.nav-btn-top', 'click', () => {
+                document.body.scrollIntoView(true)
             })
 
             $.bindEventForce('.nav-item', 'click', (e) => {
@@ -61,7 +67,7 @@
 
                 this.view.render(
                     items.map(item => `
-                    <div class="nav-item nav-type-${item[0]}" data-id="${item[2]}" data-pid="${item[3] ? item[3] : ''}">
+                    <div class="nav-item nav-type-${item[0]}" title="${item[1]}" data-id="${item[2]}" data-pid="${item[3] ? item[3] : ''}">
                         ${item[1]}
                     </div>
                 `).join('')
