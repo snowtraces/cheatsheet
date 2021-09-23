@@ -38,7 +38,7 @@
                 }
             })
             $.bindEvent('.nav-btn-top', 'click', () => {
-                document.body.scrollIntoView(true)
+                document.body.scrollIntoView({behavior: "smooth"})
             })
 
             $.bindEventForce('.nav-item', 'click', (e) => {
@@ -76,7 +76,7 @@
         },
         idJump(id) {
             let target = $.el(`#${id}`)
-            target.scrollIntoView(true)
+            target.scrollIntoView({behavior: "smooth"})
         }
     }
 
