@@ -1,69 +1,85 @@
 body {
-  margin: 0;
-  font-size: 13.3333px;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f1f3f5;
-  overflow-y: scroll;
+    margin: 0;
+    font-size: 13.3333px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f3f5;
+    overflow-y: scroll;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #e3e3e3;
+}
+::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
 }
 
 pre {
-  margin: 0;
+    margin: 0;
 }
 
 .clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
+    content: "";
+    display: block;
+    clear: both;
 }
 
 ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .show {
-  display: block;
+    display: block;
 }
 
 .hide {
-  display: none;
+    display: none;
 }
 
-button, input {
-  border: none;
-  outline: none;
-  background: none;
+button,
+input {
+    border: none;
+    outline: none;
+    background: none;
 }
 
 button:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 a {
-  color: #333;
-  text-decoration: none;
+    color: #333;
+    text-decoration: none;
 }
 
-h2 code, h3 code, h4 code {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+h2 code,
+h3 code,
+h4 code {
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
-h2 code, h3 code {
-  border: 1px solid;
-  padding: 3px 5px;
-  font-weight: 600;
-  border-radius: 2px;
+h2 code,
+h3 code {
+    border: 1px solid;
+    padding: 3px 5px;
+    font-weight: 600;
+    border-radius: 2px;
 }
 
 h2 code {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 h3 code {
-  font-size: 13px;
+    font-size: 13px;
 }
