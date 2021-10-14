@@ -154,7 +154,7 @@ $top_nav_height: 50px;
         .h2-section {
             position: relative;
             .h2-section-title {
-                overflow: show;
+                overflow:visible;
                 h2 {
                     font-size: 32px;
                     font-weight: 100;
@@ -169,6 +169,10 @@ $top_nav_height: 50px;
 
             .sheet-section {
                 position: absolute;
+                transition: all 0.6s;
+                top: 0;
+                left: 0;
+                opacity: 0.333;
                 .section-title {
                     h3 {
                         font-size: 18px;
