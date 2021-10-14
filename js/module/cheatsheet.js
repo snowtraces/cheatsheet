@@ -189,7 +189,7 @@
                         if (item_cache.length > 0) {
                             h3_section.push(`
                             <div class="sheet-section">
-                            <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
+                                <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -221,7 +221,7 @@
                         if (item_cache.length > 0) {
                             h3_section.push(`
                             <div class="sheet-section">
-                            <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
+                                <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -283,7 +283,7 @@
             if (item_cache.length > 0) {
                 h3_section.push(`
                 <div class="sheet-section">
-                <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
+                    <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
                     <div class="section-body">
                         ${item_cache.join('\n')}
                     </div>
@@ -604,7 +604,8 @@
 
                     let top = idxToYOffset[colIdx] || default_top;
                     let left = (colIdx) * (20 + h2_singleWidth);
-                    section.setAttribute('style', `width: ${h2_singleWidth}px;top: ${top}px; left:${left}px`);
+                    // section.setAttribute('style', `width: ${h2_singleWidth}px;top: ${top}px; left:${left}px`);
+                    section.setAttribute('style', `width: ${h2_singleWidth}px;transform: translate(${left}px, ${top}px); opacity: 1`);
 
                     idxToYOffset[colIdx] = (idxToYOffset[colIdx] || default_top) + height;
                 })

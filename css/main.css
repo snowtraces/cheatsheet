@@ -159,7 +159,7 @@
   position: relative;
 }
 #sheet-wrapper #sheet-body .h2-section .h2-section-title {
-  overflow: show;
+  overflow: visible;
 }
 #sheet-wrapper #sheet-body .h2-section .h2-section-title h2 {
   font-size: 32px;
@@ -173,6 +173,10 @@
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section {
   position: absolute;
+  transition: all 0.6s;
+  top: 0;
+  left: 0;
+  opacity: 0.333;
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section .section-title h3 {
   font-size: 18px;
