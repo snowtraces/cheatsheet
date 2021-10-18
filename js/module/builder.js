@@ -83,6 +83,7 @@
                     .replace(/script src=".\//g, 'script src="../' )
                     .replace(/rel="stylesheet" href=".\//g, 'rel="stylesheet" href="../' )
                     .replace(/let isHtml = false/g, 'let isHtml = true' )
+                    .replace(/class="sheet-section" style="width:[^\"]*transform[^\"]*"/g, 'class="sheet-section" ' )
                     .replace(/.*id="build-html".*/, '' )
 
                 this.arrRemove(this.model.pages, type)

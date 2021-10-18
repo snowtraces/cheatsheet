@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xargs cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634528819391"><link rel="stylesheet" href="../css/prism.css?version=1634528819391"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634529334957"><link rel="stylesheet" href="../css/prism.css?version=1634529334957"></head>
 
 <body>
     <script>
@@ -43,7 +43,7 @@
                 <div class="h2-section" style="height: 2558px">
                     
                     
-                            <div class="sheet-section" style="width: 580px;transform: translate(0px, 0px); opacity: 1" data-position="580|0|0">
+                            <div class="sheet-section"  data-position="580|0|0">
                                 <div class="section-title"><h3 id="id-459">标准输入与管道命令</h3></div>
                                 <div class="section-body">
                                     <p>Unix 命令都带有参数，有些命令可以接受"标准输入"（stdin）作为参数。</p>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 0px); opacity: 1" data-position="580|600|0">
+                            <div class="sheet-section"  data-position="580|600|0">
                                 <div class="section-title"><h3 id="id-460">xargs 命令的作用</h3></div>
                                 <div class="section-body">
                                     <p><em>xargs命令的作用，是将标准输入转为命令行参数。</em></p>
@@ -78,7 +78,7 @@ hello world
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(0px, 427px); opacity: 1" data-position="580|0|427">
+                            <div class="sheet-section"  data-position="580|0|427">
                                 <div class="section-title"><h3 id="id-461">xargs 的单独使用</h3></div>
                                 <div class="section-body">
                                     <p>大多数时候，<code>xargs</code>命令都是跟管道一起使用的。但是，它也可以单独使用。<code>xargs</code>后面的命令默认是echo，<code>xargs</code>等同于<code>xargs echo</code>。</p>
@@ -100,7 +100,7 @@ hello
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 542px); opacity: 1" data-position="580|600|542">
+                            <div class="sheet-section"  data-position="580|600|542">
                                 <div class="section-title"><h3 id="id-462"><code>-d</code> 参数与分隔符</h3></div>
                                 <div class="section-body">
                                     <p>默认情况下，<code>xargs</code>将<em>换行符和空格作为分隔符</em>，把标准输入分解成一个个命令行参数。</p>
@@ -115,7 +115,7 @@ a b c
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 953px); opacity: 1" data-position="580|600|953">
+                            <div class="sheet-section"  data-position="580|600|953">
                                 <div class="section-title"><h3 id="id-463"><code>-p</code> 参数，<code>-t</code> 参数</h3></div>
                                 <div class="section-body">
                                     <p>使用<code>xargs</code>命令以后，由于存在转换参数过程，有时需要确认一下到底执行的是什么命令。</p>
@@ -131,7 +131,7 @@ a b c
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(0px, 991px); opacity: 1" data-position="580|0|991">
+                            <div class="sheet-section"  data-position="580|0|991">
                                 <div class="section-title"><h3 id="id-464"><code>-0</code> 参数与 <code>find</code> 命令</h3></div>
                                 <div class="section-body">
                                     <p>由于<code>xargs</code>默认将空格作为分隔符，所以不太适合处理文件名，因为文件名可能包含空格。</p>
@@ -146,7 +146,7 @@ a b c
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 1347px); opacity: 1" data-position="580|600|1347">
+                            <div class="sheet-section"  data-position="580|600|1347">
                                 <div class="section-title"><h3 id="id-465"><code>-L</code> 参数</h3></div>
                                 <div class="section-body">
                                     <p>如果标准输入包含多行，<code>-L</code>参数指定多少行作为一个命令行参数。</p>
@@ -175,7 +175,7 @@ c
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(0px, 1463px); opacity: 1" data-position="580|0|1463">
+                            <div class="sheet-section"  data-position="580|0|1463">
                                 <div class="section-title"><h3 id="id-466"><code>-n</code> 参数</h3></div>
                                 <div class="section-body">
                                     <p><code>-L</code>参数虽然解决了多行的问题，但是有时用户会在同一行输入多项。</p>
@@ -199,7 +199,7 @@ find: paths must precede expression: `*.md'
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 2045px); opacity: 1" data-position="580|600|2045">
+                            <div class="sheet-section"  data-position="580|600|2045">
                                 <div class="section-title"><h3 id="id-467"><code>-I</code> 参数</h3></div>
                                 <div class="section-body">
                                     <p>如果<code>xargs</code>要将命令行参数传给多个命令，可以使用<code>-I</code>参数。</p>
@@ -221,7 +221,7 @@ one two three
                                 </div>
                             </div>
 
-                <div class="sheet-section" style="width: 580px;transform: translate(0px, 2113px); opacity: 1" data-position="580|0|2113">
+                <div class="sheet-section"  data-position="580|0|2113">
                     <div class="section-title"><h3 id="id-468"><code>--max-procs</code> 参数</h3></div>
                     <div class="section-body">
                         <p><code>xargs</code>默认只用一个进程执行命令。如果命令要执行多次，必须等上一次执行完，才能执行下一次。</p>
@@ -289,4 +289,4 @@ one two three
 
 
 
-<script src="../js/util/function.js?version=1634528819391"></script><script src="../js/util/event-hub.js?version=1634528819391"></script><script src="../js/3rdparty/prism.js?version=1634528819391"></script><script src="../js/module/loading.js?version=1634528819391"></script><script src="../js/module/home.js?version=1634528819391"></script><script src="../js/module/cheatsheet.js?version=1634528819391"></script><script src="../js/module/menu.js?version=1634528819391"></script><script src="../js/3rdparty/jszip.min.js?version=1634528819391"></script><script src="../js/util/saveData.js?version=1634528819391"></script></body></html>
+<script src="../js/util/function.js?version=1634529334957"></script><script src="../js/util/event-hub.js?version=1634529334957"></script><script src="../js/3rdparty/prism.js?version=1634529334957"></script><script src="../js/module/loading.js?version=1634529334957"></script><script src="../js/module/home.js?version=1634529334957"></script><script src="../js/module/cheatsheet.js?version=1634529334957"></script><script src="../js/module/menu.js?version=1634529334957"></script><script src="../js/3rdparty/jszip.min.js?version=1634529334957"></script><script src="../js/util/saveData.js?version=1634529334957"></script></body></html>

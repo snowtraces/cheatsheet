@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>分布式事务 cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1634528819391"><link rel="stylesheet" href="../css/prism.css?version=1634528819391"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634529334957"><link rel="stylesheet" href="../css/prism.css?version=1634529334957"></head>
 
 <body>
     <script>
@@ -43,7 +43,7 @@
                             <div class="h2-section" style="height: 847px">
                                 <div class="h2-section-title"><h2 id="id-546">基础理论</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;transform: translate(0px, 42px); opacity: 1" data-position="580|0|42">
+                            <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-539">事务</h3></div>
                                 <div class="section-body">
                                     <p>事务是应用程序中一系列严密的操作，所有操作必须成功完成，否则在每个操作中所作的所有更改都会被撤消。也就是事务具有原子性，一个事务中的一系列的操作要么全部成功，要么一个都不做。</p>
@@ -51,14 +51,14 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 42px); opacity: 1" data-position="580|600|42">
+                            <div class="sheet-section"  data-position="580|600|42">
                                 <div class="section-title"><h3 id="id-540">分布式事务</h3></div>
                                 <div class="section-body">
                                     <p>分布式事务是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。业务功能不仅取决于本地的 db 操作，而且依赖第三方系统的结果，这时候分布式事务就保证这些操作要么全部成功，要么全部失败。本质上来说，<em>分布式事务就是为了保证不同数据库的数据一致性</em>。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 222px); opacity: 1" data-position="580|600|222">
+                            <div class="sheet-section"  data-position="580|600|222">
                                 <div class="section-title"><h3 id="id-541">一致性</h3></div>
                                 <div class="section-body">
                                     <ul><li><em>Strong 强一致性</em> 任何一次读都能读到某个数据的最近一次写的数据。系统中的所有进程，看到的操作顺序，都和全局时钟下的顺序一致。简言之，在任意时刻，所有节点中的数据是一样的。
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(0px, 235px); opacity: 1" data-position="580|0|235">
+                            <div class="sheet-section"  data-position="580|0|235">
                                 <div class="section-title"><h3 id="id-542">CAP 原则</h3></div>
                                 <div class="section-body">
                                     <p>CAP 原则又称 CAP 定理，指的是在一个分布式系统中， <code>Consistency</code>（一致性）、 <code>Availability</code>（可用性）、<code>Partition tolerance</code>（分区容错性），三者不可得兼。</p>
@@ -81,21 +81,21 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 476px); opacity: 1" data-position="580|600|476">
+                            <div class="sheet-section"  data-position="580|600|476">
                                 <div class="section-title"><h3 id="id-543">BASE 理论</h3></div>
                                 <div class="section-body">
                                     <p>BASE 理论指的是基本可用 <code>Basically Available</code>，软状态 <code>Soft State</code>，最终一致性 <code>Eventual Consistency</code>，核心思想是即便无法做到强一致性，但应该<em>采用适合的方式保证最终一致性</em>。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(600px, 635px); opacity: 1" data-position="580|600|635">
+                            <div class="sheet-section"  data-position="580|600|635">
                                 <div class="section-title"><h3 id="id-544">柔性事务</h3></div>
                                 <div class="section-body">
                                     <p>不同于 ACID 的刚性事务，在分布式场景下基于 BASE 理论，就出现了柔性事务的概念。要想通过柔性事务来达到最终的一致性，就需要依赖于一些特性，这些特性在具体的方案中不一定都要满足，因为不同的方案要求不一样；但是都不满足的话，是不可能做柔性事务的。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;transform: translate(0px, 645px); opacity: 1" data-position="580|0|645">
+                            <div class="sheet-section"  data-position="580|0|645">
                                 <div class="section-title"><h3 id="id-545">幂等操作</h3></div>
                                 <div class="section-body">
                                     <p>在编程中一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。幂等函数，或幂等方法，是指可以使用相同参数重复执行，并能获得相同结果的函数。这些函数不会影响系统状态，也不用担心重复执行会对系统造成改变。例如，支付流程中第三方支付系统告知系统中某个订单支付成功，接收该支付回调接口在网络正常的情况下无论操作多少次都应该返回成功。</p>
@@ -364,4 +364,4 @@
 
 
 
-<script src="../js/util/function.js?version=1634528819391"></script><script src="../js/util/event-hub.js?version=1634528819391"></script><script src="../js/3rdparty/prism.js?version=1634528819391"></script><script src="../js/module/loading.js?version=1634528819391"></script><script src="../js/module/home.js?version=1634528819391"></script><script src="../js/module/cheatsheet.js?version=1634528819391"></script><script src="../js/module/menu.js?version=1634528819391"></script><script src="../js/3rdparty/jszip.min.js?version=1634528819391"></script><script src="../js/util/saveData.js?version=1634528819391"></script></body></html>
+<script src="../js/util/function.js?version=1634529334957"></script><script src="../js/util/event-hub.js?version=1634529334957"></script><script src="../js/3rdparty/prism.js?version=1634529334957"></script><script src="../js/module/loading.js?version=1634529334957"></script><script src="../js/module/home.js?version=1634529334957"></script><script src="../js/module/cheatsheet.js?version=1634529334957"></script><script src="../js/module/menu.js?version=1634529334957"></script><script src="../js/3rdparty/jszip.min.js?version=1634529334957"></script><script src="../js/util/saveData.js?version=1634529334957"></script></body></html>
