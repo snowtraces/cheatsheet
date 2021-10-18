@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>数据密集型应用 cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634529334957"><link rel="stylesheet" href="../css/prism.css?version=1634529334957"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634537032455"><link rel="stylesheet" href="../css/prism.css?version=1634537032455"></head>
 
 <body>
     <script>
@@ -117,7 +117,7 @@
                             <div class="h2-section" style="height: 1399px">
                                 <div class="h2-section-title"><h2 id="id-353">数据模型与查询语言</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                            <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-348"></h3></div>
                                 <div class="section-body">
                                     <p>应用每个层都通过提供一个明确的数据模型来隐藏更低层次中的复杂性。这些抽象允许不同的人群有效地协作（例如数据库厂商的工程师和使用数据库的应用程序开发人员）。</p>
@@ -125,7 +125,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                            <div class="sheet-section"  data-position="580|600|42">
                                 <div class="section-title"><h3 id="id-349">关系模型与文档模型</h3></div>
                                 <div class="section-body">
                                     <p>现在最著名的数据模型可能是SQL。它基于Edgar Codd在1970年提出的关系模型：<em>数据被组织成关系（SQL中称作表），其中每个关系是元组（SQL中称作行)的无序集合。</em></p>
@@ -146,7 +146,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|0|196">
+                            <div class="sheet-section"  data-position="580|0|196">
                                 <div class="section-title"><h3 id="id-350">数据查询语言</h3></div>
                                 <div class="section-body">
                                     <p>SQL是一种声明式查询语言，而IMS和CODASYL使用命令式代码来查询数据库。</p>
@@ -158,7 +158,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|0|648">
+                            <div class="sheet-section"  data-position="580|0|648">
                                 <div class="section-title"><h3 id="id-351">图数据模型</h3></div>
                                 <div class="section-body">
                                     <p>随着数据之间的连接变得更加复杂，将数据建模为图形显得更加自然。</p>
@@ -188,7 +188,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|600|839">
+                            <div class="sheet-section"  data-position="580|600|839">
                                 <div class="section-title"><h3 id="id-352">三元组存储和SPARQL</h3></div>
                                 <div class="section-body">
                                     <p>三元组存储中，所有信息都以非常简单的三部分表示形式存储（主语，谓语，宾语）。</p>
@@ -204,7 +204,7 @@
                 <div class="h2-section" style="height: 1924px">
                     <div class="h2-section-title"><h2 id="id-362">存储与检索</h2></div>
                     
-                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                            <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-354">驱动数据库的数据结构</h3></div>
                                 <div class="section-body">
                                     <p>世界上最简单的数据库可以用两个Bash函数实现：</p>
@@ -221,7 +221,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                            <div class="sheet-section"  data-position="580|600|42">
                                 <div class="section-title"><h3 id="id-355">哈希索引</h3></div>
                                 <div class="section-body">
                                     <p>最简单的索引策略就是：保留一个内存中的哈希映射，其中每个键都映射到一个数据文件中的字节偏移量，指明了可以找到对应值的位置。</p>
@@ -256,7 +256,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|0|437">
+                            <div class="sheet-section"  data-position="580|0|437">
                                 <div class="section-title"><h3 id="id-356">SSTables和LSM树</h3></div>
                                 <div class="section-body">
                                     <p>现在对段文件的格式做一个简单的改变：要求键值对的序列<em>按键排序</em>。</p>
@@ -267,7 +267,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|0|687">
+                            <div class="sheet-section"  data-position="580|0|687">
                                 <div class="section-title"><h3 id="id-357">构建和维护SSTables</h3></div>
                                 <div class="section-body">
                                     <ul><li>写入时，将其添加到内存中的平衡树数据结构（例如，红黑树）。这个内存树有时被称为<em>内存表</em>（memtable）。
@@ -279,7 +279,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|0|956">
+                            <div class="sheet-section"  data-position="580|0|956">
                                 <div class="section-title"><h3 id="id-358">用SSTables制作LSM树</h3></div>
                                 <div class="section-body">
                                     <p><em>日志结构合并树</em>（或LSM树）的基础上，建立在以前的工作上日志结构的文件系统。基于这种合并和压缩排序文件原理的存储引擎通常被称为LSM存储引擎。</p>
@@ -287,7 +287,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|600|1077">
+                            <div class="sheet-section"  data-position="580|600|1077">
                                 <div class="section-title"><h3 id="id-359">性能优化</h3></div>
                                 <div class="section-body">
                                     <p>查找不存在的键时，必须遍历内存表和所有文件段，为了优化这种访问，存储引擎通常使用额外的Bloom过滤器。</p>
@@ -295,7 +295,7 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px" data-position="580|0|1194">
+                            <div class="sheet-section"  data-position="580|0|1194">
                                 <div class="section-title"><h3 id="id-360">B树</h3></div>
                                 <div class="section-body">
                                     <p>在几乎所有的关系数据库中，它们仍然是标准的索引实现，许多非关系数据库也使用它们。</p>
@@ -321,7 +321,7 @@
                                 </div>
                             </div>
 
-                <div class="sheet-section" style="width: 580px" data-position="580|600|1247">
+                <div class="sheet-section"  data-position="580|600|1247">
                     <div class="section-title"><h3 id="id-361">让B树更可靠</h3></div>
                     <div class="section-body">
                         <p>B树实现通常会带有一个额外的磁盘数据结构：<em>预写式日志</em>（WAL, write-ahead-log），也称为<em>重做日志</em>（redo log）</p>
@@ -417,4 +417,4 @@
 
 
 
-<script src="../js/util/function.js?version=1634529334957"></script><script src="../js/util/event-hub.js?version=1634529334957"></script><script src="../js/3rdparty/prism.js?version=1634529334957"></script><script src="../js/module/loading.js?version=1634529334957"></script><script src="../js/module/home.js?version=1634529334957"></script><script src="../js/module/cheatsheet.js?version=1634529334957"></script><script src="../js/module/menu.js?version=1634529334957"></script><script src="../js/3rdparty/jszip.min.js?version=1634529334957"></script><script src="../js/util/saveData.js?version=1634529334957"></script></body></html>
+<script src="../js/util/function.js?version=1634537032455"></script><script src="../js/util/event-hub.js?version=1634537032455"></script><script src="../js/3rdparty/prism.js?version=1634537032455"></script><script src="../js/module/loading.js?version=1634537032455"></script><script src="../js/module/home.js?version=1634537032455"></script><script src="../js/module/cheatsheet.js?version=1634537032455"></script><script src="../js/module/menu.js?version=1634537032455"></script><script src="../js/3rdparty/jszip.min.js?version=1634537032455"></script><script src="../js/util/saveData.js?version=1634537032455"></script></body></html>
