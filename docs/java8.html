@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>java8 cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1631933298132"><link rel="stylesheet" href="../css/prism.css?version=1631933298132"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634529334957"><link rel="stylesheet" href="../css/prism.css?version=1634529334957"></head>
 
 <body>
     <script>
@@ -43,8 +43,8 @@
                             <div class="h2-section" style="height: 1273px">
                                 
                                 
-                            <div class="sheet-section" style="width: 580px;top: 0px; left:0px">
-                            <div class="section-title"><h3 id="id-253">Lambda 表达式</h3></div>
+                            <div class="sheet-section"  data-position="580|0|0">
+                                <div class="section-title"><h3 id="id-253">Lambda 表达式</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-java"><code class=" language-java" style=""><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> a <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// 求a乘以2后的值</span>
 a <span class="token operator">-&gt;</span> a <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// 或者更直接的去掉类型也是可以的</span>
@@ -72,8 +72,8 @@ d<span class="token punctuation">.</span><span class="token function">getDoubleO
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 0px; left:600px">
-                            <div class="section-title"><h3 id="id-254">Collections 集合</h3></div>
+                            <div class="sheet-section"  data-position="580|600|0">
+                                <div class="section-title"><h3 id="id-254">Collections 集合</h3></div>
                                 <div class="section-body">
                                     <h4><em>sort</em> <code>sort(list, comparator)</code></h4>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 正序</span>
@@ -106,8 +106,8 @@ names<span class="token punctuation">.</span><span class="token function">merge<
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 608px; left:0px">
-                            <div class="section-title"><h3 id="id-255">方法引用 <code>Class::staticMethod</code></h3></div>
+                            <div class="sheet-section"  data-position="580|0|608">
+                                <div class="section-title"><h3 id="id-255">方法引用 <code>Class::staticMethod</code></h3></div>
                                 <div class="section-body">
                                     <p>允许引用类方法或者构造函数，引用时候是不执行的</p>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token comment">//通过lamdba</span>
@@ -130,8 +130,8 @@ names<span class="token punctuation">.</span><span class="token function">merge<
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 692px; left:600px">
-                            <div class="section-title"><h3 id="id-256">Optional</h3></div>
+                            <div class="sheet-section"  data-position="580|600|692">
+                                <div class="section-title"><h3 id="id-256">Optional</h3></div>
                                 <div class="section-body">
                                     <p>在Java, 通常使用<code>null</code>表示没有结果，但是如果不检查的话很容易出现<code>NullPointerException</code>.</p>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// Optional&lt;String&gt; 包含一个string 或 空</span>
@@ -159,11 +159,11 @@ res<span class="token punctuation">.</span><span class="token function">ifPresen
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2064px">
+                            <div class="h2-section" style="height: 2056px">
                                 <div class="h2-section-title"><h2 id="id-262">Streams 流式处理</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-257"></h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-257"></h3></div>
                                 <div class="section-body">
                                     <p>和<code>collections</code>类似, 但有所不同:</p>
 <ul><li>不能储存数据
@@ -249,8 +249,8 @@ res <span class="token operator">=</span> <span class="token class-name">Stream<
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
-                            <div class="section-title"><h3 id="id-258">原始类型的 Streams</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-258">原始类型的 Streams</h3></div>
                                 <div class="section-body">
                                     <p>原始类型的stream自动封装是低效的 (例如 Stream<integer>) ，因为它需要对每个元素进行大量拆箱和装箱. 所以最好使用 <code>IntStream</code>, <code>DoubleStream</code>, 等等.</integer></p>
 <h4><em>初始化</em></h4>
@@ -265,8 +265,8 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 411px; left:600px">
-                            <div class="section-title"><h3 id="id-259">Grouping 结果集</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|411">
+                                <div class="section-title"><h3 id="id-259">Grouping 结果集</h3></div>
                                 <div class="section-body">
                                     <h4><em>Collectors.groupingBy</em></h4>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token comment">// 通过长度分组</span>
@@ -288,8 +288,8 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 968px; left:600px">
-                            <div class="section-title"><h3 id="id-260">并行 Streams</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|968">
+                                <div class="section-title"><h3 id="id-260">并行 Streams</h3></div>
                                 <div class="section-body">
                                     <h4><em>创建并行处理stream</em></h4>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> parStream <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">parallelStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -302,8 +302,8 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 1267px; left:600px">
-                            <div class="section-title"><h3 id="id-261">注意引用推测限制</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|1267">
+                                <div class="section-title"><h3 id="id-261">注意引用推测限制</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-java"><code class=" language-java" style=""><span class="token keyword">interface</span> <span class="token class-name">Pair</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">A</span><span class="token punctuation">,</span> <span class="token class-name">B</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
     <span class="token class-name">A</span> <span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -326,18 +326,18 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
                             </div>
                             
 
-                <div class="h2-section" style="height: 1284px">
+                <div class="h2-section" style="height: 1275px">
                     <div class="h2-section-title"><h2 id="id-269">LocalDate</h2></div>
                     
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-263">简介</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-263">简介</h3></div>
                                 <div class="section-body">
                                     <p>在JAVA中，常用的处理日期和时间的类主要有<code>Date</code>，<code>Calendar</code>，而在JDK1.8中，新增了<code>LocalDate</code>、<code>LocalTime</code>、<code>LocalDateTime</code> 类的实例是不可变的对象，分别表示使用ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息，也不包含与时区相关的信息。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
-                            <div class="section-title"><h3 id="id-264">API</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-264">API</h3></div>
                                 <div class="section-body">
                                     <h4><em>now()</em> 静态方法，根据当前时间创建对象</h4>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -363,8 +363,8 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 224px; left:0px">
-                            <div class="section-title"><h3 id="id-265">Instant 时间戳</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|224">
+                                <div class="section-title"><h3 id="id-265">Instant 时间戳</h3></div>
                                 <div class="section-body">
                                     <p>用于<code>时间戳</code>的运算。它是以Unix元年(传统的设定为UTC时区1970年1月1日午夜时分)开始所经历的描述进行运算。</p>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2020-12-02T09:24:27.306Z</span>
@@ -374,8 +374,8 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 447px; left:0px">
-                            <div class="section-title"><h3 id="id-266">Duration 和 Period</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|447">
+                                <div class="section-title"><h3 id="id-266">Duration 和 Period</h3></div>
                                 <div class="section-body">
                                     <h4><em>Duration:</em> 用于计算两个“时间”间隔</h4>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">Instant</span> now <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -394,8 +394,8 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 617px; left:600px">
-                            <div class="section-title"><h3 id="id-267">日期操作</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|617">
+                                <div class="section-title"><h3 id="id-267">日期操作</h3></div>
                                 <div class="section-body">
                                     <ul><li><em>TemporalAdjuster</em>: 时间校正器。
 </li><li><em>TemporalAdjusters</em>: 该类通过静态方法提供了大量的常用 TemporalAdjuster 的实现。
@@ -423,8 +423,8 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 837px; left:0px">
-                            <div class="section-title"><h3 id="id-268">解析与格式化</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|837">
+                                <div class="section-title"><h3 id="id-268">解析与格式化</h3></div>
                                 <div class="section-body">
                                     <h4>日期格式化成字符串</h4>
 <pre class=" language-java"><code class=" language-java" style=""><span class="token class-name">LocalDate</span> now <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -522,4 +522,4 @@ stream <span class="token operator">=</span> <span class="token class-name">IntS
 
 
 
-<script src="../js/util/function.js?version=1631933298132"></script><script src="../js/util/event-hub.js?version=1631933298132"></script><script src="../js/3rdparty/prism.js?version=1631933298132"></script><script src="../js/module/loading.js?version=1631933298132"></script><script src="../js/module/home.js?version=1631933298132"></script><script src="../js/module/cheatsheet.js?version=1631933298132"></script><script src="../js/module/menu.js?version=1631933298132"></script><script src="../js/3rdparty/jszip.min.js?version=1631933298132"></script><script src="../js/util/saveData.js?version=1631933298132"></script></body></html>
+<script src="../js/util/function.js?version=1634529334957"></script><script src="../js/util/event-hub.js?version=1634529334957"></script><script src="../js/3rdparty/prism.js?version=1634529334957"></script><script src="../js/module/loading.js?version=1634529334957"></script><script src="../js/module/home.js?version=1634529334957"></script><script src="../js/module/cheatsheet.js?version=1634529334957"></script><script src="../js/module/menu.js?version=1634529334957"></script><script src="../js/3rdparty/jszip.min.js?version=1634529334957"></script><script src="../js/util/saveData.js?version=1634529334957"></script></body></html>

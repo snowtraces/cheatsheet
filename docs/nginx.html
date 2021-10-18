@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nginx cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1631933298132"><link rel="stylesheet" href="../css/prism.css?version=1631933298132"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634529334957"><link rel="stylesheet" href="../css/prism.css?version=1634529334957"></head>
 
 <body>
     <script>
@@ -43,8 +43,8 @@
                             <div class="h2-section" style="height: 640px">
                                 
                                 
-                            <div class="sheet-section" style="width: 580px;top: 0px; left:0px">
-                            <div class="section-title"><h3 id="id-410">端口 <code>listen</code></h3></div>
+                            <div class="sheet-section"  data-position="580|0|0">
+                                <div class="section-title"><h3 id="id-410">端口 <code>listen</code></h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
   <span class="token comment"># 标准 HTTP 端口</span>
@@ -63,8 +63,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 0px; left:600px">
-                            <div class="section-title"><h3 id="id-411">域名 <code>server_name</code></h3></div>
+                            <div class="sheet-section"  data-position="580|600|0">
+                                <div class="section-title"><h3 id="id-411">域名 <code>server_name</code></h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
   <span class="token comment"># 监听域名 yourdomain.com</span>
@@ -86,8 +86,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 350px; left:0px">
-                            <div class="section-title"><h3 id="id-412">访问日志 <code>access_log</code></h3></div>
+                            <div class="sheet-section"  data-position="580|0|350">
+                                <div class="section-title"><h3 id="id-412">访问日志 <code>access_log</code></h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
   <span class="token comment"># 日志文件的相对或完整路径</span>
@@ -100,8 +100,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 410px; left:600px">
-                            <div class="section-title"><h3 id="id-413">杂项 <code>gzip</code>, <code>client_max_body_size</code></h3></div>
+                            <div class="sheet-section"  data-position="580|600|410">
+                                <div class="section-title"><h3 id="id-413">杂项 <code>gzip</code>, <code>client_max_body_size</code></h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
   <span class="token comment"># Turn gzip compression 'on' or 'off'</span>
@@ -119,8 +119,8 @@
                             <div class="h2-section" style="height: 632px">
                                 <div class="h2-section-title"><h2 id="id-415">文件服务</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-414"></h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-414"></h3></div>
                                 <div class="section-body">
                                     <h4>静态资源</h4>
 <p>传统web服务</p>
@@ -153,8 +153,8 @@
                             <div class="h2-section" style="height: 482px">
                                 <div class="h2-section-title"><h2 id="id-419">重定向</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-416"><code>301</code> 永久重定向</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-416"><code>301</code> 永久重定向</h3></div>
                                 <div class="section-body">
                                     <p>可用于处理<code>www.yourdomain.com</code>和<code>yourdomain.com</code>，或者将<code>http</code>重定向到<code>https</code>。下面例子中<code>www.yourdomain.com</code>重定向到<code>yourdomain.com</code>。</p>
 <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
@@ -166,8 +166,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
-                            <div class="section-title"><h3 id="id-417"><code>302</code> 临时重定向</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-417"><code>302</code> 临时重定向</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
   <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
@@ -178,8 +178,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 232px; left:600px">
-                            <div class="section-title"><h3 id="id-418">特殊URL的重定向</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|232">
+                                <div class="section-title"><h3 id="id-418">特殊URL的重定向</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
   <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
@@ -198,8 +198,8 @@
                             <div class="h2-section" style="height: 631px">
                                 <div class="h2-section-title"><h2 id="id-422">反向代理</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-420">基本使用</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-420">基本使用</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
   <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
@@ -228,8 +228,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
-                            <div class="section-title"><h3 id="id-421">升级连接（推荐用于Node.js应用程序）</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-421">升级连接（推荐用于Node.js应用程序）</h3></div>
                                 <div class="section-body">
                                     <p>对于支持WebSockets（例如socket.io）的Node.js应用程序很有用。</p>
 <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">upstream</span> node_js <span class="token punctuation">{</span>
@@ -262,8 +262,8 @@
                             <div class="h2-section" style="height: 762px">
                                 <div class="h2-section-title"><h2 id="id-424">TLS/SSL (HTTPS)</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-423">基本使用</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-423">基本使用</h3></div>
                                 <div class="section-body">
                                     <p><em>以下配置只是TLS / SSL设置的一个示例。 不要将这些设置作为适用于您的应用程序的完美安全解决方案。 请研究最适合您的证书颁发机构的正确设置。</em></p>
 <p>如果您正在寻找免费的SSL证书，则<a title="<em> Let's Encrypt </em>" href="https://letsencrypt.org/" target="_blank"><em> Let's Encrypt </em></a>是免费、自动、开放的证书颁发机构。另外，这是一个很棒的<a title="Digital Ocean指南" href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04" target="_blank">Digital Ocean指南</a>，了解如何在Ubuntu 16.04上设置TLS / SSL。</p>
@@ -301,8 +301,8 @@
                             <div class="h2-section" style="height: 762px">
                                 <div class="h2-section-title"><h2 id="id-428">负载均衡</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-425">php-fpm Unix socket</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-425">php-fpm Unix socket</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">upstream</span> php <span class="token punctuation">{</span>
     least_conn<span class="token punctuation">;</span>
@@ -317,8 +317,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
-                            <div class="section-title"><h3 id="id-426">php-fpm TCP</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-426">php-fpm TCP</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">upstream</span> php <span class="token punctuation">{</span>
     least_conn<span class="token punctuation">;</span>
@@ -332,8 +332,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 292px; left:600px">
-                            <div class="section-title"><h3 id="id-427">HTTP 负载均衡</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|292">
+                                <div class="section-title"><h3 id="id-427">HTTP 负载均衡</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token comment"># Upstreams</span>
 <span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
@@ -360,11 +360,11 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 899px">
+                            <div class="h2-section" style="height: 890px">
                                 <div class="h2-section-title"><h2 id="id-433">代理</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-429">简单代理</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-429">简单代理</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
         <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token punctuation">;</span>
@@ -377,8 +377,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
-                            <div class="section-title"><h3 id="id-430">子文件夹代理</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-430">子文件夹代理</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">/</span>folder<span class="token operator">/</span> <span class="token punctuation">{</span> <span class="token comment"># The / is important!</span>
         <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token operator">/</span><span class="token punctuation">;</span> <span class="token comment"># The / is important!</span>
@@ -391,8 +391,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 272px; left:0px">
-                            <div class="section-title"><h3 id="id-431">websocket keepalive 代理</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|272">
+                                <div class="section-title"><h3 id="id-431">websocket keepalive 代理</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token comment"># Upstreams</span>
 <span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
@@ -420,8 +420,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 272px; left:600px">
-                            <div class="section-title"><h3 id="id-432">反向代理 Apache</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|272">
+                                <div class="section-title"><h3 id="id-432">反向代理 Apache</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
 
@@ -455,11 +455,11 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 368px">
+                            <div class="h2-section" style="height: 360px">
                                 <div class="h2-section-title"><h2 id="id-436">Nginx 安全</h2></div>
                                 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-434">访问限制</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-434">访问限制</h3></div>
                                 <div class="section-body">
                                     <h4>常用备份和存档文件</h4>
 <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> <span class="token string">"\.(old|orig|original|php#|php~|php_bak|save|swo|aspx?|tpl|sh|bash|bak?|cfg|cgi|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rdf)$"</span> <span class="token punctuation">{</span>
@@ -474,8 +474,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
-                            <div class="section-title"><h3 id="id-435">阻止常见攻击</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-435">阻止常见攻击</h3></div>
                                 <div class="section-body">
                                     <h4>base64 encoded url</h4>
 <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> <span class="token string">"(base64_encode)(.*)(\()"</span> <span class="token punctuation">{</span>
@@ -495,8 +495,8 @@
                 <div class="h2-section" style="height: 392px">
                     <div class="h2-section-title"><h2 id="id-439">Nginx Media</h2></div>
                     
-                            <div class="sheet-section" style="width: 580px;top: 42px; left:0px">
-                            <div class="section-title"><h3 id="id-437">MP4 stream module</h3></div>
+                            <div class="sheet-section" style="width: 580px" data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-437">MP4 stream module</h3></div>
                                 <div class="section-body">
                                     <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">/</span>videos <span class="token punctuation">{</span>
     <span class="token keyword">location</span> <span class="token operator">~</span> \<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">mp4</span><span class="token punctuation">)</span>$ <span class="token punctuation">{</span>
@@ -515,8 +515,8 @@
                                 </div>
                             </div>
 
-                <div class="sheet-section" style="width: 580px;top: 42px; left:600px">
-                <div class="section-title"><h3 id="id-438">WebP images</h3></div>
+                <div class="sheet-section" style="width: 580px" data-position="580|600|42">
+                    <div class="section-title"><h3 id="id-438">WebP images</h3></div>
                     <div class="section-body">
                         <p>Mapping conditions to display WebP images</p>
 <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token comment"># 如果Web浏览器支持WebP，则提供WebP图像</span>
@@ -661,4 +661,4 @@
 
 
 
-<script src="../js/util/function.js?version=1631933298132"></script><script src="../js/util/event-hub.js?version=1631933298132"></script><script src="../js/3rdparty/prism.js?version=1631933298132"></script><script src="../js/module/loading.js?version=1631933298132"></script><script src="../js/module/home.js?version=1631933298132"></script><script src="../js/module/cheatsheet.js?version=1631933298132"></script><script src="../js/module/menu.js?version=1631933298132"></script><script src="../js/3rdparty/jszip.min.js?version=1631933298132"></script><script src="../js/util/saveData.js?version=1631933298132"></script></body></html>
+<script src="../js/util/function.js?version=1634529334957"></script><script src="../js/util/event-hub.js?version=1634529334957"></script><script src="../js/3rdparty/prism.js?version=1634529334957"></script><script src="../js/module/loading.js?version=1634529334957"></script><script src="../js/module/home.js?version=1634529334957"></script><script src="../js/module/cheatsheet.js?version=1634529334957"></script><script src="../js/module/menu.js?version=1634529334957"></script><script src="../js/3rdparty/jszip.min.js?version=1634529334957"></script><script src="../js/util/saveData.js?version=1634529334957"></script></body></html>
