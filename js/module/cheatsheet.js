@@ -33,8 +33,7 @@
         },
         bindEvents() {
             window.onresize = $.throttle(() => {
-                this.initSectionPosition.call(this)
-                this.showAction(true)
+                this.initSectionPosition.call(this, true)
             }, 400)
             window.onscroll = $.throttle(() => {
                 this.showAction()
@@ -55,7 +54,6 @@
                 $.get(`./data/${value}.md`).then((rawText) => {
                     this.view.render(this.parseMarkdown(rawText))
                     this.initSectionPosition()
-                    this.showAction()
                     Prism.highlightAll()
 
                     // 生成导航
@@ -69,10 +67,10 @@
         /**
          * 显示过渡
          */
-        showAction(anyway = false) {
+        showAction(showAll = false) {
             $.elAll('.sheet-section').forEach(section => {
                 // 1. 判断是否可视
-                let isShown = anyway || this.isElementInViewport(section)
+                let isShown = showAll || this.isElementInViewport(section)
 
                 // 2. 可视展开
                 if (isShown) {
@@ -601,7 +599,7 @@
                 </tbody>
             </table>`
         },
-        initSectionPosition() {
+        initSectionPosition(showOnInit = false) {
             let default_column_size = this.model.meta.column_size || 2;
             let column_size = default_column_size;
             let idxToYOffset = {};
@@ -657,6 +655,8 @@
                 idxToYOffset = {}
                 default_top = 0
             })
+
+            this.showAction(showOnInit);
         },
         metaParser(metaText) {
             let lineList = metaText.split('\n');
