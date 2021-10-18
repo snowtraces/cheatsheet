@@ -32,7 +32,13 @@
             this.initSectionPosition()
         },
         bindEvents() {
-            window.onresize = $.throttle(() => this.initSectionPosition.call(this))
+            window.onresize = $.throttle(() => {
+                this.initSectionPosition.call(this)
+                this.showAction(true)
+            }, 400)
+            window.onscroll = $.throttle(() => {
+                this.showAction()
+            }, 400)
         },
         bindEventHub() {
             window.eventHub.on('open-sheet', (data) => {
@@ -49,6 +55,7 @@
                 $.get(`./data/${value}.md`).then((rawText) => {
                     this.view.render(this.parseMarkdown(rawText))
                     this.initSectionPosition()
+                    this.showAction()
                     Prism.highlightAll()
 
                     // 生成导航
@@ -58,6 +65,40 @@
                     window.eventHub.emit('loadingOff', value)
                 })
             })
+        },
+        /**
+         * 显示过渡
+         */
+        showAction(anyway = false) {
+            $.elAll('.sheet-section').forEach(section => {
+                // 1. 判断是否可视
+                let isShown = anyway || this.isElementInViewport(section)
+
+                // 2. 可视展开
+                if (isShown) {
+                    let positionMeta = section.dataset.position.split('|')
+                    section.setAttribute('style', `width: ${positionMeta[0]}px;transform: translate(${positionMeta[1]}px, ${positionMeta[2]}px); opacity: 1`);
+                }
+            })
+        },
+        isElementInViewport(target) {
+            var top = target.offsetTop;
+            var left = target.offsetLeft;
+            var width = target.offsetWidth;
+            var height = target.offsetHeight;
+
+            while (target.offsetParent) {
+                target = target.offsetParent;
+                top += target.offsetTop;
+                left += target.offsetLeft;
+            }
+
+            return (
+                top < (window.pageYOffset + window.innerHeight) &&
+                left < (window.pageXOffset + window.innerWidth) &&
+                (top + height) > window.pageYOffset &&
+                (left + width) > window.pageXOffset
+            );
         },
         parseMarkdown(rawText) {
             if (!rawText) return '';
@@ -380,7 +421,7 @@
             while (true) { yield id++ }
         },
         buidId(inStr) {
-            if(!this.idGen) {
+            if (!this.idGen) {
                 this.idGen = this.idMaker()
             }
             return `id-${this.idGen.next().value}`
@@ -605,7 +646,8 @@
                     let top = idxToYOffset[colIdx] || default_top;
                     let left = (colIdx) * (20 + h2_singleWidth);
                     // section.setAttribute('style', `width: ${h2_singleWidth}px;top: ${top}px; left:${left}px`);
-                    section.setAttribute('style', `width: ${h2_singleWidth}px;transform: translate(${left}px, ${top}px); opacity: 1`);
+                    // section.setAttribute('style', `width: ${h2_singleWidth}px;transform: translate(${left}px, ${top}px); opacity: 1`);
+                    section.setAttribute('data-position', `${h2_singleWidth}|${left}|${top}`);
 
                     idxToYOffset[colIdx] = (idxToYOffset[colIdx] || default_top) + height;
                 })
