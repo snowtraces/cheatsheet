@@ -345,6 +345,13 @@
   background: #fff;
   overflow-y: auto;
   max-height: 80vh;
+  transition: all 0.6s;
+}
+#sheet-nav .nav-content.hide {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  margin-left: -20px;
 }
 #sheet-nav .nav-content .nav-item {
   cursor: pointer;

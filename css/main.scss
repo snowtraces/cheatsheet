@@ -154,7 +154,7 @@ $top_nav_height: 50px;
         .h2-section {
             position: relative;
             .h2-section-title {
-                overflow:visible;
+                overflow: visible;
                 h2 {
                     font-size: 32px;
                     font-weight: 100;
@@ -349,6 +349,15 @@ $max-nav-height: 80vh;
         background: #fff;
         overflow-y: auto;
         max-height: $max-nav-height;
+        transition: all 0.6s;
+
+        &.hide {
+            display: block;
+            opacity: 0;
+            pointer-events: none;
+            margin-left: -20px;
+        }
+
         .nav-item {
             cursor: pointer;
             font-size: 0.875em;

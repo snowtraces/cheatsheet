@@ -35,6 +35,7 @@
                     $.el('.nav-content').classList.remove('hide')
                     $.el('.nav-content').classList.add('show')
                     $.el('.nav-btn-menu').classList.add('active')
+                    window.eventHub.emit('show-sheet')
                 }
             })
             $.bindEvent('.nav-btn-top', 'click', () => {

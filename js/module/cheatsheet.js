@@ -34,10 +34,18 @@
         bindEvents() {
             window.onresize = $.throttle(() => {
                 this.initSectionPosition.call(this, true)
-            }, 400)
+            })
+
             window.onscroll = $.throttle(() => {
                 this.showAction()
-            }, 400)
+            })
+
+            window.onkeydown = (e) => {
+                if (e.ctrlKey && e.key === 'f') {
+                    this.showAction(true)
+                }
+            }
+
         },
         bindEventHub() {
             window.eventHub.on('open-sheet', (data) => {
@@ -63,6 +71,8 @@
                     window.eventHub.emit('loadingOff', value)
                 })
             })
+
+            window.eventHub.on('show-sheet', () => this.showAction(true))
         },
         /**
          * 显示过渡
@@ -120,7 +130,6 @@
             lines.forEach(line => {
                 _line = line.trim()
                 // if (!block_status && !_line) return;
-
 
                 if (table_status && !_line.startsWith('|')) {
                     // table 结束
@@ -518,7 +527,7 @@
         highlight(inString, withHight) {
             if (withHight) {
                 return inString.replace(
-                    /([^\w]?)((\w|-|\/|\.|=|_|\+|@)(\w|\s|-|\/|\.|=|_|>|<|\+|@|…)+(\w|-|\/|\.|=|_|\+|@))([^\w]?)/g,
+                    /([^\w]?)((\w|-|\/|\.|=|_|\+|@)(\w|-|\/|\.|=|_|\+|@|>|<|\(|\)|{|}|\s|…)+(\w|-|\/|\.|=|_|\+|@|\(|\)|{|}))([^\w]?)/g,
                     '$1<code>$2</code>$6')
             } else {
                 return inString;
