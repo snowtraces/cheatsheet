@@ -46,6 +46,22 @@
                 this.idJump(e.target.dataset.id)
             })
 
+            $.bindEventForce('.next-ctrl', 'click', (_, from) => {
+                console.log(from)
+                console.log(from.parentNode.dataset.id)
+
+                let children = $.elAll(`[data-pid="${from.parentNode.dataset.id}"]`)
+                children.forEach(child => {
+                    if (child.classList.contains('hide')) {
+                        child.classList.remove('hide')
+                        from.innerText = "-"
+                    } else {
+                        child.classList.add('hide')
+                        from.innerText = "+"
+                    }
+                })
+            })
+
         },
         bindEventHub() {
             window.eventHub.on('buildNav', () => {
@@ -68,14 +84,15 @@
 
                 this.view.render(
                     items.map(item => `
-                    <div class="nav-item nav-type-${item[0]}" title="${item[1]}" data-id="${item[2]}" data-pid="${item[3] ? item[3] : ''}">
-                        ${item[1]}
+                    <div class="nav-item nav-type-${item[0]} ${item[0] === 'H2' ? '' : 'hide'}" title="${item[1]}" data-id="${item[2]}" data-pid="${item[3] ? item[3] : ''}">
+                    <span class="next-ctrl">${item[0] === 'H2' ? '+' : ''}</span> ${item[1]}
                     </div>
                 `).join('')
                 )
             })
         },
         idJump(id) {
+            if (!id) return
             let target = $.el(`#${id}`)
             target.scrollIntoView({behavior: "smooth"})
         }
