@@ -39,7 +39,7 @@
                 }
             })
             $.bindEvent('.nav-btn-top', 'click', () => {
-                document.body.scrollIntoView({behavior: "smooth"})
+                document.body.scrollIntoView({ behavior: "smooth" })
             })
 
             $.bindEventForce('.nav-item', 'click', (e) => {
@@ -70,12 +70,14 @@
                 // [tag, txt, id, pid]
 
                 let lastH2Id = 'default'
+                let h2Count = 0;
                 let items = hList
                     .filter(item => item.innerText)
                     .map(item => {
                         let tagName = item.tagName
                         if (tagName === 'H2') {
                             lastH2Id = item.id
+                            h2Count++;
                             return [tagName, item.innerText, item.id, null]
                         } else {
                             return [tagName, item.innerText, item.id, lastH2Id]
@@ -84,8 +86,8 @@
 
                 this.view.render(
                     items.map(item => `
-                    <div class="nav-item nav-type-${item[0]} ${item[0] === 'H2' ? '' : 'hide'}" title="${item[1]}" data-id="${item[2]}" data-pid="${item[3] ? item[3] : ''}">
-                    <span class="next-ctrl">${item[0] === 'H2' ? '+' : ''}</span> ${item[1]}
+                    <div class="nav-item nav-type-${item[0]} ${item[0] === 'H2' ? '' : (h2Count > 3) ? 'hide' : ''}" title="${item[1]}" data-id="${item[2]}" data-pid="${item[3] ? item[3] : ''}">
+                    <span class="next-ctrl">${item[0] === 'H2' ? ((h2Count > 3) ? '+' : '-') : ''}</span> ${item[1]}
                     </div>
                 `).join('')
                 )
@@ -94,7 +96,7 @@
         idJump(id) {
             if (!id) return
             let target = $.el(`#${id}`)
-            target.scrollIntoView({behavior: "smooth"})
+            target.scrollIntoView({ behavior: "smooth" })
         }
     }
 

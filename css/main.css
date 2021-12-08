@@ -27,10 +27,9 @@
   height: 100%;
 }
 #top-nav[data-cs-theme=light] {
-  background: #f7f7f7;
-  color: #333;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0px 0px 3px 0px #ddd;
+  background: var(--main-color__light);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0px 0px 3px 0px var(--border-color);
 }
 #top-nav #go-back {
   height: 50px;
@@ -86,14 +85,15 @@
   margin: 0;
 }
 #home-wrapper .search input {
-  border: 1px solid #eee;
+  border: 1px solid var(--border-color);
   width: 100%;
   padding: 13px;
   font-size: 18px;
   line-height: 24px;
-  box-shadow: 1px 1px 3px -1px #ddd;
+  box-shadow: 1px 1px 3px -1px var(--border-color);
   border-radius: 2px;
-  background-color: #fff;
+  background-color: var(--main-color__light);
+  color: var(--font-color);
 }
 
 #recomment-list {
@@ -104,11 +104,11 @@
   grid-row-gap: 10px;
 }
 #recomment-list > .item {
-  background: #ffffff;
+  background: var(--main-color__light);
   border-radius: 3px;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 1px 1px 3px -1px #999;
+  box-shadow: 1px 1px 3px -1px var(--border-color);
   transition: all 0.1s;
 }
 #recomment-list > .item > .icon {
@@ -117,6 +117,11 @@
   vertical-align: middle;
   height: 44px;
   padding: 6px;
+}
+#recomment-list > .item > .icon svg[fill="#333333"],
+#recomment-list > .item > .icon svg[fill="#092361"],
+#recomment-list > .item > .icon svg[fill="#4d5150"] {
+  filter: var(--img-invert);
 }
 #recomment-list > .item > .title {
   line-height: 32px;
@@ -127,7 +132,6 @@
 }
 #recomment-list > .item:hover {
   margin: -3px 0 3px;
-  box-shadow: 1px 1px 3px 0px #999;
 }
 
 /** sheet */
@@ -185,8 +189,8 @@
   counter-reset: h3Title;
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section .section-body {
-  background: #ffffff;
-  box-shadow: 1px 1px 3px -1px #ccc;
+  background: var(--main-color__light);
+  box-shadow: 1px 1px 3px -1px var(--border-color);
   border-radius: 5px;
   overflow: auto;
   font-size: 13.3333px !important;
@@ -195,7 +199,7 @@
   font-weight: normal !important;
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section .section-body > *:not(:first-child) {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid var(--border-color);
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section .section-body > p {
   padding: 1em;
@@ -220,7 +224,7 @@
   width: 100%;
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section .section-body > table tr:not(:last-child) {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid var(--border-color);
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section .section-body > table td {
   padding: 8px 12px;
@@ -244,7 +248,7 @@
   text-align: left;
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section .section-body > h4 {
-  background: #f8f9fa;
+  background: var(--header-h4-bg);
   padding: 0.75em 1em;
   margin: 0;
   font-size: 12.333px !important;
@@ -280,8 +284,8 @@
   padding: 0 4px;
   margin: 0 2px;
   border-radius: 2px;
-  color: #c7254e;
-  background-color: #f9f2f4;
+  color: var(--code-color);
+  background-color: var(--code-bg-color);
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section .section-body span.sn {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -347,10 +351,10 @@
 }
 #sheet-nav .nav-content {
   border-right: 3px solid #999;
-  box-shadow: -2px 2px 8px -1px #aaa;
+  box-shadow: -2px 2px 8px -1px var(--border-color);
   width: 200px;
   padding: 10px;
-  background: #fff;
+  background: var(--main-color);
   overflow-y: auto;
   max-height: 80vh;
   transition: all 0.6s;
@@ -380,17 +384,16 @@
 }
 #sheet-nav .nav-content .nav-item:hover {
   color: #c7254e;
-  background-color: #f9f2f4;
+  background-color: var(--main-color__light);
 }
 #sheet-nav .nav-content .nav-item:hover .next-ctrl {
   animation: blink 1s 1;
 }
 #sheet-nav .nav-content .nav-item .next-ctrl {
   display: inline-block;
-  padding: 2px 5px;
-}
-#sheet-nav .nav-content .nav-item .next-ctrl:hover {
-  animation: blink 1.5s 3;
+  padding: 2px 0;
+  width: 18px;
+  text-align: center;
 }
 @keyframes blink {
   50% {
