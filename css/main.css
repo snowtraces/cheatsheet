@@ -177,7 +177,6 @@
 }
 #sheet-wrapper #sheet-body .h2-section .sheet-section {
   position: absolute;
-  transition: all 0.8s;
   top: 0;
   left: 0;
   opacity: 0.333;

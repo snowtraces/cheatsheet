@@ -616,7 +616,7 @@
                 </tbody>
             </table>`
         },
-        initSectionPosition(showOnInit = false) {
+        initSectionPosition(showOnInit = true) {
             let default_column_size = this.model.meta.column_size || 2;
             let column_size = default_column_size;
             let idxToYOffset = {};

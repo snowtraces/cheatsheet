@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>awk cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634537032455"><link rel="stylesheet" href="../css/prism.css?version=1634537032455"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=2021082402"><link rel="stylesheet" href="../css/prism.css?version=2021082402"></head>
 
 <body>
     <script>
@@ -47,9 +47,9 @@
                                 <div class="section-title"><h3 id="id-222">开始</h3></div>
                                 <div class="section-body">
                                     <h4>从netstat命令中提取了如下信息作为用例</h4>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">Proto Recv-Q Send-Q Local-Address          Foreign-Address             State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">Proto Recv-Q Send-Q Local-Address          Foreign-Address             State
 tcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTEN
 tcp        0      0 0.0.0.0:80             0.0.0.0:*                   LISTEN
 tcp        0      0 127.0.0.1:9000         0.0.0.0:*                   LISTEN
@@ -77,9 +77,9 @@ tcp        0      0 :::22                  :::*                        LISTEN
                                 <div class="section-body">
                                     <p>其中单引号中的被<em>大括号</em>括着的就是<code>awk</code>的语句，注意，其只能被<em>单引号</em>包含。</p>
 <p>其中的<code>$1..$n</code>表示第几例。注：<code>$0</code>表示整个行。</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$1</span>, <span class="token variable">$4</span>}'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'{print $1, $4}'</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">Proto Local-Address
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">Proto Local-Address
 tcp 0.0.0.0:3306
 tcp 0.0.0.0:80
 tcp 127.0.0.1:9000
@@ -106,9 +106,9 @@ tcp :::22
                                 <div class="section-title"><h3 id="id-224">格式化输出</h3></div>
                                 <div class="section-body">
                                     <p><code>awk</code>的格式化输出，和<code>C</code>语言的<code>printf</code>没什么两样：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'{printf "%-8s %-8s %-8s %-18s %-22s %-15s<span class="token entity" title="\n">\n</span>",<span class="token variable">$1</span>,<span class="token variable">$2</span>,<span class="token variable">$3</span>,<span class="token variable">$4</span>,<span class="token variable">$5</span>,<span class="token variable">$6</span>}'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'{printf "%-8s %-8s %-8s %-18s %-22s %-15s\n",$1,$2,$3,$4,$5,$6}'</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">Proto    Recv-Q   Send-Q   Local-Address      Foreign-Address        State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">Proto    Recv-Q   Send-Q   Local-Address      Foreign-Address        State
 tcp      0        0        0.0.0.0:3306       0.0.0.0:*              LISTEN
 tcp      0        0        0.0.0.0:80         0.0.0.0:*              LISTEN
 tcp      0        0        127.0.0.1:9000     0.0.0.0:*              LISTEN
@@ -133,42 +133,42 @@ tcp      0        0        :::22              :::*                   LISTEN
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1549px">
+                            <div class="h2-section" style="height: 1558px">
                                 <div class="h2-section-title"><h2 id="id-228">起步</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-225">过滤记录</h3></div>
                                 <div class="section-body">
                                     <h4>过滤条件为：<em>第3列</em>的值为<code>0</code> &amp;&amp; <em>第6列</em>的值为<code>LISTEN</code></h4>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$3</span>==0 &amp;&amp; <span class="token variable">$6</span>=="LISTEN" '</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$3==0 &amp;&amp; $6=="LISTEN" '</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 0.0.0.0:3306               0.0.0.0:*              LISTEN
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 0.0.0.0:3306               0.0.0.0:*              LISTEN
 tcp        0      0 0.0.0.0:80                 0.0.0.0:*              LISTEN
 tcp        0      0 127.0.0.1:9000             0.0.0.0:*              LISTEN
 tcp        0      0 :::22                      :::*                   LISTEN
 </code></pre>
 <p>其中的<code>==</code>为比较运算符。其他比较运算符：<code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></p>
 <p>各种过滤记录的方式:</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">' <span class="token variable">$3</span>&gt;0 {print <span class="token variable">$0</span>}'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">' $3&gt;0 {print $0}'</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">Proto Recv-Q Send-Q Local-Address          Foreign-Address             State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">Proto Recv-Q Send-Q Local-Address          Foreign-Address             State
 tcp        0   4166 coolshell.cn:80        61.148.242.38:30901         ESTABLISHED
 tcp        0      1 coolshell.cn:80        124.152.181.209:26825       FIN_WAIT1
 tcp        0      1 coolshell.cn:80        208.115.113.92:50601        LAST_ACK
 </code></pre>
 <p>如果需要表头的话，可以引入内建变量NR</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$3</span>==0 &amp;&amp; <span class="token variable">$6</span>=="LISTEN" || NR==1 '</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$3==0 &amp;&amp; $6=="LISTEN" || NR==1 '</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">Proto Recv-Q Send-Q Local-Address          Foreign-Address             State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">Proto Recv-Q Send-Q Local-Address          Foreign-Address             State
 tcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTEN
 tcp        0      0 0.0.0.0:80             0.0.0.0:*                   LISTEN
 tcp        0      0 127.0.0.1:9000         0.0.0.0:*                   LISTEN
 tcp        0      0 :::22                  :::*                        LISTEN
 </code></pre>
 <p>再加上格式化输出：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$3</span>==0 &amp;&amp; <span class="token variable">$6</span>=="LISTEN" || NR==1 {printf "%-20s %-20s %s<span class="token entity" title="\n">\n</span>",<span class="token variable">$4</span>,<span class="token variable">$5</span>,<span class="token variable">$6</span>}'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$3==0 &amp;&amp; $6=="LISTEN" || NR==1 {printf "%-20s %-20s %s\n",$4,$5,$6}'</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">Local-Address        Foreign-Address      State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">Local-Address        Foreign-Address      State
 0.0.0.0:3306         0.0.0.0:*            LISTEN
 0.0.0.0:80           0.0.0.0:*            LISTEN
 127.0.0.1:9000       0.0.0.0:*            LISTEN
@@ -192,9 +192,9 @@ tcp        0      0 :::22                  :::*                        LISTEN
                 </tbody>
             </table>
 <p>比如：我们如果要输出行号:</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$3</span>==0 &amp;&amp; <span class="token variable">$6</span>=="ESTABLISHED" || NR==1 {printf "%02s %s %-20s %-20s %s<span class="token entity" title="\n">\n</span>",NR, FNR, <span class="token variable">$4</span>,<span class="token variable">$5</span>,<span class="token variable">$6</span>}'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$3==0 &amp;&amp; $6=="ESTABLISHED" || NR==1 {printf "%02s %s %-20s %-20s %s\n",NR, FNR, $4,$5,$6}'</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">01 1 Local-Address        Foreign-Address      State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">01 1 Local-Address        Foreign-Address      State
 07 7 coolshell.cn:80      110.194.134.189:1032 ESTABLISHED
 08 8 coolshell.cn:80      123.169.124.111:49809 ESTABLISHED
 10 10 coolshell.cn:80      123.169.124.111:49829 ESTABLISHED
@@ -204,12 +204,12 @@ tcp        0      0 :::22                  :::*                        LISTEN
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|788">
+                            <div class="sheet-section"  data-position="580|600|795">
                                 <div class="section-title"><h3 id="id-227">指定分隔符</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$  <span class="token function">awk</span>  <span class="token string">'BEGIN{FS=":"} {print <span class="token variable">$1</span>,<span class="token variable">$3</span>,<span class="token variable">$6</span>}'</span> /etc/passwd
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$  <span class="token function">awk</span>  <span class="token string">'BEGIN{FS=":"} {print $1,$3,$6}'</span> /etc/passwd
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">root 0 /root
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">root 0 /root
 bin 1 /bin
 daemon 2 /sbin
 adm 3 /var/adm
@@ -219,15 +219,15 @@ shutdown 6 /sbin
 halt 7 /sbin
 </code></pre>
 <p>上面的命令也等价于：（<code>-F</code>的意思就是指定分隔符）</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span>  -F: <span class="token string">'{print <span class="token variable">$1</span>,<span class="token variable">$3</span>,<span class="token variable">$6</span>}'</span> /etc/passwd
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span>  -F: <span class="token string">'{print $1,$3,$6}'</span> /etc/passwd
 </code></pre>
 <p>如果要指定多个分隔符，可以这样来：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;"><span class="token function">awk</span> -F <span class="token string">'[;:]'</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;"><span class="token function">awk</span> -F <span class="token string">'[;:]'</span>
 </code></pre>
 <p>再来看一个以<code>\t</code>作为分隔符<em>输出</em>的例子（下面使用/etc/passwd文件，这个文件是以<code>:</code>分隔的）：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span>  -F: <span class="token string">'{print <span class="token variable">$1</span>,<span class="token variable">$3</span>,<span class="token variable">$6</span>}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> /etc/passwd
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span>  -F: <span class="token string">'{print $1,$3,$6}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> /etc/passwd
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">root    0       /root
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">root    0       /root
 bin     1       /bin
 daemon  2       /sbin
 adm     3       /var/adm
@@ -239,23 +239,23 @@ sync    5       /sbin
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2180px">
+                            <div class="h2-section" style="height: 2184px">
                                 <div class="h2-section-title"><h2 id="id-232">进阶</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-229">字符串匹配</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$6</span> ~ /FIN/ || NR==1 {print NR,<span class="token variable">$4</span>,<span class="token variable">$5</span>,<span class="token variable">$6</span>}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$6 ~ /FIN/ || NR==1 {print NR,$4,$5,$6}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">1       Local-Address   Foreign-Address State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">1       Local-Address   Foreign-Address State
 6       coolshell.cn:80 61.140.101.185:37538    FIN_WAIT2
 9       coolshell.cn:80 116.234.127.77:11502    FIN_WAIT2
 13      coolshell.cn:80 124.152.181.209:26825   FIN_WAIT1
 18      coolshell.cn:80 117.136.20.85:50025     FIN_WAIT2
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ $ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$6</span> ~ /WAIT/ || NR==1 {print NR,<span class="token variable">$4</span>,<span class="token variable">$5</span>,<span class="token variable">$6</span>}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ $ <span class="token function">awk</span> <span class="token string">'$6 ~ /WAIT/ || NR==1 {print NR,$4,$5,$6}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">1       Local-Address   Foreign-Address State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">1       Local-Address   Foreign-Address State
 5       coolshell.cn:80 124.205.5.146:18245     TIME_WAIT
 6       coolshell.cn:80 61.140.101.185:37538    FIN_WAIT2
 9       coolshell.cn:80 116.234.127.77:11502    FIN_WAIT2
@@ -266,17 +266,17 @@ sync    5       /sbin
 </code></pre>
 <p>上面的第一个示例匹配<code>FIN</code>状态， 第二个示例匹配<code>WAIT</code>字样的状态。其实<code>~</code>表示模式开始。<code>/ /</code>中是模式。这就是一个正则表达式的匹配。</p>
 <p><code>awk</code>可以像<code>grep</code>一样的去匹配单行：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'/LISTEN/'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'/LISTEN/'</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN
 tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN
 tcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTEN
 tcp        0      0 :::22                   :::*                    LISTEN
 </code></pre>
 <p>可以使用<code>/FIN|TIME/</code>来匹配<code>FIN</code>或者<code>TIME</code>:</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$6</span> ~ /FIN|TIME/ || NR==1 {print NR,<span class="token variable">$4</span>,<span class="token variable">$5</span>,<span class="token variable">$6</span>}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$6 ~ /FIN|TIME/ || NR==1 {print NR,$4,$5,$6}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">1       Local-Address   Foreign-Address State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">1       Local-Address   Foreign-Address State
 5       coolshell.cn:80 124.205.5.146:18245     TIME_WAIT
 6       coolshell.cn:80 61.140.101.185:37538    FIN_WAIT2
 9       coolshell.cn:80 116.234.127.77:11502    FIN_WAIT2
@@ -286,9 +286,9 @@ tcp        0      0 :::22                   :::*                    LISTEN
 18      coolshell.cn:80 117.136.20.85:50025     FIN_WAIT2
 </code></pre>
 <p>再来看看模式取反的例子：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'<span class="token variable">$6</span> !~ /WAIT/ || NR==1 {print NR,<span class="token variable">$4</span>,<span class="token variable">$5</span>,<span class="token variable">$6</span>}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$6 !~ /WAIT/ || NR==1 {print NR,$4,$5,$6}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">1       Local-Address   Foreign-Address State
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">1       Local-Address   Foreign-Address State
 2       0.0.0.0:3306    0.0.0.0:*       LISTEN
 3       0.0.0.0:80      0.0.0.0:*       LISTEN
 4       127.0.0.1:9000  0.0.0.0:*       LISTEN
@@ -309,63 +309,63 @@ tcp        0      0 :::22                   :::*                    LISTEN
                                 <div class="section-title"><h3 id="id-230">折分文件</h3></div>
                                 <div class="section-body">
                                     <p>awk拆分文件很简单，使用重定向就好了。下面这个例子，是按第6列分隔文件（<code>group by</code>，不同值分到不同的文件中），相当的简单（其中的<code>NR!=1</code>表示不处理表头）。</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'NR!=1{print &gt; <span class="token variable">$6</span>}'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'NR!=1{print &gt; $6}'</span> netstat.txt
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">ls</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">ls</span>
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">ESTABLISHED  FIN_WAIT1  FIN_WAIT2  LAST_ACK  LISTEN  netstat.txt  TIME_WAIT
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">ESTABLISHED  FIN_WAIT1  FIN_WAIT2  LAST_ACK  LISTEN  netstat.txt  TIME_WAIT
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> ESTABLISHED
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> ESTABLISHED
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        110.194.134.189:1032        ESTABLISHED
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        110.194.134.189:1032        ESTABLISHED
 tcp        0      0 coolshell.cn:80        123.169.124.111:49809       ESTABLISHED
 tcp        0      0 coolshell.cn:80        123.169.124.111:49829       ESTABLISHED
 tcp        0   4166 coolshell.cn:80        61.148.242.38:30901         ESTABLISHED
 tcp        0      0 coolshell.cn:80        110.194.134.189:4796        ESTABLISHED
 tcp        0      0 coolshell.cn:80        123.169.124.111:49840       ESTABLISHED
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> FIN_WAIT1
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> FIN_WAIT1
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      1 coolshell.cn:80        124.152.181.209:26825       FIN_WAIT1
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      1 coolshell.cn:80        124.152.181.209:26825       FIN_WAIT1
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> FIN_WAIT2
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> FIN_WAIT2
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        61.140.101.185:37538        FIN_WAIT2
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        61.140.101.185:37538        FIN_WAIT2
 tcp        0      0 coolshell.cn:80        116.234.127.77:11502        FIN_WAIT2
 tcp        0      0 coolshell.cn:80        117.136.20.85:50025         FIN_WAIT2
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> LAST_ACK
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> LAST_ACK
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      1 coolshell.cn:80        208.115.113.92:50601        LAST_ACK
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      1 coolshell.cn:80        208.115.113.92:50601        LAST_ACK
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> LISTEN
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> LISTEN
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTEN
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTEN
 tcp        0      0 0.0.0.0:80             0.0.0.0:*                   LISTEN
 tcp        0      0 127.0.0.1:9000         0.0.0.0:*                   LISTEN
 tcp        0      0 :::22                  :::*                        LISTEN
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> TIME_WAIT
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> TIME_WAIT
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        124.205.5.146:18245         TIME_WAIT
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        124.205.5.146:18245         TIME_WAIT
 tcp        0      0 coolshell.cn:80        183.60.215.36:36970         TIME_WAIT
 tcp        0      0 coolshell.cn:80        183.60.212.163:51082        TIME_WAIT
 </code></pre>
 <p>也可以只将指定的列输出到文件：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;"><span class="token function">awk</span> <span class="token string">'NR!=1{print <span class="token variable">$4</span>,<span class="token variable">$5</span> &gt; <span class="token variable">$6</span>}'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;"><span class="token function">awk</span> <span class="token string">'NR!=1{print $4,$5 &gt; $6}'</span> netstat.txt
 </code></pre>
 <p>再复杂一点：（注意其中的<code>if-else-if</code>语句，可见awk其实是个脚本解释器）</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'NR!=1{if(<span class="token variable">$6</span> ~ /TIME|ESTABLISHED/) print &gt; "1.txt";
-else if(<span class="token variable">$6</span> ~ /LISTEN/) print &gt; "2.txt";
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'NR!=1{if($6 ~ /TIME|ESTABLISHED/) print &gt; "1.txt";
+else if($6 ~ /LISTEN/) print &gt; "2.txt";
 else print &gt; "3.txt" }'</span> netstat.txt
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">ls</span> *.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">ls</span> *.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">1.txt  2.txt  3.txt
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">1.txt  2.txt  3.txt
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> <span class="token number">1</span>.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> <span class="token number">1</span>.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        124.205.5.146:18245         TIME_WAIT
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        124.205.5.146:18245         TIME_WAIT
 tcp        0      0 coolshell.cn:80        110.194.134.189:1032        ESTABLISHED
 tcp        0      0 coolshell.cn:80        123.169.124.111:49809       ESTABLISHED
 tcp        0      0 coolshell.cn:80        123.169.124.111:49829       ESTABLISHED
@@ -375,16 +375,16 @@ tcp        0      0 coolshell.cn:80        110.194.134.189:4796        ESTABLISH
 tcp        0      0 coolshell.cn:80        183.60.212.163:51082        TIME_WAIT
 tcp        0      0 coolshell.cn:80        123.169.124.111:49840       ESTABLISHED
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> <span class="token number">2</span>.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> <span class="token number">2</span>.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTEN
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTEN
 tcp        0      0 0.0.0.0:80             0.0.0.0:*                   LISTEN
 tcp        0      0 127.0.0.1:9000         0.0.0.0:*                   LISTEN
 tcp        0      0 :::22                  :::*                        LISTEN
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> <span class="token number">3</span>.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> <span class="token number">3</span>.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        61.140.101.185:37538        FIN_WAIT2
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">tcp        0      0 coolshell.cn:80        61.140.101.185:37538        FIN_WAIT2
 tcp        0      0 coolshell.cn:80        116.234.127.77:11502        FIN_WAIT2
 tcp        0      1 coolshell.cn:80        124.152.181.209:26825       FIN_WAIT1
 tcp        0      1 coolshell.cn:80        208.115.113.92:50601        LAST_ACK
@@ -393,18 +393,18 @@ tcp        0      0 coolshell.cn:80        117.136.20.85:50025         FIN_WAIT2
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1481">
+                            <div class="sheet-section"  data-position="580|0|1483">
                                 <div class="section-title"><h3 id="id-231">统计</h3></div>
                                 <div class="section-body">
                                     <p>下面的命令计算所有的C文件，CPP文件和H文件的文件大小总和。</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">ls</span> -l  *.cpp *.c *.h <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{sum+=<span class="token variable">$5</span>} END {print sum}'</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">ls</span> -l  *.cpp *.c *.h <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{sum+=$5} END {print sum}'</span>
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">2511401
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">2511401
 </code></pre>
 <p>我们再来看一个统计各个connection状态的用法：（我们可以看到一些编程的影子了，大家都是程序员我就不解释了。注意其中的<em>数组</em>的用法）</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'NR!=1{a[<span class="token variable">$6</span>]++;} END {for (i in a) print i ", " a[i];}'</span> netstat.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'NR!=1{a[$6]++;} END {for (i in a) print i ", " a[i];}'</span> netstat.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">TIME_WAIT, 3
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">TIME_WAIT, 3
 FIN_WAIT1, 1
 ESTABLISHED, 6
 FIN_WAIT2, 3
@@ -412,9 +412,9 @@ LAST_ACK, 1
 LISTEN, 4
 </code></pre>
 <p>再来看看统计每个用户的进程的占了多少内存（注：sum的RSS那一列）</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'NR!=1{a[<span class="token variable">$1</span>]+=<span class="token variable">$6</span>;} END { for(i in a) print i ", " a[i]"KB";}'</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'NR!=1{a[$1]+=$6;} END { for(i in a) print i ", " a[i]"KB";}'</span>
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">dbus, 540KB
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">dbus, 540KB
 mysql, 99928KB
 www, 3264924KB
 root, 63644KB
@@ -425,35 +425,35 @@ hchen, 6020KB
                             </div>
                             
 
-                <div class="h2-section" style="height: 1547px">
+                <div class="h2-section" style="height: 1549px">
                     <div class="h2-section-title"><h2 id="id-236">深入</h2></div>
                     
                             <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-233">awk脚本</h3></div>
                                 <div class="section-body">
                                     <h4>运行前</h4>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">BEGIN <span class="token punctuation">{</span> 这里面放的是执行前的语句 <span class="token punctuation">}</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">BEGIN <span class="token punctuation">{</span> 这里面放的是执行前的语句 <span class="token punctuation">}</span>
 </code></pre>
 <h4>运行中</h4>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;"><span class="token punctuation">{</span> 这里面放的是处理每一行时要执行的语句 <span class="token punctuation">}</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;"><span class="token punctuation">{</span> 这里面放的是处理每一行时要执行的语句 <span class="token punctuation">}</span>
 </code></pre>
 <h4>运行后</h4>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">END <span class="token punctuation">{</span>这里面放的是处理完所有的行后要执行的语句 <span class="token punctuation">}</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">END <span class="token punctuation">{</span>这里面放的是处理完所有的行后要执行的语句 <span class="token punctuation">}</span>
 </code></pre>
 <h4>案例</h4>
 <p>假设有这么一个文件（学生成绩表）：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> score.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> score.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">Marry   2143 78 84 77
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">Marry   2143 78 84 77
 Jack    2321 66 78 45
 Tom     2122 48 77 71
 Mike    2537 87 97 95
 Bob     2415 40 57 62
 </code></pre>
 <p>我们的awk脚本如下（我没有写有命令行上是因为命令行上不易读，另外也在介绍另一种用法）：</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> cal.awk
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> cal.awk
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;"><span class="token shebang important">#!/bin/awk -f</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;"><span class="token shebang important">#!/bin/awk -f</span>
 <span class="token comment">#运行前</span>
 BEGIN <span class="token punctuation">{</span>
     math <span class="token operator">=</span> <span class="token number">0</span>
@@ -478,9 +478,9 @@ END <span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>我们来看一下执行结果：（也可以这样运行 <code>./cal.awk score.txt</code>）</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> -f cal.awk score.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> -f cal.awk score.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL
 ---------------------------------------------
 Marry  2143     78       84       77      239
 Jack   2321     66       78       45      189
@@ -498,16 +498,16 @@ AVERAGE:     63.80    78.60    70.00
                                 <div class="section-title"><h3 id="id-234">环境变量</h3></div>
                                 <div class="section-body">
                                     <p>即然说到了脚本，我们来看看怎么和环境变量交互：（使用<code>-v</code>参数和<code>ENVIRON</code>，使用<code>ENVIRON</code>的环境变量需要<code>export</code>）</p>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token assign-left variable">x</span><span class="token operator">=</span><span class="token number">5</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token assign-left variable">x</span><span class="token operator">=</span><span class="token number">5</span>
 $ <span class="token assign-left variable">y</span><span class="token operator">=</span><span class="token number">10</span>
 $ <span class="token builtin class-name">export</span> y
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$x</span> <span class="token variable">$y</span>
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">5 10
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">5 10
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> -v <span class="token assign-left variable">val</span><span class="token operator">=</span><span class="token variable">$x</span> <span class="token string">'{print <span class="token variable">$1</span>, <span class="token variable">$2</span>, <span class="token variable">$3</span>, <span class="token variable">$4</span>+val, <span class="token variable">$5</span>+ENVIRON["y"]}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> score.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> -v <span class="token assign-left variable">val</span><span class="token operator">=</span><span class="token variable">$x</span> <span class="token string">'{print $1, $2, $3, $4+val, $5+ENVIRON["y"]}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> score.txt
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="font-size: 12px !important;">Marry   2143    78      89      87
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="font-size: 12px !important;">Marry   2143    78      89      87
 Jack    2321    66      83      55
 Tom     2122    48      82      81
 Mike    2537    87      102     105
@@ -516,17 +516,17 @@ Bob     2415    40      62      72
                                 </div>
                             </div>
 
-                <div class="sheet-section"  data-position="580|600|509">
+                <div class="sheet-section"  data-position="580|600|510">
                     <div class="section-title"><h3 id="id-235">几个小例子</h3></div>
                     <div class="section-body">
-                        <pre class=" language-bash"><code class=" language-bash" style="font-size: 12px !important;"><span class="token comment">#从file文件中找出长度大于80的行</span>
+                        <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;"><span class="token comment">#从file文件中找出长度大于80的行</span>
 <span class="token function">awk</span> <span class="token string">'length&gt;80'</span> <span class="token function">file</span>
 
 <span class="token comment">#按连接数查看客户端IP</span>
-<span class="token function">netstat</span> -ntu <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$5</span>}'</span> <span class="token operator">|</span> <span class="token function">cut</span> -d: -f1 <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">|</span> <span class="token function">uniq</span> -c <span class="token operator">|</span> <span class="token function">sort</span> -nr
+<span class="token function">netstat</span> -ntu <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $5}'</span> <span class="token operator">|</span> <span class="token function">cut</span> -d: -f1 <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">|</span> <span class="token function">uniq</span> -c <span class="token operator">|</span> <span class="token function">sort</span> -nr
 
 <span class="token comment">#打印99乘法表</span>
-<span class="token function">seq</span> <span class="token number">9</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'H;g'</span> <span class="token operator">|</span> <span class="token function">awk</span> -v <span class="token assign-left variable">RS</span><span class="token operator">=</span><span class="token string">''</span> <span class="token string">'{for(i=1;i&lt;=NF;i++)printf("%dx%d=%d%s", i, NR, i*NR, i==NR?"<span class="token entity" title="\n">\n</span>":"<span class="token entity" title="\t">\t</span>")}'</span> 
+<span class="token function">seq</span> <span class="token number">9</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'H;g'</span> <span class="token operator">|</span> <span class="token function">awk</span> -v <span class="token assign-left variable">RS</span><span class="token operator">=</span><span class="token string">''</span> <span class="token string">'{for(i=1;i&lt;=NF;i++)printf("%dx%d=%d%s", i, NR, i*NR, i==NR?"\n":"\t")}'</span> 
 </code></pre>
                     </div>
                 </div>
@@ -540,64 +540,64 @@ Bob     2415    40      62      72
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3" title="开始" data-id="id-222" data-pid="default">
-                        开始
+                    <div class="nav-item nav-type-H3 " title="开始" data-id="id-222" data-pid="default">
+                    <span class="next-ctrl"></span> 开始
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="第一个例子" data-id="id-223" data-pid="default">
-                        第一个例子
+                    <div class="nav-item nav-type-H3 " title="第一个例子" data-id="id-223" data-pid="default">
+                    <span class="next-ctrl"></span> 第一个例子
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="格式化输出" data-id="id-224" data-pid="default">
-                        格式化输出
+                    <div class="nav-item nav-type-H3 " title="格式化输出" data-id="id-224" data-pid="default">
+                    <span class="next-ctrl"></span> 格式化输出
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="起步" data-id="id-228" data-pid="">
-                        起步
+                    <div class="nav-item nav-type-H2 " title="起步" data-id="id-228" data-pid="">
+                    <span class="next-ctrl">-</span> 起步
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="过滤记录" data-id="id-225" data-pid="id-228">
-                        过滤记录
+                    <div class="nav-item nav-type-H3 " title="过滤记录" data-id="id-225" data-pid="id-228">
+                    <span class="next-ctrl"></span> 过滤记录
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="内建变量" data-id="id-226" data-pid="id-228">
-                        内建变量
+                    <div class="nav-item nav-type-H3 " title="内建变量" data-id="id-226" data-pid="id-228">
+                    <span class="next-ctrl"></span> 内建变量
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="指定分隔符" data-id="id-227" data-pid="id-228">
-                        指定分隔符
+                    <div class="nav-item nav-type-H3 " title="指定分隔符" data-id="id-227" data-pid="id-228">
+                    <span class="next-ctrl"></span> 指定分隔符
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="进阶" data-id="id-232" data-pid="">
-                        进阶
+                    <div class="nav-item nav-type-H2 " title="进阶" data-id="id-232" data-pid="">
+                    <span class="next-ctrl">-</span> 进阶
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="字符串匹配" data-id="id-229" data-pid="id-232">
-                        字符串匹配
+                    <div class="nav-item nav-type-H3 " title="字符串匹配" data-id="id-229" data-pid="id-232">
+                    <span class="next-ctrl"></span> 字符串匹配
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="折分文件" data-id="id-230" data-pid="id-232">
-                        折分文件
+                    <div class="nav-item nav-type-H3 " title="折分文件" data-id="id-230" data-pid="id-232">
+                    <span class="next-ctrl"></span> 折分文件
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="统计" data-id="id-231" data-pid="id-232">
-                        统计
+                    <div class="nav-item nav-type-H3 " title="统计" data-id="id-231" data-pid="id-232">
+                    <span class="next-ctrl"></span> 统计
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="深入" data-id="id-236" data-pid="">
-                        深入
+                    <div class="nav-item nav-type-H2 " title="深入" data-id="id-236" data-pid="">
+                    <span class="next-ctrl">-</span> 深入
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="awk脚本" data-id="id-233" data-pid="id-236">
-                        awk脚本
+                    <div class="nav-item nav-type-H3 " title="awk脚本" data-id="id-233" data-pid="id-236">
+                    <span class="next-ctrl"></span> awk脚本
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="环境变量" data-id="id-234" data-pid="id-236">
-                        环境变量
+                    <div class="nav-item nav-type-H3 " title="环境变量" data-id="id-234" data-pid="id-236">
+                    <span class="next-ctrl"></span> 环境变量
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="几个小例子" data-id="id-235" data-pid="id-236">
-                        几个小例子
+                    <div class="nav-item nav-type-H3 " title="几个小例子" data-id="id-235" data-pid="id-236">
+                    <span class="next-ctrl"></span> 几个小例子
                     </div>
                 </div>
         </div>
@@ -608,4 +608,4 @@ Bob     2415    40      62      72
 
 
 
-<script src="../js/util/function.js?version=1634537032455"></script><script src="../js/util/event-hub.js?version=1634537032455"></script><script src="../js/3rdparty/prism.js?version=1634537032455"></script><script src="../js/module/loading.js?version=1634537032455"></script><script src="../js/module/home.js?version=1634537032455"></script><script src="../js/module/cheatsheet.js?version=1634537032455"></script><script src="../js/module/menu.js?version=1634537032455"></script><script src="../js/3rdparty/jszip.min.js?version=1634537032455"></script><script src="../js/util/saveData.js?version=1634537032455"></script></body></html>
+<script src="../js/util/function.js?version=2021082402"></script><script src="../js/util/event-hub.js?version=2021082402"></script><script src="../js/3rdparty/prism.js?version=2021082402"></script><script src="../js/module/loading.js?version=2021082402"></script><script src="../js/module/home.js?version=2021082402"></script><script src="../js/module/cheatsheet.js?version=2021082402"></script><script src="../js/module/menu.js?version=2021082402"></script><script src="../js/3rdparty/jszip.min.js?version=2021082402"></script><script src="../js/util/saveData.js?version=2021082402"></script></body></html>

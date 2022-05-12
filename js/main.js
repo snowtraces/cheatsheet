@@ -12,7 +12,7 @@ let jsList = [
     // './js/module/builder.js',
 ]
 
-let developModel = true;
+let developModel = false;
 
 let cssList = [
     './css/main.css',
