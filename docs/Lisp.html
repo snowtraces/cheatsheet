@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lisp cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634537032455"><link rel="stylesheet" href="../css/prism.css?version=1634537032455"></head>
+<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
 
 <body>
     <script>
@@ -40,11 +40,11 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 1375px">
-                                <div class="h2-section-title"><h2 id="id-378">构造过程抽象</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-424">构造过程抽象</h2></div>
                                 
                             <div class="sheet-section"  data-position="380|0|42">
-                                <div class="section-title"><h3 id="id-369"></h3></div>
+                                <div class="section-title"><h3 id="id-415"></h3></div>
                                 <div class="section-body">
                                     <p>程序设计的基本元素</p>
 <ul><li>基本表达形式
@@ -55,31 +55,31 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|400|42">
-                                <div class="section-title"><h3 id="id-370">表达式</h3></div>
+                                <div class="section-title"><h3 id="id-416">表达式</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-lisp"><code class=" language-lisp" style="">(+ 3 5 )
+                                    <pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(+ 3 5 )
 8
 (/ 10 5)
 2
 </code></pre>
 <p><em>前缀表示</em>，可以带任意个实参</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(+ 1 3 5)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(+ 1 3 5)
 9
 </code></pre>
 <p><em>可以嵌套</em></p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(* (- 5 3) 10)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(* (- 5 3) 10)
 20
 </code></pre>
                                 </div>
                             </div>
 
                             <div class="sheet-section"  data-position="380|800|42">
-                                <div class="section-title"><h3 id="id-371">命名和环境</h3></div>
+                                <div class="section-title"><h3 id="id-417">命名和环境</h3></div>
                                 <div class="section-body">
                                     <p><code>define</code>定义变量</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define size 2)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define size 2)
 </code></pre>
-<pre class=" language-lisp"><code class=" language-lisp" style="">size
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">size
 2
 (* 5 size)
 10
@@ -88,8 +88,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|0|201">
-                                <div class="section-title"><h3 id="id-372">组合式的求值</h3></div>
+                            <div class="sheet-section"  data-position="380|0|202">
+                                <div class="section-title"><h3 id="id-418">组合式的求值</h3></div>
                                 <div class="section-body">
                                     <ul><li>求值各个子表达式
 </li><li>从最左表达式的值开始计算
@@ -98,20 +98,20 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|800|360">
-                                <div class="section-title"><h3 id="id-373">复合过程</h3></div>
+                            <div class="sheet-section"  data-position="380|800|361">
+                                <div class="section-title"><h3 id="id-419">复合过程</h3></div>
                                 <div class="section-body">
                                     <p><em>过程定义</em>为复合操作命名</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (square x) (* x x))
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (square x) (* x x))
 </code></pre>
 <p>其一般形式为：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (name &lt;参数&gt; &lt;body&gt;))
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (name &lt;参数&gt; &lt;body&gt;))
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|0|377">
-                                <div class="section-title"><h3 id="id-374">过程应用的代换模型</h3></div>
+                            <div class="sheet-section"  data-position="380|0|379">
+                                <div class="section-title"><h3 id="id-420">过程应用的代换模型</h3></div>
                                 <div class="section-body">
                                     <p>树形积累的计算过程称为<em>代换模型</em>，帮助领会调用过程，并不是解释器的实际工作方式。</p>
 <p><em>正则序求值</em>，即<i>完全展开后归约</i>，先进行代换展开，不先局部计算</p>
@@ -120,23 +120,23 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|400|447">
-                                <div class="section-title"><h3 id="id-375">条件表达式和谓词</h3></div>
+                                <div class="section-title"><h3 id="id-421">条件表达式和谓词</h3></div>
                                 <div class="section-body">
                                     <p><code>cond</code>表示条件</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (abs x)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (abs x)
     (cond ((&gt; x 0) x)
           ((= x 0) 0)
           ((&lt; x 0) (- x))))
 </code></pre>
 <p>一般形式为：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(cond (&lt;p1&gt; &lt;e1&gt;)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(cond (&lt;p1&gt; &lt;e1&gt;)
       (&lt;p2&gt; &lt;e2&gt;)
       ...
       (&lt;pn&gt; &lt;en&gt;))
 </code></pre>
 <p><code>pn</code>为谓词，被解释为真或假。</p>
 <p><code>if</code>为单条件表达式</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (abs x) 
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (abs x) 
     (if (&lt; x 0) 
         (- x)
         x))
@@ -155,42 +155,42 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|800|617">
-                                <div class="section-title"><h3 id="id-376">牛顿法求平方根</h3></div>
+                            <div class="sheet-section"  data-position="380|800|619">
+                                <div class="section-title"><h3 id="id-422">牛顿法求平方根</h3></div>
                                 <div class="section-body">
                                     <p>计算机科学里，更关心行动性的描述。牛顿法采用逐步逼近法，对<code>x</code>的平方根有一个猜测<code>y</code>，令<code>y = (x + x/y) / 2</code>，然后判断<code>y</code>够不够接近。</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (sqrt-iter guess x) 
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (sqrt-iter guess x) 
     (if (good-enough? guess x)
         guess
         (sqrt-iter (improve guess x) 
             x)))
 </code></pre>
 <p>其中<code>improve</code>:</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (improve guess x) 
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (improve guess x) 
     (average guess (/ x guess)))
 </code></pre>
 <p>其中<code>average</code>:</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (average x y)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (average x y)
     (/ (+ x y) 2))
 </code></pre>
 <p>足够好的定义，这里取误差<code>0.001</code></p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (good-enough? guess x)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (good-enough? guess x)
     (&lt; (abs (- (square guess) x)) 0.001))
 </code></pre>
 <p>一般初始值取<code>1.0</code>，开方定义：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (sqrt x) 
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (sqrt x) 
     (sqrt-iter 1.0 x))
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|0|627">
-                                <div class="section-title"><h3 id="id-377">过程作为黑箱抽象</h3></div>
+                            <div class="sheet-section"  data-position="380|0|632">
+                                <div class="section-title"><h3 id="id-423">过程作为黑箱抽象</h3></div>
                                 <div class="section-body">
                                     <h4><em>局部名</em> 局部变量名不影响过程和结果</h4>
 <h4><em>内部定义和块结构</em></h4>
 <p>将所有辅助过程定义放到内部</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (sqrt x) 
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (sqrt x) 
     (define (good-enough? guess x)
         (&lt; (abs (- (square guess) x)) 0.001))
     (define (improve guess x) 
@@ -202,7 +202,7 @@
     (sqrt-iter 1.0 x))
 </code></pre>
 <p><code>x</code>定义在<code>sqrt</code>中，其他辅助过程均定义在<code>x</code>中，故可以让<code>x</code>作为内部定义中的自由变量：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (sqrt x) 
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (sqrt x) 
     (define (good-enough? guess)
         (&lt; (abs (- (square guess) x)) 0.001))
     (define (improve guess) 
@@ -218,24 +218,24 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 728px">
-                                <div class="h2-section-title"><h2 id="id-382">过程与所产生的计算</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-428">过程与所产生的计算</h2></div>
                                 
                             <div class="sheet-section"  data-position="380|0|42">
-                                <div class="section-title"><h3 id="id-379">线性的递归和迭代</h3></div>
+                                <div class="section-title"><h3 id="id-425">线性的递归和迭代</h3></div>
                                 <div class="section-body">
                                     <p>阶乘的定义：</p>
-<pre class="language- language-none"><code class="language- language-none" style="">n!=n*(n-1)!
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">n!=n*(n-1)!
 </code></pre>
 <p>翻译成过程：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (factorial n)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (factorial n)
     (if (= n 1)
         1
         (* n (factorial (- n 1)))))
 </code></pre>
 <p>其计算过程会先展开，直到<code>n==1</code>时才开始收敛，称为<em>递归计算过程</em></p>
 <p>另一种过程实现是<code>1*2*...(n-1)*n</code>:</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (factorial n)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (factorial n)
     (fact-iter 1 1 n))
 (define (fact-iter product counter max-count)
     (if (&gt; counter max-count)
@@ -249,10 +249,10 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|400|42">
-                                <div class="section-title"><h3 id="id-380">树形递归</h3></div>
+                                <div class="section-title"><h3 id="id-426">树形递归</h3></div>
                                 <div class="section-body">
                                     <p>另一种常见到的计算模式是<code>树形递归</code>，以<em>斐波那契</em>数序列的计算为例：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (fib n)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (fib n)
     (cond ((= n 0) 0)
           ((= n 1) 1)
           (else (+ (fib (- n 1))
@@ -260,7 +260,7 @@
 </code></pre>
 <p>每次计算分裂成两个，遇到<code>0</code>和<code>1</code>时收敛，做了大量冗余计算。</p>
 <p>另外一种计算过程，从<code>0</code>和<code>1</code>开始计算：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (fib n)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (fib n)
     (fib-iter 1 0 n))
 (define (fib-iter a b count)
     (if (= count 0)
@@ -271,15 +271,15 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|800|42">
-                                <div class="section-title"><h3 id="id-381">最大公约数</h3></div>
+                                <div class="section-title"><h3 id="id-427">最大公约数</h3></div>
                                 <div class="section-body">
                                     <p>找到两个整数的做大公约数(GCD)的一种方法是对她们做因数分解，并找出公共因子，但存在一种更高效的算法（欧几里得算法）：</p>
 <p>*如果<code>r</code>是<code>a</code>除以<code>b</code>的余数，那么<code>a</code>和<code>b</code>的GCD正好是<code>b</code>和<code>r</code>的GCD*，即：</p>
-<pre class="language- language-none"><code class="language- language-none" style="">r = a % b
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">r = a % b
 GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
 </code></pre>
 <p>过程实现；</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (gcd a b)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (gcd a b)
     if (= b 0)
        a
        (gcd b (remainder a b))))
@@ -289,17 +289,17 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
                             </div>
                             
 
-                <div class="h2-section" style="height: 408px">
-                    <div class="h2-section-title"><h2 id="id-385">用高阶函数做抽象</h2></div>
+                <div class="h2-section" >
+                    <div class="h2-section-title"><h2 id="id-431">用高阶函数做抽象</h2></div>
                     
                             <div class="sheet-section"  data-position="380|0|42">
-                                <div class="section-title"><h3 id="id-383">过程作为参数</h3></div>
+                                <div class="section-title"><h3 id="id-429">过程作为参数</h3></div>
                                 <div class="section-body">
                                     <p>序列求和：</p>
-<pre class="language- language-none"><code class="language- language-none" style="">f(a)+...+f(b) 
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">f(a)+...+f(b) 
 </code></pre>
 <p>模板抽象为：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(define (sum term a next b)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (sum term a next b)
     (if (&gt; a b)
         0
         (+ (term a)
@@ -309,13 +309,13 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
                             </div>
 
                 <div class="sheet-section"  data-position="380|400|42">
-                    <div class="section-title"><h3 id="id-384">用lambda构造过程</h3></div>
+                    <div class="section-title"><h3 id="id-430">用lambda构造过程</h3></div>
                     <div class="section-body">
                         <p><code>lambda</code>和<code>define</code>使用同样的方式创建过程，但不为过程创建名字：</p>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(lambda (&lt;parameters&gt;) &lt;body&gt;)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(lambda (&lt;parameters&gt;) &lt;body&gt;)
 </code></pre>
 <h4>**用<code>let</code>创建局部变量**</h4>
-<pre class=" language-lisp"><code class=" language-lisp" style="">(let ((&lt;var1&gt; &lt;exp1&gt;)
+<pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(let ((&lt;var1&gt; &lt;exp1&gt;)
       (&lt;var2&gt; &lt;exp2&gt;)
       ...
       (&lt;varn&gt; &lt;expn&gt;))
@@ -334,68 +334,68 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H2" title="构造过程抽象" data-id="id-378" data-pid="">
-                        构造过程抽象
+                    <div class="nav-item nav-type-H2 " title="构造过程抽象" data-id="id-424" data-pid="">
+                    <span class="next-ctrl">-</span> 构造过程抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="表达式" data-id="id-370" data-pid="id-378">
-                        表达式
+                    <div class="nav-item nav-type-H3 " title="表达式" data-id="id-416" data-pid="id-424">
+                    <span class="next-ctrl"></span> 表达式
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="命名和环境" data-id="id-371" data-pid="id-378">
-                        命名和环境
+                    <div class="nav-item nav-type-H3 " title="命名和环境" data-id="id-417" data-pid="id-424">
+                    <span class="next-ctrl"></span> 命名和环境
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="组合式的求值" data-id="id-372" data-pid="id-378">
-                        组合式的求值
+                    <div class="nav-item nav-type-H3 " title="组合式的求值" data-id="id-418" data-pid="id-424">
+                    <span class="next-ctrl"></span> 组合式的求值
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="复合过程" data-id="id-373" data-pid="id-378">
-                        复合过程
+                    <div class="nav-item nav-type-H3 " title="复合过程" data-id="id-419" data-pid="id-424">
+                    <span class="next-ctrl"></span> 复合过程
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="过程应用的代换模型" data-id="id-374" data-pid="id-378">
-                        过程应用的代换模型
+                    <div class="nav-item nav-type-H3 " title="过程应用的代换模型" data-id="id-420" data-pid="id-424">
+                    <span class="next-ctrl"></span> 过程应用的代换模型
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="条件表达式和谓词" data-id="id-375" data-pid="id-378">
-                        条件表达式和谓词
+                    <div class="nav-item nav-type-H3 " title="条件表达式和谓词" data-id="id-421" data-pid="id-424">
+                    <span class="next-ctrl"></span> 条件表达式和谓词
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="牛顿法求平方根" data-id="id-376" data-pid="id-378">
-                        牛顿法求平方根
+                    <div class="nav-item nav-type-H3 " title="牛顿法求平方根" data-id="id-422" data-pid="id-424">
+                    <span class="next-ctrl"></span> 牛顿法求平方根
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="过程作为黑箱抽象" data-id="id-377" data-pid="id-378">
-                        过程作为黑箱抽象
+                    <div class="nav-item nav-type-H3 " title="过程作为黑箱抽象" data-id="id-423" data-pid="id-424">
+                    <span class="next-ctrl"></span> 过程作为黑箱抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="过程与所产生的计算" data-id="id-382" data-pid="">
-                        过程与所产生的计算
+                    <div class="nav-item nav-type-H2 " title="过程与所产生的计算" data-id="id-428" data-pid="">
+                    <span class="next-ctrl">-</span> 过程与所产生的计算
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="线性的递归和迭代" data-id="id-379" data-pid="id-382">
-                        线性的递归和迭代
+                    <div class="nav-item nav-type-H3 " title="线性的递归和迭代" data-id="id-425" data-pid="id-428">
+                    <span class="next-ctrl"></span> 线性的递归和迭代
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="树形递归" data-id="id-380" data-pid="id-382">
-                        树形递归
+                    <div class="nav-item nav-type-H3 " title="树形递归" data-id="id-426" data-pid="id-428">
+                    <span class="next-ctrl"></span> 树形递归
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="最大公约数" data-id="id-381" data-pid="id-382">
-                        最大公约数
+                    <div class="nav-item nav-type-H3 " title="最大公约数" data-id="id-427" data-pid="id-428">
+                    <span class="next-ctrl"></span> 最大公约数
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="用高阶函数做抽象" data-id="id-385" data-pid="">
-                        用高阶函数做抽象
+                    <div class="nav-item nav-type-H2 " title="用高阶函数做抽象" data-id="id-431" data-pid="">
+                    <span class="next-ctrl">-</span> 用高阶函数做抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="过程作为参数" data-id="id-383" data-pid="id-385">
-                        过程作为参数
+                    <div class="nav-item nav-type-H3 " title="过程作为参数" data-id="id-429" data-pid="id-431">
+                    <span class="next-ctrl"></span> 过程作为参数
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="用lambda构造过程" data-id="id-384" data-pid="id-385">
-                        用lambda构造过程
+                    <div class="nav-item nav-type-H3 " title="用lambda构造过程" data-id="id-430" data-pid="id-431">
+                    <span class="next-ctrl"></span> 用lambda构造过程
                     </div>
                 </div>
         </div>
@@ -406,4 +406,4 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
 
 
 
-<script src="../js/util/function.js?version=1634537032455"></script><script src="../js/util/event-hub.js?version=1634537032455"></script><script src="../js/3rdparty/prism.js?version=1634537032455"></script><script src="../js/module/loading.js?version=1634537032455"></script><script src="../js/module/home.js?version=1634537032455"></script><script src="../js/module/cheatsheet.js?version=1634537032455"></script><script src="../js/module/menu.js?version=1634537032455"></script><script src="../js/3rdparty/jszip.min.js?version=1634537032455"></script><script src="../js/util/saveData.js?version=1634537032455"></script></body></html>
+<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>

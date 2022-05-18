@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nginx cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634537032455"><link rel="stylesheet" href="../css/prism.css?version=1634537032455"></head>
+<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
 
 <body>
     <script>
@@ -40,75 +40,75 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 640px">
+                            <div class="h2-section" >
                                 
                                 
                             <div class="sheet-section"  data-position="580|0|0">
-                                <div class="section-title"><h3 id="id-410">端口 <code>listen</code></h3></div>
+                                <div class="section-title"><h3 id="id-456">端口 <code>listen</code></h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
   <span class="token comment"># 标准 HTTP 端口</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
   
   <span class="token comment"># 标准 HTTPS 端口</span>
-  <span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">443</span> ssl</span><span class="token punctuation">;</span>
   
   <span class="token comment"># 使用 IPv6 监听 80 端口</span>
-  <span class="token keyword">listen</span> <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token number">80</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">listen</span> [::]:80</span><span class="token punctuation">;</span>
   
   <span class="token comment"># 仅监听 IPv6 端口</span>
-  <span class="token keyword">listen</span> <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token number">80</span> ipv6only<span class="token operator">=</span>on<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">listen</span> [::]:80 ipv6only=on</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|0">
-                                <div class="section-title"><h3 id="id-411">域名 <code>server_name</code></h3></div>
+                                <div class="section-title"><h3 id="id-457">域名 <code>server_name</code></h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
   <span class="token comment"># 监听域名 yourdomain.com</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
   
   <span class="token comment"># 监听多个域名</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com www<span class="token punctuation">.</span>yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com www.yourdomain.com</span><span class="token punctuation">;</span>
   
   <span class="token comment"># 监听所有子域名</span>
-  <span class="token keyword">server_name</span> <span class="token operator">*</span><span class="token punctuation">.</span>yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> *.yourdomain.com</span><span class="token punctuation">;</span>
   
   <span class="token comment"># 监听所有顶级域名</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.*</span><span class="token punctuation">;</span>
   
   <span class="token comment"># 监听未指定域名 (listens to IP address itself)</span>
-  <span class="token keyword">server_name</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> <span class="token string">""</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|350">
-                                <div class="section-title"><h3 id="id-412">访问日志 <code>access_log</code></h3></div>
+                            <div class="sheet-section"  data-position="580|0|351">
+                                <div class="section-title"><h3 id="id-458">访问日志 <code>access_log</code></h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
   <span class="token comment"># 日志文件的相对或完整路径</span>
-  <span class="token keyword">access_log</span> <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>file<span class="token punctuation">.</span>log<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">access_log</span> /path/to/file.log</span><span class="token punctuation">;</span>
   
   <span class="token comment"># Turn 'on' or 'off'</span>
-  <span class="token keyword">access_log</span> on<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">access_log</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|410">
-                                <div class="section-title"><h3 id="id-413">杂项 <code>gzip</code>, <code>client_max_body_size</code></h3></div>
+                            <div class="sheet-section"  data-position="580|600|411">
+                                <div class="section-title"><h3 id="id-459">杂项 <code>gzip</code>, <code>client_max_body_size</code></h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
   <span class="token comment"># Turn gzip compression 'on' or 'off'</span>
-  <span class="token keyword">gzip</span> on<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">gzip</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
   
   <span class="token comment"># Limit client body size to 10mb</span>
-  <span class="token keyword">client_max_body_size</span> <span class="token number">10</span>M<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">client_max_body_size</span> <span class="token number">10M</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
@@ -116,32 +116,32 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 632px">
-                                <div class="h2-section-title"><h2 id="id-415">文件服务</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-461">文件服务</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-414"></h3></div>
+                                <div class="section-title"><h3 id="id-460"></h3></div>
                                 <div class="section-body">
                                     <h4>静态资源</h4>
 <p>传统web服务</p>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-  	<span class="token keyword">root</span> <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>website<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+  	<span class="token directive"><span class="token keyword">root</span> /path/to/website</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h4>静态资源并使用 HTML5 History Mode</h4>
 <p>单页应用，如<code>Vue</code>, <code>React</code>, <code>Angular</code>等</p>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
-  <span class="token keyword">root</span> <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>website<span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">root</span> /path/to/website</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-  	<span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+  	<span class="token directive"><span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -150,43 +150,43 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 482px">
-                                <div class="h2-section-title"><h2 id="id-419">重定向</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-465">重定向</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-416"><code>301</code> 永久重定向</h3></div>
+                                <div class="section-title"><h3 id="id-462"><code>301</code> 永久重定向</h3></div>
                                 <div class="section-body">
                                     <p>可用于处理<code>www.yourdomain.com</code>和<code>yourdomain.com</code>，或者将<code>http</code>重定向到<code>https</code>。下面例子中<code>www.yourdomain.com</code>重定向到<code>yourdomain.com</code>。</p>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> www<span class="token punctuation">.</span>yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token number">301</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>yourdomain<span class="token punctuation">.</span>com<span class="token variable">$request_uri</span><span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> www.yourdomain.com</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">return</span> <span class="token number">301</span> http://yourdomain.com<span class="token variable">$request_uri</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-417"><code>302</code> 临时重定向</h3></div>
+                                <div class="section-title"><h3 id="id-463"><code>302</code> 临时重定向</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token number">302</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>otherdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">return</span> <span class="token number">302</span> http://otherdomain.com</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|232">
-                                <div class="section-title"><h3 id="id-418">特殊URL的重定向</h3></div>
+                            <div class="sheet-section"  data-position="580|600|233">
+                                <div class="section-title"><h3 id="id-464">特殊URL的重定向</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">location</span> <span class="token operator">/</span>redirect<span class="token operator">-</span>url <span class="token punctuation">{</span>
-	<span class="token keyword">return</span> <span class="token number">301</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>otherdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>  
+  <span class="token directive"><span class="token keyword">location</span> /redirect-url</span> <span class="token punctuation">{</span>
+	<span class="token directive"><span class="token keyword">return</span> <span class="token number">301</span> http://otherdomain.com</span><span class="token punctuation">;</span>  
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -195,33 +195,33 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 631px">
-                                <div class="h2-section-title"><h2 id="id-422">反向代理</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-468">反向代理</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-420">基本使用</h3></div>
+                                <div class="section-title"><h3 id="id-466">基本使用</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">proxy_pass</span> http://0.0.0.0:3000</span><span class="token punctuation">;</span>
     <span class="token comment"># 0.0.0.0:3000 是本地服务绑定的ip和端口</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>或者先定义<code>upstream</code></p>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">upstream</span> node_js <span class="token punctuation">{</span>
-  <span class="token keyword">server</span> <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">upstream</span> node_js</span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">server</span> 0.0.0.0:3000</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>node_js<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">proxy_pass</span> http://node_js</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -229,28 +229,28 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-421">升级连接（推荐用于Node.js应用程序）</h3></div>
+                                <div class="section-title"><h3 id="id-467">升级连接（推荐用于Node.js应用程序）</h3></div>
                                 <div class="section-body">
                                     <p>对于支持WebSockets（例如socket.io）的Node.js应用程序很有用。</p>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">upstream</span> node_js <span class="token punctuation">{</span>
-  <span class="token keyword">server</span> <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">upstream</span> node_js</span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">server</span> 0.0.0.0:3000</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-    <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>node_js<span class="token punctuation">;</span>
-    <span class="token keyword">proxy_redirect</span> off<span class="token punctuation">;</span>
-    <span class="token keyword">proxy_http_version</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
-    <span class="token keyword">proxy_set_header</span> Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
-    <span class="token keyword">proxy_set_header</span> Connection <span class="token string">"upgrade"</span><span class="token punctuation">;</span>
-    <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">proxy_pass</span> http://node_js</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_redirect</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_http_version</span> 1.1</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_set_header</span> Upgrade <span class="token variable">$http_upgrade</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_set_header</span> Connection <span class="token string">"upgrade"</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span></span><span class="token punctuation">;</span>
 	
     <span class="token comment"># not required but useful for applications with heavy WebSocket usage</span>
     <span class="token comment"># as it increases the default timeout configuration of 60</span>
-    <span class="token keyword">proxy_read_timeout</span> <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_read_timeout</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -259,38 +259,38 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 762px">
-                                <div class="h2-section-title"><h2 id="id-424">TLS/SSL (HTTPS)</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-470">TLS/SSL (HTTPS)</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-423">基本使用</h3></div>
+                                <div class="section-title"><h3 id="id-469">基本使用</h3></div>
                                 <div class="section-body">
                                     <p><em>以下配置只是TLS / SSL设置的一个示例。 不要将这些设置作为适用于您的应用程序的完美安全解决方案。 请研究最适合您的证书颁发机构的正确设置。</em></p>
 <p>如果您正在寻找免费的SSL证书，则<a title="<em> Let's Encrypt </em>" href="https://letsencrypt.org/" target="_blank"><em> Let's Encrypt </em></a>是免费、自动、开放的证书颁发机构。另外，这是一个很棒的<a title="Digital Ocean指南" href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04" target="_blank">Digital Ocean指南</a>，了解如何在Ubuntu 16.04上设置TLS / SSL。</p>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">443</span> ssl</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">ssl</span> on<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
   
-  <span class="token keyword">ssl_certificate</span> <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>cert<span class="token punctuation">.</span>pem<span class="token punctuation">;</span>
-  <span class="token keyword">ssl_certificate_key</span> <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>privkey<span class="token punctuation">.</span>pem<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl_certificate</span> /path/to/cert.pem</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl_certificate_key</span> /path/to/privkey.pem</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">ssl_stapling</span> on<span class="token punctuation">;</span>
-  <span class="token keyword">ssl_stapling_verify</span> on<span class="token punctuation">;</span>
-  <span class="token keyword">ssl_trusted_certificate</span> <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>fullchain<span class="token punctuation">.</span>pem<span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl_stapling</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl_stapling_verify</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl_trusted_certificate</span> /path/to/fullchain.pem</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">ssl_protocols</span> TLSv1 TLSv1<span class="token punctuation">.</span><span class="token number">1</span> TLSv1<span class="token punctuation">.</span><span class="token number">2</span><span class="token punctuation">;</span>
-  <span class="token keyword">ssl_session_timeout</span> <span class="token number">1</span>d<span class="token punctuation">;</span>
-  <span class="token keyword">ssl_session_cache</span> shared<span class="token punctuation">:</span><span class="token keyword">SSL</span><span class="token punctuation">:</span><span class="token number">50</span>m<span class="token punctuation">;</span>
-  <span class="token keyword">add_header</span> Strict<span class="token operator">-</span>Transport<span class="token operator">-</span>Security max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">15768000</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl_protocols</span> TLSv1 TLSv1.1 TLSv1.2</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl_session_timeout</span> <span class="token number">1d</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">ssl_session_cache</span> shared:SSL:50m</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">add_header</span> Strict-Transport-Security max-age=15768000</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment"># Permanent redirect for HTTP to HTTPS</span>
-<span class="token keyword">server</span> <span class="token punctuation">{</span>
-  <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-  <span class="token keyword">server_name</span> yourdomain<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token number">301</span> <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$host</span><span class="token variable">$request_uri</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+  <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">server_name</span> yourdomain.com</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">return</span> <span class="token number">301</span> https://<span class="token variable">$host</span><span class="token variable">$request_uri</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
@@ -298,19 +298,19 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 762px">
-                                <div class="h2-section-title"><h2 id="id-428">负载均衡</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-474">负载均衡</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-425">php-fpm Unix socket</h3></div>
+                                <div class="section-title"><h3 id="id-471">php-fpm Unix socket</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">upstream</span> php <span class="token punctuation">{</span>
-    least_conn<span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">upstream</span> php</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">least_conn</span></span><span class="token punctuation">;</span>
 
-    <span class="token keyword">server</span> unix<span class="token punctuation">:</span><span class="token operator">/</span>var<span class="token operator">/</span>run<span class="token operator">/</span>php<span class="token operator">/</span>php<span class="token operator">-</span>fpm<span class="token punctuation">.</span>sock<span class="token punctuation">;</span>
-    <span class="token keyword">server</span> unix<span class="token punctuation">:</span><span class="token operator">/</span>var<span class="token operator">/</span>run<span class="token operator">/</span>php<span class="token operator">/</span>php<span class="token operator">-</span>two<span class="token operator">-</span>fpm<span class="token punctuation">.</span>sock<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span> unix:/var/run/php/php-fpm.sock</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span> unix:/var/run/php/php-two-fpm.sock</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">keepalive</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">keepalive</span> <span class="token number">5</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p><code>least_conn</code>选取活跃连接数与权重weight的比值最小者为下一个处理请求的server</p>
@@ -318,40 +318,40 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-426">php-fpm TCP</h3></div>
+                                <div class="section-title"><h3 id="id-472">php-fpm TCP</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">upstream</span> php <span class="token punctuation">{</span>
-    least_conn<span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">upstream</span> php</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">least_conn</span></span><span class="token punctuation">;</span>
 
-    <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">9090</span><span class="token punctuation">;</span>
-    <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">9091</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span> 127.0.0.1:9090</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span> 127.0.0.1:9091</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">keepalive</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">keepalive</span> <span class="token number">5</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|292">
-                                <div class="section-title"><h3 id="id-427">HTTP 负载均衡</h3></div>
+                            <div class="sheet-section"  data-position="580|600|293">
+                                <div class="section-title"><h3 id="id-473">HTTP 负载均衡</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token comment"># Upstreams</span>
-<span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
-    least_conn<span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token comment"># Upstreams</span>
+<span class="token directive"><span class="token keyword">upstream</span> backend</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">least_conn</span></span><span class="token punctuation">;</span>
 
-    <span class="token keyword">server</span> <span class="token number">10.10</span><span class="token number">.10</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">80</span><span class="token punctuation">;</span>
-    <span class="token keyword">server</span> <span class="token number">10.10</span><span class="token number">.10</span><span class="token number">.2</span><span class="token punctuation">:</span><span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span> 10.10.10.1:80</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span> 10.10.10.2:80</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">server</span> <span class="token punctuation">{</span>
-    <span class="token keyword">server_name</span> site<span class="token punctuation">.</span>ltd<span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">server_name</span> site.ltd</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
-        <span class="token keyword">proxy_redirect</span>      off<span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    Host            <span class="token variable">$host</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    X<span class="token operator">-</span>Real<span class="token operator">-</span>IP       <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">proxy_pass</span> http://backend</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_redirect</span>      <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    Host            <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    X-Real-IP       <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -360,93 +360,93 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 890px">
-                                <div class="h2-section-title"><h2 id="id-433">代理</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-479">代理</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-429">简单代理</h3></div>
+                                <div class="section-title"><h3 id="id-475">简单代理</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_redirect</span>      off<span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    Host            <span class="token variable">$host</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    X<span class="token operator">-</span>Real<span class="token operator">-</span>IP       <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">proxy_pass</span> http://127.0.0.1:3000</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_redirect</span>      <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    Host            <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    X-Real-IP       <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-430">子文件夹代理</h3></div>
+                                <div class="section-title"><h3 id="id-476">子文件夹代理</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">/</span>folder<span class="token operator">/</span> <span class="token punctuation">{</span> <span class="token comment"># The / is important!</span>
-        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token operator">/</span><span class="token punctuation">;</span> <span class="token comment"># The / is important!</span>
-        <span class="token keyword">proxy_redirect</span>      off<span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    Host            <span class="token variable">$host</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    X<span class="token operator">-</span>Real<span class="token operator">-</span>IP       <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span>    X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">location</span> /folder/</span> <span class="token punctuation">{</span> <span class="token comment"># The / is important!</span>
+        <span class="token directive"><span class="token keyword">proxy_pass</span> http://127.0.0.1:3000/</span><span class="token punctuation">;</span> <span class="token comment"># The / is important!</span>
+        <span class="token directive"><span class="token keyword">proxy_redirect</span>      <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    Host            <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    X-Real-IP       <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span>    X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|272">
-                                <div class="section-title"><h3 id="id-431">websocket keepalive 代理</h3></div>
+                            <div class="sheet-section"  data-position="580|0|273">
+                                <div class="section-title"><h3 id="id-477">websocket keepalive 代理</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token comment"># Upstreams</span>
-<span class="token keyword">upstream</span> backend <span class="token punctuation">{</span>
-    <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">3000</span><span class="token punctuation">;</span>
-    <span class="token keyword">keepalive</span> <span class="token number">5</span><span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token comment"># Upstreams</span>
+<span class="token directive"><span class="token keyword">upstream</span> backend</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">server</span> 127.0.0.1:3000</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">keepalive</span> <span class="token number">5</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token comment"># HTTP Server</span>
-<span class="token keyword">server</span> <span class="token punctuation">{</span>
-    <span class="token keyword">server_name</span> site<span class="token punctuation">.</span>tld<span class="token punctuation">;</span>
-    <span class="token keyword">error_log</span> <span class="token operator">/</span>var<span class="token operator">/</span>log<span class="token operator">/</span>nginx<span class="token operator">/</span>site<span class="token punctuation">.</span>tld<span class="token punctuation">.</span>access<span class="token punctuation">.</span>log<span class="token punctuation">;</span>
-    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
-        <span class="token keyword">proxy_http_version</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span> Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span> Connection <span class="token string">"upgrade"</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forward<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forward<span class="token operator">-</span>Proto <span class="token keyword">http</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Nginx<span class="token operator">-</span><span class="token keyword">Proxy</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token keyword">proxy_redirect</span> off<span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">server_name</span> site.tld</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">error_log</span> /var/log/nginx/site.tld.access.log</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">proxy_pass</span> http://backend</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_http_version</span> 1.1</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span> Upgrade <span class="token variable">$http_upgrade</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span> Connection <span class="token string">"upgrade"</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Real-IP <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forward-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forward-Proto http</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Nginx-Proxy true</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">proxy_redirect</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|272">
-                                <div class="section-title"><h3 id="id-432">反向代理 Apache</h3></div>
+                            <div class="sheet-section"  data-position="580|600|273">
+                                <div class="section-title"><h3 id="id-478">反向代理 Apache</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">server</span> <span class="token punctuation">{</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
 
-    <span class="token keyword">server_name</span> domain<span class="token punctuation">.</span>tld<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server_name</span> domain.tld</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">access_log</span> <span class="token operator">/</span>var<span class="token operator">/</span>log<span class="token operator">/</span>nginx<span class="token operator">/</span>domain<span class="token punctuation">.</span>tld<span class="token punctuation">.</span>access<span class="token punctuation">.</span>log<span class="token punctuation">;</span>
-    <span class="token keyword">error_log</span> <span class="token operator">/</span>var<span class="token operator">/</span>log<span class="token operator">/</span>nginx<span class="token operator">/</span>domain<span class="token punctuation">.</span>tld<span class="token punctuation">.</span>error<span class="token punctuation">.</span>log<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">access_log</span> /var/log/nginx/domain.tld.access.log</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">error_log</span> /var/log/nginx/domain.tld.error.log</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">root</span> <span class="token operator">/</span>var<span class="token operator">/</span>www<span class="token operator">/</span>domain<span class="token punctuation">.</span>tld<span class="token operator">/</span>htdocs<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">root</span> /var/www/domain.tld/htdocs</span><span class="token punctuation">;</span>
 
     <span class="token comment"># pass requests to Apache backend</span>
-    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">proxy_pass</span> http://backend</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token comment"># handle static files with a fallback</span>
-    <span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> \<span class="token punctuation">.</span><span class="token punctuation">(</span>ogg<span class="token operator">|</span>ogv<span class="token operator">|</span>svg<span class="token operator">|</span>svgz<span class="token operator">|</span>eot<span class="token operator">|</span>otf<span class="token operator">|</span>woff<span class="token operator">|</span>woff2<span class="token operator">|</span>ttf<span class="token operator">|</span>m4a<span class="token operator">|</span><span class="token keyword">mp4</span><span class="token operator">|</span>ttf<span class="token operator">|</span>rss<span class="token operator">|</span>atom<span class="token operator">|</span>jpe<span class="token operator">?</span>g<span class="token operator">|</span>gif<span class="token operator">|</span>cur<span class="token operator">|</span>heic<span class="token operator">|</span>png<span class="token operator">|</span>tiff<span class="token operator">|</span>ico<span class="token operator">|</span>zip<span class="token operator">|</span>webm<span class="token operator">|</span>mp3<span class="token operator">|</span>aac<span class="token operator">|</span>tgz<span class="token operator">|</span>gz<span class="token operator">|</span>rar<span class="token operator">|</span>bz2<span class="token operator">|</span>doc<span class="token operator">|</span>xls<span class="token operator">|</span>exe<span class="token operator">|</span>ppt<span class="token operator">|</span>tar<span class="token operator">|</span>mid<span class="token operator">|</span>midi<span class="token operator">|</span>wav<span class="token operator">|</span>bmp<span class="token operator">|</span>rtf<span class="token operator">|</span>swf<span class="token operator">|</span>webp<span class="token punctuation">)</span>$ <span class="token punctuation">{</span>
-        <span class="token keyword">add_header</span> <span class="token string">"Access-Control-Allow-Origin"</span> <span class="token string">"*"</span><span class="token punctuation">;</span>
-        <span class="token keyword">access_log</span> off<span class="token punctuation">;</span>
-        <span class="token keyword">log_not_found</span> off<span class="token punctuation">;</span>
-        <span class="token keyword">expires</span> max<span class="token punctuation">;</span>
-        <span class="token keyword">try_files</span> <span class="token variable">$uri</span> @fallback<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> ~* \.(ogg|ogv|svg|svgz|eot|otf|woff|woff2|ttf|m4a|mp4|ttf|rss|atom|jpe?g|gif|cur|heic|png|tiff|ico|zip|webm|mp3|aac|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf|swf|webp)$</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">add_header</span> <span class="token string">"Access-Control-Allow-Origin"</span> <span class="token string">"*"</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">access_log</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">log_not_found</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">expires</span> max</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">try_files</span> <span class="token variable">$uri</span> @fallback</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token comment"># fallback to pass requests to Apache if files are not found</span>
-    <span class="token keyword">location</span> @fallback <span class="token punctuation">{</span>
-        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> @fallback</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">proxy_pass</span> http://backend</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -455,36 +455,36 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 360px">
-                                <div class="h2-section-title"><h2 id="id-436">Nginx 安全</h2></div>
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-482">Nginx 安全</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-434">访问限制</h3></div>
+                                <div class="section-title"><h3 id="id-480">访问限制</h3></div>
                                 <div class="section-body">
                                     <h4>常用备份和存档文件</h4>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> <span class="token string">"\.(old|orig|original|php#|php~|php_bak|save|swo|aspx?|tpl|sh|bash|bak?|cfg|cgi|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rdf)$"</span> <span class="token punctuation">{</span>
-    <span class="token keyword">deny</span> all<span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">location</span> ~* <span class="token string">"\.(old|orig|original|php#|php~|php_bak|save|swo|aspx?|tpl|sh|bash|bak?|cfg|cgi|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rdf)$"</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">deny</span> all</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h4>限制访问隐藏文件和文件夹</h4>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">?</span><span class="token operator">!</span>well<span class="token operator">-</span>known\<span class="token operator">/</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">deny</span> all<span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">location</span> ~ /\.(?!well-known\/)</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">deny</span> all</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-435">阻止常见攻击</h3></div>
+                                <div class="section-title"><h3 id="id-481">阻止常见攻击</h3></div>
                                 <div class="section-body">
                                     <h4>base64 encoded url</h4>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> <span class="token string">"(base64_encode)(.*)(\()"</span> <span class="token punctuation">{</span>
-    <span class="token keyword">deny</span> all<span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">location</span> ~* <span class="token string">"(base64_encode)(.*)(\()"</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">deny</span> all</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h4>javascript eval() url</h4>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> <span class="token string">"(eval\()"</span> <span class="token punctuation">{</span>
-    <span class="token keyword">deny</span> all<span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">location</span> ~* <span class="token string">"(eval\()"</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">deny</span> all</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                                 </div>
@@ -492,23 +492,23 @@
                             </div>
                             
 
-                <div class="h2-section" style="height: 392px">
-                    <div class="h2-section-title"><h2 id="id-439">Nginx Media</h2></div>
+                <div class="h2-section" >
+                    <div class="h2-section-title"><h2 id="id-485">Nginx Media</h2></div>
                     
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-437">MP4 stream module</h3></div>
+                                <div class="section-title"><h3 id="id-483">MP4 stream module</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token keyword">location</span> <span class="token operator">/</span>videos <span class="token punctuation">{</span>
-    <span class="token keyword">location</span> <span class="token operator">~</span> \<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">mp4</span><span class="token punctuation">)</span>$ <span class="token punctuation">{</span>
-        <span class="token keyword">mp4</span><span class="token punctuation">;</span>
-        <span class="token keyword">mp4_buffer_size</span>       <span class="token number">1</span>m<span class="token punctuation">;</span>
-        <span class="token keyword">mp4_max_buffer_size</span>   <span class="token number">5</span>m<span class="token punctuation">;</span>
-        <span class="token keyword">add_header</span> Vary <span class="token string">"Accept-Encoding"</span><span class="token punctuation">;</span>
-        <span class="token keyword">add_header</span> <span class="token string">"Access-Control-Allow-Origin"</span> <span class="token string">"*"</span><span class="token punctuation">;</span>
-        <span class="token keyword">add_header</span> Cache<span class="token operator">-</span>Control <span class="token string">"public, no-transform"</span><span class="token punctuation">;</span>
-        <span class="token keyword">access_log</span> off<span class="token punctuation">;</span>
-        <span class="token keyword">log_not_found</span> off<span class="token punctuation">;</span>
-        <span class="token keyword">expires</span> max<span class="token punctuation">;</span>
+                                    <pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token directive"><span class="token keyword">location</span> /videos</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">location</span> ~ \.(mp4)$</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">mp4</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">mp4_buffer_size</span>       <span class="token number">1m</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">mp4_max_buffer_size</span>   <span class="token number">5m</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">add_header</span> Vary <span class="token string">"Accept-Encoding"</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">add_header</span> <span class="token string">"Access-Control-Allow-Origin"</span> <span class="token string">"*"</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">add_header</span> Cache-Control <span class="token string">"public, no-transform"</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">access_log</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">log_not_found</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">expires</span> max</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -516,13 +516,13 @@
                             </div>
 
                 <div class="sheet-section"  data-position="580|600|42">
-                    <div class="section-title"><h3 id="id-438">WebP images</h3></div>
+                    <div class="section-title"><h3 id="id-484">WebP images</h3></div>
                     <div class="section-body">
                         <p>Mapping conditions to display WebP images</p>
-<pre class=" language-nginx"><code class=" language-nginx" style=""><span class="token comment"># 如果Web浏览器支持WebP，则提供WebP图像</span>
-<span class="token keyword">map</span> <span class="token variable">$http_accept</span> <span class="token variable">$webp_suffix</span> <span class="token punctuation">{</span>
-   default <span class="token string">""</span><span class="token punctuation">;</span>
-   <span class="token string">"~*webp"</span> <span class="token string">".webp"</span><span class="token punctuation">;</span>
+<pre class="language-nginx" tabindex="0"><code class="language-nginx" style=""><span class="token comment"># 如果Web浏览器支持WebP，则提供WebP图像</span>
+<span class="token directive"><span class="token keyword">map</span> <span class="token variable">$http_accept</span> <span class="token variable">$webp_suffix</span></span> <span class="token punctuation">{</span>
+   <span class="token directive"><span class="token keyword">default</span> <span class="token string">""</span></span><span class="token punctuation">;</span>
+   "~*webp" ".webp"<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
                     </div>
@@ -537,120 +537,120 @@
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3" title="端口 listen" data-id="id-410" data-pid="default">
-                        端口 listen
+                    <div class="nav-item nav-type-H3 hide" title="端口 listen" data-id="id-456" data-pid="default">
+                    <span class="next-ctrl"></span> 端口 listen
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="域名 server_name" data-id="id-411" data-pid="default">
-                        域名 server_name
+                    <div class="nav-item nav-type-H3 hide" title="域名 server_name" data-id="id-457" data-pid="default">
+                    <span class="next-ctrl"></span> 域名 server_name
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="访问日志 access_log" data-id="id-412" data-pid="default">
-                        访问日志 access_log
+                    <div class="nav-item nav-type-H3 hide" title="访问日志 access_log" data-id="id-458" data-pid="default">
+                    <span class="next-ctrl"></span> 访问日志 access_log
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="杂项 gzip, client_max_body_size" data-id="id-413" data-pid="default">
-                        杂项 gzip, client_max_body_size
+                    <div class="nav-item nav-type-H3 hide" title="杂项 gzip, client_max_body_size" data-id="id-459" data-pid="default">
+                    <span class="next-ctrl"></span> 杂项 gzip, client_max_body_size
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="文件服务" data-id="id-415" data-pid="">
-                        文件服务
+                    <div class="nav-item nav-type-H2 " title="文件服务" data-id="id-461" data-pid="">
+                    <span class="next-ctrl">+</span> 文件服务
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="重定向" data-id="id-419" data-pid="">
-                        重定向
+                    <div class="nav-item nav-type-H2 " title="重定向" data-id="id-465" data-pid="">
+                    <span class="next-ctrl">+</span> 重定向
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="301 永久重定向" data-id="id-416" data-pid="id-419">
-                        301 永久重定向
+                    <div class="nav-item nav-type-H3 hide" title="301 永久重定向" data-id="id-462" data-pid="id-465">
+                    <span class="next-ctrl"></span> 301 永久重定向
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="302 临时重定向" data-id="id-417" data-pid="id-419">
-                        302 临时重定向
+                    <div class="nav-item nav-type-H3 hide" title="302 临时重定向" data-id="id-463" data-pid="id-465">
+                    <span class="next-ctrl"></span> 302 临时重定向
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="特殊URL的重定向" data-id="id-418" data-pid="id-419">
-                        特殊URL的重定向
+                    <div class="nav-item nav-type-H3 hide" title="特殊URL的重定向" data-id="id-464" data-pid="id-465">
+                    <span class="next-ctrl"></span> 特殊URL的重定向
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="反向代理" data-id="id-422" data-pid="">
-                        反向代理
+                    <div class="nav-item nav-type-H2 " title="反向代理" data-id="id-468" data-pid="">
+                    <span class="next-ctrl">+</span> 反向代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="基本使用" data-id="id-420" data-pid="id-422">
-                        基本使用
+                    <div class="nav-item nav-type-H3 hide" title="基本使用" data-id="id-466" data-pid="id-468">
+                    <span class="next-ctrl"></span> 基本使用
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="升级连接（推荐用于Node.js应用程序）" data-id="id-421" data-pid="id-422">
-                        升级连接（推荐用于Node.js应用程序）
+                    <div class="nav-item nav-type-H3 hide" title="升级连接（推荐用于Node.js应用程序）" data-id="id-467" data-pid="id-468">
+                    <span class="next-ctrl"></span> 升级连接（推荐用于Node.js应用程序）
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="TLS/SSL (HTTPS)" data-id="id-424" data-pid="">
-                        TLS/SSL (HTTPS)
+                    <div class="nav-item nav-type-H2 " title="TLS/SSL (HTTPS)" data-id="id-470" data-pid="">
+                    <span class="next-ctrl">+</span> TLS/SSL (HTTPS)
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="基本使用" data-id="id-423" data-pid="id-424">
-                        基本使用
+                    <div class="nav-item nav-type-H3 hide" title="基本使用" data-id="id-469" data-pid="id-470">
+                    <span class="next-ctrl"></span> 基本使用
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="负载均衡" data-id="id-428" data-pid="">
-                        负载均衡
+                    <div class="nav-item nav-type-H2 " title="负载均衡" data-id="id-474" data-pid="">
+                    <span class="next-ctrl">+</span> 负载均衡
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="php-fpm Unix socket" data-id="id-425" data-pid="id-428">
-                        php-fpm Unix socket
+                    <div class="nav-item nav-type-H3 hide" title="php-fpm Unix socket" data-id="id-471" data-pid="id-474">
+                    <span class="next-ctrl"></span> php-fpm Unix socket
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="php-fpm TCP" data-id="id-426" data-pid="id-428">
-                        php-fpm TCP
+                    <div class="nav-item nav-type-H3 hide" title="php-fpm TCP" data-id="id-472" data-pid="id-474">
+                    <span class="next-ctrl"></span> php-fpm TCP
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="HTTP 负载均衡" data-id="id-427" data-pid="id-428">
-                        HTTP 负载均衡
+                    <div class="nav-item nav-type-H3 hide" title="HTTP 负载均衡" data-id="id-473" data-pid="id-474">
+                    <span class="next-ctrl"></span> HTTP 负载均衡
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="代理" data-id="id-433" data-pid="">
-                        代理
+                    <div class="nav-item nav-type-H2 " title="代理" data-id="id-479" data-pid="">
+                    <span class="next-ctrl">+</span> 代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="简单代理" data-id="id-429" data-pid="id-433">
-                        简单代理
+                    <div class="nav-item nav-type-H3 hide" title="简单代理" data-id="id-475" data-pid="id-479">
+                    <span class="next-ctrl"></span> 简单代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="子文件夹代理" data-id="id-430" data-pid="id-433">
-                        子文件夹代理
+                    <div class="nav-item nav-type-H3 hide" title="子文件夹代理" data-id="id-476" data-pid="id-479">
+                    <span class="next-ctrl"></span> 子文件夹代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="websocket keepalive 代理" data-id="id-431" data-pid="id-433">
-                        websocket keepalive 代理
+                    <div class="nav-item nav-type-H3 hide" title="websocket keepalive 代理" data-id="id-477" data-pid="id-479">
+                    <span class="next-ctrl"></span> websocket keepalive 代理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="反向代理 Apache" data-id="id-432" data-pid="id-433">
-                        反向代理 Apache
+                    <div class="nav-item nav-type-H3 hide" title="反向代理 Apache" data-id="id-478" data-pid="id-479">
+                    <span class="next-ctrl"></span> 反向代理 Apache
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="Nginx 安全" data-id="id-436" data-pid="">
-                        Nginx 安全
+                    <div class="nav-item nav-type-H2 " title="Nginx 安全" data-id="id-482" data-pid="">
+                    <span class="next-ctrl">+</span> Nginx 安全
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="访问限制" data-id="id-434" data-pid="id-436">
-                        访问限制
+                    <div class="nav-item nav-type-H3 hide" title="访问限制" data-id="id-480" data-pid="id-482">
+                    <span class="next-ctrl"></span> 访问限制
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="阻止常见攻击" data-id="id-435" data-pid="id-436">
-                        阻止常见攻击
+                    <div class="nav-item nav-type-H3 hide" title="阻止常见攻击" data-id="id-481" data-pid="id-482">
+                    <span class="next-ctrl"></span> 阻止常见攻击
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="Nginx Media" data-id="id-439" data-pid="">
-                        Nginx Media
+                    <div class="nav-item nav-type-H2 " title="Nginx Media" data-id="id-485" data-pid="">
+                    <span class="next-ctrl">+</span> Nginx Media
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="MP4 stream module" data-id="id-437" data-pid="id-439">
-                        MP4 stream module
+                    <div class="nav-item nav-type-H3 hide" title="MP4 stream module" data-id="id-483" data-pid="id-485">
+                    <span class="next-ctrl"></span> MP4 stream module
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="WebP images" data-id="id-438" data-pid="id-439">
-                        WebP images
+                    <div class="nav-item nav-type-H3 hide" title="WebP images" data-id="id-484" data-pid="id-485">
+                    <span class="next-ctrl"></span> WebP images
                     </div>
                 </div>
         </div>
@@ -661,4 +661,4 @@
 
 
 
-<script src="../js/util/function.js?version=1634537032455"></script><script src="../js/util/event-hub.js?version=1634537032455"></script><script src="../js/3rdparty/prism.js?version=1634537032455"></script><script src="../js/module/loading.js?version=1634537032455"></script><script src="../js/module/home.js?version=1634537032455"></script><script src="../js/module/cheatsheet.js?version=1634537032455"></script><script src="../js/module/menu.js?version=1634537032455"></script><script src="../js/3rdparty/jszip.min.js?version=1634537032455"></script><script src="../js/util/saveData.js?version=1634537032455"></script></body></html>
+<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>

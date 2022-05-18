@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mysql cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634537032455"><link rel="stylesheet" href="../css/prism.css?version=1634537032455"></head>
+<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
 
 <body>
     <script>
@@ -40,13 +40,13 @@
             </div>
             <div id="sheet-body">
                 
-                <div class="h2-section" style="height: 2561px">
+                <div class="h2-section" >
                     
                     
                             <div class="sheet-section"  data-position="580|0|0">
                                 <div class="section-title"><h3 id="id-9">登录</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style="">mysql -u <span class="token punctuation">[</span>username<span class="token punctuation">]</span> -p<span class="token punctuation">;</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style="">mysql -u <span class="token punctuation">[</span>username<span class="token punctuation">]</span> -p<span class="token punctuation">;</span>
 mysql -u <span class="token punctuation">[</span>username<span class="token punctuation">]</span> -p <span class="token punctuation">[</span>database<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token builtin class-name">exit</span><span class="token punctuation">;</span>
 </code></pre>
@@ -56,7 +56,7 @@ mysql -u <span class="token punctuation">[</span>username<span class="token punc
                             <div class="sheet-section"  data-position="580|600|0">
                                 <div class="section-title"><h3 id="id-10">浏览</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span>
 <span class="token keyword">USE</span> <span class="token punctuation">[</span><span class="token keyword">database</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">SHOW</span> <span class="token keyword">TABLES</span><span class="token punctuation">;</span>
 <span class="token keyword">USE</span> <span class="token punctuation">[</span><span class="token keyword">table</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -69,10 +69,10 @@ mysql -u <span class="token punctuation">[</span>username<span class="token punc
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|150">
+                            <div class="sheet-section"  data-position="580|0|151">
                                 <div class="section-title"><h3 id="id-11">查询 / SELECT</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span><span class="token punctuation">;</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span><span class="token punctuation">;</span>
 <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> condition<span class="token punctuation">;</span>
 <span class="token keyword">SELECT</span> field1<span class="token punctuation">,</span> field2 <span class="token keyword">FROM</span> <span class="token keyword">table</span><span class="token punctuation">;</span>
 <span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">WHERE</span> condition <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> field<span class="token punctuation">;</span>
@@ -86,10 +86,10 @@ mysql -u <span class="token punctuation">[</span>username<span class="token punc
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|270">
+                            <div class="sheet-section"  data-position="580|600|271">
                                 <div class="section-title"><h3 id="id-12">连接查询</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> t1 <span class="token keyword">JOIN</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>id1 <span class="token operator">=</span> t2<span class="token punctuation">.</span>id2 <span class="token keyword">WHERE</span> condition<span class="token punctuation">;</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> t1 <span class="token keyword">JOIN</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>id1 <span class="token operator">=</span> t2<span class="token punctuation">.</span>id2 <span class="token keyword">WHERE</span> condition<span class="token punctuation">;</span>
 <span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> t1 <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>id1 <span class="token operator">=</span> t2<span class="token punctuation">.</span>id2 <span class="token keyword">WHERE</span> condition<span class="token punctuation">;</span>
 <span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> t1 <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>id1 <span class="token operator">=</span> t2<span class="token punctuation">.</span>id2 <span class="token keyword">WHERE</span> condition<span class="token punctuation">;</span>
 <span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> t1 <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>id1 <span class="token operator">=</span> t2<span class="token punctuation">.</span>id2 <span class="token keyword">WHERE</span> condition<span class="token punctuation">;</span>
@@ -99,10 +99,10 @@ mysql -u <span class="token punctuation">[</span>username<span class="token punc
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|440">
+                            <div class="sheet-section"  data-position="580|0|442">
                                 <div class="section-title"><h3 id="id-13">查询条件</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style="">field1 <span class="token operator">=</span> value1
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style="">field1 <span class="token operator">=</span> value1
 field1 <span class="token operator">&lt;&gt;</span> value1
 field1 <span class="token operator">LIKE</span> <span class="token string">'value _ %'</span>
 field1 <span class="token operator">IS</span> <span class="token boolean">NULL</span>
@@ -116,10 +116,10 @@ condition1 <span class="token operator">OR</span> condition2
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|480">
+                            <div class="sheet-section"  data-position="580|600|482">
                                 <div class="section-title"><h3 id="id-14">创建/打开/删除/修改 数据库</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> DatabaseName<span class="token punctuation">;</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> DatabaseName<span class="token punctuation">;</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> DatabaseName <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8mb4<span class="token punctuation">;</span>
 <span class="token keyword">USE</span> DatabaseName<span class="token punctuation">;</span>
 <span class="token keyword">DROP</span> <span class="token keyword">DATABASE</span> DatabaseName<span class="token punctuation">;</span>
@@ -128,47 +128,47 @@ condition1 <span class="token operator">OR</span> condition2
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|670">
+                            <div class="sheet-section"  data-position="580|600|673">
                                 <div class="section-title"><h3 id="id-15">备份数据库</h3></div>
                                 <div class="section-body">
                                     <p>// TODO</p>
-<pre class=" language-bash"><code class=" language-bash" style="">mysqldump -u Username -p DatabaseName <span class="token operator">&gt;</span> databasename_backup.sql
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="">mysqldump -u Username -p DatabaseName <span class="token operator">&gt;</span> databasename_backup.sql
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|730">
+                            <div class="sheet-section"  data-position="580|0|733">
                                 <div class="section-title"><h3 id="id-16">恢复数据库</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style="">mysql - u Username -p DatabaseName <span class="token operator">&lt;</span> databasename_backup.sql<span class="token punctuation">;</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style="">mysql - u Username -p DatabaseName <span class="token operator">&lt;</span> databasename_backup.sql<span class="token punctuation">;</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|830">
+                            <div class="sheet-section"  data-position="580|600|833">
                                 <div class="section-title"><h3 id="id-17">异常关闭后修复数据库</h3></div>
                                 <div class="section-body">
                                     <p>// TODO</p>
-<pre class=" language-bash"><code class=" language-bash" style="">mysqlcheck --all-databases<span class="token punctuation">;</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="">mysqlcheck --all-databases<span class="token punctuation">;</span>
 mysqlcheck --all-databases --fast<span class="token punctuation">;</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|840">
+                            <div class="sheet-section"  data-position="580|0|844">
                                 <div class="section-title"><h3 id="id-18">插入 / INSERT</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> table1 <span class="token punctuation">(</span>field1<span class="token punctuation">,</span> field2<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span>value1<span class="token punctuation">,</span> value2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> table1 <span class="token punctuation">(</span>field1<span class="token punctuation">,</span> field2<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span>value1<span class="token punctuation">,</span> value2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> table1 <span class="token punctuation">(</span>field1<span class="token punctuation">,</span> field2<span class="token punctuation">)</span> 
   <span class="token keyword">SELECT</span> value1<span class="token punctuation">,</span> value2 <span class="token keyword">FROM</span> table2<span class="token punctuation">;</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|990">
+                            <div class="sheet-section"  data-position="580|0|995">
                                 <div class="section-title"><h3 id="id-19">删除 / DELETE</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> table1 <span class="token operator">/</span> <span class="token keyword">TRUNCATE</span> table1
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> table1 <span class="token operator">/</span> <span class="token keyword">TRUNCATE</span> table1
 <span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> table1 <span class="token keyword">WHERE</span> condition
 <span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> table1<span class="token punctuation">,</span> table2 <span class="token keyword">FROM</span> table1<span class="token punctuation">,</span> table2 <span class="token keyword">WHERE</span> table1<span class="token punctuation">.</span>id1 <span class="token operator">=</span>
   table2<span class="token punctuation">.</span>id2 <span class="token operator">AND</span> condition
@@ -176,43 +176,43 @@ mysqlcheck --all-databases --fast<span class="token punctuation">;</span>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1010">
+                            <div class="sheet-section"  data-position="580|600|1013">
                                 <div class="section-title"><h3 id="id-20">更新 / UPDATE</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">UPDATE</span> table1 <span class="token keyword">SET</span> field1<span class="token operator">=</span>new_value1 <span class="token keyword">WHERE</span> condition<span class="token punctuation">;</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">UPDATE</span> table1 <span class="token keyword">SET</span> field1<span class="token operator">=</span>new_value1 <span class="token keyword">WHERE</span> condition<span class="token punctuation">;</span>
 <span class="token keyword">UPDATE</span> table1<span class="token punctuation">,</span> table2 <span class="token keyword">SET</span> field1<span class="token operator">=</span>new_value1<span class="token punctuation">,</span> field2<span class="token operator">=</span>new_value2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">WHERE</span>
   table1<span class="token punctuation">.</span>id1 <span class="token operator">=</span> table2<span class="token punctuation">.</span>id2 <span class="token operator">AND</span> condition<span class="token punctuation">;</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1160">
+                            <div class="sheet-section"  data-position="580|600|1164">
                                 <div class="section-title"><h3 id="id-21">新建/删除/修改 表</h3></div>
                                 <div class="section-body">
                                     <h4>新建 / CREATE</h4>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>field1 type1<span class="token punctuation">,</span> field2 type2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>field1 type1<span class="token punctuation">,</span> field2 type2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>field1 type1<span class="token punctuation">,</span> field2 type2<span class="token punctuation">,</span> <span class="token keyword">INDEX</span> <span class="token punctuation">(</span>field<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>field1 type1<span class="token punctuation">,</span> field2 type2<span class="token punctuation">,</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>field1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>field1 type1<span class="token punctuation">,</span> field2 type2<span class="token punctuation">,</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>field1<span class="token punctuation">,</span>field2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> table1 <span class="token punctuation">(</span>fk_field1 type1<span class="token punctuation">,</span> field2 type2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> table1 <span class="token punctuation">(</span>fk_field1 type1<span class="token punctuation">,</span> field2 type2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
   <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>fk_field1<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> table2 <span class="token punctuation">(</span>t2_fieldA<span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">[</span><span class="token keyword">ON</span> <span class="token keyword">UPDATE</span><span class="token operator">|</span><span class="token keyword">ON</span> <span class="token keyword">DELETE</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token keyword">CASCADE</span><span class="token operator">|</span><span class="token keyword">SET</span> <span class="token boolean">NULL</span><span class="token punctuation">]</span>
 </code></pre>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> table1 <span class="token punctuation">(</span>fk_field1 type1<span class="token punctuation">,</span> fk_field2 type2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> table1 <span class="token punctuation">(</span>fk_field1 type1<span class="token punctuation">,</span> fk_field2 type2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>fk_field1<span class="token punctuation">,</span> fk_field2<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> table2 <span class="token punctuation">(</span>t2_fieldA<span class="token punctuation">,</span> t2_fieldB<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span><span class="token punctuation">;</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span><span class="token punctuation">;</span>
 </code></pre>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TEMPORARY</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span><span class="token punctuation">;</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TEMPORARY</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span><span class="token punctuation">;</span>
 </code></pre>
 <h4>删除 - DROP</h4>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span><span class="token punctuation">;</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span><span class="token punctuation">;</span>
 <span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token keyword">table</span><span class="token punctuation">;</span>
 <span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> table1<span class="token punctuation">,</span> table2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 </code></pre>
 <h4>修改 - ALTER</h4>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">MODIFY</span> field1 type1
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">MODIFY</span> field1 type1
 <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">MODIFY</span> field1 type1 <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> CHANGE old_name_field1 new_name_field1 type1
 <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> CHANGE old_name_field1 new_name_field1 type1 <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
@@ -225,7 +225,7 @@ mysqlcheck --all-databases --fast<span class="token punctuation">;</span>
 <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">ADD</span> <span class="token keyword">INDEX</span> <span class="token punctuation">(</span>field<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4>修改默认排序</h4>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">MODIFY</span> field1 type1 <span class="token keyword">FIRST</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">MODIFY</span> field1 type1 <span class="token keyword">FIRST</span>
 <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token keyword">MODIFY</span> field1 type1 <span class="token keyword">AFTER</span> another_field
 <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> CHANGE old_name_field1 new_name_field1 type1 <span class="token keyword">FIRST</span>
 <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> CHANGE old_name_field1 new_name_field1 type1 <span class="token keyword">AFTER</span>
@@ -234,80 +234,80 @@ mysqlcheck --all-databases --fast<span class="token punctuation">;</span>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1160">
+                            <div class="sheet-section"  data-position="580|0|1166">
                                 <div class="section-title"><h3 id="id-22">键</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>field1<span class="token punctuation">,</span> field2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>field1<span class="token punctuation">,</span> field2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>field1<span class="token punctuation">,</span> field2<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> table2
 <span class="token punctuation">(</span>t2_field1<span class="token punctuation">,</span> t2_field2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1310">
+                            <div class="sheet-section"  data-position="580|0|1317">
                                 <div class="section-title"><h3 id="id-23">用户和授权</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
 <span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> base<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'password'</span><span class="token punctuation">;</span>
 <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span> <span class="token keyword">INSERT</span><span class="token punctuation">,</span> <span class="token keyword">DELETE</span> <span class="token keyword">ON</span> base<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'user'</span><span class="token variable">@'localhost'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'password'</span><span class="token punctuation">;</span>
 <span class="token keyword">REVOKE</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> base<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">'user'</span><span class="token variable">@'host'</span><span class="token punctuation">;</span> <span class="token comment">-- one permission only</span>
 <span class="token keyword">REVOKE</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span><span class="token punctuation">,</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token keyword">FROM</span> <span class="token string">'user'</span><span class="token variable">@'host'</span><span class="token punctuation">;</span> <span class="token comment">-- all permissions</span>
 FLUSH <span class="token keyword">PRIVILEGES</span><span class="token punctuation">;</span>
 </code></pre>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">SET</span> PASSWORD <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">'new_pass'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">SET</span> PASSWORD <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">'new_pass'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">SET</span> PASSWORD <span class="token keyword">FOR</span> <span class="token string">'user'</span><span class="token variable">@'host'</span> <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">'new_pass'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">SET</span> PASSWORD <span class="token operator">=</span> OLD_PASSWORD<span class="token punctuation">(</span><span class="token string">'new_pass'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">DROP</span> <span class="token keyword">USER</span> <span class="token string">'user'</span><span class="token variable">@'host'</span><span class="token punctuation">;</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">DROP</span> <span class="token keyword">USER</span> <span class="token string">'user'</span><span class="token variable">@'host'</span><span class="token punctuation">;</span>
 </code></pre>
 <p>主机（host）'%' 表示任意主机.</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1713">
+                            <div class="sheet-section"  data-position="580|0|1721">
                                 <div class="section-title"><h3 id="id-24">主要数据类型</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">TINYINT</span> <span class="token punctuation">(</span><span class="token number">1</span>o: <span class="token operator">-</span><span class="token number">217</span><span class="token operator">+</span><span class="token number">128</span><span class="token punctuation">)</span>
+                                    <pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">TINYINT</span> <span class="token punctuation">(</span><span class="token number">1</span>o: <span class="token operator">-</span><span class="token number">217</span><span class="token operator">+</span><span class="token number">128</span><span class="token punctuation">)</span>
 <span class="token keyword">SMALLINT</span> <span class="token punctuation">(</span><span class="token number">2</span>o: <span class="token operator">+</span><span class="token operator">-</span><span class="token number">65</span> <span class="token number">000</span><span class="token punctuation">)</span>
 <span class="token keyword">MEDIUMINT</span> <span class="token punctuation">(</span><span class="token number">3</span>o: <span class="token operator">+</span><span class="token operator">-</span><span class="token number">16</span> <span class="token number">000</span> <span class="token number">000</span><span class="token punctuation">)</span>
 <span class="token keyword">INT</span> <span class="token punctuation">(</span><span class="token number">4</span>o: <span class="token operator">+</span><span class="token operator">-</span> <span class="token number">2</span> <span class="token number">000</span> <span class="token number">000</span> <span class="token number">000</span><span class="token punctuation">)</span>
 <span class="token keyword">BIGINT</span> <span class="token punctuation">(</span><span class="token number">8</span>o: <span class="token operator">+</span><span class="token operator">-</span><span class="token number">9.10</span><span class="token operator">^</span><span class="token number">18</span><span class="token punctuation">)</span>
 </code></pre>
-<pre class=" language-sql"><code class=" language-sql" style="">Precise <span class="token keyword">interval</span>: <span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token operator">*</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token number">8</span><span class="token operator">*</span>N<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style="">Precise <span class="token keyword">interval</span>: <span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token operator">*</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token number">8</span><span class="token operator">*</span>N<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
 </code></pre>
 <p>⚠ INT(2) = "只展示两位数字" -- NOT "只能存储两位数字"</p>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">FLOAT</span><span class="token punctuation">(</span>M<span class="token punctuation">,</span>D<span class="token punctuation">)</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">FLOAT</span><span class="token punctuation">(</span>M<span class="token punctuation">,</span>D<span class="token punctuation">)</span>
 <span class="token keyword">DOUBLE</span><span class="token punctuation">(</span>M<span class="token punctuation">,</span>D<span class="token punctuation">)</span>
 <span class="token keyword">FLOAT</span><span class="token punctuation">(</span>D<span class="token operator">=</span><span class="token number">0</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token number">53</span><span class="token punctuation">)</span>
 </code></pre>
 <p>⚠ 8,3 -&gt; 12345,678 -- NOT 12345678,123!</p>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">TIME</span> <span class="token punctuation">(</span>HH:MM<span class="token punctuation">)</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">TIME</span> <span class="token punctuation">(</span>HH:MM<span class="token punctuation">)</span>
 <span class="token keyword">YEAR</span> <span class="token punctuation">(</span>AAAA<span class="token punctuation">)</span>
 <span class="token keyword">DATE</span> <span class="token punctuation">(</span>AAAA<span class="token operator">-</span>MM<span class="token operator">-</span>JJ<span class="token punctuation">)</span>
 <span class="token keyword">DATETIME</span> <span class="token punctuation">(</span>AAAA<span class="token operator">-</span>MM<span class="token operator">-</span>JJ HH:MM<span class="token punctuation">;</span> années <span class="token number">1000</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token number">9999</span><span class="token punctuation">)</span>
 <span class="token keyword">TIMESTAMP</span> <span class="token punctuation">(</span><span class="token operator">like</span> <span class="token keyword">DATETIME</span><span class="token punctuation">,</span> but <span class="token number">1970</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token number">2038</span><span class="token punctuation">,</span> compatible <span class="token keyword">with</span> Unix<span class="token punctuation">)</span>
 </code></pre>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">VARCHAR</span> <span class="token punctuation">(</span>single<span class="token operator">-</span>line<span class="token punctuation">;</span> explicit size<span class="token punctuation">)</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">VARCHAR</span> <span class="token punctuation">(</span>single<span class="token operator">-</span>line<span class="token punctuation">;</span> explicit size<span class="token punctuation">)</span>
 <span class="token keyword">TEXT</span> <span class="token punctuation">(</span>multi<span class="token operator">-</span><span class="token keyword">lines</span><span class="token punctuation">;</span> max size<span class="token operator">=</span><span class="token number">65535</span><span class="token punctuation">)</span>
 <span class="token keyword">BLOB</span> <span class="token punctuation">(</span><span class="token keyword">binary</span><span class="token punctuation">;</span> max size<span class="token operator">=</span><span class="token number">65535</span><span class="token punctuation">)</span>
 </code></pre>
 <p>Variants for TEXT&amp;BLOB: <code>TINY</code> (max=255), <code>MEDIUM</code> (max=~16000), and <code>LONG</code> (max=4Go). Ex: <code>VARCHAR(32)</code>, <code>TINYTEXT</code>, <code>LONGBLOB</code>, <code>MEDIUMTEXT</code></p>
-<pre class=" language-sql"><code class=" language-sql" style=""><span class="token keyword">ENUM</span> <span class="token punctuation">(</span><span class="token string">'value1'</span><span class="token punctuation">,</span> <span class="token string">'value2'</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token comment">-- (default NULL, or '' if NOT NULL)</span>
+<pre class="language-sql" tabindex="0"><code class="language-sql" style=""><span class="token keyword">ENUM</span> <span class="token punctuation">(</span><span class="token string">'value1'</span><span class="token punctuation">,</span> <span class="token string">'value2'</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token comment">-- (default NULL, or '' if NOT NULL)</span>
 </code></pre>
                                 </div>
                             </div>
 
-                <div class="sheet-section"  data-position="580|0|2202">
+                <div class="sheet-section"  data-position="580|600|2206">
                     <div class="section-title"><h3 id="id-25">重置root账户密码</h3></div>
                     <div class="section-body">
-                        <pre class=" language-bash"><code class=" language-bash" style="">$ /etc/init.d/mysql stop
+                        <pre class="language-bash" tabindex="0"><code class="language-bash" style="">$ /etc/init.d/mysql stop
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="">$ mysqld_safe --skip-grant-tables
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="">$ mysqld_safe --skip-grant-tables
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style="">$ mysql <span class="token comment"># on another terminal</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style="">$ mysql <span class="token comment"># on another terminal</span>
 mysql<span class="token operator">&gt;</span> UPDATE mysql.user SET <span class="token assign-left variable">password</span><span class="token operator">=</span>PASSWORD<span class="token punctuation">(</span><span class="token string">'new_pass'</span><span class="token punctuation">)</span> WHERE <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">;</span>
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token comment">## Switch back to the mysqld_safe terminal and kill the process using Control + \</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token comment">## Switch back to the mysqld_safe terminal and kill the process using Control + \</span>
 $ /etc/init.d/mysql start
 </code></pre>
 <p>命令会因操作系统不同而有所区别</p>
@@ -323,72 +323,72 @@ $ /etc/init.d/mysql start
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3" title="登录" data-id="id-9" data-pid="default">
-                        登录
+                    <div class="nav-item nav-type-H3 " title="登录" data-id="id-9" data-pid="default">
+                    <span class="next-ctrl"></span> 登录
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="浏览" data-id="id-10" data-pid="default">
-                        浏览
+                    <div class="nav-item nav-type-H3 " title="浏览" data-id="id-10" data-pid="default">
+                    <span class="next-ctrl"></span> 浏览
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="查询 / SELECT" data-id="id-11" data-pid="default">
-                        查询 / SELECT
+                    <div class="nav-item nav-type-H3 " title="查询 / SELECT" data-id="id-11" data-pid="default">
+                    <span class="next-ctrl"></span> 查询 / SELECT
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="连接查询" data-id="id-12" data-pid="default">
-                        连接查询
+                    <div class="nav-item nav-type-H3 " title="连接查询" data-id="id-12" data-pid="default">
+                    <span class="next-ctrl"></span> 连接查询
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="查询条件" data-id="id-13" data-pid="default">
-                        查询条件
+                    <div class="nav-item nav-type-H3 " title="查询条件" data-id="id-13" data-pid="default">
+                    <span class="next-ctrl"></span> 查询条件
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="创建/打开/删除/修改 数据库" data-id="id-14" data-pid="default">
-                        创建/打开/删除/修改 数据库
+                    <div class="nav-item nav-type-H3 " title="创建/打开/删除/修改 数据库" data-id="id-14" data-pid="default">
+                    <span class="next-ctrl"></span> 创建/打开/删除/修改 数据库
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="备份数据库" data-id="id-15" data-pid="default">
-                        备份数据库
+                    <div class="nav-item nav-type-H3 " title="备份数据库" data-id="id-15" data-pid="default">
+                    <span class="next-ctrl"></span> 备份数据库
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="恢复数据库" data-id="id-16" data-pid="default">
-                        恢复数据库
+                    <div class="nav-item nav-type-H3 " title="恢复数据库" data-id="id-16" data-pid="default">
+                    <span class="next-ctrl"></span> 恢复数据库
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="异常关闭后修复数据库" data-id="id-17" data-pid="default">
-                        异常关闭后修复数据库
+                    <div class="nav-item nav-type-H3 " title="异常关闭后修复数据库" data-id="id-17" data-pid="default">
+                    <span class="next-ctrl"></span> 异常关闭后修复数据库
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="插入 / INSERT" data-id="id-18" data-pid="default">
-                        插入 / INSERT
+                    <div class="nav-item nav-type-H3 " title="插入 / INSERT" data-id="id-18" data-pid="default">
+                    <span class="next-ctrl"></span> 插入 / INSERT
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="删除 / DELETE" data-id="id-19" data-pid="default">
-                        删除 / DELETE
+                    <div class="nav-item nav-type-H3 " title="删除 / DELETE" data-id="id-19" data-pid="default">
+                    <span class="next-ctrl"></span> 删除 / DELETE
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="更新 / UPDATE" data-id="id-20" data-pid="default">
-                        更新 / UPDATE
+                    <div class="nav-item nav-type-H3 " title="更新 / UPDATE" data-id="id-20" data-pid="default">
+                    <span class="next-ctrl"></span> 更新 / UPDATE
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="新建/删除/修改 表" data-id="id-21" data-pid="default">
-                        新建/删除/修改 表
+                    <div class="nav-item nav-type-H3 " title="新建/删除/修改 表" data-id="id-21" data-pid="default">
+                    <span class="next-ctrl"></span> 新建/删除/修改 表
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="键" data-id="id-22" data-pid="default">
-                        键
+                    <div class="nav-item nav-type-H3 " title="键" data-id="id-22" data-pid="default">
+                    <span class="next-ctrl"></span> 键
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="用户和授权" data-id="id-23" data-pid="default">
-                        用户和授权
+                    <div class="nav-item nav-type-H3 " title="用户和授权" data-id="id-23" data-pid="default">
+                    <span class="next-ctrl"></span> 用户和授权
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="主要数据类型" data-id="id-24" data-pid="default">
-                        主要数据类型
+                    <div class="nav-item nav-type-H3 " title="主要数据类型" data-id="id-24" data-pid="default">
+                    <span class="next-ctrl"></span> 主要数据类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="重置root账户密码" data-id="id-25" data-pid="default">
-                        重置root账户密码
+                    <div class="nav-item nav-type-H3 " title="重置root账户密码" data-id="id-25" data-pid="default">
+                    <span class="next-ctrl"></span> 重置root账户密码
                     </div>
                 </div>
         </div>
@@ -399,4 +399,4 @@ $ /etc/init.d/mysql start
 
 
 
-<script src="../js/util/function.js?version=1634537032455"></script><script src="../js/util/event-hub.js?version=1634537032455"></script><script src="../js/3rdparty/prism.js?version=1634537032455"></script><script src="../js/module/loading.js?version=1634537032455"></script><script src="../js/module/home.js?version=1634537032455"></script><script src="../js/module/cheatsheet.js?version=1634537032455"></script><script src="../js/module/menu.js?version=1634537032455"></script><script src="../js/3rdparty/jszip.min.js?version=1634537032455"></script><script src="../js/util/saveData.js?version=1634537032455"></script></body></html>
+<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>

@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>powershell cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634537032455"><link rel="stylesheet" href="../css/prism.css?version=1634537032455"></head>
+<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
 
 <body>
     <script>
@@ -40,13 +40,13 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 906px">
+                            <div class="h2-section" >
                                 
                                 
                             <div class="sheet-section"  data-position="580|0|0">
                                 <div class="section-title"><h3 id="id-126">帮助</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-shell"><code class=" language-shell" style="">Get-Help <span class="token builtin class-name">alias</span> 
+                                    <pre class="language-shell" tabindex="0"><code class="language-shell" style="">Get-Help <span class="token builtin class-name">alias</span> 
 Show-Command Get-Help
 Get-Command Get-*
 Get-Alias -name l*
@@ -58,7 +58,7 @@ Get-Alias -definition Get-Alias
                             <div class="sheet-section"  data-position="580|600|0">
                                 <div class="section-title"><h3 id="id-127">文件和路径</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-shell"><code class=" language-shell" style="">Get-ChildItem <span class="token punctuation">[</span>path<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token function">ls</span><span class="token punctuation">;</span> <span class="token function">dir</span>       <span class="token comment"># 子对象列表</span>
+                                    <pre class="language-shell" tabindex="0"><code class="language-shell" style="">Get-ChildItem <span class="token punctuation">[</span>path<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token function">ls</span><span class="token punctuation">;</span> <span class="token function">dir</span>       <span class="token comment"># 子对象列表</span>
 <span class="token punctuation">(</span>dir -Recurse<span class="token punctuation">)</span>.Name                 <span class="token comment"># 递归列出文件名</span>
 <span class="token punctuation">(</span>dir -Recurse<span class="token punctuation">)</span>.FullName             <span class="token comment"># 递归列出完整路径</span>
 Get-Location<span class="token punctuation">;</span> <span class="token variable">$pwd</span><span class="token punctuation">;</span> <span class="token variable">$pwd</span>.Path       <span class="token comment"># 显示当前位置（非UNC路径）</span>
@@ -74,7 +74,7 @@ Resolve-Path path                   <span class="token comment"># 绝对路径</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|190">
+                            <div class="sheet-section"  data-position="580|0|191">
                                 <div class="section-title"><h3 id="id-128">句法要素</h3></div>
                                 <div class="section-body">
                                     
@@ -89,7 +89,7 @@ Resolve-Path path                   <span class="token comment"># 绝对路径</
                 </tbody>
             </table>
 <h4>三元运算</h4>
-<pre class=" language-shell"><code class=" language-shell" style="">switch<span class="token punctuation">(</span>boolExpr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="language-shell" tabindex="0"><code class="language-shell" style="">switch<span class="token punctuation">(</span>boolExpr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token variable">$true</span> <span class="token punctuation">{</span> <span class="token variable">$x</span> <span class="token punctuation">}</span> 
     <span class="token variable">$false</span> <span class="token punctuation">{</span> <span class="token variable">$y</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
@@ -114,7 +114,7 @@ if<span class="token punctuation">(</span>boolExpr<span class="token punctuation
                 </tbody>
             </table>
 <h4>格式化 + 过滤</h4>
-<pre class=" language-shell"><code class=" language-shell" style=""><span class="token comment"># table化输出到文件</span>
+<pre class="language-shell" tabindex="0"><code class="language-shell" style=""><span class="token comment"># table化输出到文件</span>
 any <span class="token operator">|</span> Format-Table -AutoSize <span class="token operator">|</span> Out-File <span class="token function">file</span> -Encoding ascii
 
 <span class="token comment"># table化输出到文件</span>
@@ -129,7 +129,7 @@ any <span class="token operator">|</span> Format-Table -AutoSize <span class="to
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|679">
+                            <div class="sheet-section"  data-position="580|0|684">
                                 <div class="section-title"><h3 id="id-130">提示和暂停</h3></div>
                                 <div class="section-body">
                                     
@@ -148,17 +148,17 @@ any <span class="token operator">|</span> Format-Table -AutoSize <span class="to
                             </div>
                             
 
-                <div class="h2-section" style="height: 642px">
+                <div class="h2-section" >
                     <div class="h2-section-title"><h2 id="id-135">语法</h2></div>
                     
                             <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-131">变量</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-shell"><code class=" language-shell" style=""><span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span> <span class="token variable">$a</span>                                 <span class="token comment">#=&gt; 25</span>
+                                    <pre class="language-shell" tabindex="0"><code class="language-shell" style=""><span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span> <span class="token variable">$a</span>                                 <span class="token comment">#=&gt; 25</span>
 <span class="token number">42</span> <span class="token operator">|</span> sv a<span class="token punctuation">;</span> <span class="token variable">$a</span>                               <span class="token comment">#=&gt; 42</span>
 <span class="token punctuation">[</span>ValidateRange<span class="token punctuation">(</span><span class="token number">1,10</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token variable">$x</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token variable">$x</span> <span class="token operator">=</span> <span class="token number">22</span>   <span class="token comment">#=&gt; _error_</span>
 
-<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span> <span class="token string">'<span class="token variable">$a</span> not interpolated'</span>              <span class="token comment">#=&gt; $a not interpolated</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span> <span class="token string">'$a not interpolated'</span>              <span class="token comment">#=&gt; $a not interpolated</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span> <span class="token string">"<span class="token variable">$a</span> interpolated"</span>                  <span class="token comment">#=&gt; $a interpolated</span>
 
 <span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token string">"aaa"</span>,<span class="token string">"bbb"</span>,<span class="token string">"x"</span><span class="token punctuation">;</span> <span class="token variable">$arr</span>                <span class="token comment">#=&gt; aaa bbb x</span>
@@ -172,7 +172,7 @@ any <span class="token operator">|</span> Format-Table -AutoSize <span class="to
                             <div class="sheet-section"  data-position="580|600|42">
                                 <div class="section-title"><h3 id="id-132">参数传递</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-shell"><code class=" language-shell" style=""><span class="token keyword">function</span> func<span class="token punctuation">(</span><span class="token variable">$a</span>,<span class="token variable">$b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                    <pre class="language-shell" tabindex="0"><code class="language-shell" style=""><span class="token keyword">function</span> func<span class="token punctuation">(</span><span class="token variable">$a</span>,<span class="token variable">$b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token string">"{0}/{1}"</span> -f <span class="token variable">$a</span>.length, <span class="token variable">$b</span>.length 
 <span class="token punctuation">}</span>
 
@@ -184,10 +184,10 @@ func <span class="token number">2,3</span> <span class="token number">4</span>  
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|292">
+                            <div class="sheet-section"  data-position="580|600|293">
                                 <div class="section-title"><h3 id="id-133">属性</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-shell"><code class=" language-shell" style="">gm -input <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">..</span><span class="token number">5</span><span class="token punctuation">)</span> -name count                  <span class="token comment"># 尝试获取属性</span>
+                                    <pre class="language-shell" tabindex="0"><code class="language-shell" style="">gm -input <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">..</span><span class="token number">5</span><span class="token punctuation">)</span> -name count                  <span class="token comment"># 尝试获取属性</span>
 
 <span class="token function">ps</span> <span class="token operator">|</span> ? <span class="token punctuation">{</span> <span class="token variable">$_</span>.VM -gt 100MB <span class="token punctuation">}</span>                    <span class="token comment"># 默认属性</span>
 <span class="token function">ps</span> <span class="token operator">|</span> ? <span class="token punctuation">{</span> <span class="token variable">$_</span>.VM -gt 100MB <span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token keyword">select</span> name, vm  <span class="token comment"># 指定属性</span>
@@ -198,10 +198,10 @@ func <span class="token number">2,3</span> <span class="token number">4</span>  
                                 </div>
                             </div>
 
-                <div class="sheet-section"  data-position="580|0|352">
+                <div class="sheet-section"  data-position="580|0|353">
                     <div class="section-title"><h3 id="id-134">对象、类型和转型</h3></div>
                     <div class="section-body">
-                        <pre class=" language-shell"><code class=" language-shell" style="">@<span class="token punctuation">(</span>Get-Process<span class="token punctuation">)</span>.Count                           <span class="token comment"># 集合大小</span>
+                        <pre class="language-shell" tabindex="0"><code class="language-shell" style="">@<span class="token punctuation">(</span>Get-Process<span class="token punctuation">)</span>.Count                           <span class="token comment"># 集合大小</span>
 <span class="token punctuation">(</span><span class="token number">1,2</span>,3<span class="token punctuation">)</span>.GetType<span class="token punctuation">(</span><span class="token punctuation">)</span>.FullName                     <span class="token comment"># 对象类型</span>
 <span class="token function">ps</span> <span class="token operator">|</span> gm <span class="token operator">|</span> <span class="token keyword">select</span> -First <span class="token number">1</span> <span class="token operator">|</span> % <span class="token punctuation">{</span> <span class="token variable">$_</span>.TypeName <span class="token punctuation">}</span>  <span class="token comment"># 集合中对象类型</span>
 <span class="token string">"hello"</span> -is <span class="token punctuation">[</span>string<span class="token punctuation">]</span>                           <span class="token comment"># 类型判断</span>
@@ -224,44 +224,44 @@ func <span class="token number">2,3</span> <span class="token number">4</span>  
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3" title="帮助" data-id="id-126" data-pid="default">
-                        帮助
+                    <div class="nav-item nav-type-H3 " title="帮助" data-id="id-126" data-pid="default">
+                    <span class="next-ctrl"></span> 帮助
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="文件和路径" data-id="id-127" data-pid="default">
-                        文件和路径
+                    <div class="nav-item nav-type-H3 " title="文件和路径" data-id="id-127" data-pid="default">
+                    <span class="next-ctrl"></span> 文件和路径
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="句法要素" data-id="id-128" data-pid="default">
-                        句法要素
+                    <div class="nav-item nav-type-H3 " title="句法要素" data-id="id-128" data-pid="default">
+                    <span class="next-ctrl"></span> 句法要素
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="显示选项" data-id="id-129" data-pid="default">
-                        显示选项
+                    <div class="nav-item nav-type-H3 " title="显示选项" data-id="id-129" data-pid="default">
+                    <span class="next-ctrl"></span> 显示选项
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="提示和暂停" data-id="id-130" data-pid="default">
-                        提示和暂停
+                    <div class="nav-item nav-type-H3 " title="提示和暂停" data-id="id-130" data-pid="default">
+                    <span class="next-ctrl"></span> 提示和暂停
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="语法" data-id="id-135" data-pid="">
-                        语法
+                    <div class="nav-item nav-type-H2 " title="语法" data-id="id-135" data-pid="">
+                    <span class="next-ctrl">-</span> 语法
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="变量" data-id="id-131" data-pid="id-135">
-                        变量
+                    <div class="nav-item nav-type-H3 " title="变量" data-id="id-131" data-pid="id-135">
+                    <span class="next-ctrl"></span> 变量
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="参数传递" data-id="id-132" data-pid="id-135">
-                        参数传递
+                    <div class="nav-item nav-type-H3 " title="参数传递" data-id="id-132" data-pid="id-135">
+                    <span class="next-ctrl"></span> 参数传递
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="属性" data-id="id-133" data-pid="id-135">
-                        属性
+                    <div class="nav-item nav-type-H3 " title="属性" data-id="id-133" data-pid="id-135">
+                    <span class="next-ctrl"></span> 属性
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="对象、类型和转型" data-id="id-134" data-pid="id-135">
-                        对象、类型和转型
+                    <div class="nav-item nav-type-H3 " title="对象、类型和转型" data-id="id-134" data-pid="id-135">
+                    <span class="next-ctrl"></span> 对象、类型和转型
                     </div>
                 </div>
         </div>
@@ -272,4 +272,4 @@ func <span class="token number">2,3</span> <span class="token number">4</span>  
 
 
 
-<script src="../js/util/function.js?version=1634537032455"></script><script src="../js/util/event-hub.js?version=1634537032455"></script><script src="../js/3rdparty/prism.js?version=1634537032455"></script><script src="../js/module/loading.js?version=1634537032455"></script><script src="../js/module/home.js?version=1634537032455"></script><script src="../js/module/cheatsheet.js?version=1634537032455"></script><script src="../js/module/menu.js?version=1634537032455"></script><script src="../js/3rdparty/jszip.min.js?version=1634537032455"></script><script src="../js/util/saveData.js?version=1634537032455"></script></body></html>
+<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>

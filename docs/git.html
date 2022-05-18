@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>git cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=1634537032455"><link rel="stylesheet" href="../css/prism.css?version=1634537032455"></head>
+<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
 
 <body>
     <script>
@@ -40,13 +40,13 @@
             </div>
             <div id="sheet-body">
                 
-                            <div class="h2-section" style="height: 486px">
+                            <div class="h2-section" >
                                 
                                 
                             <div class="sheet-section"  data-position="580|0|0">
                                 <div class="section-title"><h3 id="id-136">配置</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> config --global <span class="token string">"Your Name"</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> config --global <span class="token string">"Your Name"</span>
 <span class="token function">git</span> config --global <span class="token string">"Email Address"</span>
 </code></pre>
                                 </div>
@@ -55,15 +55,15 @@
                             <div class="sheet-section"  data-position="580|600|0">
                                 <div class="section-title"><h3 id="id-137">初始化</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> init
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> init
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|110">
+                            <div class="sheet-section"  data-position="580|600|111">
                                 <div class="section-title"><h3 id="id-138"> 提交修改</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
 <span class="token function">git</span> <span class="token function">add</span> -u  <span class="token comment"># 提交work directory中所有已track的文件至staging area</span>
 <span class="token function">git</span> commit -m <span class="token string">"descriptions"</span>
 <span class="token function">git</span> commit --amend  <span class="token comment"># 对最近一次的提交做内容修改</span>
@@ -72,10 +72,10 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|130">
+                            <div class="sheet-section"  data-position="580|0|131">
                                 <div class="section-title"><h3 id="id-139">查看状态、比对</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> status
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> status
 <span class="token function">git</span> status -s  <span class="token comment"># 文件状态缩略信息</span>
 </code></pre>
 <h4>文件状态缩略信息</h4>
@@ -90,7 +90,7 @@
                 <tr><td><code>A</code></td><td>新增</td><td><code>?</code></td><td>未track</td></tr><tr><td><code>D</code></td><td>删除</td><td><code>M</code></td><td>文件变更</td></tr>
                 </tbody>
             </table>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
 <span class="token function">git</span> <span class="token function">diff</span> HEAD -- <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>    <span class="token comment"># 查看工作区和版本库里面最新版本的区别</span>
 <span class="token function">git</span> <span class="token function">diff</span> --check <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>     <span class="token comment"># 检查是否有空白错误(regex:' \{1,\}$')</span>
 <span class="token function">git</span> <span class="token function">diff</span> --cached <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>    <span class="token comment"># 查看已add的内容(绿M)</span>
@@ -100,13 +100,13 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 867px">
+                            <div class="h2-section" >
                                 <div class="h2-section-title"><h2 id="id-143">Git Log</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-140">log 记录和对比</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> log
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> log
 <span class="token function">git</span> reflog
 <span class="token function">git</span> log -n                   <span class="token comment"># 最近n条的提交历史</span>
 <span class="token function">git</span> log <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span> -n     <span class="token comment"># 分支branch_name最近n条的提交历史</span>
@@ -125,7 +125,7 @@
                             <div class="sheet-section"  data-position="580|600|42">
                                 <div class="section-title"><h3 id="id-141">log 格式化</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> log <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span> --oneline                     <span class="token comment"># 对提交历史单行排列</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> log <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span> --oneline                     <span class="token comment"># 对提交历史单行排列</span>
 <span class="token function">git</span> log <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span> --graph                       <span class="token comment"># 对提交历史图形化排列</span>
 <span class="token function">git</span> log <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span> --decorate                    <span class="token comment"># 对提交历史关联相关引用, 如tag, 本地远程分支等</span>
 <span class="token function">git</span> log <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span> --oneline --graph --decorate  <span class="token comment"># 拼接一下, 树形化显示历史</span>
@@ -146,10 +146,10 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|380">
+                            <div class="sheet-section"  data-position="580|0|381">
                                 <div class="section-title"><h3 id="id-142">log 时间和提交者</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> log --since --after     <span class="token comment"># 显示时间之后的提交</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> log --since --after     <span class="token comment"># 显示时间之后的提交</span>
 <span class="token function">git</span> log --until --before    <span class="token comment"># 显示时间之前的提交</span>
 <span class="token function">git</span> --author                <span class="token comment"># 显示指定作者的提交</span>
 <span class="token function">git</span> --committer             <span class="token comment"># 显示指定committer的提交(注:committer不一定是author)</span>
@@ -165,13 +165,13 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 468px">
+                            <div class="h2-section" >
                                 <div class="h2-section-title"><h2 id="id-148">版本管理</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-144">版本回退、前进</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> reset --hard HEAD^   <span class="token comment"># 回退到上1版本</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> reset --hard HEAD^   <span class="token comment"># 回退到上1版本</span>
 <span class="token function">git</span> reset --hard HEAD~5  <span class="token comment"># 回退到上5个版本</span>
 <span class="token function">git</span> reset --hard <span class="token function">id</span>      <span class="token comment"># 回退到指定版本</span>
 </code></pre>
@@ -181,7 +181,7 @@
                             <div class="sheet-section"  data-position="580|600|42">
                                 <div class="section-title"><h3 id="id-145">撤销修改</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> checkout -- <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>   <span class="token comment"># 撤销修改：误修改工作区文件，未git add/commit</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> checkout -- <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>   <span class="token comment"># 撤销修改：误修改工作区文件，未git add/commit</span>
 <span class="token function">git</span> restore <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>       <span class="token comment"># 撤销修改：误修改工作区文件，未git add/commit</span>
 <span class="token function">git</span> reset HEAD <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>    <span class="token comment"># 撤销git add：误将文件加入暂存区（git add），未git commit</span>
 <span class="token function">git</span> reset --hard HEAD^   <span class="token comment"># 撤销git commit：误将文件提交（一旦提交，只能通过版本回退进行撤销）</span>
@@ -189,21 +189,21 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|192">
+                            <div class="sheet-section"  data-position="580|0|193">
                                 <div class="section-title"><h3 id="id-146">删除与恢复</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> rm/add <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> rm/add <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
 <span class="token function">git</span> commit -m <span class="token string">"remove &lt;file&gt;"</span>  <span class="token comment"># 删除版本库中的&lt;file&gt;：删除工作区文件后，继续删除版本库中相应的文件</span>
 <span class="token function">git</span> checkout -- <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>         <span class="token comment"># 根据版本库中的&lt;file&gt;恢复工作区&lt;file&gt;</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|220">
+                            <div class="sheet-section"  data-position="580|600|221">
                                 <div class="section-title"><h3 id="id-147">清理工作区</h3></div>
                                 <div class="section-body">
                                     <p>包括未track也未ignore的文件或文件夹，如各种临时.swp, .patch文件等</p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> clean -i     <span class="token comment"># 交互式清理, 不常用</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> clean -i     <span class="token comment"># 交互式清理, 不常用</span>
 <span class="token function">git</span> clean -n     <span class="token comment"># 查看清理文件列表(不包括文件夹), 不执行实际清理动作</span>
 <span class="token function">git</span> clean -n -d  <span class="token comment"># 查看清理文件列表(包括文件夹), 不执行实际清理动作</span>
 <span class="token function">git</span> clean -f     <span class="token comment"># 清理所有未track文件</span>
@@ -214,13 +214,13 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 1293px">
+                            <div class="h2-section" >
                                 <div class="h2-section-title"><h2 id="id-159">仓库与分支</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-149">关联GitHub远程仓库（本地到远程）</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> remote <span class="token function">add</span> origin <span class="token operator">&lt;</span>remote address<span class="token operator">&gt;</span>  <span class="token comment"># 在本地工作区目录下按照 GitHub 提示进行关联</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> remote <span class="token function">add</span> origin <span class="token operator">&lt;</span>remote address<span class="token operator">&gt;</span>  <span class="token comment"># 在本地工作区目录下按照 GitHub 提示进行关联</span>
 <span class="token function">git</span> remote <span class="token function">rm</span> origin                    <span class="token comment"># 解除错误关联</span>
 <span class="token function">git</span> push -u origin master               <span class="token comment"># 第一次将本地仓库推送至远程仓库（每次在本地提交后进行操作）</span>
 <span class="token function">git</span> push origin master                  <span class="token comment"># 以后每次将本地仓库推送至远程仓库（每次在本地提交后进行操作）</span>
@@ -234,15 +234,15 @@
                             <div class="sheet-section"  data-position="580|600|42">
                                 <div class="section-title"><h3 id="id-150">克隆GitHub远程仓库（远程到本地）</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> clone <span class="token operator">&lt;</span>remote address<span class="token operator">&gt;</span>  <span class="token comment"># git协议速度更快但通常公司内网不允许，https协议速度慢</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> clone <span class="token operator">&lt;</span>remote address<span class="token operator">&gt;</span>  <span class="token comment"># git协议速度更快但通常公司内网不允许，https协议速度慢</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|160">
+                            <div class="sheet-section"  data-position="580|600|161">
                                 <div class="section-title"><h3 id="id-151">分支管理：创建、切换、查看、合并、删除</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> branch <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>       <span class="token comment"># 创建&lt;branch name&gt;分支</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> branch <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>       <span class="token comment"># 创建&lt;branch name&gt;分支</span>
 <span class="token function">git</span> checkout <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>     <span class="token comment"># 切换至&lt;branch name&gt;分支</span>
 <span class="token function">git</span> switch <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>       <span class="token comment"># 切换至&lt;branch name&gt;分支</span>
 <span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>  <span class="token comment"># 创建并切换至&lt;branch name&gt;分支</span>
@@ -254,25 +254,25 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|280">
+                            <div class="sheet-section"  data-position="580|0|281">
                                 <div class="section-title"><h3 id="id-152">解决合并冲突</h3></div>
                                 <div class="section-body">
                                     <p>合并时报错“分支发生冲突”，首先vim相应文件，修改冲突位置，然后按照git add/commit重新提交，最后删除多余分支即可。</p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> log --graph --pretty<span class="token operator">=</span>oneline --abbrev-commit
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> log --graph --pretty<span class="token operator">=</span>oneline --abbrev-commit
 <span class="token function">git</span> log --graph
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|418">
+                            <div class="sheet-section"  data-position="580|600|420">
                                 <div class="section-title"><h3 id="id-153">分支管理：合并后删除分支也在 log 中保留分支记录</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> merge --no-ff -m <span class="token string">"descriptions"</span> <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> merge --no-ff -m <span class="token string">"descriptions"</span> <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|482">
+                            <div class="sheet-section"  data-position="580|0|484">
                                 <div class="section-title"><h3 id="id-154">开发流程</h3></div>
                                 <div class="section-body">
                                     
@@ -290,11 +290,11 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|528">
+                            <div class="sheet-section"  data-position="580|600|531">
                                 <div class="section-title"><h3 id="id-155">Bug分支管理（建立单独分支进行bug修复）</h3></div>
                                 <div class="section-body">
                                     <p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> stash                    <span class="token comment"># 保存当前工作现场（在dev未完成开发，但master有bug需要修复）</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> stash                    <span class="token comment"># 保存当前工作现场（在dev未完成开发，但master有bug需要修复）</span>
 <span class="token function">git</span> stash pop                <span class="token comment"># 回到dev分支后恢复工作现场（list中的现场会同时被删除）</span>
 <span class="token function">git</span> stash list               <span class="token comment"># 查看当前存储的工作现场</span>
 <span class="token function">git</span> stash apply stash@<span class="token punctuation">{</span>num<span class="token punctuation">}</span>  <span class="token comment"># 回到指定工作现场（list中的现场不会被删除，需要用git stash drop）</span>
@@ -304,29 +304,29 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|717">
+                            <div class="sheet-section"  data-position="580|0|722">
                                 <div class="section-title"><h3 id="id-156">Feature分支管理（建立单独分支添加新功能）</h3></div>
                                 <div class="section-body">
                                     <p>软件开发中，总有无穷无尽的新的功能要不断添加进来。添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> branch -D <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>  <span class="token comment"># 强制删除分支（丢弃未合并分支）</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> branch -D <span class="token operator">&lt;</span>branch name<span class="token operator">&gt;</span>  <span class="token comment"># 强制删除分支（丢弃未合并分支）</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|841">
+                            <div class="sheet-section"  data-position="580|600|845">
                                 <div class="section-title"><h3 id="id-157">协作与分支推送</h3></div>
                                 <div class="section-body">
                                     <h4>User 1:</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> remote <span class="token punctuation">[</span>-v<span class="token punctuation">]</span>                   <span class="token comment"># 查看远程库信息（-v 查看详细信息）</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> remote <span class="token punctuation">[</span>-v<span class="token punctuation">]</span>                   <span class="token comment"># 查看远程库信息（-v 查看详细信息）</span>
 <span class="token function">git</span> push origin <span class="token punctuation">[</span>master/dev/<span class="token punctuation">..</span>.<span class="token punctuation">]</span>  <span class="token comment"># 推送指定分支到远程</span>
 </code></pre>
 <h4>User 2:</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> clone <span class="token operator">&lt;</span>remote address<span class="token operator">&gt;</span>      <span class="token comment"># 克隆到本地（只能克隆master）</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> clone <span class="token operator">&lt;</span>remote address<span class="token operator">&gt;</span>      <span class="token comment"># 克隆到本地（只能克隆master）</span>
 <span class="token function">git</span> checkout -b dev origin/dev  <span class="token comment"># 本地新建分支并关联远程</span>
 <span class="token function">git</span> add/commit/push             <span class="token comment"># 添加、提交、推送更新</span>
 </code></pre>
 <h4>User 1:</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> add/commit/push          <span class="token comment"># 推送时报错（与user 2推送的更新冲突）</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> add/commit/push          <span class="token comment"># 推送时报错（与user 2推送的更新冲突）</span>
 <span class="token function">git</span> pull <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span>
 <span class="token function">git</span> branch --set-upstream-to<span class="token operator">=</span>origin/<span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span>  <span class="token comment"># 本地与远程关联</span>
 <span class="token function">git</span> pull                     <span class="token comment"># 拉取远程文件（并解决冲突）</span>
@@ -335,10 +335,10 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|922">
+                            <div class="sheet-section"  data-position="580|0|928">
                                 <div class="section-title"><h3 id="id-158">标签管理（常用于版本管理）：查看、创建、操作</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> tag                           <span class="token comment"># 查看标签</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> tag                           <span class="token comment"># 查看标签</span>
 <span class="token function">git</span> show <span class="token operator">&lt;</span>tag name<span class="token operator">&gt;</span>               <span class="token comment"># 查看指定标签</span>
 <span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline --abbrev-commit --decorate<span class="token operator">=</span>full  <span class="token comment"># 在log中显示标签</span>
 <span class="token function">git</span> tag <span class="token operator">&lt;</span>tag name<span class="token operator">&gt;</span>                <span class="token comment"># 为上次commit位置打标签</span>
@@ -354,7 +354,7 @@
                             </div>
                             
 
-                            <div class="h2-section" style="height: 2007px">
+                            <div class="h2-section" >
                                 <div class="h2-section-title"><h2 id="id-164">rebase(换基)</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
@@ -370,13 +370,13 @@
                                 <div class="section-body">
                                     <p><code>master</code>分支上有三个提交<code>C1</code>, <code>C2</code>, <code>C3</code></p>
 <p>某一时刻<code>usr1</code>在<code>C3</code>的<code>master</code>分支上<code>checkout</code>出新的分支, 用于开发服务端支持<code>ipv6</code>新特性, 并提交了<code>C4</code>, <code>C5</code></p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> checkout -b ipv6_support
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> checkout -b ipv6_support
 <span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
 <span class="token function">git</span> commit -m C4
 <span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
 <span class="token function">git</span> commit -m C5
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="">此时提交状态如下所示
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="">此时提交状态如下所示
       (origin/master branch)
              |
 C1 &lt;- C2 &lt;- C3
@@ -388,7 +388,7 @@ C1 &lt;- C2 &lt;- C3
                 (ipv6_support branch)
 </code></pre>
 <p>某同事<code>usr2</code>修改了<code>master</code>上的内存泄漏错误, 并提交了<code>C6</code>, <code>C7</code>, <code>C8</code>三个<code>commit</code>, 然后直接推送<code>origin/master</code>(假设这个期间无其他人推新内容到<code>master</code>)。</p>
-<pre class=" language-markup"><code class=" language-markup" style="">此时提交状态如下所示
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="">此时提交状态如下所示
                     (origin/usr2/fix_mem_leak branch)
                                |
 C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
@@ -401,7 +401,7 @@ C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
 </code></pre>
 <p>如果此时<code>usr1</code>希望将ipv6的新特性提交至<code>master</code>, 那么在其直接<code>push origin master</code>时会提示<code>master</code>需要合并分支<code>ipv6_support</code>。</p>
 <p>虽然<code>C4</code>, <code>C5</code>的改动内容完全独立于<code>C6</code>, <code>C7</code>, <code>C8</code>的改动，但<code>git</code>仍会抓取<code>C5</code>和<code>C8</code>的提交并产生一个新的<code>C9</code> commit(因两者分支的base不同), 如下图所示</p>
-<pre class=" language-markup"><code class=" language-markup" style="">C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="">C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
              \                 \
               \                 \
                \                 \
@@ -409,10 +409,10 @@ C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
 </code></pre>
 <p>如果是为了保证master提交记录的<i>干净完整</i>，或者是某分支不着急提交, 仍需要更多的测试与开发, 但又不想分支开发周期结束后<i>偏离</i>当初checkout的<code>master</code>分支太久远(容易造成更多的冲突)，可以考虑(定期)利用<code>rebase</code>来进行变基。</p>
 <p>即上面提到过的多人协同开发, 定期<code>rebase master</code>是个好习惯。</p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> checkout ipv6_support
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> checkout ipv6_support
 <span class="token function">git</span> rebase master
 </code></pre>
-<pre class=" language-markup"><code class=" language-markup" style="">结果提交状态如下所示
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="">结果提交状态如下所示
             (origin/master origin/usr2/fix_mem_leak branch)
                                |
 C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
@@ -429,11 +429,11 @@ C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|260">
+                            <div class="sheet-section"  data-position="580|0|262">
                                 <div class="section-title"><h3 id="id-162">案例二</h3></div>
                                 <div class="section-body">
                                     <p>// TODO</p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token comment"># 重放, 用于变基在分支branch_lhs中而不在branch_rhs中的commit</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token comment"># 重放, 用于变基在分支branch_lhs中而不在branch_rhs中的commit</span>
 <span class="token function">git</span> rebase --noto <span class="token operator">&lt;</span>branch_lhs<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch_rhs<span class="token operator">&gt;</span>
 </code></pre>
 <p>某项目状态分支如下所示, 其中Cn的数字代表提交时间顺</p>
@@ -442,7 +442,7 @@ C1 &lt;- C2 &lt;- C3 &lt;- C6 &lt;- C7 &lt;- C8
 <p><i>T3</i> <code>master</code>分支有更新, 其他同事<code>usr2</code>提交了<code>C5</code>, <code>C6</code>并推送到了<code>origin master</code></p>
 <p><i>T4</i> 员工<code>usr1</code>从<code>server</code>分支切回到<code>C3</code>公共基础的提交, 并创建新分支<code>client</code>, 用于开发客户端功能, 并提交<code>C8</code>,<code> C9</code></p>
 <p><i>T5</i> 员工<code>usr1</code>从<code>client</code>分支切回到<code>server</code>分支继续开发服务端功能, 并提交<code>C10</code></p>
-<pre class=" language-markup"><code class=" language-markup" style="">            (master branch)
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="">            (master branch)
                    |
 C1 &lt;- C2 &lt;- C5 &lt;- C6
          \
@@ -457,11 +457,11 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6
                   (client branch)
 </code></pre>
 <p>此时该员工希望将客户端<code>client</code>相关的功能合并到主分支并发布，但暂时并不想合并<code>server</code>中的修改，因为它们还需要经过更全面的测试。 这时可以使用<code>git rebase</code>命令的<code>--onto</code>选项，选中在<code>client</code>分支里但不在<code>server</code>分支里的修改（即<code>C8</code>和<code>C9</code>），将它们在<code>master</code>分支上重放：</p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> rebase --onto client server
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> rebase --onto client server
 </code></pre>
 <p>得到如下图所示的提交状态</p>
 <p>注:其中<code>C3'</code>, <code>C8'</code>,<code> C9'</code>与<code>C3</code>, <code>C8</code>, <code>C9</code>的提交内容完全一样, 但是<code>hash id</code>不同</p>
-<pre class=" language-markup"><code class=" language-markup" style="">            (master branch)(client branch)
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="">            (master branch)(client branch)
                    |            |
 C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C8' &lt;- C9'
          \
@@ -476,12 +476,12 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C8' &lt;- C9'
                [         |        ]
                [  (client branch) ]
 </code></pre>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token comment">#can be fast-forwarded</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token comment">#can be fast-forwarded</span>
 <span class="token function">git</span> checkout master
 <span class="token function">git</span> merge client
 </code></pre>
 <h4>提交后分支状态如下</h4>
-<pre class=" language-markup"><code class=" language-markup" style="">                                (client branch)
+<pre class="language-markup" tabindex="0"><code class="language-markup" style="">                                (client branch)
                                        |
 C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
          \                             |
@@ -494,10 +494,10 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1749">
+                            <div class="sheet-section"  data-position="580|600|1756">
                                 <div class="section-title"><h3 id="id-163">其他</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token comment"># 压缩当前分支的n个commit并合并为1个commit, 常见第一行为pick, 剩下的n-1行为squash</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token comment"># 压缩当前分支的n个commit并合并为1个commit, 常见第一行为pick, 剩下的n-1行为squash</span>
 <span class="token function">git</span> rebase -i HEAD~n 
 
 <span class="token comment"># rebase过程中发生错误, 可以利用该命令终止整个rebase过程</span>
@@ -511,30 +511,30 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                             </div>
                             
 
-                <div class="h2-section" style="height: 963px">
+                <div class="h2-section" >
                     <div class="h2-section-title"><h2 id="id-171">杂项</h2></div>
                     
                             <div class="sheet-section"  data-position="580|0|42">
                                 <div class="section-title"><h3 id="id-165">打patch(补丁)</h3></div>
                                 <div class="section-body">
                                     <h4>生成diff patch文件(git可以识别diff文件)</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span> log -n -p <span class="token operator">&gt;</span> diff.patch <span class="token comment"># 生成某分支过去n个commit的文件diff信息至单个diff文件</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span> log -n -p <span class="token operator">&gt;</span> diff.patch <span class="token comment"># 生成某分支过去n个commit的文件diff信息至单个diff文件</span>
 <span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>--cached<span class="token operator">&gt;</span> diff.patch      <span class="token comment"># 针对当前缓存区的内容生成diff文件</span>
 </code></pre>
 <h4>利用apply打patch</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> apply --check diff.patch    <span class="token comment"># 检查是否可以正常应用, 无回显证明无冲突</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> apply --check diff.patch    <span class="token comment"># 检查是否可以正常应用, 无回显证明无冲突</span>
 <span class="token function">git</span> apply --stat diff.patch     <span class="token comment"># 查看应用diff文件后的文件变化</span>
 <span class="token function">git</span> apply diff.patch            <span class="token comment"># 打patch, 仅仅改变文件信息, 无commit信息, 仍然需要add, commit</span>
 </code></pre>
 <h4>利用--format-patch生成patch, 带commit信息</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> format-patch <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span> -n    <span class="token comment"># 生成分支&lt;branch&gt;最近的n次commit的patch</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> format-patch <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span> -n    <span class="token comment"># 生成分支&lt;branch&gt;最近的n次commit的patch</span>
 <span class="token function">git</span> format-patch <span class="token operator">&lt;</span>r<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span><span class="token punctuation">..</span><span class="token operator">&lt;</span>r<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>     <span class="token comment"># 生成两个commit间的修改的patch（包含两个commit. &lt;r1&gt;和&lt;r2&gt;都是具体的commit号)</span>
 <span class="token function">git</span> format-patch -1 <span class="token operator">&lt;</span>r<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>        <span class="token comment"># 生成单个commit的patch</span>
 <span class="token function">git</span> format-patch <span class="token operator">&lt;</span>r<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>           <span class="token comment"># 生成某commit以来的修改patch（不包含该commit）</span>
 <span class="token function">git</span> format-patch --root <span class="token operator">&lt;</span>r<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>    <span class="token comment"># 生成从根到r1提交的所有patch</span>
 </code></pre>
 <h4>利用am打patch</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> apply --check 0001-update-bash.sh.patch <span class="token comment"># 检查patch是否冲突可用</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> apply --check 0001-update-bash.sh.patch <span class="token comment"># 检查patch是否冲突可用</span>
 <span class="token function">git</span> apply --stat 0001-update-bash.sh.patch  <span class="token comment"># 检查patch文件变更情况, 无回显证明无冲突</span>
 <span class="token function">git</span> am 0001-update-bash.sh.patch            <span class="token comment"># 将该patch打上到当前分支, 带commit信息</span>
 <span class="token function">git</span> am ./*.patch                            <span class="token comment"># 将当前路径下的所有patch按照先后顺序打上</span>
@@ -548,11 +548,11 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 <div class="section-title"><h3 id="id-166">bundle(打包)</h3></div>
                                 <div class="section-body">
                                     <p>该命令会将git工程打包, 默认情况下会打包所有commit记录和track的文件不同于简单粗暴tar.gz打包整个文件夹, bundle只打包那些push过的记录如某git工程下存在.build构建后的目录, 而.gitignore又忽略了该文件夹如果利用tar.gz打包则会将那些忽略的文件文件夹一并打包, 可能会造成压缩包极大的臃肿而又不想仅仅为了打个包就删除整个build目录(如重新build时间成本太大)那么就可以使用bundle进行打包, 该命令只打包track过的文件并且像url那样直接调用git clone来重建</p>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> bundle create awesome-cheatsheets.bundle HEAD master <span class="token comment"># 打包重建master分支的所有数据</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> bundle create awesome-cheatsheets.bundle HEAD master <span class="token comment"># 打包重建master分支的所有数据</span>
 <span class="token function">git</span> clone awesome-cheatsheets.bundle                     <span class="token comment"># 重建工程</span>
 </code></pre>
 <h4>bundle也可以打包指定的区间, 至于提交区间有多种表示方式</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> bundle create awesome-cheatsheets.bundle HEAD~10
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> bundle create awesome-cheatsheets.bundle HEAD~10
 <span class="token function">git</span> bundle create awesome-cheatsheets.bundle HEAD~10<span class="token punctuation">..</span>HEAD
 <span class="token function">git</span> bundle create awesome-cheatsheets.bundle lhs_commit_md5<span class="token punctuation">..</span>rhs_commit_md5
 <span class="token function">git</span> bundle create awesome-cheatsheets.bundle origin/master<span class="token punctuation">..</span>master
@@ -561,40 +561,40 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|505">
+                            <div class="sheet-section"  data-position="580|600|507">
                                 <div class="section-title"><h3 id="id-167">使用GitHub</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-markup"><code class=" language-markup" style="">fork --&gt; clone --&gt; add/commit/push --&gt; pull request
+                                    <pre class="language-markup" tabindex="0"><code class="language-markup" style="">fork --&gt; clone --&gt; add/commit/push --&gt; pull request
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|615">
+                            <div class="sheet-section"  data-position="580|600|618">
                                 <div class="section-title"><h3 id="id-168">其他配置</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> config --global color.ui <span class="token boolean">true</span>  <span class="token comment"># 显示颜色</span>
+                                    <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> config --global color.ui <span class="token boolean">true</span>  <span class="token comment"># 显示颜色</span>
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|709">
+                            <div class="sheet-section"  data-position="580|0|710">
                                 <div class="section-title"><h3 id="id-169">配置.gitignore文件</h3></div>
                                 <div class="section-body">
-                                    <pre class=" language-markup"><code class=" language-markup" style="">/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dir</span> <span class="token attr-name">name</span><span class="token punctuation">&gt;</span></span>/               # 忽略文件夹
+                                    <pre class="language-markup" tabindex="0"><code class="language-markup" style="">/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dir</span> <span class="token attr-name">name</span><span class="token punctuation">&gt;</span></span>/               # 忽略文件夹
 *.zip                      # 忽略.zip文件
 /<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dir</span> <span class="token attr-name">name</span><span class="token punctuation">&gt;</span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file</span> <span class="token attr-name">name</span><span class="token punctuation">&gt;</span></span>    # 忽略指定文件
 </code></pre>
 <h4>文件.gitignore生效后</h4>
-<pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> <span class="token function">add</span> -f <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>           <span class="token comment"># 强制添加</span>
+<pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> <span class="token function">add</span> -f <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>           <span class="token comment"># 强制添加</span>
 <span class="token function">git</span> check-ignore -v <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>  <span class="token comment"># 查看生效规则</span>
 </code></pre>
                                 </div>
                             </div>
 
-                <div class="sheet-section"  data-position="580|600|725">
+                <div class="sheet-section"  data-position="580|600|729">
                     <div class="section-title"><h3 id="id-170">配置别名</h3></div>
                     <div class="section-body">
-                        <pre class=" language-bash"><code class=" language-bash" style=""><span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> alias.<span class="token operator">&lt;</span>alias<span class="token operator">&gt;</span> <span class="token string">'&lt;original command&gt;'</span>  <span class="token comment"># 为所有工作区/当前工作区配置别名</span>
+                        <pre class="language-bash" tabindex="0"><code class="language-bash" style=""><span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> alias.<span class="token operator">&lt;</span>alias<span class="token operator">&gt;</span> <span class="token string">'&lt;original command&gt;'</span>  <span class="token comment"># 为所有工作区/当前工作区配置别名</span>
 .git/config         <span class="token comment"># 当前工作区的配置文件</span>
 ~/.gitconfig        <span class="token comment"># 当前用户的配置文件</span>
 </code></pre>
@@ -610,148 +610,148 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3" title="配置" data-id="id-136" data-pid="default">
-                        配置
+                    <div class="nav-item nav-type-H3 hide" title="配置" data-id="id-136" data-pid="default">
+                    <span class="next-ctrl"></span> 配置
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="初始化" data-id="id-137" data-pid="default">
-                        初始化
+                    <div class="nav-item nav-type-H3 hide" title="初始化" data-id="id-137" data-pid="default">
+                    <span class="next-ctrl"></span> 初始化
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="提交修改" data-id="id-138" data-pid="default">
-                        提交修改
+                    <div class="nav-item nav-type-H3 hide" title="提交修改" data-id="id-138" data-pid="default">
+                    <span class="next-ctrl"></span> 提交修改
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="查看状态、比对" data-id="id-139" data-pid="default">
-                        查看状态、比对
+                    <div class="nav-item nav-type-H3 hide" title="查看状态、比对" data-id="id-139" data-pid="default">
+                    <span class="next-ctrl"></span> 查看状态、比对
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="Git Log" data-id="id-143" data-pid="">
-                        Git Log
+                    <div class="nav-item nav-type-H2 " title="Git Log" data-id="id-143" data-pid="">
+                    <span class="next-ctrl">+</span> Git Log
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="log 记录和对比" data-id="id-140" data-pid="id-143">
-                        log 记录和对比
+                    <div class="nav-item nav-type-H3 hide" title="log 记录和对比" data-id="id-140" data-pid="id-143">
+                    <span class="next-ctrl"></span> log 记录和对比
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="log 格式化" data-id="id-141" data-pid="id-143">
-                        log 格式化
+                    <div class="nav-item nav-type-H3 hide" title="log 格式化" data-id="id-141" data-pid="id-143">
+                    <span class="next-ctrl"></span> log 格式化
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="log 时间和提交者" data-id="id-142" data-pid="id-143">
-                        log 时间和提交者
+                    <div class="nav-item nav-type-H3 hide" title="log 时间和提交者" data-id="id-142" data-pid="id-143">
+                    <span class="next-ctrl"></span> log 时间和提交者
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="版本管理" data-id="id-148" data-pid="">
-                        版本管理
+                    <div class="nav-item nav-type-H2 " title="版本管理" data-id="id-148" data-pid="">
+                    <span class="next-ctrl">+</span> 版本管理
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="版本回退、前进" data-id="id-144" data-pid="id-148">
-                        版本回退、前进
+                    <div class="nav-item nav-type-H3 hide" title="版本回退、前进" data-id="id-144" data-pid="id-148">
+                    <span class="next-ctrl"></span> 版本回退、前进
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="撤销修改" data-id="id-145" data-pid="id-148">
-                        撤销修改
+                    <div class="nav-item nav-type-H3 hide" title="撤销修改" data-id="id-145" data-pid="id-148">
+                    <span class="next-ctrl"></span> 撤销修改
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="删除与恢复" data-id="id-146" data-pid="id-148">
-                        删除与恢复
+                    <div class="nav-item nav-type-H3 hide" title="删除与恢复" data-id="id-146" data-pid="id-148">
+                    <span class="next-ctrl"></span> 删除与恢复
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="清理工作区" data-id="id-147" data-pid="id-148">
-                        清理工作区
+                    <div class="nav-item nav-type-H3 hide" title="清理工作区" data-id="id-147" data-pid="id-148">
+                    <span class="next-ctrl"></span> 清理工作区
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="仓库与分支" data-id="id-159" data-pid="">
-                        仓库与分支
+                    <div class="nav-item nav-type-H2 " title="仓库与分支" data-id="id-159" data-pid="">
+                    <span class="next-ctrl">+</span> 仓库与分支
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="关联GitHub远程仓库（本地到远程）" data-id="id-149" data-pid="id-159">
-                        关联GitHub远程仓库（本地到远程）
+                    <div class="nav-item nav-type-H3 hide" title="关联GitHub远程仓库（本地到远程）" data-id="id-149" data-pid="id-159">
+                    <span class="next-ctrl"></span> 关联GitHub远程仓库（本地到远程）
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="克隆GitHub远程仓库（远程到本地）" data-id="id-150" data-pid="id-159">
-                        克隆GitHub远程仓库（远程到本地）
+                    <div class="nav-item nav-type-H3 hide" title="克隆GitHub远程仓库（远程到本地）" data-id="id-150" data-pid="id-159">
+                    <span class="next-ctrl"></span> 克隆GitHub远程仓库（远程到本地）
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="分支管理：创建、切换、查看、合并、删除" data-id="id-151" data-pid="id-159">
-                        分支管理：创建、切换、查看、合并、删除
+                    <div class="nav-item nav-type-H3 hide" title="分支管理：创建、切换、查看、合并、删除" data-id="id-151" data-pid="id-159">
+                    <span class="next-ctrl"></span> 分支管理：创建、切换、查看、合并、删除
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="解决合并冲突" data-id="id-152" data-pid="id-159">
-                        解决合并冲突
+                    <div class="nav-item nav-type-H3 hide" title="解决合并冲突" data-id="id-152" data-pid="id-159">
+                    <span class="next-ctrl"></span> 解决合并冲突
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="分支管理：合并后删除分支也在 log 中保留分支记录" data-id="id-153" data-pid="id-159">
-                        分支管理：合并后删除分支也在 log 中保留分支记录
+                    <div class="nav-item nav-type-H3 hide" title="分支管理：合并后删除分支也在 log 中保留分支记录" data-id="id-153" data-pid="id-159">
+                    <span class="next-ctrl"></span> 分支管理：合并后删除分支也在 log 中保留分支记录
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="开发流程" data-id="id-154" data-pid="id-159">
-                        开发流程
+                    <div class="nav-item nav-type-H3 hide" title="开发流程" data-id="id-154" data-pid="id-159">
+                    <span class="next-ctrl"></span> 开发流程
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="Bug分支管理（建立单独分支进行bug修复）" data-id="id-155" data-pid="id-159">
-                        Bug分支管理（建立单独分支进行bug修复）
+                    <div class="nav-item nav-type-H3 hide" title="Bug分支管理（建立单独分支进行bug修复）" data-id="id-155" data-pid="id-159">
+                    <span class="next-ctrl"></span> Bug分支管理（建立单独分支进行bug修复）
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="Feature分支管理（建立单独分支添加新功能）" data-id="id-156" data-pid="id-159">
-                        Feature分支管理（建立单独分支添加新功能）
+                    <div class="nav-item nav-type-H3 hide" title="Feature分支管理（建立单独分支添加新功能）" data-id="id-156" data-pid="id-159">
+                    <span class="next-ctrl"></span> Feature分支管理（建立单独分支添加新功能）
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="协作与分支推送" data-id="id-157" data-pid="id-159">
-                        协作与分支推送
+                    <div class="nav-item nav-type-H3 hide" title="协作与分支推送" data-id="id-157" data-pid="id-159">
+                    <span class="next-ctrl"></span> 协作与分支推送
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="标签管理（常用于版本管理）：查看、创建、操作" data-id="id-158" data-pid="id-159">
-                        标签管理（常用于版本管理）：查看、创建、操作
+                    <div class="nav-item nav-type-H3 hide" title="标签管理（常用于版本管理）：查看、创建、操作" data-id="id-158" data-pid="id-159">
+                    <span class="next-ctrl"></span> 标签管理（常用于版本管理）：查看、创建、操作
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="rebase(换基)" data-id="id-164" data-pid="">
-                        rebase(换基)
+                    <div class="nav-item nav-type-H2 " title="rebase(换基)" data-id="id-164" data-pid="">
+                    <span class="next-ctrl">+</span> rebase(换基)
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="目的" data-id="id-160" data-pid="id-164">
-                        目的
+                    <div class="nav-item nav-type-H3 hide" title="目的" data-id="id-160" data-pid="id-164">
+                    <span class="next-ctrl"></span> 目的
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="案例一" data-id="id-161" data-pid="id-164">
-                        案例一
+                    <div class="nav-item nav-type-H3 hide" title="案例一" data-id="id-161" data-pid="id-164">
+                    <span class="next-ctrl"></span> 案例一
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="案例二" data-id="id-162" data-pid="id-164">
-                        案例二
+                    <div class="nav-item nav-type-H3 hide" title="案例二" data-id="id-162" data-pid="id-164">
+                    <span class="next-ctrl"></span> 案例二
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="其他" data-id="id-163" data-pid="id-164">
-                        其他
+                    <div class="nav-item nav-type-H3 hide" title="其他" data-id="id-163" data-pid="id-164">
+                    <span class="next-ctrl"></span> 其他
                     </div>
                 
-                    <div class="nav-item nav-type-H2" title="杂项" data-id="id-171" data-pid="">
-                        杂项
+                    <div class="nav-item nav-type-H2 " title="杂项" data-id="id-171" data-pid="">
+                    <span class="next-ctrl">+</span> 杂项
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="打patch(补丁)" data-id="id-165" data-pid="id-171">
-                        打patch(补丁)
+                    <div class="nav-item nav-type-H3 hide" title="打patch(补丁)" data-id="id-165" data-pid="id-171">
+                    <span class="next-ctrl"></span> 打patch(补丁)
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="bundle(打包)" data-id="id-166" data-pid="id-171">
-                        bundle(打包)
+                    <div class="nav-item nav-type-H3 hide" title="bundle(打包)" data-id="id-166" data-pid="id-171">
+                    <span class="next-ctrl"></span> bundle(打包)
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="使用GitHub" data-id="id-167" data-pid="id-171">
-                        使用GitHub
+                    <div class="nav-item nav-type-H3 hide" title="使用GitHub" data-id="id-167" data-pid="id-171">
+                    <span class="next-ctrl"></span> 使用GitHub
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="其他配置" data-id="id-168" data-pid="id-171">
-                        其他配置
+                    <div class="nav-item nav-type-H3 hide" title="其他配置" data-id="id-168" data-pid="id-171">
+                    <span class="next-ctrl"></span> 其他配置
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="配置.gitignore文件" data-id="id-169" data-pid="id-171">
-                        配置.gitignore文件
+                    <div class="nav-item nav-type-H3 hide" title="配置.gitignore文件" data-id="id-169" data-pid="id-171">
+                    <span class="next-ctrl"></span> 配置.gitignore文件
                     </div>
                 
-                    <div class="nav-item nav-type-H3" title="配置别名" data-id="id-170" data-pid="id-171">
-                        配置别名
+                    <div class="nav-item nav-type-H3 hide" title="配置别名" data-id="id-170" data-pid="id-171">
+                    <span class="next-ctrl"></span> 配置别名
                     </div>
                 </div>
         </div>
@@ -762,4 +762,4 @@ C1 &lt;- C2 &lt;- C5 &lt;- C6 &lt;- C3' &lt;- C8' &lt;- C9'
 
 
 
-<script src="../js/util/function.js?version=1634537032455"></script><script src="../js/util/event-hub.js?version=1634537032455"></script><script src="../js/3rdparty/prism.js?version=1634537032455"></script><script src="../js/module/loading.js?version=1634537032455"></script><script src="../js/module/home.js?version=1634537032455"></script><script src="../js/module/cheatsheet.js?version=1634537032455"></script><script src="../js/module/menu.js?version=1634537032455"></script><script src="../js/3rdparty/jszip.min.js?version=1634537032455"></script><script src="../js/util/saveData.js?version=1634537032455"></script></body></html>
+<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>

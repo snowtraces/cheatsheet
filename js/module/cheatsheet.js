@@ -178,6 +178,10 @@
                                 style = `font-size: ${this.model.meta.font_size} !important;`
                             }
                             if (block_type) {
+                                // if (block_type === 'c') {
+                                //     block_type = 'clike'
+                                // }
+
                                 item_cache.push(`<pre class="language-${block_type}"><code class="language-${block_type}" style="${style}">${this.html2Escape(data_block)}</code></pre>`)
                             } else {
                                 item_cache.push(`<pre class="language-"><code class="language-" style="${style}">${this.html2Escape(data_block)}</code></pre>`)
@@ -237,7 +241,7 @@
                         if (item_cache.length > 0) {
                             h3_section.push(`
                             <div class="sheet-section">
-                                <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
+                                <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title, false)}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -269,7 +273,7 @@
                         if (item_cache.length > 0) {
                             h3_section.push(`
                             <div class="sheet-section">
-                                <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title)}</h3></div>
+                                <div class="section-title"><h3 id="${this.buidId(h2_section_title + '-' + h3_section_title)}">${this.parserText(h3_section_title, false)}</h3></div>
                                 <div class="section-body">
                                     ${item_cache.join('\n')}
                                 </div>
@@ -286,7 +290,7 @@
                             item_cache.push(linesText)
                         }
 
-                        item_cache.push(`<h4>${this.parserText(_line.substr(5))}</h4>`);
+                        item_cache.push(`<h4>${this.parserText(_line.substr(5), false)}</h4>`);
                     }
 
                 } else if (!block_status && _line.startsWith('{')) {
@@ -526,9 +530,13 @@
         },
         highlight(inString, withHight) {
             if (withHight) {
+                let _base = '\\w|-|\\/|\\.|=|_|\\+|@|%|\\\\|\\?|:|\\*|\\^|&|;|\'|,';
+                let _ext = '\\(|\\)|{|}|…'
+
+                let formatRegex = new RegExp(`([^${_base}]?)((${_base}|${_ext})(${_base}|${_ext}|\\s)*(?<!\\s))([^${_base}]?)`, 'g')
                 return inString.replace(
-                    /([^\w]?)((\w|-|\/|\.|=|_|\+|@)(\w|-|\/|\.|=|_|\+|@|>|<|\(|\)|{|}|\s|…)+(\w|-|\/|\.|=|_|\+|@|\(|\)|{|}))([^\w]?)/g,
-                    '$1<code>$2</code>$6')
+                    formatRegex,
+                    '$1<code>$2</code>$5')
             } else {
                 return inString;
             }
@@ -608,7 +616,7 @@
                 </tbody>
             </table>`
         },
-        initSectionPosition(showOnInit = false) {
+        initSectionPosition(showOnInit = true) {
             let default_column_size = this.model.meta.column_size || 2;
             let column_size = default_column_size;
             let idxToYOffset = {};
