@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据库索引 cheatsheet</title>
+<link rel="stylesheet" href="../css/main.css?version=1652837889339"><link rel="stylesheet" href="../css/prism.css?version=1652837889339"></head>
+
+<body>
+    <script>
+        if (!location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            if (location.protocol === 'http:') {
+                // https 跳转
+                location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            } else if (location.pathname === '/') {
+                // 静态跳转
+                if ((/#\/[^/]+/).test(location.hash)) {
+                    location.href = `https://${location.hostname}/docs/${location.hash.substring(2)}.html`
+                } else {
+                    location.href = `https://${location.hostname}/docs/`
+                }
+            }
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide" data-cs-theme="light"></div>
+    <div id="top-nav" data-cs-theme="light">
+        <div class="top-nav__wrapper">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper">
+            <div id="sheet-title">
+                <h1>数据库索引<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" >
+                                
+                                
+                            <div class="sheet-section"  data-position="580|0|0">
+                                <div class="section-title"><h3 id="id-716">表和索引结构</h3></div>
+                                <div class="section-body">
+                                    <h4>索引页和表页</h4>
+<p>表和索引都被存储在页中，页大小一般4KB。当表和索引被加载或重组时，每个页都会预留一定比例的空闲空间，满足添加新数据的需求。</p>
+<h4>索引行</h4>
+<ul><li>唯一索引，一个索引行等同于叶子页中的一个索引条目，字段的值从表中复制到索引，并加上一个指向表中记录的指针。
+</li><li>非唯一索引，多数情况下，其存储方式是一个值后带多个指针。
+</li></ul>
+<h4>索引结构</h4>
+<p>B树，非叶子页通常包含一个（可能被截断的）键值，以及一个指向下一级页的指针，该键值是下层级页中的最大键值。</p>
+<h4>表行</h4>
+<p>表中记录的顺序按照表中某一索引的顺序来组织，使用其他索引访问时，索引的处理有序且高效，但表的处理确实随机且低效的。</p>
+<h4>缓冲池和磁盘I/O</h4>
+<p>索引和表页在不在缓冲池中，访问成本是不同的。它的理想位置在数据库缓冲池中，其次是磁盘服务器的读缓冲区中，否则会从磁盘进行读取，其过程可能要花费很长时间等待磁盘设备空闲下来。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|0">
+                                <div class="section-title"><h3 id="id-717">索引组织表</h3></div>
+                                <div class="section-body">
+                                    <p>如果一个表的行不是特别长，那么可以考虑将所有的列负责到索引上，以加快select的执行速度，如产表就变得冗余了。有些DBMS有去除多余表的选项，其索引的叶子页用于存储表行。</p>
+<ul><li>oracle中，该选项被称为索引组织表，包含表行的索引被称为主键索引。
+</li><li>sql server中，选项clustered创建一个存储表行的索引。
+</li></ul>
+<p>以上两种环境中，其余索引（oracle中为次级索引，sql server为非聚集索引）都指向包含表行的那个索引。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|272">
+                                <div class="section-title"><h3 id="id-718">聚簇的许多含义</h3></div>
+                                <div class="section-body">
+                                    <h4>DB2（z/OS，LUW，VM和VSE）</h4>
+<p>聚簇索引指定义了新插入的表行所在表页的索引。如果索引行的顺序和表行的顺序之间具有强关联性，那么就可以说该索引是聚集的。一张表上只能有一个聚簇索引，但可能有多个索引是聚集的。</p>
+<p>索引的聚簇比例（clusterratio）指索引行和表行顺序之间关联度的一个量度，优化器会用此指来估算I/O时间。</p>
+<p>DB2的表上通常都有一个聚簇索引。</p>
+<h4>sql server</h4>
+<p>存储表行的索引被称为聚集的，只有当需要一张索引组织表时才定义一个聚集索引。</p>
+<h4>oracle</h4>
+<p>聚簇一词被用于代表将多个表的行交错存储（聚簇的表）的选项。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-723">索引设计</h2></div>
+                                
+                            <div class="sheet-section"  data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-719">磁盘及cpu时间的基础假设</h3></div>
+                                <div class="section-body">
+                                    <h4>I/O时间</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>操作</th><th>时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>随机读</td><td>10ms (4KB或8KB的页)</td></tr><tr><td>顺序读</td><td>40MB/s</td></tr>
+                </tbody>
+            </table>
+<h4>顺序扫描的CPU时间</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>操作</th><th>时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>检查一行记录</td><td>5us</td></tr><tr><td>FETCH</td><td>100us</td></tr>
+                </tbody>
+            </table>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-720">三星索引 - 查询语句的理想索引</h3></div>
+                                <div class="section-body">
+                                    <p>三星索引，一次查询通常只需要一次磁盘随机读取及一次窄索引片的扫描，其响应时间会比一个普通索引的响应时间少几个数量级。</p>
+<p>星级评定的标准：</p>
+<ul><li>一个查询相关的索引行是相邻的，或者至少相距足够靠近
+</li><li>索引行的顺序与查询语句的需求一致
+</li><li>索引行包含查询语句中的所有列
+</li></ul>
+<p>第三颗星通常是最重要的，至少包含了第三颗星的索引称为对查询语句的宽索引。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|0|336">
+                                <div class="section-title"><h3 id="id-721">候选A</h3></div>
+                                <div class="section-body">
+                                    <ul><li>取出对于优化器来说<em>不过分复杂</em>的<em>等值谓词</em>列，将其作为索引的前导列（任意顺序皆可）。
+</li><li>如果存在，将选择性最好的<em>范围谓词</em>作为索引下一列。只考虑对优化器不过分复杂的范围谓词即可。
+</li><li>以正确的顺序条件order by列（注意正逆序）。忽略前面步骤中已添加的列。
+</li><li>以任意顺序将selelct语句中其余的列添加到索引中（但要以不易变的开始）。
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|349">
+                                <div class="section-title"><h3 id="id-722">候选B</h3></div>
+                                <div class="section-body">
+                                    <p>如果<em>候选A</em>引起了排序操作，可以考虑候选B，其第二颗星比第一颗星更重要。</p>
+<ul><li>取出对于优化器来说<em>不过分复杂</em>的<em>等值谓词</em>列，将其作为索引的前导列（任意顺序皆可）。
+</li><li>以正确的顺序条件order by列（注意正逆序）。忽略前面步骤中已添加的列。
+</li><li>以任意顺序将selelct语句中其余的列添加到索引中（但要以不易变的开始）。
+</li></ul>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-728">前瞻性索引设计</h2></div>
+                                
+                            <div class="sheet-section"  data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-724">索引有效性评估方法</h3></div>
+                                <div class="section-body">
+                                    <ul><li>基本问题法（Basic Question，BQ）
+</li><li>快速上限估算法（Quick Upper-Bound Estimate，QUBE）
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-725">基本问题法（BQ）</h3></div>
+                                <div class="section-body">
+                                    <p>是否存在包含了where子句所有列（半宽索引）：</p>
+<ul><li>否，考虑将缺少的谓词列加到一个现有索引上。保证过滤条件本身不回表，只有匹配后查询数据才回表。
+</li><li>如果还是不理想，考虑索引中添加所有列，产生一个宽索引，不需要回表。
+</li><li>如果select还是很慢，使用候选A/B来设计一个新的索引。
+</li></ul>
+<p>BQ并不能最终保证足够好的性能，但是保证了最小化对表的访问。</p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|0|169">
+                                <div class="section-title"><h3 id="id-726">快速上限估算法（QUBE）</h3></div>
+                                <div class="section-body">
+                                    <p>QUBE方法是悲观的，可能会误报，但不会像BQ那样漏掉发现某些问题。其输出结果是本地响应时间（LRT），即在数据库中的耗时，包括以下：</p>
+<ul><li>服务时间
+</li><ul><li>CPU时间
+</li><li>磁盘服务时间（同步读、同步写、异步读）
+</li></ul><li>排队时间
+</li><ul><li>CPU时间
+</li><li>磁盘排队
+</li><li>锁等待
+</li><li>其他等待
+</li></ul></ul>
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">LRT = TR * 10ms + TS * 0.01ms + F * 0.1ms
+
+LRT = 本地响应时间
+TR  = 随机访问时间
+TS  = 顺序访问时间
+F   = 有效FETCH的数量
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|306">
+                                <div class="section-title"><h3 id="id-727">QUBE 时间评估</h3></div>
+                                <div class="section-body">
+                                    <h4>主键索引访问</h4>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>desc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>索引</td><td>TR = 1</td></tr><tr><td>表</td><td>TR = 1</td></tr><tr><td>FETCH</td><td>1 * 0.1ms</td></tr>
+                </tbody>
+            </table>
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">LRT = 2 * 10ms + 0.1ms ≈ 20ms
+</code></pre>
+<h4>聚簇索引访问</h4>
+<p>预设读取1000条数据，假设索引列有二级能命中，且表中1000数据相邻</p>
+
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>code</th><th>desc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td>索引</td><td>TR = 1, TS = 1000</td></tr><tr><td>表</td><td>TR = 1，TS = 999</td></tr><tr><td>FETCH</td><td>1000 * 0.1ms</td></tr>
+                </tbody>
+            </table>
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">LRT = 2 * 10ms + 1999 * 0.01ms + 1000 * 0.1ms ≈ 140ms
+</code></pre>
+<p>如果不是相邻的数据依旧会变成1000次随机读取，时间接近10s，如果取10条数据，耗时0.5s左右还是可以接受。</p>
+<h4>非聚簇索引访问</h4>
+<p>非聚簇索引会导致1000次回表的随机访问，时间接近10s (1000 * 10ms)，如果是三星索引不回表，还是在0.1s左右。</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-btn">
+                <div class="nav-btn__item nav-btn-top">顶</div>
+                <div class="nav-btn__item nav-btn-menu">菜</div>
+            </div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H3 " title="表和索引结构" data-id="id-716" data-pid="default">
+                    <span class="next-ctrl"></span> 表和索引结构
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="索引组织表" data-id="id-717" data-pid="default">
+                    <span class="next-ctrl"></span> 索引组织表
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="聚簇的许多含义" data-id="id-718" data-pid="default">
+                    <span class="next-ctrl"></span> 聚簇的许多含义
+                    </div>
+                
+                    <div class="nav-item nav-type-H2 " title="索引设计" data-id="id-723" data-pid="">
+                    <span class="next-ctrl">-</span> 索引设计
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="磁盘及cpu时间的基础假设" data-id="id-719" data-pid="id-723">
+                    <span class="next-ctrl"></span> 磁盘及cpu时间的基础假设
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="三星索引 - 查询语句的理想索引" data-id="id-720" data-pid="id-723">
+                    <span class="next-ctrl"></span> 三星索引 - 查询语句的理想索引
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="候选A" data-id="id-721" data-pid="id-723">
+                    <span class="next-ctrl"></span> 候选A
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="候选B" data-id="id-722" data-pid="id-723">
+                    <span class="next-ctrl"></span> 候选B
+                    </div>
+                
+                    <div class="nav-item nav-type-H2 " title="前瞻性索引设计" data-id="id-728" data-pid="">
+                    <span class="next-ctrl">-</span> 前瞻性索引设计
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="索引有效性评估方法" data-id="id-724" data-pid="id-728">
+                    <span class="next-ctrl"></span> 索引有效性评估方法
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="基本问题法（BQ）" data-id="id-725" data-pid="id-728">
+                    <span class="next-ctrl"></span> 基本问题法（BQ）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="快速上限估算法（QUBE）" data-id="id-726" data-pid="id-728">
+                    <span class="next-ctrl"></span> 快速上限估算法（QUBE）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="QUBE 时间评估" data-id="id-727" data-pid="id-728">
+                    <span class="next-ctrl"></span> QUBE 时间评估
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1652837889339"></script><script src="../js/util/event-hub.js?version=1652837889339"></script><script src="../js/3rdparty/prism.js?version=1652837889339"></script><script src="../js/module/loading.js?version=1652837889339"></script><script src="../js/module/home.js?version=1652837889339"></script><script src="../js/module/cheatsheet.js?version=1652837889339"></script><script src="../js/module/menu.js?version=1652837889339"></script><script src="../js/3rdparty/jszip.min.js?version=1652837889339"></script><script src="../js/util/saveData.js?version=1652837889339"></script></body></html>

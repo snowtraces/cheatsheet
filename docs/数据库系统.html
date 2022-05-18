@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据库系统 cheatsheet</title>
+<link rel="stylesheet" href="../css/main.css?version=1652837889339"><link rel="stylesheet" href="../css/prism.css?version=1652837889339"></head>
+
+<body>
+    <script>
+        if (!location.hostname.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)
+            && location.hostname !== 'localhost'
+        ) {
+            if (location.protocol === 'http:') {
+                // https 跳转
+                location.href = 'https:' + location.href.substring(window.location.protocol.length)
+            } else if (location.pathname === '/') {
+                // 静态跳转
+                if ((/#\/[^/]+/).test(location.hash)) {
+                    location.href = `https://${location.hostname}/docs/${location.hash.substring(2)}.html`
+                } else {
+                    location.href = `https://${location.hostname}/docs/`
+                }
+            }
+        }
+        let isHtml = true
+    </script>
+
+    <div id="loading" class="hide" data-cs-theme="light"></div>
+    <div id="top-nav" data-cs-theme="light">
+        <div class="top-nav__wrapper">
+            <div id="go-back" onclick="history.go(-1)">返回</div>
+            <a id="go-home" href="./index.html">首页</a>
+
+        </div>
+    </div>
+    <div id="main">
+        <div id="sheet-wrapper">
+            <div id="sheet-title">
+                <h1>数据库系统<span> cheatsheet</span></h1>
+            </div>
+            <div id="sheet-body">
+                
+                            <div class="h2-section" >
+                                
+                                
+                            <div class="sheet-section"  data-position="580|0|0">
+                                <div class="section-title"><h3 id="id-697"></h3></div>
+                                <div class="section-body">
+                                    <ul><li>统一建模语言 UML（Unified Modeling Language）
+</li></ul>
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">+------------+     +----------+     +----------------------+
+|            | --&gt; |          | --&gt; |      1.数据文件      |
+|            |     |          |     +----------------------+
+|            |     |          |     +----------------------+
+|            |     | 数据结构 | --&gt; |      2.数据字典      |
+|            |     |          |     +----------------------+
+|            |     |          |     +----------------------+
+|            |     |          | --&gt; |        3.索引        |
+|            |     +----------+     +----------------------+
+|            |     +----------+     +----------------------+
+| 存储管理器 | --&gt; |          | --&gt; | 1.权限及完整性管理器 |
+|            |     |          |     +----------------------+
+|            |     |          |     +----------------------+
+|            |     |          | --&gt; |     2.事务管理器     |
+|            |     |   部件   |     +----------------------+
+|            |     |          |     +----------------------+
+|            |     |          | --&gt; |     3.文件管理器     |
+|            |     |          |     +----------------------+
+|            |     |          |     +----------------------+
+|            |     |          | --&gt; |    4.缓冲区管理器    |
++------------+     +----------+     +----------------------+
+
+</code></pre>
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">+------------+     +------+     +----------------+
+|            | --&gt; |      | --&gt; |  1.DDL解释器   |
+|            |     |      |     +----------------+
+|            |     |      |     +----------------+
+| 存储管理器 |     | 部件 | --&gt; |  2.DML编译器   |
+|            |     |      |     +----------------+
+|            |     |      |     +----------------+
+|            |     |      | --&gt; | 3.查询执行引擎 |
++------------+     +------+     +----------------+
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-705">SQL</h2></div>
+                                
+                            <div class="sheet-section"  data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-698">查询</h3></div>
+                                <div class="section-body">
+                                    <ul><li>JOIN：join，left join，right join
+</li><li>AS：别名，可以省略
+</li><li>字符串运算：=，||，upper，lower，trim，like（%，_）
+</li><li>排序：order by desc/asc
+</li><li>where 子句谓词：between and，（a1, b1） = (a2, b2)
+</li><li>集合运算：union，intersect，except
+</li><li>聚集函数：avg，min，max，sum，count；having；rank() over(order by )，avg(xx) over(order by ...)
+</li><li>嵌套子查询：in，not in，some，all，exists，unique，lateral（sql 2003），with as
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-699">修改</h3></div>
+                                <div class="section-body">
+                                    <ul><li>删除：delete from r where P
+</li><li>新增：insert into r values (...)
+</li><li>更新：
+</li><ul><li>update r set V where P
+</li><li>update r set v = case when P then else end
+</li></ul></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|248">
+                                <div class="section-title"><h3 id="id-700">视图 view</h3></div>
+                                <div class="section-body">
+                                    <h4>视图定义</h4>
+<pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">create view v as &lt;query expression&gt;;
+</code></pre>
+<h4>查询中使用视图</h4>
+<p>可以当作普通关系表进行使用</p>
+<h4>物化视图</h4>
+<p>特定数据库系统允许存储视图关系，但它们保证：如果用于定义视图的实际关系改变，视图也跟着修改。这样的视图错位物化视图。</p>
+<p>保持物化视图一直在最新状态的过程为<em>物化视图维护</em>，通常简称<em>视图维护</em></p>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|0|318">
+                                <div class="section-title"><h3 id="id-701">完整性约束</h3></div>
+                                <div class="section-body">
+                                    <ul><li>not null
+</li><li>unique
+</li><li>check
+</li><li>foreign key
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|0|489">
+                                <div class="section-title"><h3 id="id-702">大对象类型（lob，Large Object）</h3></div>
+                                <div class="section-body">
+                                    <ul><li>clob：字符数据
+</li><li>blob：二进制数据
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|0|616">
+                                <div class="section-title"><h3 id="id-703">自定义类型</h3></div>
+                                <div class="section-body">
+                                    <pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">create type type_name as numeric(12,2) final;
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|623">
+                                <div class="section-title"><h3 id="id-704">create table 的扩展</h3></div>
+                                <div class="section-body">
+                                    <ul><li><code>create table new_t_name like t_name</code>
+</li><li><code>create table new_t_name as (&lt;query expression&gt;) [with data]</code>
+</li></ul>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-712">数据库设计</h2></div>
+                                
+                            <div class="sheet-section"  data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-706">设计内容</h3></div>
+                                <div class="section-body">
+                                    <ul><li>实体
+</li><li>实体关系
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|42">
+                                <div class="section-title"><h3 id="id-707">实体-联系图（E-R 图）</h3></div>
+                                <div class="section-body">
+                                    <ul><li>分成两部分的矩形代表实体集，包含实体集名字和所有属性
+</li><li>菱形代表联系集
+</li><li>未分割的矩形代表联系集的属性
+</li><li>线段连接实体集和联系集
+</li><li>虚线连接联系集和其属性
+</li><li>双线表示实体在联系集中的参与度
+</li><li>双菱形代表连接到弱实体集的标志性联系集
+</li><li>映射基数
+</li><ul><li>箭头表示法：单箭头（联系集到实体集）代表一对一，无箭头代表一对多
+</li><li>l..h 表示法：l最小基数，h最大基数，如<code>1..1</code>，<code>0..*</code>，<code>1..*</code>
+</li></ul><li>缩进代表复杂属性
+</li><li>花括号（{}）代表多个属性
+</li><li>函数（小括号结尾）代表派生属性
+</li><li>矩形和菱形间的线段上标注表示角色
+</li><li>弱实体集：没有足够的属性形成主码的实体集，其必须与另一个（强）实体集关联才有意义
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|0|169">
+                                <div class="section-title"><h3 id="id-708">E-R图转关系模式</h3></div>
+                                <div class="section-body">
+                                    <h4>具有简单属性的强实体集的表示</h4>
+<p>直接由名字和属性转换成单个关系模式M</p>
+<h4>具有复杂属性的强实体集的表示</h4>
+<ul><li>复合属性直接使用子属性展开，忽略父属性，构建关系模式M
+</li><li>多值属性构建单独的关系模式，由M的主码和其值组成关系模式R
+</li></ul>
+<h4>弱实体集的表示</h4>
+<p>弱实体集组合强实体集的主码形成新关系模式，采用联合主码不单独设置主码</p>
+<h4>联系集的表示</h4>
+<p>多的一方主码（多对多就是联合主码）作为主码，构建新的关系模式</p>
+<ul><li>模式冗余：双菱形关联到弱实体集，一般为冗余
+</li><li>模式合并：一对一关系可以合并到任意一方
+</li></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|469">
+                                <div class="section-title"><h3 id="id-709">E-R设计问题</h3></div>
+                                <div class="section-body">
+                                    <h4>用实体集合适用属性</h4>
+<h4>用实体集还是用联系集</h4>
+<p>一般原则是用联系集表示实体间的行为</p>
+<h4>二元还是n元联系集</h4>
+<h4>联系属性的布局</h4>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|0|651">
+                                <div class="section-title"><h3 id="id-710">扩展的E-R特性</h3></div>
+                                <div class="section-body">
+                                    <h4>特化</h4>
+<p>实体集可能包含一些子集，子集中的实体在某些方面却别实体集中的其他实体，例如员工特化出合同工和临时工。</p>
+<p>E-R图中，特化用从特化实体指向另一个实体的空心箭头来表示，这种关系称为ISA（is a）。</p>
+<h4>概化</h4>
+<p>从初始实体集到一系列不同层次的实体子集的细化代表一个自定向下的过程。设计过程也可以自低向上进行，多个实体集根据共有的特性综合成一个较高层的实体集。</p>
+<p>两个实体集包好多个共同的属性，这种共性可以通过概化来表达，概化是高层实体集与一个或多个底层实体集的包含关系。高层与底层实体集也可以分别被称为超类和子类。</p>
+<p>概化和特化互为逆过程。</p>
+<h4>属性继承</h4>
+<p>高层实体集的属性被底层实体集继承。</p>
+<ul><li>高层实体集所关联的所有属性和联系使用于它的所有底层实体集
+</li><li>低层实体集特有的属性仅使用于特定的低层实体集
+</li></ul>
+<h4>概化上的约束</h4>
+<ul><li>条件定义的。高层实体集的属性标识其属于哪一类，只有满足条件才属于某一低层实体集。不相交
+</li><li>用户定义的。通过子实体集来标识。重叠
+</li></ul>
+<h4>聚集</h4>
+<p>聚集是一种抽象，通过这种抽象，联系被视为高层实体</p>
+<h4>转换成关系模式</h4>
+<ul><li>概化
+</li><ul><li>高层实体集创建一个模式。每个低层实体集创建一个模式
+</li><li>如果概化是不相交且完全的，不需要高层实体集，只需为每一个低层实体集创建模式
+</li></ul><li>聚集
+</li><ul><li>不需要单独的模式表示聚集
+</li></ul></ul>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|600|724">
+                                <div class="section-title"><h3 id="id-711">其他</h3></div>
+                                <div class="section-body">
+                                    <h4>数据约束和关系数据库设计</h4>
+<h4>使用需求：查询、性能</h4>
+<h4>数据流、工作流</h4>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" >
+                    <div class="h2-section-title"><h2 id="id-715">关系数据库设计</h2></div>
+                    
+                            <div class="sheet-section"  data-position="580|0|42">
+                                <div class="section-title"><h3 id="id-713">三范式</h3></div>
+                                <div class="section-body">
+                                    <h4>第一范式（1NF）</h4>
+<p>如果关系模式R的所有属性的域都是原子（不可分割）的，其满足第一范式。</p>
+<h4>第二范式（2NF）</h4>
+<p>首先是 1NF，另外包含两部分内容，一是表必须有一个主键；二是没有包含在主键中的列必须完全依赖于主键，而不能只依赖于主键的一部分。</p>
+<h4>第三范式（3NF）</h4>
+<p>在1NF基础上，任何非主属性不依赖于其它非主属性（在2NF基础上消除传递依赖）。</p>
+<p>第三范式（3NF）是第二范式（2NF）的一个子集，即满足第三范式（3NF）必须满足第二范式（2NF）。</p>
+<p>第二范式（2NF）和第三范式（3NF）的概念很容易混淆，区分它们的关键点在于，2NF：非主键列是否完全依赖于主键，还是依赖于主键的一部分；3NF：非主键列是直接依赖于主键，还是直接依赖于非主键列。</p>
+                                </div>
+                            </div>
+
+                <div class="sheet-section"  data-position="580|600|42">
+                    <div class="section-title"><h3 id="id-714">数据库设计过程</h3></div>
+                    <div class="section-body">
+                        <h4>E-R模型和规范化</h4>
+<p>好的E-R图生成的关系模式应该就不需要太对进一步规范化。</p>
+<h4>属性和联系的命名</h4>
+<p>数据库设计的一个期望的特性是唯一角色假设，这意味着每个属性名再数据库中只有唯一含义。现实中很难做到，特别是存在特化子集时。</p>
+<p>联系集常常以相关实体集名称的拼接来命名，使用下划线分割，具体情况根据实际情况取舍变化。单数和复数都可以接受（更推荐单数），而且所有实体集要保持一致。</p>
+<h4>为了新能去规范化</h4>
+<h4>其他设计问题</h4>
+<p>横表、纵表、分表...</p>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div id="sheet-nav">
+        <div class="nav-wrapper">
+            <div class="nav-btn">
+                <div class="nav-btn__item nav-btn-top">顶</div>
+                <div class="nav-btn__item nav-btn-menu">菜</div>
+            </div>
+            <div class="nav-content hide">
+                    <div class="nav-item nav-type-H2 " title="SQL" data-id="id-705" data-pid="">
+                    <span class="next-ctrl">-</span> SQL
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="查询" data-id="id-698" data-pid="id-705">
+                    <span class="next-ctrl"></span> 查询
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="修改" data-id="id-699" data-pid="id-705">
+                    <span class="next-ctrl"></span> 修改
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="视图 view" data-id="id-700" data-pid="id-705">
+                    <span class="next-ctrl"></span> 视图 view
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="完整性约束" data-id="id-701" data-pid="id-705">
+                    <span class="next-ctrl"></span> 完整性约束
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="大对象类型（lob，Large Object）" data-id="id-702" data-pid="id-705">
+                    <span class="next-ctrl"></span> 大对象类型（lob，Large Object）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="自定义类型" data-id="id-703" data-pid="id-705">
+                    <span class="next-ctrl"></span> 自定义类型
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="create table 的扩展" data-id="id-704" data-pid="id-705">
+                    <span class="next-ctrl"></span> create table 的扩展
+                    </div>
+                
+                    <div class="nav-item nav-type-H2 " title="数据库设计" data-id="id-712" data-pid="">
+                    <span class="next-ctrl">-</span> 数据库设计
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="设计内容" data-id="id-706" data-pid="id-712">
+                    <span class="next-ctrl"></span> 设计内容
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="实体-联系图（E-R 图）" data-id="id-707" data-pid="id-712">
+                    <span class="next-ctrl"></span> 实体-联系图（E-R 图）
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="E-R图转关系模式" data-id="id-708" data-pid="id-712">
+                    <span class="next-ctrl"></span> E-R图转关系模式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="E-R设计问题" data-id="id-709" data-pid="id-712">
+                    <span class="next-ctrl"></span> E-R设计问题
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="扩展的E-R特性" data-id="id-710" data-pid="id-712">
+                    <span class="next-ctrl"></span> 扩展的E-R特性
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="其他" data-id="id-711" data-pid="id-712">
+                    <span class="next-ctrl"></span> 其他
+                    </div>
+                
+                    <div class="nav-item nav-type-H2 " title="关系数据库设计" data-id="id-715" data-pid="">
+                    <span class="next-ctrl">-</span> 关系数据库设计
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="三范式" data-id="id-713" data-pid="id-715">
+                    <span class="next-ctrl"></span> 三范式
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="数据库设计过程" data-id="id-714" data-pid="id-715">
+                    <span class="next-ctrl"></span> 数据库设计过程
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div></div>
+
+    
+
+
+
+<script src="../js/util/function.js?version=1652837889339"></script><script src="../js/util/event-hub.js?version=1652837889339"></script><script src="../js/3rdparty/prism.js?version=1652837889339"></script><script src="../js/module/loading.js?version=1652837889339"></script><script src="../js/module/home.js?version=1652837889339"></script><script src="../js/module/cheatsheet.js?version=1652837889339"></script><script src="../js/module/menu.js?version=1652837889339"></script><script src="../js/3rdparty/jszip.min.js?version=1652837889339"></script><script src="../js/util/saveData.js?version=1652837889339"></script></body></html>
