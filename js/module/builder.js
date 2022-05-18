@@ -15,7 +15,9 @@
             'java8', 'golang', 'RESTful', '项目规范',
             '数据密集型应用', 'beautifulCode', 'Lisp', '设计模式',
             'nginx', 'CSS', 'xargs', 'JVM',
-            '分布式事务', '算法', 'C语言'],
+            '分布式事务', '算法', 'C语言', 'maven',
+            '数据库系统', '数据库索引'
+        ],
         htmlMap: {}
     }
 
@@ -28,7 +30,7 @@
             this.bindEventHub()
         },
         bindEvents() {
-            $.el('#build-html').classList.remove('hide')            
+            $.el('#build-html').classList.remove('hide')
 
             // 静态页面生成
             $.bindEvent('#build-html', 'click', () => {
@@ -41,10 +43,10 @@
                     .replace(/<div class="item" value="(.*)">(\n.*\n\s+)<\/div>/g, '<a class="item" value="$1" href="./$1.html">$2</a>')
                     .replace(/id="go-back"/, 'id="go-back" onclick="history.go(-1)"')
                     .replace(/<div id="go-home">首页<\/div>/, '<a id="go-home" href="./index.html">首页</a>')
-                    .replace(/script src=".\//g, 'script src="../' )
-                    .replace(/rel="stylesheet" href=".\//g, 'rel="stylesheet" href="../' )
-                    .replace(/let isHtml = false/g, 'let isHtml = true' )
-                    .replace(/.*id="build-html".*/, '' )
+                    .replace(/script src=".\//g, 'script src="../')
+                    .replace(/rel="stylesheet" href=".\//g, 'rel="stylesheet" href="../')
+                    .replace(/let isHtml = false/g, 'let isHtml = true')
+                    .replace(/.*id="build-html".*/, '')
 
                 // 2. 切换页面
                 window.eventHub.emit('open-sheet', [this.model.pages[0], true])
@@ -80,12 +82,12 @@
                     .replace(/<script[^>]*builder\.js[^>]*><\/script>/, '')
                     .replace(/id="go-back"/, 'id="go-back" onclick="history.go(-1)"')
                     .replace(/<div id="go-home">首页<\/div>/, '<a id="go-home" href="./index.html">首页</a>')
-                    .replace(/script src=".\//g, 'script src="../' )
-                    .replace(/rel="stylesheet" href=".\//g, 'rel="stylesheet" href="../' )
-                    .replace(/let isHtml = false/g, 'let isHtml = true' )
-                    .replace(/class="sheet-section" style="width:[^\"]*"/g, 'class="sheet-section" ' )
-                    .replace(/class="h2-section" style="height:[^\"]*"/g, 'class="h2-section" ' )
-                    .replace(/.*id="build-html".*/, '' )
+                    .replace(/script src=".\//g, 'script src="../')
+                    .replace(/rel="stylesheet" href=".\//g, 'rel="stylesheet" href="../')
+                    .replace(/let isHtml = false/g, 'let isHtml = true')
+                    .replace(/class="sheet-section" style="width:[^\"]*"/g, 'class="sheet-section" ')
+                    .replace(/class="h2-section" style="height:[^\"]*"/g, 'class="h2-section" ')
+                    .replace(/.*id="build-html".*/, '')
 
                 this.arrRemove(this.model.pages, type)
                 if (this.model.pages.length) {
