@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xargs cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
+<link rel="stylesheet" href="../css/main.css?version=2021082402"><link rel="stylesheet" href="../css/prism.css?version=2021082402"></head>
 
 <body>
     <script>
@@ -44,7 +44,7 @@
                     
                     
                             <div class="sheet-section"  data-position="580|0|0">
-                                <div class="section-title"><h3 id="id-505">标准输入与管道命令</h3></div>
+                                <div class="section-title"><h3 id="id-510">标准输入与管道命令</h3></div>
                                 <div class="section-body">
                                     <p>Unix 命令都带有参数，有些命令可以接受"标准输入"（stdin）作为参数。</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="">$ <span class="token function">cat</span> /etc/passwd <span class="token operator">|</span> <span class="token function">grep</span> root
@@ -60,7 +60,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|0">
-                                <div class="section-title"><h3 id="id-506">xargs 命令的作用</h3></div>
+                                <div class="section-title"><h3 id="id-511">xargs 命令的作用</h3></div>
                                 <div class="section-body">
                                     <p><em>xargs命令的作用，是将标准输入转为命令行参数。</em></p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token string">"hello world"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token builtin class-name">echo</span>
@@ -78,8 +78,8 @@ hello world
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|429">
-                                <div class="section-title"><h3 id="id-507">xargs 的单独使用</h3></div>
+                            <div class="sheet-section"  data-position="580|0|428">
+                                <div class="section-title"><h3 id="id-512">xargs 的单独使用</h3></div>
                                 <div class="section-body">
                                     <p>大多数时候，<code>xargs</code>命令都是跟管道一起使用的。但是，它也可以单独使用。<code>xargs</code>后面的命令默认是echo，<code>xargs</code>等同于<code>xargs echo</code>。</p>
 <ul><li>输入<code>xargs</code>按下回车，命令行就会等待用户输入，作为标准输入
@@ -100,8 +100,8 @@ hello
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|545">
-                                <div class="section-title"><h3 id="id-508"><code>-d</code> 参数与分隔符</h3></div>
+                            <div class="sheet-section"  data-position="580|600|543">
+                                <div class="section-title"><h3 id="id-513"><code>-d</code> 参数与分隔符</h3></div>
                                 <div class="section-body">
                                     <p>默认情况下，<code>xargs</code>将<em>换行符和空格作为分隔符</em>，把标准输入分解成一个个命令行参数。</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="">$ <span class="token builtin class-name">echo</span> <span class="token string">"one two three"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">mkdir</span>
@@ -115,8 +115,8 @@ a b c
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|959">
-                                <div class="section-title"><h3 id="id-509"><code>-p</code> 参数，<code>-t</code> 参数</h3></div>
+                            <div class="sheet-section"  data-position="580|600|956">
+                                <div class="section-title"><h3 id="id-514"><code>-p</code> 参数，<code>-t</code> 参数</h3></div>
                                 <div class="section-body">
                                     <p>使用<code>xargs</code>命令以后，由于存在转换参数过程，有时需要确认一下到底执行的是什么命令。</p>
 <p><code>-p</code>参数打印出要执行的命令，询问用户是否要执行。</p>
@@ -131,8 +131,8 @@ a b c
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|995">
-                                <div class="section-title"><h3 id="id-510"><code>-0</code> 参数与 <code>find</code> 命令</h3></div>
+                            <div class="sheet-section"  data-position="580|0|993">
+                                <div class="section-title"><h3 id="id-515"><code>-0</code> 参数与 <code>find</code> 命令</h3></div>
                                 <div class="section-body">
                                     <p>由于<code>xargs</code>默认将空格作为分隔符，所以不太适合处理文件名，因为文件名可能包含空格。</p>
 <p><code>find</code>命令有一个特别的参数<code>-print0</code>，指定输出的文件列表以null分隔。然后，<code>xargs</code>命令的<code>-0</code>参数表示用<code>null</code>当作分隔符。</p>
@@ -146,8 +146,8 @@ a b c
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1354">
-                                <div class="section-title"><h3 id="id-511"><code>-L</code> 参数</h3></div>
+                            <div class="sheet-section"  data-position="580|600|1351">
+                                <div class="section-title"><h3 id="id-516"><code>-L</code> 参数</h3></div>
                                 <div class="section-body">
                                     <p>如果标准输入包含多行，<code>-L</code>参数指定多少行作为一个命令行参数。</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="">$ <span class="token function">xargs</span> <span class="token function">find</span> -name
@@ -175,8 +175,8 @@ c
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1470">
-                                <div class="section-title"><h3 id="id-512"><code>-n</code> 参数</h3></div>
+                            <div class="sheet-section"  data-position="580|0|1467">
+                                <div class="section-title"><h3 id="id-517"><code>-n</code> 参数</h3></div>
                                 <div class="section-body">
                                     <p><code>-L</code>参数虽然解决了多行的问题，但是有时用户会在同一行输入多项。</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="">$ <span class="token function">xargs</span> <span class="token function">find</span> -name
@@ -199,8 +199,8 @@ find: paths must precede expression: `*.md'
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|2054">
-                                <div class="section-title"><h3 id="id-513"><code>-I</code> 参数</h3></div>
+                            <div class="sheet-section"  data-position="580|600|2050">
+                                <div class="section-title"><h3 id="id-518"><code>-I</code> 参数</h3></div>
                                 <div class="section-body">
                                     <p>如果<code>xargs</code>要将命令行参数传给多个命令，可以使用<code>-I</code>参数。</p>
 <p><code>-I</code>指定每一项命令行参数的替代字符串。</p>
@@ -221,8 +221,8 @@ one two three
                                 </div>
                             </div>
 
-                <div class="sheet-section"  data-position="580|0|2122">
-                    <div class="section-title"><h3 id="id-514"><code>--max-procs</code> 参数</h3></div>
+                <div class="sheet-section"  data-position="580|0|2118">
+                    <div class="section-title"><h3 id="id-519"><code>--max-procs</code> 参数</h3></div>
                     <div class="section-body">
                         <p><code>xargs</code>默认只用一个进程执行命令。如果命令要执行多次，必须等上一次执行完，才能执行下一次。</p>
 <p><code>--max-procs</code>参数指定同时用多少个进程并行执行命令。<code>--max-procs 2</code>表示同时最多使用两个进程，<code>--max-procs 0</code>表示不限制进程数。</p>
@@ -241,43 +241,43 @@ one two three
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3 " title="标准输入与管道命令" data-id="id-505" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="标准输入与管道命令" data-id="id-510" data-pid="default">
                     <span class="next-ctrl"></span> 标准输入与管道命令
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="xargs 命令的作用" data-id="id-506" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="xargs 命令的作用" data-id="id-511" data-pid="default">
                     <span class="next-ctrl"></span> xargs 命令的作用
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="xargs 的单独使用" data-id="id-507" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="xargs 的单独使用" data-id="id-512" data-pid="default">
                     <span class="next-ctrl"></span> xargs 的单独使用
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="-d 参数与分隔符" data-id="id-508" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="-d 参数与分隔符" data-id="id-513" data-pid="default">
                     <span class="next-ctrl"></span> -d 参数与分隔符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="-p 参数，-t 参数" data-id="id-509" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="-p 参数，-t 参数" data-id="id-514" data-pid="default">
                     <span class="next-ctrl"></span> -p 参数，-t 参数
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="-0 参数与 find 命令" data-id="id-510" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="-0 参数与 find 命令" data-id="id-515" data-pid="default">
                     <span class="next-ctrl"></span> -0 参数与 find 命令
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="-L 参数" data-id="id-511" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="-L 参数" data-id="id-516" data-pid="default">
                     <span class="next-ctrl"></span> -L 参数
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="-n 参数" data-id="id-512" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="-n 参数" data-id="id-517" data-pid="default">
                     <span class="next-ctrl"></span> -n 参数
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="-I 参数" data-id="id-513" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="-I 参数" data-id="id-518" data-pid="default">
                     <span class="next-ctrl"></span> -I 参数
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="--max-procs 参数" data-id="id-514" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="--max-procs 参数" data-id="id-519" data-pid="default">
                     <span class="next-ctrl"></span> --max-procs 参数
                     </div>
                 </div>
@@ -286,7 +286,8 @@ one two three
         </div></div>
 
     
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0200265368172615" crossorigin="anonymous"></script>
 
 
 
-<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>
+<script src="../js/util/function.js?version=2021082402"></script><script src="../js/util/event-hub.js?version=2021082402"></script><script src="../js/3rdparty/prism.js?version=2021082402"></script><script src="../js/module/loading.js?version=2021082402"></script><script src="../js/module/home.js?version=2021082402"></script><script src="../js/module/cheatsheet.js?version=2021082402"></script><script src="../js/module/menu.js?version=2021082402"></script><script src="../js/3rdparty/jszip.min.js?version=2021082402"></script><script src="../js/util/saveData.js?version=2021082402"></script></body></html>

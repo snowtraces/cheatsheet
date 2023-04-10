@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>beautifulCode cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
+<link rel="stylesheet" href="../css/main.css?version=2021082402"><link rel="stylesheet" href="../css/prism.css?version=2021082402"></head>
 
 <body>
     <script>
@@ -44,7 +44,7 @@
                     
                     
                             <div class="sheet-section"  data-position="580|0|0">
-                                <div class="section-title"><h3 id="id-409">max(a, b)</h3></div>
+                                <div class="section-title"><h3 id="id-414">max(a, b)</h3></div>
                                 <div class="section-body">
                                     <pre class="language-js" tabindex="0"><code class="language-js" style=""><span class="token punctuation">(</span>b <span class="token operator">&amp;</span> <span class="token punctuation">(</span>a <span class="token operator">-</span> b <span class="token operator">&gt;&gt;</span> <span class="token number">31</span><span class="token punctuation">)</span> <span class="token operator">|</span> a <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b <span class="token operator">&gt;&gt;</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|0">
-                                <div class="section-title"><h3 id="id-410">html随机颜色边框</h3></div>
+                                <div class="section-title"><h3 id="id-415">html随机颜色边框</h3></div>
                                 <div class="section-body">
                                     <pre class="language-js" tabindex="0"><code class="language-js" style=""><span class="token comment">// 命令行中 $$ 等同于 document.querySelectorAll</span>
 <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token function">$$</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> a<span class="token punctuation">.</span>style<span class="token punctuation">.</span>outline <span class="token operator">=</span> <span class="token string">"1px solid #"</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">~</span><span class="token operator">~</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|111">
-                                <div class="section-title"><h3 id="id-411">评分</h3></div>
+                                <div class="section-title"><h3 id="id-416">评分</h3></div>
                                 <div class="section-body">
                                     <pre class="language-js" tabindex="0"><code class="language-js" style=""><span class="token keyword">let</span> rating <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 <span class="token string">"★★★★★☆☆☆☆☆"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">-</span> rating<span class="token punctuation">,</span> <span class="token number">10</span> <span class="token operator">-</span> rating<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -70,7 +70,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|139">
-                                <div class="section-title"><h3 id="id-412">值交换</h3></div>
+                                <div class="section-title"><h3 id="id-417">值交换</h3></div>
                                 <div class="section-body">
                                     <pre class="language-js" tabindex="0"><code class="language-js" style="">a <span class="token operator">=</span> a <span class="token operator">^</span> b
 b <span class="token operator">=</span> a <span class="token operator">^</span> b
@@ -80,7 +80,7 @@ a <span class="token operator">=</span> a <span class="token operator">^</span> 
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|242">
-                                <div class="section-title"><h3 id="id-413">正则表达式简单解析器</h3></div>
+                                <div class="section-title"><h3 id="id-418">正则表达式简单解析器</h3></div>
                                 <div class="section-body">
                                     
             <table>
@@ -137,7 +137,7 @@ a <span class="token operator">=</span> a <span class="token operator">^</span> 
                             </div>
 
                 <div class="sheet-section"  data-position="580|600|290">
-                    <div class="section-title"><h3 id="id-414">js简写</h3></div>
+                    <div class="section-title"><h3 id="id-419">js简写</h3></div>
                     <div class="section-body">
                         <pre class="language-js" tabindex="0"><code class="language-js" style=""><span class="token comment">//取整</span>
 <span class="token function">parseInt</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Before</span>
@@ -179,27 +179,27 @@ a<span class="token operator">+</span><span class="token number">.5</span><span 
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3 " title="max(a, b)" data-id="id-409" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="max(a, b)" data-id="id-414" data-pid="default">
                     <span class="next-ctrl"></span> max(a, b)
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="html随机颜色边框" data-id="id-410" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="html随机颜色边框" data-id="id-415" data-pid="default">
                     <span class="next-ctrl"></span> html随机颜色边框
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="评分" data-id="id-411" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="评分" data-id="id-416" data-pid="default">
                     <span class="next-ctrl"></span> 评分
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="值交换" data-id="id-412" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="值交换" data-id="id-417" data-pid="default">
                     <span class="next-ctrl"></span> 值交换
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="正则表达式简单解析器" data-id="id-413" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="正则表达式简单解析器" data-id="id-418" data-pid="default">
                     <span class="next-ctrl"></span> 正则表达式简单解析器
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="js简写" data-id="id-414" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="js简写" data-id="id-419" data-pid="default">
                     <span class="next-ctrl"></span> js简写
                     </div>
                 </div>
@@ -208,7 +208,8 @@ a<span class="token operator">+</span><span class="token number">.5</span><span 
         </div></div>
 
     
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0200265368172615" crossorigin="anonymous"></script>
 
 
 
-<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>
+<script src="../js/util/function.js?version=2021082402"></script><script src="../js/util/event-hub.js?version=2021082402"></script><script src="../js/3rdparty/prism.js?version=2021082402"></script><script src="../js/module/loading.js?version=2021082402"></script><script src="../js/module/home.js?version=2021082402"></script><script src="../js/module/cheatsheet.js?version=2021082402"></script><script src="../js/module/menu.js?version=2021082402"></script><script src="../js/3rdparty/jszip.min.js?version=2021082402"></script><script src="../js/util/saveData.js?version=2021082402"></script></body></html>

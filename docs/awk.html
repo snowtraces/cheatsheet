@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>awk cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
+<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=2021082402"><link rel="stylesheet" href="../css/prism.css?version=2021082402"></head>
 
 <body>
     <script>
@@ -44,7 +44,7 @@
                                 
                                 
                             <div class="sheet-section"  data-position="580|0|0">
-                                <div class="section-title"><h3 id="id-222">开始</h3></div>
+                                <div class="section-title"><h3 id="id-224">开始</h3></div>
                                 <div class="section-body">
                                     <h4>从netstat命令中提取了如下信息作为用例</h4>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">cat</span> netstat.txt
@@ -73,7 +73,7 @@ tcp        0      0 :::22                  :::*                        LISTEN
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|0">
-                                <div class="section-title"><h3 id="id-223">第一个例子</h3></div>
+                                <div class="section-title"><h3 id="id-225">第一个例子</h3></div>
                                 <div class="section-body">
                                     <p>其中单引号中的被<em>大括号</em>括着的就是<code>awk</code>的语句，注意，其只能被<em>单引号</em>包含。</p>
 <p>其中的<code>$1..$n</code>表示第几例。注：<code>$0</code>表示整个行。</p>
@@ -102,8 +102,8 @@ tcp :::22
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|554">
-                                <div class="section-title"><h3 id="id-224">格式化输出</h3></div>
+                            <div class="sheet-section"  data-position="580|0|553">
+                                <div class="section-title"><h3 id="id-226">格式化输出</h3></div>
                                 <div class="section-body">
                                     <p><code>awk</code>的格式化输出，和<code>C</code>语言的<code>printf</code>没什么两样：</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'{printf "%-8s %-8s %-8s %-18s %-22s %-15s\n",$1,$2,$3,$4,$5,$6}'</span> netstat.txt
@@ -134,10 +134,10 @@ tcp      0        0        :::22              :::*                   LISTEN
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-228">起步</h2></div>
+                                <div class="h2-section-title"><h2 id="id-230">起步</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-225">过滤记录</h3></div>
+                                <div class="section-title"><h3 id="id-227">过滤记录</h3></div>
                                 <div class="section-body">
                                     <h4>过滤条件为：<em>第3列</em>的值为<code>0</code> &amp;&amp; <em>第6列</em>的值为<code>LISTEN</code></h4>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$3==0 &amp;&amp; $6=="LISTEN" '</span> netstat.txt
@@ -178,7 +178,7 @@ tcp        0      0 :::22                  :::*                        LISTEN
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-226">内建变量</h3></div>
+                                <div class="section-title"><h3 id="id-228">内建变量</h3></div>
                                 <div class="section-body">
                                     
             <table>
@@ -204,8 +204,8 @@ tcp        0      0 :::22                  :::*                        LISTEN
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|795">
-                                <div class="section-title"><h3 id="id-227">指定分隔符</h3></div>
+                            <div class="sheet-section"  data-position="580|600|793">
+                                <div class="section-title"><h3 id="id-229">指定分隔符</h3></div>
                                 <div class="section-body">
                                     <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$  <span class="token function">awk</span>  <span class="token string">'BEGIN{FS=":"} {print $1,$3,$6}'</span> /etc/passwd
 </code></pre>
@@ -240,10 +240,10 @@ sync    5       /sbin
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-232">进阶</h2></div>
+                                <div class="h2-section-title"><h2 id="id-234">进阶</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-229">字符串匹配</h3></div>
+                                <div class="section-title"><h3 id="id-231">字符串匹配</h3></div>
                                 <div class="section-body">
                                     <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'$6 ~ /FIN/ || NR==1 {print NR,$4,$5,$6}'</span> <span class="token assign-left variable">OFS</span><span class="token operator">=</span><span class="token string">"<span class="token entity" title="\t">\t</span>"</span> netstat.txt
 </code></pre>
@@ -306,7 +306,7 @@ tcp        0      0 :::22                   :::*                    LISTEN
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-230">折分文件</h3></div>
+                                <div class="section-title"><h3 id="id-232">折分文件</h3></div>
                                 <div class="section-body">
                                     <p>awk拆分文件很简单，使用重定向就好了。下面这个例子，是按第6列分隔文件（<code>group by</code>，不同值分到不同的文件中），相当的简单（其中的<code>NR!=1</code>表示不处理表头）。</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">awk</span> <span class="token string">'NR!=1{print &gt; $6}'</span> netstat.txt
@@ -393,8 +393,8 @@ tcp        0      0 coolshell.cn:80        117.136.20.85:50025         FIN_WAIT2
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1483">
-                                <div class="section-title"><h3 id="id-231">统计</h3></div>
+                            <div class="sheet-section"  data-position="580|0|1480">
+                                <div class="section-title"><h3 id="id-233">统计</h3></div>
                                 <div class="section-body">
                                     <p>下面的命令计算所有的C文件，CPP文件和H文件的文件大小总和。</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token function">ls</span> -l  *.cpp *.c *.h <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{sum+=$5} END {print sum}'</span>
@@ -426,10 +426,10 @@ hchen, 6020KB
                             
 
                 <div class="h2-section" >
-                    <div class="h2-section-title"><h2 id="id-236">深入</h2></div>
+                    <div class="h2-section-title"><h2 id="id-238">深入</h2></div>
                     
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-233">awk脚本</h3></div>
+                                <div class="section-title"><h3 id="id-235">awk脚本</h3></div>
                                 <div class="section-body">
                                     <h4>运行前</h4>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">BEGIN <span class="token punctuation">{</span> 这里面放的是执行前的语句 <span class="token punctuation">}</span>
@@ -495,7 +495,7 @@ AVERAGE:     63.80    78.60    70.00
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-234">环境变量</h3></div>
+                                <div class="section-title"><h3 id="id-236">环境变量</h3></div>
                                 <div class="section-body">
                                     <p>即然说到了脚本，我们来看看怎么和环境变量交互：（使用<code>-v</code>参数和<code>ENVIRON</code>，使用<code>ENVIRON</code>的环境变量需要<code>export</code>）</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;">$ <span class="token assign-left variable">x</span><span class="token operator">=</span><span class="token number">5</span>
@@ -516,8 +516,8 @@ Bob     2415    40      62      72
                                 </div>
                             </div>
 
-                <div class="sheet-section"  data-position="580|600|510">
-                    <div class="section-title"><h3 id="id-235">几个小例子</h3></div>
+                <div class="sheet-section"  data-position="580|600|509">
+                    <div class="section-title"><h3 id="id-237">几个小例子</h3></div>
                     <div class="section-body">
                         <pre class="language-bash" tabindex="0"><code class="language-bash" style="font-size: 12px !important;"><span class="token comment">#从file文件中找出长度大于80的行</span>
 <span class="token function">awk</span> <span class="token string">'length&gt;80'</span> <span class="token function">file</span>
@@ -540,63 +540,63 @@ Bob     2415    40      62      72
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H3 " title="开始" data-id="id-222" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="开始" data-id="id-224" data-pid="default">
                     <span class="next-ctrl"></span> 开始
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="第一个例子" data-id="id-223" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="第一个例子" data-id="id-225" data-pid="default">
                     <span class="next-ctrl"></span> 第一个例子
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="格式化输出" data-id="id-224" data-pid="default">
+                    <div class="nav-item nav-type-H3 " title="格式化输出" data-id="id-226" data-pid="default">
                     <span class="next-ctrl"></span> 格式化输出
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="起步" data-id="id-228" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="起步" data-id="id-230" data-pid="">
                     <span class="next-ctrl">-</span> 起步
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="过滤记录" data-id="id-225" data-pid="id-228">
+                    <div class="nav-item nav-type-H3 " title="过滤记录" data-id="id-227" data-pid="id-230">
                     <span class="next-ctrl"></span> 过滤记录
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="内建变量" data-id="id-226" data-pid="id-228">
+                    <div class="nav-item nav-type-H3 " title="内建变量" data-id="id-228" data-pid="id-230">
                     <span class="next-ctrl"></span> 内建变量
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="指定分隔符" data-id="id-227" data-pid="id-228">
+                    <div class="nav-item nav-type-H3 " title="指定分隔符" data-id="id-229" data-pid="id-230">
                     <span class="next-ctrl"></span> 指定分隔符
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="进阶" data-id="id-232" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="进阶" data-id="id-234" data-pid="">
                     <span class="next-ctrl">-</span> 进阶
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="字符串匹配" data-id="id-229" data-pid="id-232">
+                    <div class="nav-item nav-type-H3 " title="字符串匹配" data-id="id-231" data-pid="id-234">
                     <span class="next-ctrl"></span> 字符串匹配
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="折分文件" data-id="id-230" data-pid="id-232">
+                    <div class="nav-item nav-type-H3 " title="折分文件" data-id="id-232" data-pid="id-234">
                     <span class="next-ctrl"></span> 折分文件
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="统计" data-id="id-231" data-pid="id-232">
+                    <div class="nav-item nav-type-H3 " title="统计" data-id="id-233" data-pid="id-234">
                     <span class="next-ctrl"></span> 统计
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="深入" data-id="id-236" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="深入" data-id="id-238" data-pid="">
                     <span class="next-ctrl">-</span> 深入
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="awk脚本" data-id="id-233" data-pid="id-236">
+                    <div class="nav-item nav-type-H3 " title="awk脚本" data-id="id-235" data-pid="id-238">
                     <span class="next-ctrl"></span> awk脚本
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="环境变量" data-id="id-234" data-pid="id-236">
+                    <div class="nav-item nav-type-H3 " title="环境变量" data-id="id-236" data-pid="id-238">
                     <span class="next-ctrl"></span> 环境变量
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="几个小例子" data-id="id-235" data-pid="id-236">
+                    <div class="nav-item nav-type-H3 " title="几个小例子" data-id="id-237" data-pid="id-238">
                     <span class="next-ctrl"></span> 几个小例子
                     </div>
                 </div>
@@ -605,7 +605,8 @@ Bob     2415    40      62      72
         </div></div>
 
     
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0200265368172615" crossorigin="anonymous"></script>
 
 
 
-<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>
+<script src="../js/util/function.js?version=2021082402"></script><script src="../js/util/event-hub.js?version=2021082402"></script><script src="../js/3rdparty/prism.js?version=2021082402"></script><script src="../js/module/loading.js?version=2021082402"></script><script src="../js/module/home.js?version=2021082402"></script><script src="../js/module/cheatsheet.js?version=2021082402"></script><script src="../js/module/menu.js?version=2021082402"></script><script src="../js/3rdparty/jszip.min.js?version=2021082402"></script><script src="../js/util/saveData.js?version=2021082402"></script></body></html>
