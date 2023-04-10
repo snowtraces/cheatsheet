@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lisp cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
+<link rel="stylesheet" href="../css/main.css?version=2021082402"><link rel="stylesheet" href="../css/prism.css?version=2021082402"></head>
 
 <body>
     <script>
@@ -41,10 +41,10 @@
             <div id="sheet-body">
                 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-424">构造过程抽象</h2></div>
+                                <div class="h2-section-title"><h2 id="id-429">构造过程抽象</h2></div>
                                 
                             <div class="sheet-section"  data-position="380|0|42">
-                                <div class="section-title"><h3 id="id-415"></h3></div>
+                                <div class="section-title"><h3 id="id-420"></h3></div>
                                 <div class="section-body">
                                     <p>程序设计的基本元素</p>
 <ul><li>基本表达形式
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|400|42">
-                                <div class="section-title"><h3 id="id-416">表达式</h3></div>
+                                <div class="section-title"><h3 id="id-421">表达式</h3></div>
                                 <div class="section-body">
                                     <pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(+ 3 5 )
 8
@@ -74,7 +74,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|800|42">
-                                <div class="section-title"><h3 id="id-417">命名和环境</h3></div>
+                                <div class="section-title"><h3 id="id-422">命名和环境</h3></div>
                                 <div class="section-body">
                                     <p><code>define</code>定义变量</p>
 <pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define size 2)
@@ -88,8 +88,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|0|202">
-                                <div class="section-title"><h3 id="id-418">组合式的求值</h3></div>
+                            <div class="sheet-section"  data-position="380|0|201">
+                                <div class="section-title"><h3 id="id-423">组合式的求值</h3></div>
                                 <div class="section-body">
                                     <ul><li>求值各个子表达式
 </li><li>从最左表达式的值开始计算
@@ -98,8 +98,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|800|361">
-                                <div class="section-title"><h3 id="id-419">复合过程</h3></div>
+                            <div class="sheet-section"  data-position="380|800|360">
+                                <div class="section-title"><h3 id="id-424">复合过程</h3></div>
                                 <div class="section-body">
                                     <p><em>过程定义</em>为复合操作命名</p>
 <pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (square x) (* x x))
@@ -110,8 +110,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|0|379">
-                                <div class="section-title"><h3 id="id-420">过程应用的代换模型</h3></div>
+                            <div class="sheet-section"  data-position="380|0|377">
+                                <div class="section-title"><h3 id="id-425">过程应用的代换模型</h3></div>
                                 <div class="section-body">
                                     <p>树形积累的计算过程称为<em>代换模型</em>，帮助领会调用过程，并不是解释器的实际工作方式。</p>
 <p><em>正则序求值</em>，即<i>完全展开后归约</i>，先进行代换展开，不先局部计算</p>
@@ -120,7 +120,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|400|447">
-                                <div class="section-title"><h3 id="id-421">条件表达式和谓词</h3></div>
+                                <div class="section-title"><h3 id="id-426">条件表达式和谓词</h3></div>
                                 <div class="section-body">
                                     <p><code>cond</code>表示条件</p>
 <pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (abs x)
@@ -155,8 +155,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|800|619">
-                                <div class="section-title"><h3 id="id-422">牛顿法求平方根</h3></div>
+                            <div class="sheet-section"  data-position="380|800|617">
+                                <div class="section-title"><h3 id="id-427">牛顿法求平方根</h3></div>
                                 <div class="section-body">
                                     <p>计算机科学里，更关心行动性的描述。牛顿法采用逐步逼近法，对<code>x</code>的平方根有一个猜测<code>y</code>，令<code>y = (x + x/y) / 2</code>，然后判断<code>y</code>够不够接近。</p>
 <pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (sqrt-iter guess x) 
@@ -184,8 +184,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="380|0|632">
-                                <div class="section-title"><h3 id="id-423">过程作为黑箱抽象</h3></div>
+                            <div class="sheet-section"  data-position="380|0|630">
+                                <div class="section-title"><h3 id="id-428">过程作为黑箱抽象</h3></div>
                                 <div class="section-body">
                                     <h4><em>局部名</em> 局部变量名不影响过程和结果</h4>
 <h4><em>内部定义和块结构</em></h4>
@@ -219,10 +219,10 @@
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-428">过程与所产生的计算</h2></div>
+                                <div class="h2-section-title"><h2 id="id-433">过程与所产生的计算</h2></div>
                                 
                             <div class="sheet-section"  data-position="380|0|42">
-                                <div class="section-title"><h3 id="id-425">线性的递归和迭代</h3></div>
+                                <div class="section-title"><h3 id="id-430">线性的递归和迭代</h3></div>
                                 <div class="section-body">
                                     <p>阶乘的定义：</p>
 <pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">n!=n*(n-1)!
@@ -249,7 +249,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|400|42">
-                                <div class="section-title"><h3 id="id-426">树形递归</h3></div>
+                                <div class="section-title"><h3 id="id-431">树形递归</h3></div>
                                 <div class="section-body">
                                     <p>另一种常见到的计算模式是<code>树形递归</code>，以<em>斐波那契</em>数序列的计算为例：</p>
 <pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(define (fib n)
@@ -271,7 +271,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="380|800|42">
-                                <div class="section-title"><h3 id="id-427">最大公约数</h3></div>
+                                <div class="section-title"><h3 id="id-432">最大公约数</h3></div>
                                 <div class="section-body">
                                     <p>找到两个整数的做大公约数(GCD)的一种方法是对她们做因数分解，并找出公共因子，但存在一种更高效的算法（欧几里得算法）：</p>
 <p>*如果<code>r</code>是<code>a</code>除以<code>b</code>的余数，那么<code>a</code>和<code>b</code>的GCD正好是<code>b</code>和<code>r</code>的GCD*，即：</p>
@@ -290,10 +290,10 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
                             
 
                 <div class="h2-section" >
-                    <div class="h2-section-title"><h2 id="id-431">用高阶函数做抽象</h2></div>
+                    <div class="h2-section-title"><h2 id="id-436">用高阶函数做抽象</h2></div>
                     
                             <div class="sheet-section"  data-position="380|0|42">
-                                <div class="section-title"><h3 id="id-429">过程作为参数</h3></div>
+                                <div class="section-title"><h3 id="id-434">过程作为参数</h3></div>
                                 <div class="section-body">
                                     <p>序列求和：</p>
 <pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">f(a)+...+f(b) 
@@ -309,7 +309,7 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
                             </div>
 
                 <div class="sheet-section"  data-position="380|400|42">
-                    <div class="section-title"><h3 id="id-430">用lambda构造过程</h3></div>
+                    <div class="section-title"><h3 id="id-435">用lambda构造过程</h3></div>
                     <div class="section-body">
                         <p><code>lambda</code>和<code>define</code>使用同样的方式创建过程，但不为过程创建名字：</p>
 <pre class="language-lisp" tabindex="0"><code class="language-lisp" style="">(lambda (&lt;parameters&gt;) &lt;body&gt;)
@@ -334,67 +334,67 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H2 " title="构造过程抽象" data-id="id-424" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="构造过程抽象" data-id="id-429" data-pid="">
                     <span class="next-ctrl">-</span> 构造过程抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="表达式" data-id="id-416" data-pid="id-424">
+                    <div class="nav-item nav-type-H3 " title="表达式" data-id="id-421" data-pid="id-429">
                     <span class="next-ctrl"></span> 表达式
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="命名和环境" data-id="id-417" data-pid="id-424">
+                    <div class="nav-item nav-type-H3 " title="命名和环境" data-id="id-422" data-pid="id-429">
                     <span class="next-ctrl"></span> 命名和环境
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="组合式的求值" data-id="id-418" data-pid="id-424">
+                    <div class="nav-item nav-type-H3 " title="组合式的求值" data-id="id-423" data-pid="id-429">
                     <span class="next-ctrl"></span> 组合式的求值
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="复合过程" data-id="id-419" data-pid="id-424">
+                    <div class="nav-item nav-type-H3 " title="复合过程" data-id="id-424" data-pid="id-429">
                     <span class="next-ctrl"></span> 复合过程
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="过程应用的代换模型" data-id="id-420" data-pid="id-424">
+                    <div class="nav-item nav-type-H3 " title="过程应用的代换模型" data-id="id-425" data-pid="id-429">
                     <span class="next-ctrl"></span> 过程应用的代换模型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="条件表达式和谓词" data-id="id-421" data-pid="id-424">
+                    <div class="nav-item nav-type-H3 " title="条件表达式和谓词" data-id="id-426" data-pid="id-429">
                     <span class="next-ctrl"></span> 条件表达式和谓词
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="牛顿法求平方根" data-id="id-422" data-pid="id-424">
+                    <div class="nav-item nav-type-H3 " title="牛顿法求平方根" data-id="id-427" data-pid="id-429">
                     <span class="next-ctrl"></span> 牛顿法求平方根
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="过程作为黑箱抽象" data-id="id-423" data-pid="id-424">
+                    <div class="nav-item nav-type-H3 " title="过程作为黑箱抽象" data-id="id-428" data-pid="id-429">
                     <span class="next-ctrl"></span> 过程作为黑箱抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="过程与所产生的计算" data-id="id-428" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="过程与所产生的计算" data-id="id-433" data-pid="">
                     <span class="next-ctrl">-</span> 过程与所产生的计算
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="线性的递归和迭代" data-id="id-425" data-pid="id-428">
+                    <div class="nav-item nav-type-H3 " title="线性的递归和迭代" data-id="id-430" data-pid="id-433">
                     <span class="next-ctrl"></span> 线性的递归和迭代
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="树形递归" data-id="id-426" data-pid="id-428">
+                    <div class="nav-item nav-type-H3 " title="树形递归" data-id="id-431" data-pid="id-433">
                     <span class="next-ctrl"></span> 树形递归
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="最大公约数" data-id="id-427" data-pid="id-428">
+                    <div class="nav-item nav-type-H3 " title="最大公约数" data-id="id-432" data-pid="id-433">
                     <span class="next-ctrl"></span> 最大公约数
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="用高阶函数做抽象" data-id="id-431" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="用高阶函数做抽象" data-id="id-436" data-pid="">
                     <span class="next-ctrl">-</span> 用高阶函数做抽象
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="过程作为参数" data-id="id-429" data-pid="id-431">
+                    <div class="nav-item nav-type-H3 " title="过程作为参数" data-id="id-434" data-pid="id-436">
                     <span class="next-ctrl"></span> 过程作为参数
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="用lambda构造过程" data-id="id-430" data-pid="id-431">
+                    <div class="nav-item nav-type-H3 " title="用lambda构造过程" data-id="id-435" data-pid="id-436">
                     <span class="next-ctrl"></span> 用lambda构造过程
                     </div>
                 </div>
@@ -403,7 +403,8 @@ GCD(a, b) = GCD(b, r) =  GCD(b, a % b)
         </div></div>
 
     
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0200265368172615" crossorigin="anonymous"></script>
 
 
 
-<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>
+<script src="../js/util/function.js?version=2021082402"></script><script src="../js/util/event-hub.js?version=2021082402"></script><script src="../js/3rdparty/prism.js?version=2021082402"></script><script src="../js/module/loading.js?version=2021082402"></script><script src="../js/module/home.js?version=2021082402"></script><script src="../js/module/cheatsheet.js?version=2021082402"></script><script src="../js/module/menu.js?version=2021082402"></script><script src="../js/3rdparty/jszip.min.js?version=2021082402"></script><script src="../js/util/saveData.js?version=2021082402"></script></body></html>

@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C语言 cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1652836474562"><link rel="stylesheet" href="../css/prism.css?version=1652836474562"></head>
+<link rel="stylesheet" href="../css/main.css?version=2021082402"><link rel="stylesheet" href="../css/prism.css?version=2021082402"></head>
 
 <body>
     <script>
@@ -41,10 +41,10 @@
             <div id="sheet-body">
                 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-621">基本语法</h2></div>
+                                <div class="h2-section-title"><h2 id="id-626">基本语法</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-613">语句</h3></div>
+                                <div class="section-title"><h3 id="id-618">语句</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言的代码由一行行语句（<code>statement</code>）组成。语句就是程序执行的一个操作命令。<code>C</code> 语言规定，语句必须使用分号结尾，除非有明确规定可以不写分号。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-614">表达式</h3></div>
+                                <div class="section-title"><h3 id="id-619">表达式</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言的代码由一行行语句（<code>statement</code>）组成。语句就是程序执行的一个操作命令。<code>C</code> 语言规定，语句必须使用分号结尾，除非有明确规定可以不写分号。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token number">1</span> <span class="token operator">+</span> <span class="token number">2</span>
@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|246">
-                                <div class="section-title"><h3 id="id-615">语句块</h3></div>
+                                <div class="section-title"><h3 id="id-620">语句块</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言允许多个语句使用一对大括号<code>{}</code>，组成一个块，也称为复合语句（<code>compounded statement</code>）。在语法上，语句块可以视为多个语句组成的一个复合语句。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token punctuation">{</span>
@@ -79,7 +79,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|355">
-                                <div class="section-title"><h3 id="id-616">注释</h3></div>
+                                <div class="section-title"><h3 id="id-621">注释</h3></div>
                                 <div class="section-body">
                                     <p>单行注释</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token comment">// 这是一行注释</span>
@@ -99,7 +99,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|491">
-                                <div class="section-title"><h3 id="id-617">printf()</h3></div>
+                                <div class="section-title"><h3 id="id-622">printf()</h3></div>
                                 <div class="section-body">
                                     <p><code>printf()</code>的作用是将参数文本输出到屏幕。它名字里面的<code>f</code>代表<code>format</code>（格式化），表示可以定制输出文本的格式。</p>
 <p><code>printf()</code>不会在行尾自动添加换行符，为了让光标移到下一行的开头，可以在输出文本的结尾，添加一个换行符 <code>\n</code> 。</p>
@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|735">
-                                <div class="section-title"><h3 id="id-618">printf() 占位符</h3></div>
+                                <div class="section-title"><h3 id="id-623">printf() 占位符</h3></div>
                                 <div class="section-body">
                                     <p><code>printf()</code>可以在输出文本中指定占位符。所谓“占位符”：</p>
 
@@ -126,8 +126,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|773">
-                                <div class="section-title"><h3 id="id-619">printf() 输出格式</h3></div>
+                            <div class="sheet-section"  data-position="580|600|772">
+                                <div class="section-title"><h3 id="id-624">printf() 输出格式</h3></div>
                                 <div class="section-body">
                                     <h4>限定宽度</h4>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%5d\n"</span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出为 "  123"</span>
@@ -159,8 +159,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1713">
-                                <div class="section-title"><h3 id="id-620">标准库，头文件</h3></div>
+                            <div class="sheet-section"  data-position="580|600|1709">
+                                <div class="section-title"><h3 id="id-625">标准库，头文件</h3></div>
                                 <div class="section-body">
                                     <p>程序需要用到的功能，不一定需要自己编写，<code>C</code> 语言可能已经自带了。程序员只要去调用这些自带的功能，就省得自己编写代码了。举例来说，<code>printf()</code>这个函数就是 <code>C</code> 语言自带的，只要去调用它，就能实现在屏幕上输出内容。</p>
 <p><code>C</code> 语言自带的所有这些功能，统称为“标准库”（<code>standard library</code>），因为它们是写入标准的，到底包括哪些功能，应该怎么使用的，都是规定好的，这样才能保证代码的规范和可移植。</p>
@@ -174,10 +174,10 @@
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-626">变量</h2></div>
+                                <div class="h2-section-title"><h2 id="id-631">变量</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-622">变量名</h3></div>
+                                <div class="section-title"><h3 id="id-627">变量名</h3></div>
                                 <div class="section-body">
                                     <p>变量名在 <code>C</code> 语言里面属于标识符（<code>identifier</code>），命名有严格的规范。</p>
 <ul><li>只能由字母（包括大写和小写）、数字和下划线（<code>_</code>）组成。
@@ -195,7 +195,7 @@ typedef, union, unsigned, void, volatile, while
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-623">变量的声明</h3></div>
+                                <div class="section-title"><h3 id="id-628">变量的声明</h3></div>
                                 <div class="section-body">
                                     <p>变量使用前必须先声明，每个变量都有自己的类型（<code>type</code>）。声明变量时，必须把变量的类型告诉编译器。</p>
 <p>如果几个变量具有相同类型，可以在同一行声明。</p>
@@ -209,7 +209,7 @@ typedef, union, unsigned, void, volatile, while
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|342">
-                                <div class="section-title"><h3 id="id-624">变量的赋值</h3></div>
+                                <div class="section-title"><h3 id="id-629">变量的赋值</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言会在变量声明时，就为它分配内存空间，但是不会清除内存里面原来的值。这导致声明变量以后，变量会是一个随机的值。所以，变量一定要赋值以后才能使用。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
@@ -223,8 +223,8 @@ y <span class="token operator">=</span> <span class="token punctuation">(</span>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|497">
-                                <div class="section-title"><h3 id="id-625">变量的作用域</h3></div>
+                            <div class="sheet-section"  data-position="580|0|496">
+                                <div class="section-title"><h3 id="id-630">变量的作用域</h3></div>
                                 <div class="section-body">
                                     <p>作用域（<code>scope</code>）指的是变量生效的范围。<code>C</code> 语言的变量作用域主要有两种：文件作用域（<code>file scope</code>）和块作用域（<code>block scope</code>）。</p>
 <p><em>文件作用域</em>（<code>file scope</code>）指的是，在源码文件顶层声明的变量，从声明的位置到文件结束都有效。</p>
@@ -235,10 +235,10 @@ y <span class="token operator">=</span> <span class="token punctuation">(</span>
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-634">运算符</h2></div>
+                                <div class="h2-section-title"><h2 id="id-639">运算符</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-627">算术运算符</h3></div>
+                                <div class="section-title"><h3 id="id-632">算术运算符</h3></div>
                                 <div class="section-body">
                                     
             <table>
@@ -256,7 +256,7 @@ y <span class="token operator">=</span> <span class="token punctuation">(</span>
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-628">自增运算符，自减运算符</h3></div>
+                                <div class="section-title"><h3 id="id-633">自增运算符，自减运算符</h3></div>
                                 <div class="section-body">
                                     
             <table>
@@ -273,7 +273,7 @@ y <span class="token operator">=</span> <span class="token punctuation">(</span>
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|188">
-                                <div class="section-title"><h3 id="id-629">关系运算符</h3></div>
+                                <div class="section-title"><h3 id="id-634">关系运算符</h3></div>
                                 <div class="section-body">
                                     
             <table>
@@ -290,8 +290,8 @@ y <span class="token operator">=</span> <span class="token punctuation">(</span>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|447">
-                                <div class="section-title"><h3 id="id-630">逻辑运算符</h3></div>
+                            <div class="sheet-section"  data-position="580|0|445">
+                                <div class="section-title"><h3 id="id-635">逻辑运算符</h3></div>
                                 <div class="section-body">
                                     
             <table>
@@ -307,8 +307,8 @@ y <span class="token operator">=</span> <span class="token punctuation">(</span>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|551">
-                                <div class="section-title"><h3 id="id-631">位运算符</h3></div>
+                            <div class="sheet-section"  data-position="580|600|550">
+                                <div class="section-title"><h3 id="id-636">位运算符</h3></div>
                                 <div class="section-body">
                                     
             <table>
@@ -331,8 +331,8 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|635">
-                                <div class="section-title"><h3 id="id-632">逗号运算符</h3></div>
+                            <div class="sheet-section"  data-position="580|0|632">
+                                <div class="section-title"><h3 id="id-637">逗号运算符</h3></div>
                                 <div class="section-body">
                                     <p>逗号运算符用于将多个表达式写在一起，从左到右依次运行每个表达式。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style="">x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
@@ -340,8 +340,8 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|795">
-                                <div class="section-title"><h3 id="id-633">运算优先级</h3></div>
+                            <div class="sheet-section"  data-position="580|0|792">
+                                <div class="section-title"><h3 id="id-638">运算优先级</h3></div>
                                 <div class="section-body">
                                     <p>下面是部分运算符的优先级顺序（按照优先级从高到低排列）。</p>
 <ul><li>圆括号（<code>()</code>）
@@ -358,10 +358,10 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-644">流程控制</h2></div>
+                                <div class="h2-section-title"><h2 id="id-649">流程控制</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-635">if 语句</h3></div>
+                                <div class="section-title"><h3 id="id-640">if 语句</h3></div>
                                 <div class="section-body">
                                     <p><code>if</code>语句用于条件判断，满足条件时，就执行指定的语句。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">if</span> <span class="token punctuation">(</span>expression<span class="token punctuation">)</span> statement
@@ -394,7 +394,7 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-636">三元运算符 ?:</h3></div>
+                                <div class="section-title"><h3 id="id-641">三元运算符 ?:</h3></div>
                                 <div class="section-body">
                                     <p>三元表达式<code>?:</code>，可以用作<code>if...else</code>的简写形式。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token operator">&lt;</span>expression1<span class="token operator">&gt;</span> <span class="token operator">?</span> <span class="token operator">&lt;</span>expression2<span class="token operator">&gt;</span> <span class="token operator">:</span> <span class="token operator">&lt;</span>expression3<span class="token operator">&gt;</span>
@@ -404,7 +404,7 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|277">
-                                <div class="section-title"><h3 id="id-637">switch 语句</h3></div>
+                                <div class="section-title"><h3 id="id-642">switch 语句</h3></div>
                                 <div class="section-body">
                                     <p><code>switch</code> 语句是一种特殊形式的 <code>if...else</code> 结构，用于判断条件有多个结果的情况。它把多重的<code>else if</code>改成更易用、可读性更好的形式。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">switch</span> <span class="token punctuation">(</span>expression<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -426,8 +426,8 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|804">
-                                <div class="section-title"><h3 id="id-638">while 语句</h3></div>
+                            <div class="sheet-section"  data-position="580|600|803">
+                                <div class="section-title"><h3 id="id-643">while 语句</h3></div>
                                 <div class="section-body">
                                     <p><code>while</code>语句用于循环结构，满足条件时，不断执行循环体。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">while</span> <span class="token punctuation">(</span>expression<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -443,8 +443,8 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|821">
-                                <div class="section-title"><h3 id="id-639">do...while 结构</h3></div>
+                            <div class="sheet-section"  data-position="580|0|819">
+                                <div class="section-title"><h3 id="id-644">do...while 结构</h3></div>
                                 <div class="section-body">
                                     <p><code>do...while</code>结构是<code>while</code>的变体，它会先执行一次循环体，然后再判断是否满足条件。如果满足的话，就继续执行循环体，否则跳出循环。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">do</span> statement
@@ -454,8 +454,8 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1076">
-                                <div class="section-title"><h3 id="id-640">for 语句</h3></div>
+                            <div class="sheet-section"  data-position="580|0|1073">
+                                <div class="section-title"><h3 id="id-645">for 语句</h3></div>
                                 <div class="section-body">
                                     <p><code>for</code>语句是最常用的循环结构，通常用于精确控制循环次数。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">for</span> <span class="token punctuation">(</span>initialization<span class="token punctuation">;</span> continuation<span class="token punctuation">;</span> action<span class="token punctuation">)</span>
@@ -468,8 +468,8 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1163">
-                                <div class="section-title"><h3 id="id-641">break 语句</h3></div>
+                            <div class="sheet-section"  data-position="580|600|1162">
+                                <div class="section-title"><h3 id="id-646">break 语句</h3></div>
                                 <div class="section-body">
                                     <p><code>break</code>语句有两种用法：<span class="sn">1</span>一种是与<code>switch</code>语句配套使用，用来中断某个分支的执行<code>,</code> <span class="sn">2</span>另一种用法是在循环体内部跳出循环，不再进行后面的循环了。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -483,8 +483,8 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1343">
-                                <div class="section-title"><h3 id="id-642">continue 语句</h3></div>
+                            <div class="sheet-section"  data-position="580|0|1340">
+                                <div class="section-title"><h3 id="id-647">continue 语句</h3></div>
                                 <div class="section-body">
                                     <p><code>continue</code>语句用于在循环体内部终止本轮循环，进入下一轮循环。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -498,8 +498,8 @@ val <span class="token operator">&gt;&gt;=</span> <span class="token number">2</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1498">
-                                <div class="section-title"><h3 id="id-643">goto 语句</h3></div>
+                            <div class="sheet-section"  data-position="580|600|1496">
+                                <div class="section-title"><h3 id="id-648">goto 语句</h3></div>
                                 <div class="section-body">
                                     <p><code>goto</code> 语句用于跳到指定的标签名。<em>这会破坏结构化编程，建议不要轻易使用</em>。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">char</span> ch<span class="token punctuation">;</span>
@@ -517,17 +517,17 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-657">数据类型</h2></div>
+                                <div class="h2-section-title"><h2 id="id-662">数据类型</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-645"></h3></div>
+                                <div class="section-title"><h3 id="id-650"></h3></div>
                                 <div class="section-body">
                                     <p>基本数据类型有三种：字符（<code>char</code>）、整数（<code>int</code>）和浮点数（<code>float</code>）。复杂的类型都是基于它们构建的。</p>
                                 </div>
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-646">字符类型</h3></div>
+                                <div class="section-title"><h3 id="id-651">字符类型</h3></div>
                                 <div class="section-body">
                                     <p>字符类型指的是<em>单个</em>字符，类型声明使用<code>char</code>关键字。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">char</span> c <span class="token operator">=</span> <span class="token string">'B'</span><span class="token punctuation">;</span>
@@ -545,7 +545,7 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|139">
-                                <div class="section-title"><h3 id="id-647">转义字符</h3></div>
+                                <div class="section-title"><h3 id="id-652">转义字符</h3></div>
                                 <div class="section-body">
                                     <p>一些特殊的字符，需要使用<code>\</code>进行转义。</p>
 
@@ -579,8 +579,8 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|570">
-                                <div class="section-title"><h3 id="id-648">整数类型</h3></div>
+                            <div class="sheet-section"  data-position="580|600|569">
+                                <div class="section-title"><h3 id="id-653">整数类型</h3></div>
                                 <div class="section-body">
                                     <p>整数类型用来表示较大的整数，类型声明使用<code>int</code>关键字。</p>
 <p>不同计算机的<code>int</code>类型的大小是不一样的。比较常见的是使用<code>4</code>个字节（<code>32</code>位）存储一个<code>int</code>类型的值，但是<code>2</code>个字节（<code>16</code>位）或<code>8</code>个字节（<code>64</code>位）也有可能使用。</p>
@@ -630,8 +630,8 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|826">
-                                <div class="section-title"><h3 id="id-649">浮点数类型</h3></div>
+                            <div class="sheet-section"  data-position="580|0|824">
+                                <div class="section-title"><h3 id="id-654">浮点数类型</h3></div>
                                 <div class="section-body">
                                     <p>任何有小数点的数值，都会被编译器解释为浮点数。所谓“浮点数”就是使用 <code>m * b</code><sup>e</sup> 的形式，存储一个数值，<code>m</code>是小数部分，<code>b</code>是基数（通常是<code>2</code>），<code>e</code>是指数部分。这种形式是精度和数值范围的一种结合，可以表示非常大或者非常小的数。</p>
 <p>浮点数的类型声明使用<code>float</code>关键字，可以用来声明浮点数变量。</p>
@@ -648,16 +648,16 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1372">
-                                <div class="section-title"><h3 id="id-650">布尔类型</h3></div>
+                            <div class="sheet-section"  data-position="580|0|1369">
+                                <div class="section-title"><h3 id="id-655">布尔类型</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言原来并没有为布尔值单独设置一个类型，而是使用整数<code>0</code>表示伪，所有非零值表示真。</p>
 <p><code>C99</code> 标准添加了类型<code>_Bool</code>，表示布尔值。但是，这个类型其实只是整数类型的别名，还是使用<code>0</code>表示伪，<code>1</code>表示真。加载头文件<code>stdbool.h</code>以后，就可以使用<code>bool</code>定义布尔值类型，以及<code>false</code>和<code>true</code>表示真伪。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1569">
-                                <div class="section-title"><h3 id="id-651">字面量的类型</h3></div>
+                            <div class="sheet-section"  data-position="580|0|1566">
+                                <div class="section-title"><h3 id="id-656">字面量的类型</h3></div>
                                 <div class="section-body">
                                     <p>字面量（<code>literal</code>）指的是代码里面直接出现的值。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
@@ -679,8 +679,8 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|2066">
-                                <div class="section-title"><h3 id="id-652">溢出</h3></div>
+                            <div class="sheet-section"  data-position="580|0|2062">
+                                <div class="section-title"><h3 id="id-657">溢出</h3></div>
                                 <div class="section-body">
                                     <p>每一种数据类型都有数值范围，如果存放的数值超出了这个范围（小于最小值或大于最大值），需要更多的二进制位存储，就会发生溢出。大于最大值，叫做向上溢出（<code>overflow</code>）；小于最小值，叫做向下溢出（<code>underflow</code>）。</p>
 <p>一般来说，编译器不会对溢出报错，会正常执行代码，但是会忽略多出来的二进制位，只保留剩下的位，这样往往会得到意想不到的结果。所以，应该避免溢出。</p>
@@ -699,8 +699,8 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|2464">
-                                <div class="section-title"><h3 id="id-653">sizeof 运算符</h3></div>
+                            <div class="sheet-section"  data-position="580|600|2457">
+                                <div class="section-title"><h3 id="id-658">sizeof 运算符</h3></div>
                                 <div class="section-body">
                                     <p><code>sizeof</code>是 <code>C</code> 语言提供的一个运算符，返回某种数据类型或某个值占用的字节数量。</p>
 <p><code>C</code> 语言提供了一个解决方法，创造了一个类型别名<code>size_t</code>，用来统一表示<code>sizeof</code>的返回值类型。</p>
@@ -713,8 +713,8 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|2548">
-                                <div class="section-title"><h3 id="id-654">类型的自动转换</h3></div>
+                            <div class="sheet-section"  data-position="580|0|2544">
+                                <div class="section-title"><h3 id="id-659">类型的自动转换</h3></div>
                                 <div class="section-body">
                                     <h4>赋值运算</h4>
 <p>赋值运算符会自动将右边的值，转成左边变量的类型。</p>
@@ -734,16 +734,16 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|2892">
-                                <div class="section-title"><h3 id="id-655">类型的显式转换</h3></div>
+                            <div class="sheet-section"  data-position="580|600|2884">
+                                <div class="section-title"><h3 id="id-660">类型的显式转换</h3></div>
                                 <div class="section-body">
                                     <p>原则上，应该避免类型的自动转换，防止出现意料之外的结果。</p>
 <p>在一个值或变量的前面，使用圆括号指定类型<code>(type)</code>，就可以将这个值或变量转为指定的类型，这叫做“类型指定”（<code>casting</code>）。</p>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|3065">
-                                <div class="section-title"><h3 id="id-656">可移植类型</h3></div>
+                            <div class="sheet-section"  data-position="580|600|3057">
+                                <div class="section-title"><h3 id="id-661">可移植类型</h3></div>
                                 <div class="section-body">
                                     <p>控制准确的字节宽度，代码可以有更好的可移植性，头文件<code>stdint.h</code>创造了一些新的类型别名。</p>
 <h4>精确宽度类型(exact-width integer type)</h4>
@@ -794,10 +794,10 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-663">指针</h2></div>
+                                <div class="h2-section-title"><h2 id="id-668">指针</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-658"></h3></div>
+                                <div class="section-title"><h3 id="id-663"></h3></div>
                                 <div class="section-body">
                                     <p>指针是什么？首先，它是一个值，这个值代表一个内存地址，因此指针相当于指向某个内存地址的路标。</p>
 <p>字符<code>*</code>表示指针，通常跟在类型关键字的后面。</p>
@@ -822,7 +822,7 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-659">* 运算符</h3></div>
+                                <div class="section-title"><h3 id="id-664">* 运算符</h3></div>
                                 <div class="section-body">
                                     <p><code>*</code>这个符号除了表示指针以外，还可以作为运算符，用来取出指针变量所指向的内存地址里面的值。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -834,8 +834,8 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|445">
-                                <div class="section-title"><h3 id="id-660">&amp; 运算符</h3></div>
+                            <div class="sheet-section"  data-position="580|600|444">
+                                <div class="section-title"><h3 id="id-665">&amp; 运算符</h3></div>
                                 <div class="section-body">
                                     <p><code>&amp;</code>运算符用来取出一个变量所在的内存地址。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -854,8 +854,8 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|616">
-                                <div class="section-title"><h3 id="id-661">指针变量的初始化</h3></div>
+                            <div class="sheet-section"  data-position="580|0|615">
+                                <div class="section-title"><h3 id="id-666">指针变量的初始化</h3></div>
                                 <div class="section-body">
                                     <p>声明指针变量之后，指针变量指向的值是随机的，必须先让它指向一个分配好的地址，然后再进行读写，这叫做指针变量的初始化。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> i<span class="token punctuation">;</span>
@@ -869,8 +869,8 @@ top<span class="token operator">:</span> ch <span class="token operator">=</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|864">
-                                <div class="section-title"><h3 id="id-662">指针的运算</h3></div>
+                            <div class="sheet-section"  data-position="580|600|863">
+                                <div class="section-title"><h3 id="id-667">指针的运算</h3></div>
                                 <div class="section-body">
                                     <p>指针本质上就是一个无符号整数，代表了内存地址。它可以进行运算，但是规则并不是整数运算的规则。</p>
 <h4>指针与整数值的加减运算</h4>
@@ -893,10 +893,10 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-672">函数</h2></div>
+                                <div class="h2-section-title"><h2 id="id-677">函数</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-664">简介</h3></div>
+                                <div class="section-title"><h3 id="id-669">简介</h3></div>
                                 <div class="section-body">
                                     <p>函数是一段可以重复执行的代码。它可以接受不同的参数，完成对应的操作。函数声明的语法有以下几点：</p>
 <ul><li>返回值类型。不返回值的函数，使用<code>void</code>关键字表示返回值的类型。
@@ -909,7 +909,7 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-665">main()</h3></div>
+                                <div class="section-title"><h3 id="id-670">main()</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言规定，<code>main()</code>是程序的入口函数，即所有的程序一定要包含一个<code>main()</code>函数。</p>
 <p><code>C</code> 语言约定，返回值<code>0</code>表示函数运行成功，如果返回其他非零整数，就表示运行失败，代码出了问题。</p>
@@ -918,7 +918,7 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|275">
-                                <div class="section-title"><h3 id="id-666">参数的传值引用</h3></div>
+                                <div class="section-title"><h3 id="id-671">参数的传值引用</h3></div>
                                 <div class="section-body">
                                     <p>如果函数的参数是一个变量，那么调用时，传入的是这个变量的值的拷贝，而不是变量本身。</p>
 <p>如果想要传入变量本身，只有一个办法，就是传入变量的地址（指针）。</p>
@@ -927,7 +927,7 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|352">
-                                <div class="section-title"><h3 id="id-667">函数指针</h3></div>
+                                <div class="section-title"><h3 id="id-672">函数指针</h3></div>
                                 <div class="section-body">
                                     <p>函数本身就是一段内存里面的代码，<code>C</code> 语言允许通过指针获取函数。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -951,7 +951,7 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|482">
-                                <div class="section-title"><h3 id="id-668">函数原型</h3></div>
+                                <div class="section-title"><h3 id="id-673">函数原型</h3></div>
                                 <div class="section-body">
                                     <p>只要在程序开头处给出函数原型，函数就可以先使用、后声明。所谓函数原型，就是提前告诉编译器，每个函数的返回类型和参数类型。其他信息都不需要，也不用包括函数体，具体的函数实现可以后面再补上。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> <span class="token function">twice</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -968,7 +968,7 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|848">
-                                <div class="section-title"><h3 id="id-669">exit()</h3></div>
+                                <div class="section-title"><h3 id="id-674">exit()</h3></div>
                                 <div class="section-body">
                                     <p><code>exit()</code>函数用来终止整个程序的运行。一旦执行到该函数，程序就会立即结束。该函数的原型定义在头文件<code>stdlib.h</code>里面。</p>
 <p><code>exit()</code>可以向程序外部返回一个值，它的参数就是程序的返回值。一般来说，使用两个常量作为它的参数：<code>EXIT_SUCCESS</code>（相当于 <code>0</code>）表示程序运行成功，<code>EXIT_FAILURE</code>（相当于 <code>1</code>）表示程序异常中止。这两个常数也是定义在<code>stdlib.h</code>里面。</p>
@@ -986,8 +986,8 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|999">
-                                <div class="section-title"><h3 id="id-670">函数说明符</h3></div>
+                            <div class="sheet-section"  data-position="580|0|998">
+                                <div class="section-title"><h3 id="id-675">函数说明符</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言提供了一些函数说明符，让函数用法更加明确。</p>
 <h4>extern 说明符</h4>
@@ -1042,7 +1042,7 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|1358">
-                                <div class="section-title"><h3 id="id-671">可变参数</h3></div>
+                                <div class="section-title"><h3 id="id-676">可变参数</h3></div>
                                 <div class="section-body">
                                     <p>可以使用省略号<code>...</code>表示可变数量的参数，必须放在参数序列的结尾，否则会报错。</p>
 <p>头文件<code>stdarg.h</code>定义了一些宏，可以操作可变参数。</p>
@@ -1069,10 +1069,10 @@ j <span class="token operator">=</span> j <span class="token operator">+</span> 
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-681">数组</h2></div>
+                                <div class="h2-section-title"><h2 id="id-686">数组</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-673">简介</h3></div>
+                                <div class="section-title"><h3 id="id-678">简介</h3></div>
                                 <div class="section-body">
                                     <p>声明数组时，必须给出数组的大小，数组的成员从<code>0</code>开始编号。</p>
 <p>数组名后面使用方括号指定编号，就可以引用该成员。也可以通过该方式，对该位置进行赋值。</p>
@@ -1095,7 +1095,7 @@ scores<span class="token punctuation">[</span><span class="token number">99</spa
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-674">数组长度</h3></div>
+                                <div class="section-title"><h3 id="id-679">数组长度</h3></div>
                                 <div class="section-body">
                                     <p><code>sizeof</code>运算符会返回整个数组的字节长度。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">,</span> <span class="token number">3490</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1109,7 +1109,7 @@ scores<span class="token punctuation">[</span><span class="token number">99</spa
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|417">
-                                <div class="section-title"><h3 id="id-675">多维数组</h3></div>
+                                <div class="section-title"><h3 id="id-680">多维数组</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言允许声明多个维度的数组，有多少个维度，就用多少个方括号，比如二维数组就使用两个方括号。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> board<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1122,8 +1122,8 @@ board<span class="token punctuation">[</span><span class="token number">9</span>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|650">
-                                <div class="section-title"><h3 id="id-676">变长数组</h3></div>
+                            <div class="sheet-section"  data-position="580|0|649">
+                                <div class="section-title"><h3 id="id-681">变长数组</h3></div>
                                 <div class="section-body">
                                     <p>数组声明的时候，数组长度除了使用常量，也可以使用变量。这叫做变长数组（<code>variable-length array</code>，简称 <code>VLA</code>）。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> n <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
@@ -1133,8 +1133,8 @@ board<span class="token punctuation">[</span><span class="token number">9</span>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|771">
-                                <div class="section-title"><h3 id="id-677">数组的地址</h3></div>
+                            <div class="sheet-section"  data-position="580|600|770">
+                                <div class="section-title"><h3 id="id-682">数组的地址</h3></div>
                                 <div class="section-body">
                                     <p>数组是一连串连续储存的同类型值，只要获得起始地址（首个成员的内存地址），就能推算出其他成员的地址。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">,</span> <span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1149,8 +1149,8 @@ p <span class="token operator">=</span> <span class="token operator">&amp;</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|904">
-                                <div class="section-title"><h3 id="id-678">数组指针的加减法</h3></div>
+                            <div class="sheet-section"  data-position="580|0|902">
+                                <div class="section-title"><h3 id="id-683">数组指针的加减法</h3></div>
                                 <div class="section-body">
                                     <p>数组名可以进行加法和减法运算，等同于在数组成员之间前后移动，即从一个成员的内存地址移动到另一个成员的内存地址。比如，<code>a + 1</code>返回下一个成员的地址，<code>a - 1</code>返回上一个成员的地址。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">,</span> <span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1192,8 +1192,8 @@ p <span class="token operator">=</span> <span class="token operator">&amp;</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1188">
-                                <div class="section-title"><h3 id="id-679">数组的复制</h3></div>
+                            <div class="sheet-section"  data-position="580|600|1187">
+                                <div class="section-title"><h3 id="id-684">数组的复制</h3></div>
                                 <div class="section-body">
                                     <p>由于数组名是指针，所以复制数组不能简单地复制数组名。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
@@ -1205,8 +1205,8 @@ p <span class="token operator">=</span> <span class="token operator">&amp;</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1489">
-                                <div class="section-title"><h3 id="id-680">作为函数的参数</h3></div>
+                            <div class="sheet-section"  data-position="580|600|1488">
+                                <div class="section-title"><h3 id="id-685">作为函数的参数</h3></div>
                                 <div class="section-body">
                                     <h4>声明参数数组</h4>
 <p>数组作为函数的参数，一般会同时传入数组名和数组长度。</p>
@@ -1253,10 +1253,10 @@ p <span class="token operator">=</span> <span class="token operator">&amp;</span
                             
 
                 <div class="h2-section" >
-                    <div class="h2-section-title"><h2 id="id-688">字符串</h2></div>
+                    <div class="h2-section-title"><h2 id="id-693">字符串</h2></div>
                     
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-682">简介</h3></div>
+                                <div class="section-title"><h3 id="id-687">简介</h3></div>
                                 <div class="section-body">
                                     <p><code>C</code> 语言没有单独的字符串类型，字符串被当作字符数组，即<code>char</code>类型的数组。比如，字符串<code>Hello</code>是当作数组<code>{'H', 'e', 'l', 'l', 'o'}</code>处理的。</p>
 <p>编译器会给数组分配一段连续内存，所有字符储存在相邻的内存单元之中。在字符串结尾，<code>C</code> 语言会自动添加一个全是二进制<code>0</code>的字节，写作<code>\0</code>字符，表示字符串结束。字符<code>\0</code>不同于字符<code>0</code>，前者的 <code>ASCII</code> 码是<code>0</code>（二进制形式<code>00000000</code>），后者的 <code>ASCII</code> 码是<code>48</code>（二进制形式<code>00110000</code>）。所以，字符串“<code>Hello</code>”实际储存的数组是<code>{'H', 'e', 'l', 'l', 'o', '\0'}</code></p>
@@ -1284,7 +1284,7 @@ world"</span>
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-683">字符串变量的声明</h3></div>
+                                <div class="section-title"><h3 id="id-688">字符串变量的声明</h3></div>
                                 <div class="section-body">
                                     <p>字符串变量可以声明成一个字符数组，也可以声明成一个指针，指向字符数组。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token comment">// 写法一</span>
@@ -1322,8 +1322,8 @@ s <span class="token operator">=</span> <span class="token string">"world"</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|934">
-                                <div class="section-title"><h3 id="id-684">strlen()</h3></div>
+                            <div class="sheet-section"  data-position="580|0|933">
+                                <div class="section-title"><h3 id="id-689">strlen()</h3></div>
                                 <div class="section-body">
                                     <p><code>strlen()</code>函数返回字符串的字节长度，不包括末尾的空字符<code>\0</code>。该函数的原型如下。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token comment">// string.h</span>
@@ -1336,8 +1336,8 @@ s <span class="token operator">=</span> <span class="token string">"world"</span
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|1214">
-                                <div class="section-title"><h3 id="id-685">strcpy()</h3></div>
+                            <div class="sheet-section"  data-position="580|600|1211">
+                                <div class="section-title"><h3 id="id-690">strcpy()</h3></div>
                                 <div class="section-body">
                                     <p>字符串的复制，不能使用赋值运算符，直接将一个字符串赋值给字符数组变量。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">char</span> str1<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1373,8 +1373,8 @@ ps <span class="token operator">=</span> <span class="token function">strcpy</sp
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|1256">
-                                <div class="section-title"><h3 id="id-686">strncpy()</h3></div>
+                            <div class="sheet-section"  data-position="580|0|1255">
+                                <div class="section-title"><h3 id="id-691">strncpy()</h3></div>
                                 <div class="section-body">
                                     <p><code>strncpy()</code>跟<code>strcpy()</code>的用法完全一样，只是多了第<code>3</code>个参数，用来指定复制的最大字符数，防止溢出目标字符串变量的边界。</p>
 <pre class="language-c" tabindex="0"><code class="language-c" style=""><span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">strncpy</span><span class="token punctuation">(</span>
@@ -1401,8 +1401,8 @@ s1<span class="token punctuation">[</span><span class="token number">5</span><sp
                                 </div>
                             </div>
 
-                <div class="sheet-section"  data-position="580|0|2036">
-                    <div class="section-title"><h3 id="id-687"><code>strcat()</code></h3></div>
+                <div class="sheet-section"  data-position="580|0|2034">
+                    <div class="section-title"><h3 id="id-692"><code>strcat()</code></h3></div>
                     <div class="section-body">
                         <p><code>strcat()</code>函数用于连接字符串。它接受两个字符串作为参数，把第二个字符串的副本添加到第一个字符串的末尾。这个函数会改变第一个字符串，但是第二个字符串不变。</p>
 <p>该函数的原型定义在<code>string.h</code>头文件里面。</p>
@@ -1420,299 +1420,299 @@ s1<span class="token punctuation">[</span><span class="token number">5</span><sp
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H2 " title="基本语法" data-id="id-621" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="基本语法" data-id="id-626" data-pid="">
                     <span class="next-ctrl">+</span> 基本语法
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="语句" data-id="id-613" data-pid="id-621">
+                    <div class="nav-item nav-type-H3 hide" title="语句" data-id="id-618" data-pid="id-626">
                     <span class="next-ctrl"></span> 语句
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="表达式" data-id="id-614" data-pid="id-621">
+                    <div class="nav-item nav-type-H3 hide" title="表达式" data-id="id-619" data-pid="id-626">
                     <span class="next-ctrl"></span> 表达式
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="语句块" data-id="id-615" data-pid="id-621">
+                    <div class="nav-item nav-type-H3 hide" title="语句块" data-id="id-620" data-pid="id-626">
                     <span class="next-ctrl"></span> 语句块
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="注释" data-id="id-616" data-pid="id-621">
+                    <div class="nav-item nav-type-H3 hide" title="注释" data-id="id-621" data-pid="id-626">
                     <span class="next-ctrl"></span> 注释
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="printf()" data-id="id-617" data-pid="id-621">
+                    <div class="nav-item nav-type-H3 hide" title="printf()" data-id="id-622" data-pid="id-626">
                     <span class="next-ctrl"></span> printf()
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="printf() 占位符" data-id="id-618" data-pid="id-621">
+                    <div class="nav-item nav-type-H3 hide" title="printf() 占位符" data-id="id-623" data-pid="id-626">
                     <span class="next-ctrl"></span> printf() 占位符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="printf() 输出格式" data-id="id-619" data-pid="id-621">
+                    <div class="nav-item nav-type-H3 hide" title="printf() 输出格式" data-id="id-624" data-pid="id-626">
                     <span class="next-ctrl"></span> printf() 输出格式
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="标准库，头文件" data-id="id-620" data-pid="id-621">
+                    <div class="nav-item nav-type-H3 hide" title="标准库，头文件" data-id="id-625" data-pid="id-626">
                     <span class="next-ctrl"></span> 标准库，头文件
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="变量" data-id="id-626" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="变量" data-id="id-631" data-pid="">
                     <span class="next-ctrl">+</span> 变量
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="变量名" data-id="id-622" data-pid="id-626">
+                    <div class="nav-item nav-type-H3 hide" title="变量名" data-id="id-627" data-pid="id-631">
                     <span class="next-ctrl"></span> 变量名
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="变量的声明" data-id="id-623" data-pid="id-626">
+                    <div class="nav-item nav-type-H3 hide" title="变量的声明" data-id="id-628" data-pid="id-631">
                     <span class="next-ctrl"></span> 变量的声明
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="变量的赋值" data-id="id-624" data-pid="id-626">
+                    <div class="nav-item nav-type-H3 hide" title="变量的赋值" data-id="id-629" data-pid="id-631">
                     <span class="next-ctrl"></span> 变量的赋值
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="变量的作用域" data-id="id-625" data-pid="id-626">
+                    <div class="nav-item nav-type-H3 hide" title="变量的作用域" data-id="id-630" data-pid="id-631">
                     <span class="next-ctrl"></span> 变量的作用域
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="运算符" data-id="id-634" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="运算符" data-id="id-639" data-pid="">
                     <span class="next-ctrl">+</span> 运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="算术运算符" data-id="id-627" data-pid="id-634">
+                    <div class="nav-item nav-type-H3 hide" title="算术运算符" data-id="id-632" data-pid="id-639">
                     <span class="next-ctrl"></span> 算术运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="自增运算符，自减运算符" data-id="id-628" data-pid="id-634">
+                    <div class="nav-item nav-type-H3 hide" title="自增运算符，自减运算符" data-id="id-633" data-pid="id-639">
                     <span class="next-ctrl"></span> 自增运算符，自减运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="关系运算符" data-id="id-629" data-pid="id-634">
+                    <div class="nav-item nav-type-H3 hide" title="关系运算符" data-id="id-634" data-pid="id-639">
                     <span class="next-ctrl"></span> 关系运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="逻辑运算符" data-id="id-630" data-pid="id-634">
+                    <div class="nav-item nav-type-H3 hide" title="逻辑运算符" data-id="id-635" data-pid="id-639">
                     <span class="next-ctrl"></span> 逻辑运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="位运算符" data-id="id-631" data-pid="id-634">
+                    <div class="nav-item nav-type-H3 hide" title="位运算符" data-id="id-636" data-pid="id-639">
                     <span class="next-ctrl"></span> 位运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="逗号运算符" data-id="id-632" data-pid="id-634">
+                    <div class="nav-item nav-type-H3 hide" title="逗号运算符" data-id="id-637" data-pid="id-639">
                     <span class="next-ctrl"></span> 逗号运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="运算优先级" data-id="id-633" data-pid="id-634">
+                    <div class="nav-item nav-type-H3 hide" title="运算优先级" data-id="id-638" data-pid="id-639">
                     <span class="next-ctrl"></span> 运算优先级
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="流程控制" data-id="id-644" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="流程控制" data-id="id-649" data-pid="">
                     <span class="next-ctrl">+</span> 流程控制
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="if 语句" data-id="id-635" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="if 语句" data-id="id-640" data-pid="id-649">
                     <span class="next-ctrl"></span> if 语句
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="三元运算符 ?:" data-id="id-636" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="三元运算符 ?:" data-id="id-641" data-pid="id-649">
                     <span class="next-ctrl"></span> 三元运算符 ?:
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="switch 语句" data-id="id-637" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="switch 语句" data-id="id-642" data-pid="id-649">
                     <span class="next-ctrl"></span> switch 语句
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="while 语句" data-id="id-638" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="while 语句" data-id="id-643" data-pid="id-649">
                     <span class="next-ctrl"></span> while 语句
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="do...while 结构" data-id="id-639" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="do...while 结构" data-id="id-644" data-pid="id-649">
                     <span class="next-ctrl"></span> do...while 结构
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="for 语句" data-id="id-640" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="for 语句" data-id="id-645" data-pid="id-649">
                     <span class="next-ctrl"></span> for 语句
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="break 语句" data-id="id-641" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="break 语句" data-id="id-646" data-pid="id-649">
                     <span class="next-ctrl"></span> break 语句
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="continue 语句" data-id="id-642" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="continue 语句" data-id="id-647" data-pid="id-649">
                     <span class="next-ctrl"></span> continue 语句
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="goto 语句" data-id="id-643" data-pid="id-644">
+                    <div class="nav-item nav-type-H3 hide" title="goto 语句" data-id="id-648" data-pid="id-649">
                     <span class="next-ctrl"></span> goto 语句
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="数据类型" data-id="id-657" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="数据类型" data-id="id-662" data-pid="">
                     <span class="next-ctrl">+</span> 数据类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="字符类型" data-id="id-646" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="字符类型" data-id="id-651" data-pid="id-662">
                     <span class="next-ctrl"></span> 字符类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="转义字符" data-id="id-647" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="转义字符" data-id="id-652" data-pid="id-662">
                     <span class="next-ctrl"></span> 转义字符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="整数类型" data-id="id-648" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="整数类型" data-id="id-653" data-pid="id-662">
                     <span class="next-ctrl"></span> 整数类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="浮点数类型" data-id="id-649" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="浮点数类型" data-id="id-654" data-pid="id-662">
                     <span class="next-ctrl"></span> 浮点数类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="布尔类型" data-id="id-650" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="布尔类型" data-id="id-655" data-pid="id-662">
                     <span class="next-ctrl"></span> 布尔类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="字面量的类型" data-id="id-651" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="字面量的类型" data-id="id-656" data-pid="id-662">
                     <span class="next-ctrl"></span> 字面量的类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="溢出" data-id="id-652" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="溢出" data-id="id-657" data-pid="id-662">
                     <span class="next-ctrl"></span> 溢出
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="sizeof 运算符" data-id="id-653" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="sizeof 运算符" data-id="id-658" data-pid="id-662">
                     <span class="next-ctrl"></span> sizeof 运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="类型的自动转换" data-id="id-654" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="类型的自动转换" data-id="id-659" data-pid="id-662">
                     <span class="next-ctrl"></span> 类型的自动转换
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="类型的显式转换" data-id="id-655" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="类型的显式转换" data-id="id-660" data-pid="id-662">
                     <span class="next-ctrl"></span> 类型的显式转换
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="可移植类型" data-id="id-656" data-pid="id-657">
+                    <div class="nav-item nav-type-H3 hide" title="可移植类型" data-id="id-661" data-pid="id-662">
                     <span class="next-ctrl"></span> 可移植类型
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="指针" data-id="id-663" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="指针" data-id="id-668" data-pid="">
                     <span class="next-ctrl">+</span> 指针
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="* 运算符" data-id="id-659" data-pid="id-663">
+                    <div class="nav-item nav-type-H3 hide" title="* 运算符" data-id="id-664" data-pid="id-668">
                     <span class="next-ctrl"></span> * 运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="&amp; 运算符" data-id="id-660" data-pid="id-663">
+                    <div class="nav-item nav-type-H3 hide" title="&amp; 运算符" data-id="id-665" data-pid="id-668">
                     <span class="next-ctrl"></span> &amp; 运算符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="指针变量的初始化" data-id="id-661" data-pid="id-663">
+                    <div class="nav-item nav-type-H3 hide" title="指针变量的初始化" data-id="id-666" data-pid="id-668">
                     <span class="next-ctrl"></span> 指针变量的初始化
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="指针的运算" data-id="id-662" data-pid="id-663">
+                    <div class="nav-item nav-type-H3 hide" title="指针的运算" data-id="id-667" data-pid="id-668">
                     <span class="next-ctrl"></span> 指针的运算
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="函数" data-id="id-672" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="函数" data-id="id-677" data-pid="">
                     <span class="next-ctrl">+</span> 函数
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="简介" data-id="id-664" data-pid="id-672">
+                    <div class="nav-item nav-type-H3 hide" title="简介" data-id="id-669" data-pid="id-677">
                     <span class="next-ctrl"></span> 简介
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="main()" data-id="id-665" data-pid="id-672">
+                    <div class="nav-item nav-type-H3 hide" title="main()" data-id="id-670" data-pid="id-677">
                     <span class="next-ctrl"></span> main()
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="参数的传值引用" data-id="id-666" data-pid="id-672">
+                    <div class="nav-item nav-type-H3 hide" title="参数的传值引用" data-id="id-671" data-pid="id-677">
                     <span class="next-ctrl"></span> 参数的传值引用
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="函数指针" data-id="id-667" data-pid="id-672">
+                    <div class="nav-item nav-type-H3 hide" title="函数指针" data-id="id-672" data-pid="id-677">
                     <span class="next-ctrl"></span> 函数指针
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="函数原型" data-id="id-668" data-pid="id-672">
+                    <div class="nav-item nav-type-H3 hide" title="函数原型" data-id="id-673" data-pid="id-677">
                     <span class="next-ctrl"></span> 函数原型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="exit()" data-id="id-669" data-pid="id-672">
+                    <div class="nav-item nav-type-H3 hide" title="exit()" data-id="id-674" data-pid="id-677">
                     <span class="next-ctrl"></span> exit()
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="函数说明符" data-id="id-670" data-pid="id-672">
+                    <div class="nav-item nav-type-H3 hide" title="函数说明符" data-id="id-675" data-pid="id-677">
                     <span class="next-ctrl"></span> 函数说明符
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="可变参数" data-id="id-671" data-pid="id-672">
+                    <div class="nav-item nav-type-H3 hide" title="可变参数" data-id="id-676" data-pid="id-677">
                     <span class="next-ctrl"></span> 可变参数
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="数组" data-id="id-681" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="数组" data-id="id-686" data-pid="">
                     <span class="next-ctrl">+</span> 数组
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="简介" data-id="id-673" data-pid="id-681">
+                    <div class="nav-item nav-type-H3 hide" title="简介" data-id="id-678" data-pid="id-686">
                     <span class="next-ctrl"></span> 简介
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="数组长度" data-id="id-674" data-pid="id-681">
+                    <div class="nav-item nav-type-H3 hide" title="数组长度" data-id="id-679" data-pid="id-686">
                     <span class="next-ctrl"></span> 数组长度
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="多维数组" data-id="id-675" data-pid="id-681">
+                    <div class="nav-item nav-type-H3 hide" title="多维数组" data-id="id-680" data-pid="id-686">
                     <span class="next-ctrl"></span> 多维数组
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="变长数组" data-id="id-676" data-pid="id-681">
+                    <div class="nav-item nav-type-H3 hide" title="变长数组" data-id="id-681" data-pid="id-686">
                     <span class="next-ctrl"></span> 变长数组
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="数组的地址" data-id="id-677" data-pid="id-681">
+                    <div class="nav-item nav-type-H3 hide" title="数组的地址" data-id="id-682" data-pid="id-686">
                     <span class="next-ctrl"></span> 数组的地址
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="数组指针的加减法" data-id="id-678" data-pid="id-681">
+                    <div class="nav-item nav-type-H3 hide" title="数组指针的加减法" data-id="id-683" data-pid="id-686">
                     <span class="next-ctrl"></span> 数组指针的加减法
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="数组的复制" data-id="id-679" data-pid="id-681">
+                    <div class="nav-item nav-type-H3 hide" title="数组的复制" data-id="id-684" data-pid="id-686">
                     <span class="next-ctrl"></span> 数组的复制
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="作为函数的参数" data-id="id-680" data-pid="id-681">
+                    <div class="nav-item nav-type-H3 hide" title="作为函数的参数" data-id="id-685" data-pid="id-686">
                     <span class="next-ctrl"></span> 作为函数的参数
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="字符串" data-id="id-688" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="字符串" data-id="id-693" data-pid="">
                     <span class="next-ctrl">+</span> 字符串
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="简介" data-id="id-682" data-pid="id-688">
+                    <div class="nav-item nav-type-H3 hide" title="简介" data-id="id-687" data-pid="id-693">
                     <span class="next-ctrl"></span> 简介
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="字符串变量的声明" data-id="id-683" data-pid="id-688">
+                    <div class="nav-item nav-type-H3 hide" title="字符串变量的声明" data-id="id-688" data-pid="id-693">
                     <span class="next-ctrl"></span> 字符串变量的声明
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="strlen()" data-id="id-684" data-pid="id-688">
+                    <div class="nav-item nav-type-H3 hide" title="strlen()" data-id="id-689" data-pid="id-693">
                     <span class="next-ctrl"></span> strlen()
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="strcpy()" data-id="id-685" data-pid="id-688">
+                    <div class="nav-item nav-type-H3 hide" title="strcpy()" data-id="id-690" data-pid="id-693">
                     <span class="next-ctrl"></span> strcpy()
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="strncpy()" data-id="id-686" data-pid="id-688">
+                    <div class="nav-item nav-type-H3 hide" title="strncpy()" data-id="id-691" data-pid="id-693">
                     <span class="next-ctrl"></span> strncpy()
                     </div>
                 
-                    <div class="nav-item nav-type-H3 hide" title="strcat()" data-id="id-687" data-pid="id-688">
+                    <div class="nav-item nav-type-H3 hide" title="strcat()" data-id="id-692" data-pid="id-693">
                     <span class="next-ctrl"></span> strcat()
                     </div>
                 </div>
@@ -1721,7 +1721,8 @@ s1<span class="token punctuation">[</span><span class="token number">5</span><sp
         </div></div>
 
     
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0200265368172615" crossorigin="anonymous"></script>
 
 
 
-<script src="../js/util/function.js?version=1652836474562"></script><script src="../js/util/event-hub.js?version=1652836474562"></script><script src="../js/3rdparty/prism.js?version=1652836474562"></script><script src="../js/module/loading.js?version=1652836474562"></script><script src="../js/module/home.js?version=1652836474562"></script><script src="../js/module/cheatsheet.js?version=1652836474562"></script><script src="../js/module/menu.js?version=1652836474562"></script><script src="../js/3rdparty/jszip.min.js?version=1652836474562"></script><script src="../js/util/saveData.js?version=1652836474562"></script></body></html>
+<script src="../js/util/function.js?version=2021082402"></script><script src="../js/util/event-hub.js?version=2021082402"></script><script src="../js/3rdparty/prism.js?version=2021082402"></script><script src="../js/module/loading.js?version=2021082402"></script><script src="../js/module/home.js?version=2021082402"></script><script src="../js/module/cheatsheet.js?version=2021082402"></script><script src="../js/module/menu.js?version=2021082402"></script><script src="../js/3rdparty/jszip.min.js?version=2021082402"></script><script src="../js/util/saveData.js?version=2021082402"></script></body></html>

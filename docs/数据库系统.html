@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>数据库系统 cheatsheet</title>
-<link rel="stylesheet" href="../css/main.css?version=1652837889339"><link rel="stylesheet" href="../css/prism.css?version=1652837889339"></head>
+<link rel="stylesheet" href="../css/main.css?version=2021082402"><link rel="stylesheet" href="../css/prism.css?version=2021082402"></head>
 
 <body>
     <script>
@@ -44,7 +44,7 @@
                                 
                                 
                             <div class="sheet-section"  data-position="580|0|0">
-                                <div class="section-title"><h3 id="id-697"></h3></div>
+                                <div class="section-title"><h3 id="id-702"></h3></div>
                                 <div class="section-body">
                                     <ul><li>统一建模语言 UML（Unified Modeling Language）
 </li></ul>
@@ -87,10 +87,10 @@
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-705">SQL</h2></div>
+                                <div class="h2-section-title"><h2 id="id-710">SQL</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-698">查询</h3></div>
+                                <div class="section-title"><h3 id="id-703">查询</h3></div>
                                 <div class="section-body">
                                     <ul><li>JOIN：join，left join，right join
 </li><li>AS：别名，可以省略
@@ -105,7 +105,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-699">修改</h3></div>
+                                <div class="section-title"><h3 id="id-704">修改</h3></div>
                                 <div class="section-body">
                                     <ul><li>删除：delete from r where P
 </li><li>新增：insert into r values (...)
@@ -117,7 +117,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|248">
-                                <div class="section-title"><h3 id="id-700">视图 view</h3></div>
+                                <div class="section-title"><h3 id="id-705">视图 view</h3></div>
                                 <div class="section-body">
                                     <h4>视图定义</h4>
 <pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">create view v as &lt;query expression&gt;;
@@ -131,7 +131,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|318">
-                                <div class="section-title"><h3 id="id-701">完整性约束</h3></div>
+                                <div class="section-title"><h3 id="id-706">完整性约束</h3></div>
                                 <div class="section-body">
                                     <ul><li>not null
 </li><li>unique
@@ -142,7 +142,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|489">
-                                <div class="section-title"><h3 id="id-702">大对象类型（lob，Large Object）</h3></div>
+                                <div class="section-title"><h3 id="id-707">大对象类型（lob，Large Object）</h3></div>
                                 <div class="section-body">
                                     <ul><li>clob：字符数据
 </li><li>blob：二进制数据
@@ -151,15 +151,15 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|616">
-                                <div class="section-title"><h3 id="id-703">自定义类型</h3></div>
+                                <div class="section-title"><h3 id="id-708">自定义类型</h3></div>
                                 <div class="section-body">
                                     <pre class="language- language-none" tabindex="0"><code class="language- language-none" style="">create type type_name as numeric(12,2) final;
 </code></pre>
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|623">
-                                <div class="section-title"><h3 id="id-704">create table 的扩展</h3></div>
+                            <div class="sheet-section"  data-position="580|600|622">
+                                <div class="section-title"><h3 id="id-709">create table 的扩展</h3></div>
                                 <div class="section-body">
                                     <ul><li><code>create table new_t_name like t_name</code>
 </li><li><code>create table new_t_name as (&lt;query expression&gt;) [with data]</code>
@@ -170,10 +170,10 @@
                             
 
                             <div class="h2-section" >
-                                <div class="h2-section-title"><h2 id="id-712">数据库设计</h2></div>
+                                <div class="h2-section-title"><h2 id="id-717">数据库设计</h2></div>
                                 
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-706">设计内容</h3></div>
+                                <div class="section-title"><h3 id="id-711">设计内容</h3></div>
                                 <div class="section-body">
                                     <ul><li>实体
 </li><li>实体关系
@@ -182,7 +182,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-707">实体-联系图（E-R 图）</h3></div>
+                                <div class="section-title"><h3 id="id-712">实体-联系图（E-R 图）</h3></div>
                                 <div class="section-body">
                                     <ul><li>分成两部分的矩形代表实体集，包含实体集名字和所有属性
 </li><li>菱形代表联系集
@@ -204,7 +204,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|0|169">
-                                <div class="section-title"><h3 id="id-708">E-R图转关系模式</h3></div>
+                                <div class="section-title"><h3 id="id-713">E-R图转关系模式</h3></div>
                                 <div class="section-body">
                                     <h4>具有简单属性的强实体集的表示</h4>
 <p>直接由名字和属性转换成单个关系模式M</p>
@@ -223,7 +223,7 @@
                             </div>
 
                             <div class="sheet-section"  data-position="580|600|469">
-                                <div class="section-title"><h3 id="id-709">E-R设计问题</h3></div>
+                                <div class="section-title"><h3 id="id-714">E-R设计问题</h3></div>
                                 <div class="section-body">
                                     <h4>用实体集合适用属性</h4>
 <h4>用实体集还是用联系集</h4>
@@ -233,8 +233,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|651">
-                                <div class="section-title"><h3 id="id-710">扩展的E-R特性</h3></div>
+                            <div class="sheet-section"  data-position="580|0|649">
+                                <div class="section-title"><h3 id="id-715">扩展的E-R特性</h3></div>
                                 <div class="section-body">
                                     <h4>特化</h4>
 <p>实体集可能包含一些子集，子集中的实体在某些方面却别实体集中的其他实体，例如员工特化出合同工和临时工。</p>
@@ -264,8 +264,8 @@
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|724">
-                                <div class="section-title"><h3 id="id-711">其他</h3></div>
+                            <div class="sheet-section"  data-position="580|600|723">
+                                <div class="section-title"><h3 id="id-716">其他</h3></div>
                                 <div class="section-body">
                                     <h4>数据约束和关系数据库设计</h4>
 <h4>使用需求：查询、性能</h4>
@@ -276,10 +276,10 @@
                             
 
                 <div class="h2-section" >
-                    <div class="h2-section-title"><h2 id="id-715">关系数据库设计</h2></div>
+                    <div class="h2-section-title"><h2 id="id-720">关系数据库设计</h2></div>
                     
                             <div class="sheet-section"  data-position="580|0|42">
-                                <div class="section-title"><h3 id="id-713">三范式</h3></div>
+                                <div class="section-title"><h3 id="id-718">三范式</h3></div>
                                 <div class="section-body">
                                     <h4>第一范式（1NF）</h4>
 <p>如果关系模式R的所有属性的域都是原子（不可分割）的，其满足第一范式。</p>
@@ -293,7 +293,7 @@
                             </div>
 
                 <div class="sheet-section"  data-position="580|600|42">
-                    <div class="section-title"><h3 id="id-714">数据库设计过程</h3></div>
+                    <div class="section-title"><h3 id="id-719">数据库设计过程</h3></div>
                     <div class="section-body">
                         <h4>E-R模型和规范化</h4>
 <p>好的E-R图生成的关系模式应该就不需要太对进一步规范化。</p>
@@ -315,75 +315,75 @@
                 <div class="nav-btn__item nav-btn-menu">菜</div>
             </div>
             <div class="nav-content hide">
-                    <div class="nav-item nav-type-H2 " title="SQL" data-id="id-705" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="SQL" data-id="id-710" data-pid="">
                     <span class="next-ctrl">-</span> SQL
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="查询" data-id="id-698" data-pid="id-705">
+                    <div class="nav-item nav-type-H3 " title="查询" data-id="id-703" data-pid="id-710">
                     <span class="next-ctrl"></span> 查询
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="修改" data-id="id-699" data-pid="id-705">
+                    <div class="nav-item nav-type-H3 " title="修改" data-id="id-704" data-pid="id-710">
                     <span class="next-ctrl"></span> 修改
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="视图 view" data-id="id-700" data-pid="id-705">
+                    <div class="nav-item nav-type-H3 " title="视图 view" data-id="id-705" data-pid="id-710">
                     <span class="next-ctrl"></span> 视图 view
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="完整性约束" data-id="id-701" data-pid="id-705">
+                    <div class="nav-item nav-type-H3 " title="完整性约束" data-id="id-706" data-pid="id-710">
                     <span class="next-ctrl"></span> 完整性约束
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="大对象类型（lob，Large Object）" data-id="id-702" data-pid="id-705">
+                    <div class="nav-item nav-type-H3 " title="大对象类型（lob，Large Object）" data-id="id-707" data-pid="id-710">
                     <span class="next-ctrl"></span> 大对象类型（lob，Large Object）
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="自定义类型" data-id="id-703" data-pid="id-705">
+                    <div class="nav-item nav-type-H3 " title="自定义类型" data-id="id-708" data-pid="id-710">
                     <span class="next-ctrl"></span> 自定义类型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="create table 的扩展" data-id="id-704" data-pid="id-705">
+                    <div class="nav-item nav-type-H3 " title="create table 的扩展" data-id="id-709" data-pid="id-710">
                     <span class="next-ctrl"></span> create table 的扩展
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="数据库设计" data-id="id-712" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="数据库设计" data-id="id-717" data-pid="">
                     <span class="next-ctrl">-</span> 数据库设计
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="设计内容" data-id="id-706" data-pid="id-712">
+                    <div class="nav-item nav-type-H3 " title="设计内容" data-id="id-711" data-pid="id-717">
                     <span class="next-ctrl"></span> 设计内容
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="实体-联系图（E-R 图）" data-id="id-707" data-pid="id-712">
+                    <div class="nav-item nav-type-H3 " title="实体-联系图（E-R 图）" data-id="id-712" data-pid="id-717">
                     <span class="next-ctrl"></span> 实体-联系图（E-R 图）
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="E-R图转关系模式" data-id="id-708" data-pid="id-712">
+                    <div class="nav-item nav-type-H3 " title="E-R图转关系模式" data-id="id-713" data-pid="id-717">
                     <span class="next-ctrl"></span> E-R图转关系模式
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="E-R设计问题" data-id="id-709" data-pid="id-712">
+                    <div class="nav-item nav-type-H3 " title="E-R设计问题" data-id="id-714" data-pid="id-717">
                     <span class="next-ctrl"></span> E-R设计问题
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="扩展的E-R特性" data-id="id-710" data-pid="id-712">
+                    <div class="nav-item nav-type-H3 " title="扩展的E-R特性" data-id="id-715" data-pid="id-717">
                     <span class="next-ctrl"></span> 扩展的E-R特性
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="其他" data-id="id-711" data-pid="id-712">
+                    <div class="nav-item nav-type-H3 " title="其他" data-id="id-716" data-pid="id-717">
                     <span class="next-ctrl"></span> 其他
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="关系数据库设计" data-id="id-715" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="关系数据库设计" data-id="id-720" data-pid="">
                     <span class="next-ctrl">-</span> 关系数据库设计
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="三范式" data-id="id-713" data-pid="id-715">
+                    <div class="nav-item nav-type-H3 " title="三范式" data-id="id-718" data-pid="id-720">
                     <span class="next-ctrl"></span> 三范式
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="数据库设计过程" data-id="id-714" data-pid="id-715">
+                    <div class="nav-item nav-type-H3 " title="数据库设计过程" data-id="id-719" data-pid="id-720">
                     <span class="next-ctrl"></span> 数据库设计过程
                     </div>
                 </div>
@@ -392,7 +392,8 @@
         </div></div>
 
     
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0200265368172615" crossorigin="anonymous"></script>
 
 
 
-<script src="../js/util/function.js?version=1652837889339"></script><script src="../js/util/event-hub.js?version=1652837889339"></script><script src="../js/3rdparty/prism.js?version=1652837889339"></script><script src="../js/module/loading.js?version=1652837889339"></script><script src="../js/module/home.js?version=1652837889339"></script><script src="../js/module/cheatsheet.js?version=1652837889339"></script><script src="../js/module/menu.js?version=1652837889339"></script><script src="../js/3rdparty/jszip.min.js?version=1652837889339"></script><script src="../js/util/saveData.js?version=1652837889339"></script></body></html>
+<script src="../js/util/function.js?version=2021082402"></script><script src="../js/util/event-hub.js?version=2021082402"></script><script src="../js/3rdparty/prism.js?version=2021082402"></script><script src="../js/module/loading.js?version=2021082402"></script><script src="../js/module/home.js?version=2021082402"></script><script src="../js/module/cheatsheet.js?version=2021082402"></script><script src="../js/module/menu.js?version=2021082402"></script><script src="../js/3rdparty/jszip.min.js?version=2021082402"></script><script src="../js/util/saveData.js?version=2021082402"></script></body></html>
