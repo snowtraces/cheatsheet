@@ -11,21 +11,23 @@ column_size: 2
 
 ### 简述
 
- - 命令式语言
- - 静态类型
- - 类似于`C`的语法标记（但括号较少且没有分号），其结构类似于`Oberon-2`
- - 编译为原生代码（无虚拟机）
- - 没有类，但有带方法的结构
- - 接口
- - 没有实现继承。 不过，有[类型嵌入](http://golang.org/doc/effective%5Fgo.html#embedding)。
- - 函数是最重要的部分
- - 函数可以返回多个值
- - 闭包
- - 指针，但没有指针算术
- - 内置并发元支持：`Goroutine`和`Channels`
+-   命令式语言
+-   静态类型
+-   类似于`C`的语法标记（但括号较少且没有分号），其结构类似于`Oberon-2`
+-   编译为原生代码（无虚拟机）
+-   没有类，但有带方法的结构
+-   接口
+-   没有实现继承。 不过，有[类型嵌入](http://golang.org/doc/effective%5Fgo.html#embedding)。
+-   函数是最重要的部分
+-   函数可以返回多个值
+-   闭包
+-   指针，但没有指针算术
+-   内置并发元支持：`Goroutine`和`Channels`
 
 ### Hello World
+
 File `hello.go`:
+
 ```go
 package main
 
@@ -35,10 +37,13 @@ func main() {
     fmt.Println("Hello Go")
 }
 ```
+
 `$ go run hello.go`
 
 ## 操作符
+
 ### 算术运算
+
 | Operator | Description                |
 | -------- | -------------------------- |
 | `+`      | 加                         |
@@ -54,6 +59,7 @@ func main() {
 | `>>`     | 右移，`/2`                 |
 
 ### 对比
+
 | Operator | Description |
 | -------- | ----------- |
 | `==`     | 等于        |
@@ -64,6 +70,7 @@ func main() {
 | `>=`     | 大于等于    |
 
 ### 逻辑运算
+
 | Operator | Description |
 | -------- | ----------- |
 | `&&`     | 与          |
@@ -71,6 +78,7 @@ func main() {
 | `!`      | 非          |
 
 ### 其他
+
 | Operator | Description         |
 | -------- | ------------------- |
 | `&`      | 指针地址 / 创建指针 |
@@ -104,34 +112,62 @@ const (
 
 ## 函数
 
+### init()函数
+
+-   init 函数是用于程序执行前做包的初始化的函数，比如初始化包里的变量等
+-   每个包可以拥有多个 init 函数
+-   包的每个源文件也可以拥有多个 init 函数
+-   同一个包中多个 init 函数的执行顺序 go 语言没有明确的定义(说明)
+-   不同包的 init 函数按照包导入的依赖关系决定该初始化函数的执行顺序
+-   init 函数不能被其他函数调用，而是在 main 函数执行之前，自动被调用
+
+### main()函数
+Go语言程序的默认入口函数(主函数)
+```go
+func main(){
+    //函数体
+}
+```
+
 ### 函数定义
 
 #### 一个简单的函数
+
 ```go
 func functionName() {}
 ```
+
 #### 带参数函数（同样的，类型在标识符之后）
+
 ```go
 func functionName(param1 string, param2 int) {}
 ```
+
 #### 同类型的多个参数
+
 ```go
 func functionName(param1, param2 int) {}
 ```
+
 #### 返回值类型声明
+
 ```go
 func functionName() int {
     return 42
 }
 ```
+
 #### 返回多个参数
+
 ```go
 func returnMulti() (int, string) {
     return 42, "foobar"
 }
 var x, str = returnMulti()
 ```
-#### 只需通过return返回多个命名结果
+
+#### 只需通过 return 返回多个命名结果
+
 ```go
 func returnMulti2() (n int, s string) {
     n = 42
@@ -143,6 +179,7 @@ var x, str = returnMulti2()
 ```
 
 ### 函数作为值和闭包
+
 ```go
 func main() {
     // 给函数分配名称
@@ -153,7 +190,9 @@ func main() {
     fmt.Println(add(3, 4))
 }
 ```
+
 #### 闭包，字面作用域：定义函数时，函数可以访问作用域内的值
+
 ```go
 func scope() func() int{
     outer_var := 2
@@ -167,7 +206,9 @@ func another_scope() func() int{
     return foo
 }
 ```
+
 #### 闭包
+
 ```go
 func outer() (func() int, int) {
     outer_var := 2
@@ -181,6 +222,7 @@ func outer() (func() int, int) {
 ```
 
 ### 可变参数函数
+
 ```go
 func main() {
 	fmt.Println(adder(1, 2, 3)) 	// 6
@@ -190,6 +232,7 @@ func main() {
 	fmt.Println(adder(nums...))	// 60
 }
 ```
+
 #### 通过在最后一个参数的类型名称前使用`...`，接受零个或多个参数。
 
 ```go
@@ -203,7 +246,11 @@ func adder(args ...int) int {
 ```
 
 ## 类型
+
 ### 内置类型
+
+#### 值类型
+
 ```go
 bool
 
@@ -221,9 +268,36 @@ float32 float64
 complex64 complex128
 ```
 
+#### 引用类型（指针类型）
+
+```go
+slice   -- 序列数组(最常用)
+map     -- 映射
+chan    -- 管道
+```
+
+### 内置函数
+
+| 方法           | 描述                                                                     |
+| -------------- | ------------------------------------------------------------------------ |
+| append         | 用来追加元素到数组、slice 中,返回修改后的数组、slice                     |
+| close          | 主要用来关闭 channel                                                     |
+| delete         | 从 map 中删除 key 对应的 value                                           |
+| panic          | 停止常规的 goroutine （panic 和 recover：用来做错误处理）                |
+| recover        | 允许程序定义 goroutine 的 panic 动作                                     |
+| real           | 返回 complex 的实部 （complex、real imag：用于创建和操作复数）           |
+| imag           | 返回 complex 的虚部                                                      |
+| make           | 用来分配内存，返回 Type 本身(只能应用于 slice, map, channel)             |
+| new            | 用来分配内存，主要用来分配值类型，比如 int、struct。返回指向 Type 的指针 |
+| cap            | capacity 是容量的意思，用于返回某个类型的最大容量（只能用于切片和 map）  |
+| copy           | 用于复制和连接 slice，返回复制的数目                                     |
+| len            | 来求长度，比如 string、array、slice、map、channel ，返回长度             |
+| print、println | 底层打印函数，在部署环境中建议使用 fmt 包                                |
+
 ### 结构 Struct
 
-go没有类`class`，只有结构`struct`，结构可以拥有方法。struct 是一种类型，也是成员变量的集合。
+go 没有类`class`，只有结构`struct`，结构可以拥有方法。struct 是一种类型，也是成员变量的集合。
+
 ```go
 
 // 声明
@@ -254,7 +328,9 @@ func (v *Vertex) add(n float64) {
 }
 
 ```
-#### **匿名struct:**，比`map[string]interface{}`更轻量和安全
+
+#### **匿名 struct:**，比`map[string]interface{}`更轻量和安全
+
 ```go
 point := struct {
 	X, Y int
@@ -268,12 +344,15 @@ p := Vertex{1, 2}  // p 是一个 Vertex
 q := &p            // q 是一个指向Vertex的指针
 r := &Vertex{1, 2} // r 是一个指向Vertex的指针
 ```
-#### 指向 Vertex 的指针类型为 *Vertex
+
+#### 指向 Vertex 的指针类型为 \*Vertex
+
 ```go
 var s *Vertex = new(Vertex) // 创建一个指向Vertex实例的指针
 ```
 
 ### 类型转换
+
 ```go
 var i int = 42
 var f float64 = float64(i)
@@ -286,15 +365,17 @@ u := uint(f)
 ```
 
 ## Packages
- - 每个源文件顶部声明包
- - 可执行文件位于包`main`中
- - 约定：包名称 == 导入路径最后名称（导入路径`math/rand` => 包`rand`）
- - 大写标识符：`exported`（在其他包中可见）
- - 小写标识符：`private`（在其他包中不可见）
+
+-   每个源文件顶部声明包
+-   可执行文件位于包`main`中
+-   约定：包名称 == 导入路径最后名称（导入路径`math/rand` => 包`rand`）
+-   大写标识符：`exported`（在其他包中可见）
+-   小写标识符：`private`（在其他包中不可见）
 
 ## 控制结构
 
 ### If
+
 ```go
 func main() {
 	// 基本使用
@@ -335,7 +416,7 @@ func main() {
     }
     for { // 可以省略条件 ~ while (true)
     }
-    
+
     //在当前循环中使用 break/continue
     //在外部循环中使用带标签的 break/continue
 here:
@@ -366,6 +447,7 @@ there:
 ```
 
 ### Switch
+
 ```go
 switch operatingSystem {
     case "darwin":
@@ -378,13 +460,17 @@ switch operatingSystem {
         fmt.Println("Other")
 }
 ```
-#### 与for和if一样，在switch值之前可以有一个赋值语句
+
+#### 与 for 和 if 一样，在 switch 值之前可以有一个赋值语句
+
 ```go
 switch os := runtime.GOOS; os {
     case "darwin": ...
 }
 ```
+
 #### 可以使用对比
+
 ```go
 number := 42
 switch {
@@ -396,7 +482,9 @@ switch {
         fmt.Println("Greater")
 }
 ```
-#### 多个case可用逗号分割
+
+#### 多个 case 可用逗号分割
+
 ```go
 var char byte = '?'
 switch char {
@@ -408,6 +496,7 @@ switch char {
 ## 集合
 
 ### 数组
+
 ```go
 var a [10]int // 声明长度为10的数组，长度是类型的一部分
 a[3] = 42     // 设置
@@ -420,6 +509,7 @@ a := [...]int{1, 2} // 省略号 -> 编译器计算出数组长度
 ```
 
 ### 切片
+
 ```go
 var a []int                      // 声明切片 - 和数组类似，但不指定长度
 var a = []int {1, 2, 3, 4}       // 声明并初始化切片（由隐式给出的数组支持）
@@ -441,17 +531,21 @@ a = make([]byte, 5)	// 容量为可选值
 x := [3]string{"Лайка", "Белка", "Стрелка"}
 s := x[:] // 引用x存储的切片
 ```
+
 #### 空间的重新分配
 
 同源切片默认会共享内存，`append()`这个函数在 `cap` 不够用的时候就会重新分配内存以扩大容量，而**如果够用的时候不不会重新分享内存**！
 
 `append()`内存不够会重新分配空间，但其他同源切片(或源数组)后续空间可能会被覆盖，需要 Full Slice Expression：
+
 ```go
 var b = a[lo:hi:li]
 ```
+
 其最后一个参数叫**Limited Capacity**，于是，后续的 `append()` 操作将会导致重新分配内存。
 
 ### 操作数组和切片
+
 `len(a)` 返回数组/切片的长度，这是一个内置函数，而不是数组上的属性/方法。
 
 ```go
@@ -503,17 +597,23 @@ for key, value := range m {
 ## 多态
 
 ### 接口
+
 #### 接口声明
+
 ```go
 type Awesomizer interface {
     Awesomize() string
 }
 ```
+
 #### 类型不声明实现接口
+
 ```go
 type Foo struct {}
 ```
+
 #### 如果类型实现所有必需的方法，则它们隐式满足接口
+
 ```go
 func (foo Foo) Awesomize() string {
     return "Awesome!"
@@ -522,7 +622,7 @@ func (foo Foo) Awesomize() string {
 
 ### 嵌入
 
-Go中没有`子类`。 而是有`接口`和`结构`嵌入。
+Go 中没有`子类`。 而是有`接口`和`结构`嵌入。
 
 ```go
 // ReadWriter 实现类必须满足 Reader 和 Writer
@@ -548,11 +648,11 @@ server.Log(...) // 调用 server.Logger.Log(...)
 var logger *log.Logger = server.Logger
 ```
 
-
 ## 并发
 
 ### Goroutines
-`Goroutines`是轻量级线程（由Go而不是OS管理）。 `go f(a, b)`启动一个新的goroutine，该例程将运行`f`（`f`是一个函数）。
+
+`Goroutines`是轻量级线程（由 Go 而不是 OS 管理）。 `go f(a, b)`启动一个新的 goroutine，该例程将运行`f`（`f`是一个函数）。
 
 ```go
 // 只是一个函数（可以稍后作为goroutine启动）
@@ -573,32 +673,43 @@ func main() {
 ### Channels
 
 #### 非阻塞通道，发送和接收动作是同时发生的，如果没有接收者，发送会一直阻塞
+
 ```go
 ch := make(chan int) // 创建一个类型为int的通道
 ch <- 42             // 将值发送到通道ch
 v := <-ch            // 接收来自ch的值
 ```
+
 #### 缓冲通道，如果已写入小于<buffer size>的未读值，则写入不会阻塞。
+
 ```go
 ch := make(chan int, 100)
 ```
+
 #### 关闭通道（只有发送者应该关闭）
+
 ```go
-close(ch) 
+close(ch)
 ```
+
 #### 从通道读取并测试是否已关闭
+
 ```go
 v, ok := <-ch
 
 // 如果ok值为false，通道已被关闭
 ```
+
 #### 读取通道直至关闭
+
 ```go
 for i := range ch {
     fmt.Println(i)
 }
 ```
+
 #### 尝试多种通道操作，如果没有柱塞，则执行相应操作
+
 ```go
 func doStuff(channelOut, channelIn chan int) {
     select {
@@ -613,21 +724,24 @@ func doStuff(channelOut, channelIn chan int) {
 ```
 
 ### Channel Axioms
-#### 发送到nil通道将永远阻塞
+
+#### 发送到 nil 通道将永远阻塞
+
 ```go
 var c chan string
 c <- "Hello, World!"
 // fatal error: all goroutines are asleep - deadlock!
 ```
 
-#### 接收自nil通道将永远阻塞
+#### 接收自 nil 通道将永远阻塞
+
 ```go
 var c chan string
 fmt.Println(<-c)
 // fatal error: all goroutines are asleep - deadlock!
 ```
 
-#### 发送到已关闭通道触发panic
+#### 发送到已关闭通道触发 panic
 
 ```go
 var c = make(chan string, 1)
@@ -636,7 +750,9 @@ close(c)
 c <- "Hello, Panic!"
 // panic: send on closed channel
 ```
+
 #### 来自关闭通道的接收立即返回零值
+
 ```go
 var c = make(chan int, 2)
 c <- 1
@@ -649,9 +765,10 @@ for i := 0; i < 3; i++ {
 ```
 
 ## 杂项
+
 ### 错误
 
-没有异常处理，可能会产生错误的函数只需声明类型为Error的附加返回值即可。 这是`Error`的接口：
+没有异常处理，可能会产生错误的函数只需声明类型为 Error 的附加返回值即可。 这是`Error`的接口：
 
 ```go
 type error interface {
@@ -660,6 +777,7 @@ type error interface {
 ```
 
 可能返回错误的方法:
+
 ```go
 func doStuff() (int, error) {
 }
@@ -692,7 +810,9 @@ hellomsg := `
 ```
 
 ### 反射 - 类型 Switch
-类型switch类似于常规switch语句，但是类型switch中的case指定类型（不是值），并将这些类型与给定接口的类型进行比较。
+
+类型 switch 类似于常规 switch 语句，但是类型 switch 中的 case 指定类型（不是值），并将这些类型与给定接口的类型进行比较。
+
 ```go
 func do(i interface{}) {
 	switch v := i.(type) {
@@ -713,6 +833,7 @@ func main() {
 ```
 
 ### HTTP Server
+
 ```go
 package main
 
@@ -803,6 +924,7 @@ PrintStr(d2)
 ```
 
 ### 接口完整性检查
+
 ```go
 type Shape interface {
     Sides() int
@@ -820,42 +942,45 @@ func main() {
 }
 ```
 
-`Square` 并没有实现 `Shape` 接口的所有方法，程序虽然可以跑通，但是这样编程的方式并不严谨。如果我们需要强制实现接口的所有方法，在Go语言编程圈里有一个比较标准的作法：
+`Square` 并没有实现 `Shape` 接口的所有方法，程序虽然可以跑通，但是这样编程的方式并不严谨。如果我们需要强制实现接口的所有方法，在 Go 语言编程圈里有一个比较标准的作法：
 
 ```go
 var _ Shape = (*Square)(nil)
 ```
+
 声明一个 `_` 变量（没人用），其会把一个 `nil` 的空指针，从 `Square` 转成 `Shape`，这样，如果没有实现完相关的接口方法，编译器就会报错。
 
 ### 时间
 
 在 Go 语言中，你一定要使用 `time.Time` 和 `time.Duration` 两个类型：
 
-- 在命令行上，`flag` 通过 `time.ParseDuration` 支持了 `time.Duration`
-- `JSon` 中的 `encoding/json` 中也可以把`time.Time` 编码成 [RFC 3339](https://tools.ietf.org/html/rfc3339) 的格式
-- 数据库使用的 `database/sql` 也支持把 `DATATIME` 或 `TIMESTAMP` 类型转成 `time.Time`
-- `YAML`你可以使用 `gopkg.in/yaml.v2` 也支持 `time.Time` 、`time.Duration` 和 [RFC 3339](https://tools.ietf.org/html/rfc3339) 格式
+-   在命令行上，`flag` 通过 `time.ParseDuration` 支持了 `time.Duration`
+-   `JSon` 中的 `encoding/json` 中也可以把`time.Time` 编码成 [RFC 3339](https://tools.ietf.org/html/rfc3339) 的格式
+-   数据库使用的 `database/sql` 也支持把 `DATATIME` 或 `TIMESTAMP` 类型转成 `time.Time`
+-   `YAML`你可以使用 `gopkg.in/yaml.v2` 也支持 `time.Time` 、`time.Duration` 和 [RFC 3339](https://tools.ietf.org/html/rfc3339) 格式
 
 ### 性能提示
-- 数字转字符串，使用 `strconv.Itoa()` 会比 `fmt.Sprintf()` 要快一倍左右
-- 尽可能地避免把`String`转成`[]Byte`
-- 如果在`for-loop`里对某个`slice` 使用 `append()`请先把 `slice`的容量很扩充到位，这样可以避免内存重新分享以及系统自动按2的N次方幂进行扩展但又用不到，从而浪费内存。
-- 使用`StringBuffer` 或是`StringBuild` 来拼接字符串
-- 尽可能的使用并发的 `go routine`，然后使用 `sync.WaitGroup` 来同步分片操作
-- 避免在热代码中进行内存分配，这样会导致`gc`很忙。尽可能的使用 `sync.Pool` 来重用对象
-- 使用 `lock-free`的操作，避免使用 `mutex`，尽可能使用 `sync/Atomic`包
-- 使用 `I/O`缓冲，`I/O`是个非常非常慢的操作，使用 `bufio.NewWrite()` 和 `bufio.NewReader()` 可以带来更高的性能
-- `for-loop`里的固定的正则表达式，一定要使用 `regexp.Compile()` 编译正则表达式
+
+-   数字转字符串，使用 `strconv.Itoa()` 会比 `fmt.Sprintf()` 要快一倍左右
+-   尽可能地避免把`String`转成`[]Byte`
+-   如果在`for-loop`里对某个`slice` 使用 `append()`请先把 `slice`的容量很扩充到位，这样可以避免内存重新分享以及系统自动按 2 的 N 次方幂进行扩展但又用不到，从而浪费内存。
+-   使用`StringBuffer` 或是`StringBuild` 来拼接字符串
+-   尽可能的使用并发的 `go routine`，然后使用 `sync.WaitGroup` 来同步分片操作
+-   避免在热代码中进行内存分配，这样会导致`gc`很忙。尽可能的使用 `sync.Pool` 来重用对象
+-   使用 `lock-free`的操作，避免使用 `mutex`，尽可能使用 `sync/Atomic`包
+-   使用 `I/O`缓冲，`I/O`是个非常非常慢的操作，使用 `bufio.NewWrite()` 和 `bufio.NewReader()` 可以带来更高的性能
+-   `for-loop`里的固定的正则表达式，一定要使用 `regexp.Compile()` 编译正则表达式
 
 ## 错误处理
 
 Go 语言的函数支持多返回值，所以，可以在返回接口把业务语义（业务返回值）和控制语义（出错返回值）区分开来。Go 语言的很多函数都会返回 result, err 两个值，于是:
 
-- 参数上基本上就是入参，而返回接口把结果和错误分离，这样使得函数的接口语义清晰；
-- 而且，Go 语言中的错误参数如果要忽略，需要显式地忽略，用 `_` 这样的变量来忽略；
-- 另外，因为返回的 `error` 是个接口（其中只有一个方法 `Error()`，返回一个 `string` ），所以你可以扩展自定义的错误处理。
+-   参数上基本上就是入参，而返回接口把结果和错误分离，这样使得函数的接口语义清晰；
+-   而且，Go 语言中的错误参数如果要忽略，需要显式地忽略，用 `_` 这样的变量来忽略；
+-   另外，因为返回的 `error` 是个接口（其中只有一个方法 `Error()`，返回一个 `string` ），所以你可以扩展自定义的错误处理。
 
-### 多个不同类型的 error： 
+### 多个不同类型的 error：
+
 ```go
 if err != nil {
   switch err.(type) {
@@ -871,7 +996,8 @@ if err != nil {
 }
 ```
 
-###  `defer` 关键词进行资源清理
+### `defer` 关键词进行资源清理
+
 ```go
 func Close(c io.Closer) {
   err := c.Close()
@@ -927,6 +1053,7 @@ func parse(input io.Reader) (*Point, error) {
 ```
 
 #### 流式接口 Fluent Interface
+
 ```go
 package main
 
@@ -937,7 +1064,7 @@ import (
 )
 
 // 长度不够，少一个Weight
-var b = []byte {0x48, 0x61, 0x6f, 0x20, 0x43, 0x68, 0x65, 0x6e, 0x00, 0x00, 0x2c} 
+var b = []byte {0x48, 0x61, 0x6f, 0x20, 0x43, 0x68, 0x65, 0x6e, 0x00, 0x00, 0x2c}
 var r = bytes.NewReader(b)
 
 type Person struct {
@@ -953,15 +1080,15 @@ func (p *Person) read(data interface{}) {
 }
 
 func (p *Person) ReadName() *Person {
-  p.read(&p.Name) 
+  p.read(&p.Name)
   return p
 }
 func (p *Person) ReadAge() *Person {
-  p.read(&p.Age) 
+  p.read(&p.Age)
   return p
 }
 func (p *Person) ReadWeight() *Person {
-  p.read(&p.Weight) 
+  p.read(&p.Weight)
   return p
 }
 func (p *Person) Print() *Person {
@@ -971,7 +1098,7 @@ func (p *Person) Print() *Person {
   return p
 }
 
-func main() {   
+func main() {
   p := Person{}
   p.ReadName().ReadAge().ReadWeight().Print()
   fmt.Println(p.err)  // EOF 错误
@@ -985,6 +1112,7 @@ if err != nil {
    return fmt.Errorf("something failed: %v", err)
 }
 ```
+
 ```go
 type authorizationError struct {
     operation string
@@ -994,7 +1122,9 @@ func (e *authorizationError) Error() string {
     return fmt.Sprintf("authorization failed during %s: %v", e.operation, e.err)
 }
 ```
-#### 使用 causer接口中实现 Cause() 方法来暴露原始错误
+
+#### 使用 causer 接口中实现 Cause() 方法来暴露原始错误
+
 ```go
 type causer interface {
     Cause() error
@@ -1006,6 +1136,7 @@ func (e *authorizationError) Cause() error {
 ```
 
 #### 第三方的错误库（github.com/pkg/errors）
+
 ```go
 import "github.com/pkg/errors"
 
@@ -1025,9 +1156,10 @@ default:
 
 ## 函数式编程
 
-Go语言不支持重载函数，所以，需要使用不同的函数名来应对不同入参需求
+Go 语言不支持重载函数，所以，需要使用不同的函数名来应对不同入参需求
 
-### Builder模式
+### Builder 模式
+
 ```go
 //使用一个builder类来做包装
 type ServerBuilder struct {
@@ -1042,7 +1174,7 @@ func (sb *ServerBuilder) Create(addr string, port int) *ServerBuilder {
 }
 
 func (sb *ServerBuilder) WithProtocol(protocol string) *ServerBuilder {
-  sb.Server.Protocol = protocol 
+  sb.Server.Protocol = protocol
   return sb
 }
 
@@ -1052,6 +1184,7 @@ func (sb *ServerBuilder) Build() (Server) {
   return  sb.Server
 }
 ```
+
 ```go
 sb := ServerBuilder{}
 server, err := sb.Create("127.0.0.1", 8080).
@@ -1060,11 +1193,15 @@ server, err := sb.Create("127.0.0.1", 8080).
 ```
 
 ### Functional Options
+
 先定义一个函数类型：
+
 ```go
 type Option func(*Server)
 ```
+
 使用函数式的方式定义一组如下的函数：
+
 ```go
 func Protocol(p string) Option {
     return func(s *Server) {
@@ -1087,10 +1224,12 @@ func TLS(tls *tls.Config) Option {
     }
 }
 ```
-- 当我们调用其中的一个函数用 `MaxConns(30)` 时
-- 其返回值是一个 `func(s* Server) { s.MaxConns = 30 }` 的函数。
+
+-   当我们调用其中的一个函数用 `MaxConns(30)` 时
+-   其返回值是一个 `func(s* Server) { s.MaxConns = 30 }` 的函数。
 
 使用：
+
 ```go
 func NewServer(addr string, port int, options ...func(*Server)) (*Server, error) {
 
@@ -1109,6 +1248,7 @@ func NewServer(addr string, port int, options ...func(*Server)) (*Server, error)
   return &srv, nil
 }
 ```
+
 ```go
 s1, _ := NewServer("localhost", 1024)
 s2, _ := NewServer("localhost", 2048, Protocol("udp"))
@@ -1118,7 +1258,9 @@ s3, _ := NewServer("0.0.0.0", 8080, Timeout(300*time.Second), MaxConns(1000))
 ## 委托和反转控制
 
 ### 委托
+
 Go 语言可以把一个结构体嵌入另一个结构体
+
 ```go
 type Widget struct {
     X, Y int
@@ -1133,13 +1275,15 @@ label := Label{Widget{10, 10}, "State:"}
 label.X = 11
 label.Y = 12
 ```
-如果在 `Label` 结构体里出现了重名，就需要解决重名，例如，如果 成员 `X` 重名，用 `label.X`表明 是自己的`X` ，用  `label.Wedget.X` 表示嵌入过来的。
+
+如果在 `Label` 结构体里出现了重名，就需要解决重名，例如，如果 成员 `X` 重名，用 `label.X`表明 是自己的`X` ，用 `label.Wedget.X` 表示嵌入过来的。
 
 ### 翻转控制
 
 ```go
 type Undo []func()
 ```
+
 ```go
 func (undo *Undo) Add(function func()) {
   *undo = append(*undo, function)
@@ -1159,12 +1303,13 @@ func (undo *Undo) Undo() error {
   return nil
 }
 ```
+
 ```go
 type IntSet struct {
     data map[int]bool
     undo Undo
 }
- 
+
 func NewIntSet() IntSet {
     return IntSet{data: make(map[int]bool)}
 }
@@ -1172,7 +1317,7 @@ func NewIntSet() IntSet {
 func (set *IntSet) Undo() error {
     return set.undo.Undo()
 }
- 
+
 func (set *IntSet) Contains(x int) bool {
     return set.data[x]
 }
@@ -1185,7 +1330,7 @@ func (set *IntSet) Add(x int) {
         set.undo.Add(nil)
     }
 }
- 
+
 func (set *IntSet) Delete(x int) {
     if set.Contains(x) {
         delete(set.data, x)
@@ -1195,6 +1340,7 @@ func (set *IntSet) Delete(x int) {
     }
 }
 ```
+
 不再由 控制逻辑 `Undo` 来依赖业务逻辑 `IntSet`，而是由业务逻辑 `IntSet` 来依赖 `Undo` 。其依赖的是其实是一个协议，这个协议是一个没有参数的函数数组。我们也可以看到，我们 `Undo` 的代码就可以复用了。
 
 ## MAP-REDUCE
@@ -1217,6 +1363,7 @@ func MapStrToInt(arr []string, fn func(s string) int) []int {
     return newArray
 }
 ```
+
 ```go
 var list = []string{"Hao", "Chen", "MegaEase"}
 
@@ -1254,6 +1401,7 @@ fmt.Printf("%v\n", x)
 ```
 
 ### Filter
+
 ```go
 func Filter(arr []int, fn func(n int) bool) []int {
     var newArray = []int{}
@@ -1301,12 +1449,14 @@ func Map(data interface{}, fn interface{}) []interface{} {
     return result
 }
 ```
-- 通过 reflect.ValueOf() 来获得 interface{} 的值，其中一个是数据 vdata，另一个是函数 vfn，
-- 然后通过 vfn.Call() 方法来调用函数，通过 []refelct.Value{vdata.Index(i)}来获得数据。
 
-### 健壮版的Generic Map
+-   通过 reflect.ValueOf() 来获得 interface{} 的值，其中一个是数据 vdata，另一个是函数 vfn，
+-   然后通过 vfn.Call() 方法来调用函数，通过 []refelct.Value{vdata.Index(i)}来获得数据。
+
+### 健壮版的 Generic Map
 
 要写一个健壮的程序，对于这种用`interface{}` 的“过度泛型”，就需要我们自己来做类型检查。
+
 ```go
 func Transform(slice, function interface{}) interface{} {
   return transform(slice, function, false)
@@ -1317,7 +1467,7 @@ func TransformInPlace(slice, function interface{}) interface{} {
 }
 
 func transform(slice, function interface{}, inPlace bool) interface{} {
- 
+
   //check the <code data-enlighter-language="raw" class="EnlighterJSRAW">slice</code> type is Slice
   sliceInType := reflect.ValueOf(slice)
   if sliceInType.Kind() != reflect.Slice {
@@ -1368,14 +1518,14 @@ func verifyFuncSignature(fn reflect.Value, types ...reflect.Type) bool {
 }
 ```
 
-- 代码中没有使用`Map`函数，因为和数据结构和关键有含义冲突的问题，所以使用`Transform`，这个来源于 `C++ STL`库中的命名。
-- 有两个版本的函数，一个是返回一个全新的数组 – `Transform()`，一个是“就地完成” – `TransformInPlace()`
-- 在主函数中，用 `Kind()` 方法检查了数据类型是不是 `Slice`，函数类型是不是`Func`
-- 检查函数的参数和返回类型是通过 `verifyFuncSignature()` 来完成的，其中：
- - `NumIn()` – 用来检查函数的“入参”
- - `NumOut()` 用来检查函数的“返回值”
-- 如果需要新生成一个`Slice`，会使用 `reflect.MakeSlice()` 来完成。
-  
+-   代码中没有使用`Map`函数，因为和数据结构和关键有含义冲突的问题，所以使用`Transform`，这个来源于 `C++ STL`库中的命名。
+-   有两个版本的函数，一个是返回一个全新的数组 – `Transform()`，一个是“就地完成” – `TransformInPlace()`
+-   在主函数中，用 `Kind()` 方法检查了数据类型是不是 `Slice`，函数类型是不是`Func`
+-   检查函数的参数和返回类型是通过 `verifyFuncSignature()` 来完成的，其中：
+-   `NumIn()` – 用来检查函数的“入参”
+-   `NumOut()` 用来检查函数的“返回值”
+-   如果需要新生成一个`Slice`，会使用 `reflect.MakeSlice()` 来完成。
+
 ```go
 list := []string{"1", "2", "3", "4", "5", "6"}
 result := Transform(list, func(a string) string{
@@ -1385,6 +1535,7 @@ result := Transform(list, func(a string) string{
 ```
 
 ### 健壮版的 Generic Reduce
+
 ```go
 func Reduce(slice, pairFunc, zero interface{}) interface{} {
   sliceInType := reflect.ValueOf(slice)
@@ -1419,7 +1570,9 @@ func Reduce(slice, pairFunc, zero interface{}) interface{} {
   return out.Interface()
 }
 ```
+
 ### 健壮版的 Generic Filter
+
 ```go
 func Filter(slice, function interface{}) interface{} {
   result, _ := filter(slice, function, false)
@@ -1474,11 +1627,13 @@ func filter(slice, function interface{}, inPlace bool) (interface{}, int) {
 ## GO GENERATION
 
 ### 类型检查
+
 因为`Go`语言目前并不支持真正的泛型，所以，只能用 `interface{}` 这样的类似于 `void*` 这种过度泛型来玩这就导致了我们在实际过程中就需要进行类型检查。`Go`语言的类型检查有两种技术，一种是 `Type Assert`，一种是`Reflection`。
 
 #### Type Assert
 
 对某个变量进行 `.(type)`的转型操作，其会返回两个值， `variable, error`，第一个返回值是被转换好的类型，第二个是如果不能转换类型，则会报错。
+
 ```go
 //Container is a generic container, accepting anything.
 type Container []interface{}
@@ -1494,12 +1649,15 @@ func (c *Container) Get() interface{} {
     return elem
 }
 ```
+
 ```go
 intContainer := &Container{}
 intContainer.Put(7)
 intContainer.Put(42)
 ```
+
 但是，在把数据取出来时，因为类型是 `interface{}` ，所以，你还要做一个转型，如果转型成功能才能进行后续操作
+
 ```go
 // assert that the actual type is int
 elem, ok := intContainer.Get().(int)
@@ -1511,6 +1669,7 @@ fmt.Printf("assertExample: %d (%T)\n", elem, elem)
 ```
 
 #### Reflection
+
 ```go
 type Container struct {
     s reflect.Value
@@ -1518,12 +1677,12 @@ type Container struct {
 func NewContainer(t reflect.Type, size int) *Container {
     if size <=0  { size=64 }
     return &Container{
-        s: reflect.MakeSlice(reflect.SliceOf(t), 0, size), 
+        s: reflect.MakeSlice(reflect.SliceOf(t), 0, size),
     }
 }
 func (c *Container) Put(val interface{})  error {
     if reflect.ValueOf(val).Type() != c.s.Type().Elem() {
-        return fmt.Errorf("Put: cannot put a %T into a slice of %s", 
+        return fmt.Errorf("Put: cannot put a %T into a slice of %s",
             val, c.s.Type().Elem()))
     }
     c.s = reflect.Append(c.s, reflect.ValueOf(val))
@@ -1539,10 +1698,11 @@ func (c *Container) Get(refval interface{}) error {
     return nil
 }
 ```
-- 在 `NewContainer()`会根据参数的类型初始化一个`Slice`
-- 在 `Put()`时候，会检查 `val` 是否和`Slice`的类型一致。
-- 在 `Get()`时，我们需要用一个入参的方式，因为我们没有办法返回 `reflect.Value` 或是 `interface{}`，不然还要做`Type Assert`
-- 但是有类型检查，所以，必然会有检查不对的道理 ，因此，需要返回 `error`
+
+-   在 `NewContainer()`会根据参数的类型初始化一个`Slice`
+-   在 `Put()`时候，会检查 `val` 是否和`Slice`的类型一致。
+-   在 `Get()`时，我们需要用一个入参的方式，因为我们没有办法返回 `reflect.Value` 或是 `interface{}`，不然还要做`Type Assert`
+-   但是有类型检查，所以，必然会有检查不对的道理 ，因此，需要返回 `error`
 
 ```go
 f1 := 3.1415926
@@ -1565,43 +1725,49 @@ if err := c.Get(&g); err != nil {
 fmt.Printf("%v (%T)\n", g, g) //3.1415926 (float64)
 fmt.Println(c.s.Index(0)) //1.4142135623
 ```
+
 `Type Assert`是不用了，但是用反射写出来的代码还是有点复杂的。
 
 ### Go Generator
 
 #### C++ Template
+
 对于泛型编程最牛的语言 `C++` 来说，这类的问题都是使用 `Template`来解决的。
 
 ```go
 //用<class T>来描述泛型
-template <class T> 
-T GetMax (T a, T b)  { 
-    T result; 
-    result = (a>b)? a : b; 
-    return (result); 
-} 
+template <class T>
+T GetMax (T a, T b)  {
+    T result;
+    result = (a>b)? a : b;
+    return (result);
+}
 ```
+
 ```go
-int i=5, j=6, k; 
+int i=5, j=6, k;
 //生成int类型的函数
 k=GetMax<int>(i,j);
- 
-long l=10, m=5, n; 
+
+long l=10, m=5, n;
 //生成long类型的函数
-n=GetMax<long>(l,m); 
+n=GetMax<long>(l,m);
 ```
 
 `C++`的编译器会在编译时分析代码，根据不同的变量类型来自动化的生成相关类型的函数或类。`C++`叫模板的具体化。
 
-这个技术是编译时的问题，所以，不需要我们在运行时进行任何的运行的类型识别，我们的程序也会变得比较的干净。Go的编译器不帮你干，你需要自己动手。
+这个技术是编译时的问题，所以，不需要我们在运行时进行任何的运行的类型识别，我们的程序也会变得比较的干净。Go 的编译器不帮你干，你需要自己动手。
 
-要玩 Go的代码生成，你需要三件事：
-- 一个函数模板，其中设置好相应的占位符。
-- 一个脚本，用于按规则来替换文本并生成新的代码。
-- 一行注释代码。
+要玩 Go 的代码生成，你需要三件事：
+
+-   一个函数模板，其中设置好相应的占位符。
+-   一个脚本，用于按规则来替换文本并生成新的代码。
+-   一行注释代码。
 
 #### 函数模板
+
 我们把我们之前的示例改成模板。取名为 `container.tmp.go` 放在 `./template/`下
+
 ```go
 package PACKAGE_NAME
 type GENERIC_NAMEContainer struct {
@@ -1619,13 +1785,17 @@ func (c *GENERIC_NAMEContainer) Get() GENERIC_TYPE {
     return r
 }
 ```
+
 我们可以看到函数模板中我们有如下的占位符：
-- `PACKAGE_NAME` – 包名
-- `GENERIC_NAME` – 名字
-- `GENERIC_TYPE` – 实际的类型
+
+-   `PACKAGE_NAME` – 包名
+-   `GENERIC_NAME` – 名字
+-   `GENERIC_TYPE` – 实际的类型
 
 #### 函数生成脚本
+
 然后，我们有一个叫`gen.sh`的生成脚本，如下所示：
+
 ```shell
 #!/bin/bash
 
@@ -1644,14 +1814,18 @@ sed 's/PACKAGE_NAME/'"${PACKAGE}"'/g' ${SRC_FILE} | \
     sed 's/GENERIC_TYPE/'"${TYPE}"'/g' | \
     sed 's/GENERIC_NAME/'"${PREFIX}"'/g' > ${DES_FILE}
 ```
-其需要4个参数：
-- 模板源文件
-- 包名
-- 实际需要具体化的类型
-- 用于构造目标文件名的后缀
+
+其需要 4 个参数：
+
+-   模板源文件
+-   包名
+-   实际需要具体化的类型
+-   用于构造目标文件名的后缀
 
 #### 生成代码
+
 接下来，我们只需要在代码中打一个特殊的注释：
+
 ```go
 //go:generate ./gen.sh ./template/container.tmp.go gen uint32 container
 func generateUint32Example() {
@@ -1671,12 +1845,14 @@ func generateStringExample() {
     fmt.Printf("generateExample: %s (%T)\n", v, v)
 }
 ```
-- 第一个注释是生成包名为 `gen` 类型为 `uint32` 目标文件名以 `container` 为后缀
-- 第二个注释是生成包名为 `gen` 类型为 `string` 目标文件名以 `container` 为后缀
+
+-   第一个注释是生成包名为 `gen` 类型为 `uint32` 目标文件名以 `container` 为后缀
+-   第二个注释是生成包名为 `gen` 类型为 `string` 目标文件名以 `container` 为后缀
 
 然后，在工程目录中直接执行 `go generate` 命令，就会生成两份代码。
 
 一份文件名为`uint32_container.go`:
+
 ```go
 package gen
 
@@ -1696,8 +1872,10 @@ func (c *Uint32Container) Get() uint32 {
 }
 ```
 
-### 新版Filter
+### 新版 Filter
+
 `Fitler`的模板文件 `filter.tmp.go`
+
 ```go
 package PACKAGE_NAME
 
@@ -1715,7 +1893,9 @@ func (al GENERIC_NAMEList) Filter(f GENERIC_NAMEToBool) GENERIC_NAMEList {
     return ret
 }
 ```
+
 于是我们可在需要使用这个的地方，加上相关的 `go generate` 的注释
+
 ```go
 type Employee struct {
   Name     string
@@ -1760,10 +1940,10 @@ func filterEmployeeExample() {
 
 我们并不需要自己手写 `gen.sh` 这样的工具类，已经有很多第三方的已经写好的可以使用。下面是一个列表：
 
-- Genny –  [https://github.com/cheekybits/genny](https://github.com/cheekybits/genny)
-- Generic – [https://github.com/taylorchu/generic](https://github.com/taylorchu/generic)
-- GenGen – [https://github.com/joeshaw/gengen](https://github.com/taylorchu/generic)
-- Gen – [https://github.com/clipperhouse/gen](https://github.com/clipperhouse/gen)
+-   Genny – [https://github.com/cheekybits/genny](https://github.com/cheekybits/genny)
+-   Generic – [https://github.com/taylorchu/generic](https://github.com/taylorchu/generic)
+-   GenGen – [https://github.com/joeshaw/gengen](https://github.com/taylorchu/generic)
+-   Gen – [https://github.com/clipperhouse/gen](https://github.com/clipperhouse/gen)
 
 ## 修饰器
 
@@ -1791,12 +1971,16 @@ func main() {
         decorator(Hello)("Hello, World!")
 }
 ```
+
 如果你要想让代码容易读一些，你可以这样：
+
 ```go
 hello := decorator(Hello)
 hello("Hello")
 ```
+
 我们再来看一个和计算运行时间的例子：
+
 ```go
 package main
 
@@ -1817,7 +2001,7 @@ func timedSumFunc(f SumFunc) SumFunc {
   return func(start, end int64) int64 {
 
     defer func(t time.Time) {
-      fmt.Printf("--- Time Elapsed (%s): %v ---\n", 
+      fmt.Printf("--- Time Elapsed (%s): %v ---\n",
           getFunctionName(f), time.Since(t))
     }(time.Now())
 
@@ -1852,9 +2036,10 @@ func main() {
   fmt.Printf("%d, %d\n", sum1(-10000, 10000000), sum2(-10000, 10000000))
 }
 ```
-- `1`）有两个 `Sum` 函数，`Sum1()` 函数就是简单的做个循环，`Sum2()` 函数动用了数据公式。（注意：`start` 和 `end` 有可能有负数的情况）
-- `2`）代码中使用了 `Go` 语言的反射机器来获取函数名。
-- `3`）修饰器函数是 `timedSumFunc()`
+
+-   `1`）有两个 `Sum` 函数，`Sum1()` 函数就是简单的做个循环，`Sum2()` 函数动用了数据公式。（注意：`start` 和 `end` 有可能有负数的情况）
+-   `2`）代码中使用了 `Go` 语言的反射机器来获取函数名。
+-   `3`）修饰器函数是 `timedSumFunc()`
 
 ### HTTP 相关的一个示例
 
@@ -1889,7 +2074,9 @@ func main() {
     }
 }
 ```
-于是，这样的函数我们可以写出好些个。如下所示，有写 HTTP 响应头的，有写认证 Cookie 的，有检查认证Cookie的，有打日志的……
+
+于是，这样的函数我们可以写出好些个。如下所示，有写 HTTP 响应头的，有写认证 Cookie 的，有检查认证 Cookie 的，有打日志的……
+
 ```go
 package main
 
@@ -1959,6 +2146,7 @@ func main() {
     }
 }
 ```
+
 ### 多个修饰器的 Pipeline
 
 需要先写一个工具函数——用来遍历并调用各个 decorator：
@@ -1974,13 +2162,16 @@ func Handler(h http.HandlerFunc, decors ...HttpHandlerDecorator) http.HandlerFun
     return h
 }
 ```
+
 ```go
 http.HandleFunc("/v4/hello", Handler(hello,
                 WithServerHeader, WithBasicAuth, WithDebugLog))
 ```
 
 ### 泛型的修饰器
+
 下面是我用 reflection 机制写的一个比较通用的修饰器（为了便于阅读，我删除了出错判断代码）
+
 ```go
 func Decorator(decoPtr, fn interface{}) (err error) {
     var decoratedFunc, targetFunc reflect.Value
@@ -2000,13 +2191,16 @@ func Decorator(decoPtr, fn interface{}) (err error) {
     return
 }
 ```
+
 上面的代码动用了 `reflect.MakeFunc()` 函数制出了一个新的函数其中的 `targetFunc.Call(in)` 调用了被修饰的函数。
 
 上面这个 `Decorator()` 需要两个参数，
-- 第一个是出参 `decoPtr` ，就是完成修饰后的函数
-- 第二个是入参 `fn` ，就是需要修饰的函数
+
+-   第一个是出参 `decoPtr` ，就是完成修饰后的函数
+-   第二个是入参 `fn` ，就是需要修饰的函数
 
 首先假设我们有两个需要修饰的函数：
+
 ```go
 func foo(a, b, c int) int {
     fmt.Printf("%d, %d, %d \n", a, b, c)
@@ -2018,14 +2212,18 @@ func bar(a, b string) string {
     return a + b
 }
 ```
+
 然后，我们可以这样做：
+
 ```go
 type MyFoo func(int, int, int) int
 var myfoo MyFoo
 Decorator(&myfoo, foo)
 myfoo(1, 2, 3)
 ```
+
 你会发现，使用 `Decorator()` 时，还需要先声明一个函数签名。如果你不想声明函数签名，那么你也可以这样：
+
 ```go
 mybar := bar
 Decorator(&mybar, bar)
@@ -2035,7 +2233,9 @@ mybar("hello,", "world!")
 ## Pipeline
 
 ### HTTP 处理
+
 上一章节中提到：
+
 ```go
 http.HandleFunc("/v4/hello", Handler(hello,
                 WithServerHeader, WithBasicAuth, WithDebugLog))
@@ -2043,7 +2243,8 @@ http.HandleFunc("/v4/hello", Handler(hello,
 
 ### Channel 管理
 
-#### Channel转发函数
+#### Channel 转发函数
+
 首先，我们需一个 `echo()`函数，其会把一个整型数组放到一个`Channel`中，并返回这个`Channel`
 
 ```go
@@ -2058,9 +2259,11 @@ func echo(nums []int) <-chan int {
   return out
 }
 ```
+
 然后，我们依照这个模式，我们可以写下这个函数。
 
 #### 平方函数
+
 ```go
 func sq(in <-chan int) <-chan int {
   out := make(chan int)
@@ -2092,6 +2295,7 @@ func odd(in <-chan int) <-chan int {
 ```
 
 #### 求和函数
+
 ```go
 func sum(in <-chan int) <-chan int {
   out := make(chan int)
@@ -2106,19 +2310,23 @@ func sum(in <-chan int) <-chan int {
   return out
 }
 ```
+
 #### 组合
+
 ```go
 var nums = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 for n := range sum(sq(odd(echo(nums)))) {
   fmt.Println(n)
 }
 ```
+
 上面的代码类似于我们执行了`Unix/Linux`命令： `echo $nums | sq | sum`
 
 如果你不想有那么多的函数嵌套，你可以使用一个代理函数来完成：
+
 ```go
-type EchoFunc func ([]int) (<- chan int) 
-type PipeFunc func (<- chan int) (<- chan int) 
+type EchoFunc func ([]int) (<- chan int)
+type PipeFunc func (<- chan int) (<- chan int)
 
 func pipeline(nums []int, echo EchoFunc, pipeFns ... PipeFunc) <- chan int {
   ch  := echo(nums)
@@ -2128,20 +2336,22 @@ func pipeline(nums []int, echo EchoFunc, pipeFns ... PipeFunc) <- chan int {
   return ch
 }
 ```
+
 ```go
-var nums = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}    
+var nums = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 for n := range pipeline(nums, gen, odd, sq, sum) {
     fmt.Println(n)
   }
 ```
 
 ### Fan in/Out
-动用`Go`语言的 `Go Routine`和 `Channel`还有一个好处，就是可以写出`1`对多，或多对`1`的`pipeline`，也就是`Fan In/ Fan Out`。下面，我们来看一个`Fan in`的示例：
 
+动用`Go`语言的 `Go Routine`和 `Channel`还有一个好处，就是可以写出`1`对多，或多对`1`的`pipeline`，也就是`Fan In/ Fan Out`。下面，我们来看一个`Fan in`的示例：
 
 我们想通过并发的方式来对一个很长的数组中的质数进行求和运算，我们想先把数组分段求和，然后再把其集中起来。
 
 主函数：
+
 ```go
 func makeRange(min, max int) []int {
   a := make([]int, max-min+1)
@@ -2166,36 +2376,40 @@ func main() {
   }
 }
 ```
- `prime()` 函数：
- ```go
- func is_prime(value int) bool {
-  for i := 2; i <= int(math.Floor(float64(value) / 2)); i++ {
-    if value%i == 0 {
-      return false
-    }
-  }
-  return value > 1
+
+`prime()` 函数：
+
+```go
+func is_prime(value int) bool {
+ for i := 2; i <= int(math.Floor(float64(value) / 2)); i++ {
+   if value%i == 0 {
+     return false
+   }
+ }
+ return value > 1
 }
 
 func prime(in <-chan int) <-chan int {
-  out := make(chan int)
-  go func ()  {
-    for n := range in {
-      if is_prime(n) {
-        out <- n
-      }
-    }
-    close(out)
-  }()
-  return out
+ out := make(chan int)
+ go func ()  {
+   for n := range in {
+     if is_prime(n) {
+       out <- n
+     }
+   }
+   close(out)
+ }()
+ return out
 }
 ```
-- 我们先制造了从`1`到`10000`的一个数组，
-- 然后，把这堆数组全部 `echo`到一个`channel`里 – `in`
-- 此时，生成 `5` 个 `Channel`，然后都调用 `sum(prime(in))` ，于是每个`Sum`的`Go Routine`都会开始计算和
-- 最后再把所有的结果再求和拼起来，得到最终的结果。
+
+-   我们先制造了从`1`到`10000`的一个数组，
+-   然后，把这堆数组全部 `echo`到一个`channel`里 – `in`
+-   此时，生成 `5` 个 `Channel`，然后都调用 `sum(prime(in))` ，于是每个`Sum`的`Go Routine`都会开始计算和
+-   最后再把所有的结果再求和拼起来，得到最终的结果。
 
 `merge`代码：
+
 ```go
 func merge(cs []<-chan int) <-chan int {
   var wg sync.WaitGroup
@@ -2217,7 +2431,9 @@ func merge(cs []<-chan int) <-chan int {
   return out
 }
 ```
+
 整体流程：
+
 ```
 []int -> echo -> 多个{prime->sum} -> merge -> int
 
@@ -2225,7 +2441,7 @@ func merge(cs []<-chan int) <-chan int {
 
 ## 泛型编程
 
-Go语言的1.17版本发布了，其中开始正式支持泛型了，但还有一些限制（比如，不能把泛型函数export）。
+Go 语言的 1.17 版本发布了，其中开始正式支持泛型了，但还有一些限制（比如，不能把泛型函数 export）。
 
 ### 初探
 
@@ -2252,12 +2468,15 @@ func main() {
   print(nums)
 }
 ```
+
 上面这个示例中，我们泛型的 `print()` 支持了三种类型的适配—— `int`型，`float64`型，和 `string`型。要让这段程序跑起来需要在编译行上加上 `-gcflags=-G=3`编译参数（这个编译参数会在`1.18`版上成为默认参数），如下所示：
 
 ```shell
 go run -gcflags=-G=3 ./main.go
 ```
+
 有了个操作以后，我们就可以写一些标准的算法了，比如，一个查找的算法
+
 ```go
 func find[T comparable] (arr []T, elem T) int {
   for i, v := range arr {
@@ -2269,21 +2488,24 @@ func find[T comparable] (arr []T, elem T) int {
 }
 ```
 
-Go语言的泛型已基本可用了，只不过，还有三个问题：
+Go 语言的泛型已基本可用了，只不过，还有三个问题：
 
-- 一个是 `fmt.Printf()`中的泛型类型是 `%v` 还不够好，不能像`c++ iostream`重载 `>>` 来获得程序自定义的输出。
-- 另外一个是，`go`不支持操作符重载，所以，你也很难在泛型算法中使用“泛型操作符”如：`==` 等
-- 最后一个是，上面的 `find()` 算法依赖于“数组”，对于`hash-table`、`tree`、`graph`、`link`等数据结构还要重写。也就是说，没有一个像`C++ STL`那样的一个泛型迭代器（这其中的一部分工- 作当然也需要通过重载操作符（如：`++` 来实现）
+-   一个是 `fmt.Printf()`中的泛型类型是 `%v` 还不够好，不能像`c++ iostream`重载 `>>` 来获得程序自定义的输出。
+-   另外一个是，`go`不支持操作符重载，所以，你也很难在泛型算法中使用“泛型操作符”如：`==`  等
+-   最后一个是，上面的 `find()` 算法依赖于“数组”，对于`hash-table`、`tree`、`graph`、`link`等数据结构还要重写。也就是说，没有一个像`C++ STL`那样的一个泛型迭代器（这其中的一部分工- 作当然也需要通过重载操作符（如：`++` 来实现）
 
 ### 数据结构
 
 #### Stack 栈
+
 编程支持泛型最大的优势就是可以实现类型无关的数据结构，下面，我们用`Slices`这个结构体来实现一个`Stack`的数结构。
 
 首先，我们可以定义一个泛型的`Stack`：
+
 ```go
 type stack [T any] []T
 ```
+
 ```go
 func (s *stack[T]) push(elem T) {
   *s = append(*s, elem)
@@ -2292,12 +2514,12 @@ func (s *stack[T]) push(elem T) {
 func (s *stack[T]) pop() {
   if len(*s) > 0 {
     *s = (*s)[:len(*s)-1]
-  } 
+  }
 }
 func (s *stack[T]) top() *T{
   if len(*s) > 0 {
     return &(*s)[len(*s)-1]
-  } 
+  }
   return nil
 }
 
@@ -2314,136 +2536,32 @@ func (s *stack[T]) print() {
 }
 ```
 
- `top()`之前，我们返回的“空”值，要么是 `int` 的`0`，要么是 `string` 的 “”，然而在泛型的`T`下，这个值就不容易搞了。也就是说，除了类型泛型后，还需要有一些“值的泛型”（注：在`C++`中，如果你要用一个空栈进行 `top()` 操作，你会得到一个 `segmentation fault`），所以，这里我们返回的是一个指针，这样可以判断一下指针是否为空。
+`top()`之前，我们返回的“空”值，要么是 `int` 的`0`，要么是 `string` 的 “”，然而在泛型的`T`下，这个值就不容易搞了。也就是说，除了类型泛型后，还需要有一些“值的泛型”（注：在`C++`中，如果你要用一个空栈进行 `top()` 操作，你会得到一个 `segmentation fault`），所以，这里我们返回的是一个指针，这样可以判断一下指针是否为空。
 
- ```go
- func main() {
+```go
+func main() {
 
-  ss := stack[string]{}
-  ss.push("Hello")
-  ss.push("Hao")
-  ss.push("Chen")
-  ss.print()
-  fmt.Printf("stack top is - %v\n", *(ss.top()))
-  ss.pop()
-  ss.pop()
-  ss.print()
+ ss := stack[string]{}
+ ss.push("Hello")
+ ss.push("Hao")
+ ss.push("Chen")
+ ss.print()
+ fmt.Printf("stack top is - %v\n", *(ss.top()))
+ ss.pop()
+ ss.pop()
+ ss.print()
 
-  
-  ns := stack[int]{}
-  ns.push(10)
-  ns.push(20)
-  ns.print()
-  ns.pop()
-  ns.print()
-  *ns.top() += 1
-  ns.print()
-  ns.pop()
-  fmt.Printf("stack top is - %v\n", ns.top())
+
+ ns := stack[int]{}
+ ns.push(10)
+ ns.push(20)
+ ns.print()
+ ns.pop()
+ ns.print()
+ *ns.top() += 1
+ ns.print()
+ ns.pop()
+ fmt.Printf("stack top is - %v\n", ns.top())
 
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

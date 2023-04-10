@@ -8,7 +8,7 @@ column_size: 2
 ### 帮助
 
 ```shell
-Get-Help alias 
+Get-Help alias
 Show-Command Get-Help
 Get-Command Get-*
 Get-Alias -name l*
@@ -28,11 +28,10 @@ Resolve-Path path                   # 绝对路径
 (Get-Item filespec).Name            # 文件名
 (Get-Item filespec).DirectoryName   # 所在文件夹名
 (Get-Item filespec).Parent          # 所在文件夹名
-($pwd[0].Path).split("\")[-2]       # 上级目录名  
+($pwd[0].Path).split("\")[-2]       # 上级目录名
 ```
 
 `UNC`（Universal Naming Convention），类似`\\softer`这样的形式的网络路径
-
 
 ### 句法要素
 
@@ -46,22 +45,23 @@ Resolve-Path path                   # 绝对路径
 | <code>&#96;n</code>, <code>&#96;t</code> | 不可打印的字符   |
 
 #### 三元运算
+
 ```shell
 switch(boolExpr) {
-    $true { $x } 
+    $true { $x }
     $false { $y }
 }
-    
+
 if(boolExpr) {$x} else {$y}
 ```
 
 ### 显示选项
 
-| Command                              | Action                  |
-| ------------------------------------ | ----------------------- |
-| <code>any &#124; Format-List</code>  | list化列表              |
-| <code>any &#124; Format-Table</code> | table化列表             |
-| <code>any &#124; Out-GridView</code> | table化列表，交互式界面 |
+| Command                              | Action                   |
+| ------------------------------------ | ------------------------ |
+| <code>any &#124; Format-List</code>  | list 化列表              |
+| <code>any &#124; Format-Table</code> | table 化列表             |
+| <code>any &#124; Out-GridView</code> | table 化列表，交互式界面 |
 
 #### 格式化 + 过滤
 
@@ -81,13 +81,12 @@ ps | ft -auto| Out-String -Stream | %{ $_.TrimEnd() } | ? { $_ } | sc file
 
 ### 提示和暂停
 
-| Command                    | Action            |
-| -------------------------- | ----------------- |
-| `Read-Host prompt`         | 输入提示          |
-| `Start-Sleep seconds`      | 暂停特定时长      |
-| `Read-Host -Prompt prompt` | 暂停等待Enter继续 |
-| `Clear-Host`               | 清屏              |
-
+| Command                    | Action              |
+| -------------------------- | ------------------- |
+| `Read-Host prompt`         | 输入提示            |
+| `Start-Sleep seconds`      | 暂停特定时长        |
+| `Read-Host -Prompt prompt` | 暂停等待 Enter 继续 |
+| `Clear-Host`               | 清屏                |
 
 ## 语法
 
@@ -111,7 +110,7 @@ ls | % { $_.name }                          # $_ 为循环变量
 
 ```shell
 function func($a,$b) {
-    "{0}/{1}" -f $a.length, $b.length 
+    "{0}/{1}" -f $a.length, $b.length
 }
 
 func 5 3                 # 空格传递多个参数
@@ -119,6 +118,8 @@ $a = 5, 3; func @a       # 数组传递多个参数
 func 2,3 4               # 数组作为单个参数传递
 '/tmp' | dir             # 管道符传参
 ```
+
+**单引号**纯文本输出，**双引号**会解析其中变量
 
 ### 属性
 
@@ -140,9 +141,43 @@ $PWD | ConvertTo-Json -Depth 1                # toJSON
 ps | gm | select -First 1 | % { $_.TypeName }  # 集合中对象类型
 "hello" -is [string]                           # 类型判断
 "35.2" -as [int]                               # 转型
-[char]48                                       # ASCII码转字符    
+[char]48                                       # ASCII码转字符
 [byte][char] "A"                               # 字符转ASCII码
 "0x{0:x}" -f 64                                # integer转16进制
 $newObj = $oldObj | select *                   # 拷贝对象
 $newObj = $oldObj | select * -except property  # 拷贝对象并排除
 ```
+
+### 服务、进程操作
+
+```shell
+Get-Service -Name $name | Start-Service -PassThru  # 启动服务
+Get-Process -Name PowerShell                       # 获取进程信息
+Get-Process -Name PowerShell | Get-Member          # 获取进程更多属性
+```
+
+### 比较运算
+
+| OP           | desc                       |
+| ------------ | -------------------------- |
+| -eq          | 等于                       |
+| -ne          | 不等于                     |
+| -gt          | 大于                       |
+| -ge          | 大于或等于                 |
+| -lt          | 小于                       |
+| -le          | 小于或等于                 |
+| -Like        | 使用 \* 通配符进行匹配     |
+| -NotLike     | 不使用 \* 通配符进行匹配   |
+| -Match       | 匹配指定的正则表达式       |
+| -NotMatch    | 不匹配指定的正则表达式     |
+| -Contains    | 确定集合中是否包含指定的值 |
+| -NotContains | 确定集合是否不包含特定值   |
+| -In          | 确定指定的值是否在集合中   |
+| -NotIn       | 确定指定的值是否不在集合中 |
+| -Replace     | 替换指定的值               |
+
+表中列出的所有运算符都不区分大小写。 将 `c` 放置在运算符之前，使其区分大小写。 例如，`-ceq` 是区分大小写的 `-eq` 比较运算符。
+```shell
+Get-Service | Where-Object Name -eq w32time
+```
+
