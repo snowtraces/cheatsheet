@@ -47,6 +47,8 @@ Resolve-Path path                   # 绝对路径
 #### 三元运算
 
 ```shell
+boolExpr ? "a" : "b"
+
 switch(boolExpr) {
     $true { $x }
     $false { $y }
@@ -104,6 +106,46 @@ $arr = "aaa","bbb","x"; $arr                #=> aaa bbb x
 $OFS='/'; "arr is [$arr]"                   #=> arr is [aaa/bbb/x]
 
 ls | % { $_.name }                          # $_ 为循环变量
+```
+
+### 特殊缩写
+
+| 缩写    | 完整形式         | 用途                                           |
+| ------- | ---------------- | ---------------------------------------------- |
+| `%`     | `ForEach-Object` | 对集合中的每个对象执行操作                     |
+| `?`     | `Where-Object`   | 过滤集合中的对象，类似于 SQL 中的 WHERE 子句   |
+| `$_`    | -                | 表示当前正在处理的对象（管道中的当前对象）     |
+| `$args` | -                | 表示脚本或函数的参数集合                       |
+| `$PID`  | -                | 表示当前 PowerShell 会话的进程 ID              |
+| `$?`    | -                | 表示上一个命令的执行结果，用于检查命令是否成功 |
+
+```shell
+# % (ForEach-Object)
+1..5 | % { $_ * 2 }
+
+# ? (Where-Object)
+Get-ChildItem | ? { $_.Extension -eq '.txt' }
+
+# $_ (Current Object)
+Get-Service | % { Write-Host "服务名称: $($_.DisplayName)" }
+
+# $args (Script or Function Parameters)
+function My-Function { param($param1, $param2) }
+My-Function -param1 "值1" -param2 "值2"
+
+function My-Function {
+    foreach ($arg in $args) {
+        Write-Host "参数值: $arg"
+    }
+}
+My-Function "值1" "值2" "值3"
+
+# $PID (Current PowerShell Session Process ID)
+Write-Host "当前进程ID: $PID"
+
+# $? (Last Command Execution Result)
+Get-Process NonExistentProcess
+if ($?) { Write-Host "进程找到." }
 ```
 
 ### 参数传递
@@ -177,7 +219,30 @@ Get-Process -Name PowerShell | Get-Member          # 获取进程更多属性
 | -Replace     | 替换指定的值               |
 
 表中列出的所有运算符都不区分大小写。 将 `c` 放置在运算符之前，使其区分大小写。 例如，`-ceq` 是区分大小写的 `-eq` 比较运算符。
+
 ```shell
 Get-Service | Where-Object Name -eq w32time
 ```
 
+## 常用示例
+
+#### 日志相关
+```shell
+Get-Content -Path "C:\Path\To\LogFile.txt" -Encoding UTF8 -Tail 10 -Wait
+
+# -Tail 10 表示只查看最后10行
+# -Wait 为监听实时日志，类似bash的tail -10f
+```
+
+```shell
+# 查找Error关键字的日志
+Select-String -Path "C:\Path\To\LogFile.txt" -Pattern "Error"
+
+# 查找多个关键字
+Select-String -Path "C:\Path\To\LogFile.txt" -Pattern @("Error", "Warning")
+
+Select-String -Path "C:\Path\To\LogFile.txt" -Pattern "Error|Warning" # 正则表达式匹配
+
+# 查找指定条件的行
+Get-Content -Path "C:\Path\To\LogFile.txt" | Where-Object { $_ -match "Error" -and $_ -match "2024-01-10" }
+```

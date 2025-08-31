@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>powershell cheatsheet</title>
-<script id="hp_same_"></script><script id="hp_done_"></script><link rel="stylesheet" href="../css/main.css?version=2021082402"><link rel="stylesheet" href="../css/prism.css?version=2021082402"></head>
+<link rel="stylesheet" href="../css/main.css?version=1756628901523"><link rel="stylesheet" href="../css/prism.css?version=1756628901523"></head>
 
 <body>
     <script>
@@ -74,7 +74,7 @@ Resolve-Path path                   <span class="token comment"># 绝对路径</
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|191">
+                            <div class="sheet-section"  data-position="580|0|192">
                                 <div class="section-title"><h3 id="id-128">句法要素</h3></div>
                                 <div class="section-body">
                                     
@@ -89,7 +89,9 @@ Resolve-Path path                   <span class="token comment"># 绝对路径</
                 </tbody>
             </table>
 <h4>三元运算</h4>
-<pre class="language-shell" tabindex="0"><code class="language-shell" style="">switch<span class="token punctuation">(</span>boolExpr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="language-shell" tabindex="0"><code class="language-shell" style="">boolExpr ? <span class="token string">"a"</span> <span class="token builtin class-name">:</span> <span class="token string">"b"</span>
+
+switch<span class="token punctuation">(</span>boolExpr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token variable">$true</span> <span class="token punctuation">{</span> <span class="token variable">$x</span> <span class="token punctuation">}</span>
     <span class="token variable">$false</span> <span class="token punctuation">{</span> <span class="token variable">$y</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
@@ -99,7 +101,7 @@ if<span class="token punctuation">(</span>boolExpr<span class="token punctuation
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|361">
+                            <div class="sheet-section"  data-position="580|600|363">
                                 <div class="section-title"><h3 id="id-129">显示选项</h3></div>
                                 <div class="section-body">
                                     
@@ -129,7 +131,7 @@ any <span class="token operator">|</span> Format-Table -AutoSize <span class="to
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|682">
+                            <div class="sheet-section"  data-position="580|0|726">
                                 <div class="section-title"><h3 id="id-130">提示和暂停</h3></div>
                                 <div class="section-body">
                                     
@@ -148,10 +150,10 @@ any <span class="token operator">|</span> Format-Table -AutoSize <span class="to
                             </div>
                             
 
-                <div class="h2-section" >
-                    <div class="h2-section-title"><h2 id="id-137">语法</h2></div>
-                    
-                            <div class="sheet-section"  data-position="580|0|42">
+                            <div class="h2-section" >
+                                <div class="h2-section-title"><h2 id="id-138">语法</h2></div>
+                                
+                            <div class="sheet-section"  data-position="580|0|46">
                                 <div class="section-title"><h3 id="id-131">变量</h3></div>
                                 <div class="section-body">
                                     <pre class="language-shell" tabindex="0"><code class="language-shell" style=""><span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span> <span class="token variable">$a</span>                                 <span class="token comment">#=&gt; 25</span>
@@ -169,8 +171,52 @@ any <span class="token operator">|</span> Format-Table -AutoSize <span class="to
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|42">
-                                <div class="section-title"><h3 id="id-132">参数传递</h3></div>
+                            <div class="sheet-section"  data-position="580|600|46">
+                                <div class="section-title"><h3 id="id-132">特殊缩写</h3></div>
+                                <div class="section-body">
+                                    
+            <table>
+                <thead class="hide">
+                    <tr>
+                        <th>缩写</th><th>完整形式</th><th>用途</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr><td><code>%</code></td><td><code>ForEach-Object</code></td><td>对集合中的每个对象执行操作</td></tr><tr><td><code>?</code></td><td><code>Where-Object</code></td><td>过滤集合中的对象，类似于 SQL 中的 WHERE 子句</td></tr><tr><td><code>$_</code></td><td>-</td><td>表示当前正在处理的对象（管道中的当前对象）</td></tr><tr><td><code>$args</code></td><td>-</td><td>表示脚本或函数的参数集合</td></tr><tr><td><code>$PID</code></td><td>-</td><td>表示当前 PowerShell 会话的进程 ID</td></tr><tr><td><code>$?</code></td><td>-</td><td>表示上一个命令的执行结果，用于检查命令是否成功</td></tr>
+                </tbody>
+            </table>
+<pre class="language-shell" tabindex="0"><code class="language-shell" style=""><span class="token comment"># % (ForEach-Object)</span>
+<span class="token number">1</span><span class="token punctuation">..</span><span class="token number">5</span> <span class="token operator">|</span> % <span class="token punctuation">{</span> <span class="token variable">$_</span> * <span class="token number">2</span> <span class="token punctuation">}</span>
+
+<span class="token comment"># ? (Where-Object)</span>
+Get-ChildItem <span class="token operator">|</span> ? <span class="token punctuation">{</span> <span class="token variable">$_</span>.Extension -eq <span class="token string">'.txt'</span> <span class="token punctuation">}</span>
+
+<span class="token comment"># $_ (Current Object)</span>
+Get-Service <span class="token operator">|</span> % <span class="token punctuation">{</span> Write-Host <span class="token string">"服务名称: <span class="token variable"><span class="token variable">$(</span>$_.DisplayName<span class="token variable">)</span></span>"</span> <span class="token punctuation">}</span>
+
+<span class="token comment"># $args (Script or Function Parameters)</span>
+<span class="token keyword">function</span> <span class="token function-name function">My-Function</span> <span class="token punctuation">{</span> param<span class="token punctuation">(</span><span class="token variable">$param1</span>, <span class="token variable">$param2</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+My-Function -param1 <span class="token string">"值1"</span> -param2 <span class="token string">"值2"</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">My-Function</span> <span class="token punctuation">{</span>
+    foreach <span class="token punctuation">(</span><span class="token variable">$arg</span> <span class="token keyword">in</span> <span class="token variable">$args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Write-Host <span class="token string">"参数值: <span class="token variable">$arg</span>"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+My-Function <span class="token string">"值1"</span> <span class="token string">"值2"</span> <span class="token string">"值3"</span>
+
+<span class="token comment"># $PID (Current PowerShell Session Process ID)</span>
+Write-Host <span class="token string">"当前进程ID: <span class="token variable">$PID</span>"</span>
+
+<span class="token comment"># $? (Last Command Execution Result)</span>
+Get-Process NonExistentProcess
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$?</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> Write-Host <span class="token string">"进程找到."</span> <span class="token punctuation">}</span>
+</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="sheet-section"  data-position="580|0|358">
+                                <div class="section-title"><h3 id="id-133">参数传递</h3></div>
                                 <div class="section-body">
                                     <pre class="language-shell" tabindex="0"><code class="language-shell" style=""><span class="token keyword">function</span> func<span class="token punctuation">(</span><span class="token variable">$a</span>,<span class="token variable">$b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token string">"{0}/{1}"</span> -f <span class="token variable">$a</span>.length, <span class="token variable">$b</span>.length
@@ -185,8 +231,8 @@ func <span class="token number">2,3</span> <span class="token number">4</span>  
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|342">
-                                <div class="section-title"><h3 id="id-133">属性</h3></div>
+                            <div class="sheet-section"  data-position="580|0|660">
+                                <div class="section-title"><h3 id="id-134">属性</h3></div>
                                 <div class="section-body">
                                     <pre class="language-shell" tabindex="0"><code class="language-shell" style="">gm -input <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">..</span><span class="token number">5</span><span class="token punctuation">)</span> -name count                  <span class="token comment"># 尝试获取属性</span>
 
@@ -199,8 +245,8 @@ func <span class="token number">2,3</span> <span class="token number">4</span>  
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|0|353">
-                                <div class="section-title"><h3 id="id-134">对象、类型和转型</h3></div>
+                            <div class="sheet-section"  data-position="580|0|892">
+                                <div class="section-title"><h3 id="id-135">对象、类型和转型</h3></div>
                                 <div class="section-body">
                                     <pre class="language-shell" tabindex="0"><code class="language-shell" style="">@<span class="token punctuation">(</span>Get-Process<span class="token punctuation">)</span>.Count                           <span class="token comment"># 集合大小</span>
 <span class="token punctuation">(</span><span class="token number">1,2</span>,3<span class="token punctuation">)</span>.GetType<span class="token punctuation">(</span><span class="token punctuation">)</span>.FullName                     <span class="token comment"># 对象类型</span>
@@ -216,8 +262,8 @@ func <span class="token number">2,3</span> <span class="token number">4</span>  
                                 </div>
                             </div>
 
-                            <div class="sheet-section"  data-position="580|600|573">
-                                <div class="section-title"><h3 id="id-135">服务、进程操作</h3></div>
+                            <div class="sheet-section"  data-position="580|600|907">
+                                <div class="section-title"><h3 id="id-136">服务、进程操作</h3></div>
                                 <div class="section-body">
                                     <pre class="language-shell" tabindex="0"><code class="language-shell" style="">Get-Service -Name <span class="token variable">$name</span> <span class="token operator">|</span> Start-Service -PassThru  <span class="token comment"># 启动服务</span>
 Get-Process -Name PowerShell                       <span class="token comment"># 获取进程信息</span>
@@ -226,10 +272,10 @@ Get-Process -Name PowerShell <span class="token operator">|</span> Get-Member   
                                 </div>
                             </div>
 
-                <div class="sheet-section"  data-position="580|0|644">
-                    <div class="section-title"><h3 id="id-136">比较运算</h3></div>
-                    <div class="section-body">
-                        
+                            <div class="sheet-section"  data-position="580|600|1059">
+                                <div class="section-title"><h3 id="id-137">比较运算</h3></div>
+                                <div class="section-body">
+                                    
             <table>
                 <thead class="hide">
                     <tr>
@@ -237,11 +283,39 @@ Get-Process -Name PowerShell <span class="token operator">|</span> Get-Member   
                     </tr>
                 </thead>
                 <tbody>
-                <tr><td>-eq</td><td>等于</td></tr><tr><td>-ne</td><td>不等于</td></tr><tr><td>-gt</td><td>大于</td></tr><tr><td>-ge</td><td>大于或等于</td></tr><tr><td>-lt</td><td>小于</td></tr><tr><td>-le</td><td>小于或等于</td></tr><tr><td>-Like</td><td>使用 \* 通配符进行匹配</td></tr><tr><td>-NotLike</td><td>不使用 \* 通配符进行匹配</td></tr><tr><td>-Match</td><td>匹配指定的正则表达式</td></tr><tr><td>-NotMatch</td><td>不匹配指定的正则表达式</td></tr><tr><td>-Contains</td><td>确定集合中是否包含指定的值</td></tr><tr><td>-NotContains</td><td>确定集合是否不包含特定值</td></tr><tr><td>-In</td><td>确定指定的值是否在集合中</td></tr><tr><td>-NotIn</td><td>确定指定的值是否不在集合中</td></tr><tr><td>-Replace</td><td>替换指定的值</td></tr>
+                <tr><td>-eq</td><td>等于</td></tr><tr><td>-ne</td><td>不等于</td></tr><tr><td>-gt</td><td>大于</td></tr><tr><td>-ge</td><td>大于或等于</td></tr><tr><td>-lt</td><td>小于</td></tr><tr><td>-le</td><td>小于或等于</td></tr><tr><td>-Like</td><td>使用 * 通配符进行匹配</td></tr><tr><td>-NotLike</td><td>不使用 * 通配符进行匹配</td></tr><tr><td>-Match</td><td>匹配指定的正则表达式</td></tr><tr><td>-NotMatch</td><td>不匹配指定的正则表达式</td></tr><tr><td>-Contains</td><td>确定集合中是否包含指定的值</td></tr><tr><td>-NotContains</td><td>确定集合是否不包含特定值</td></tr><tr><td>-In</td><td>确定指定的值是否在集合中</td></tr><tr><td>-NotIn</td><td>确定指定的值是否不在集合中</td></tr><tr><td>-Replace</td><td>替换指定的值</td></tr>
                 </tbody>
             </table>
 <p>表中列出的所有运算符都不区分大小写。 将 <code>c</code> 放置在运算符之前，使其区分大小写。 例如，<code>-ceq</code> 是区分大小写的 <code>-eq</code> 比较运算符。</p>
 <pre class="language-shell" tabindex="0"><code class="language-shell" style="">Get-Service <span class="token operator">|</span> Where-Object Name -eq w32time
+</code></pre>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                <div class="h2-section" >
+                    <div class="h2-section-title"><h2 id="id-140">常用示例</h2></div>
+                    
+                <div class="sheet-section"  data-position="580|0|46">
+                    <div class="section-title"><h3 id="id-139"></h3></div>
+                    <div class="section-body">
+                        <h4>日志相关</h4>
+<pre class="language-shell" tabindex="0"><code class="language-shell" style="">Get-Content -Path <span class="token string">"C:\Path\To\LogFile.txt"</span> -Encoding UTF8 -Tail <span class="token number">10</span> -Wait
+
+<span class="token comment"># -Tail 10 表示只查看最后10行</span>
+<span class="token comment"># -Wait 为监听实时日志，类似bash的tail -10f</span>
+</code></pre>
+<pre class="language-shell" tabindex="0"><code class="language-shell" style=""><span class="token comment"># 查找Error关键字的日志</span>
+Select-String -Path <span class="token string">"C:\Path\To\LogFile.txt"</span> -Pattern <span class="token string">"Error"</span>
+
+<span class="token comment"># 查找多个关键字</span>
+Select-String -Path <span class="token string">"C:\Path\To\LogFile.txt"</span> -Pattern @<span class="token punctuation">(</span><span class="token string">"Error"</span>, <span class="token string">"Warning"</span><span class="token punctuation">)</span>
+
+Select-String -Path <span class="token string">"C:\Path\To\LogFile.txt"</span> -Pattern <span class="token string">"Error|Warning"</span> <span class="token comment"># 正则表达式匹配</span>
+
+<span class="token comment"># 查找指定条件的行</span>
+Get-Content -Path <span class="token string">"C:\Path\To\LogFile.txt"</span> <span class="token operator">|</span> Where-Object <span class="token punctuation">{</span> <span class="token variable">$_</span> -match <span class="token string">"Error"</span> -and <span class="token variable">$_</span> -match <span class="token string">"2024-01-10"</span> <span class="token punctuation">}</span>
 </code></pre>
                     </div>
                 </div>
@@ -275,32 +349,40 @@ Get-Process -Name PowerShell <span class="token operator">|</span> Get-Member   
                     <span class="next-ctrl"></span> 提示和暂停
                     </div>
                 
-                    <div class="nav-item nav-type-H2 " title="语法" data-id="id-137" data-pid="">
+                    <div class="nav-item nav-type-H2 " title="语法" data-id="id-138" data-pid="">
                     <span class="next-ctrl">-</span> 语法
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="变量" data-id="id-131" data-pid="id-137">
+                    <div class="nav-item nav-type-H3 " title="变量" data-id="id-131" data-pid="id-138">
                     <span class="next-ctrl"></span> 变量
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="参数传递" data-id="id-132" data-pid="id-137">
+                    <div class="nav-item nav-type-H3 " title="特殊缩写" data-id="id-132" data-pid="id-138">
+                    <span class="next-ctrl"></span> 特殊缩写
+                    </div>
+                
+                    <div class="nav-item nav-type-H3 " title="参数传递" data-id="id-133" data-pid="id-138">
                     <span class="next-ctrl"></span> 参数传递
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="属性" data-id="id-133" data-pid="id-137">
+                    <div class="nav-item nav-type-H3 " title="属性" data-id="id-134" data-pid="id-138">
                     <span class="next-ctrl"></span> 属性
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="对象、类型和转型" data-id="id-134" data-pid="id-137">
+                    <div class="nav-item nav-type-H3 " title="对象、类型和转型" data-id="id-135" data-pid="id-138">
                     <span class="next-ctrl"></span> 对象、类型和转型
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="服务、进程操作" data-id="id-135" data-pid="id-137">
+                    <div class="nav-item nav-type-H3 " title="服务、进程操作" data-id="id-136" data-pid="id-138">
                     <span class="next-ctrl"></span> 服务、进程操作
                     </div>
                 
-                    <div class="nav-item nav-type-H3 " title="比较运算" data-id="id-136" data-pid="id-137">
+                    <div class="nav-item nav-type-H3 " title="比较运算" data-id="id-137" data-pid="id-138">
                     <span class="next-ctrl"></span> 比较运算
+                    </div>
+                
+                    <div class="nav-item nav-type-H2 " title="常用示例" data-id="id-140" data-pid="">
+                    <span class="next-ctrl">-</span> 常用示例
                     </div>
                 </div>
         </div>
@@ -312,4 +394,4 @@ Get-Process -Name PowerShell <span class="token operator">|</span> Get-Member   
 
 
 
-<script src="../js/util/function.js?version=2021082402"></script><script src="../js/util/event-hub.js?version=2021082402"></script><script src="../js/3rdparty/prism.js?version=2021082402"></script><script src="../js/module/loading.js?version=2021082402"></script><script src="../js/module/home.js?version=2021082402"></script><script src="../js/module/cheatsheet.js?version=2021082402"></script><script src="../js/module/menu.js?version=2021082402"></script><script src="../js/3rdparty/jszip.min.js?version=2021082402"></script><script src="../js/util/saveData.js?version=2021082402"></script></body></html>
+<script src="../js/util/function.js?version=1756628901523"></script><script src="../js/util/event-hub.js?version=1756628901523"></script><script src="../js/3rdparty/prism.js?version=1756628901523"></script><script src="../js/module/loading.js?version=1756628901523"></script><script src="../js/module/home.js?version=1756628901523"></script><script src="../js/module/cheatsheet.js?version=1756628901523"></script><script src="../js/module/menu.js?version=1756628901523"></script><script src="../js/3rdparty/jszip.min.js?version=1756628901523"></script><script src="../js/util/saveData.js?version=1756628901523"></script></body></html>
