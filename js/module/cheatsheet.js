@@ -585,7 +585,7 @@
             // 表数据
             let data_rows = tableLines.map(row => {
                 data_row = this.singleCharSplit(row, '|')
-                return data_row.map(data => data.trim().replace(/\\(\|)/g, '$1'))
+                return data_row.map(data => data.trim().replace(/\\(\|)/g, '$1').replace(/\\(\*)/g, '$1'))
             })
 
             // 表头
